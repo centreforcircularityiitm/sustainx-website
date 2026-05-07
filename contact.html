@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link rel="icon" type="image/png" href="assets/images/logos/sustainxlogo.png"/>
 <link rel="apple-touch-icon" href="assets/images/logos/sustainxlogo.png"/>
-<title>Contact | SustainX 2026 | Conference Support</title>
+<title>Contact | SustainX 2026 | IIT Madras</title>
 <meta name="description" content="Contact the SustainX 2026 organizing committee. Find our office address at IIT Madras, email for queries, and social media links for conference updates."/>
 <meta name="keywords" content="Contact SustainX, IIT Madras Sustainability Contact, Conference Support, CRRET IIT Madras Address, Sustainability Queries"/>
 <meta name="robots" content="index, follow"/>
@@ -22,16 +22,36 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://sustainxconference.org/contact.html"/>
-<meta property="og:title" content="Contact SustainX 2026 | Conference Support"/>
+<meta property="og:site_name" content="SustainX 2026"/>
+<meta property="og:title" content="Contact | SustainX 2026 | Support"/>
 <meta property="og:description" content="Get in touch with the SustainX 2026 team at IIT Madras for any conference-related inquiries."/>
 <meta property="og:image" content="https://sustainxconference.org/assets/images/logos/og-card.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/png"/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:url" content="https://sustainxconference.org/contact.html"/>
-<meta property="twitter:title" content="Contact SustainX 2026 | Conference Support"/>
+<meta property="twitter:title" content="Contact | SustainX 2026 | Support"/>
 <meta property="twitter:description" content="Get in touch with the SustainX 2026 team at IIT Madras for any conference-related inquiries."/>
 <meta property="twitter:image" content="https://sustainxconference.org/assets/images/logos/og-card.png"/>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://sustainxconference.org/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Contact",
+    "item": "https://sustainxconference.org/contact.html"
+  }]
+}
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -141,8 +161,8 @@
 <header class="fixed top-0 w-full z-50 border-b-[0.5px] border-green-600/30 bg-white/80 glass-header">
   <div class="flex justify-between items-center w-full px-4 md:px-12 py-4 max-w-screen-2xl mx-auto">
     <div></div>
-    <nav class="hidden lg:flex items-center gap-8">
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="index.html">Home</a>
+    <nav id="primary-navigation" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-8">
+      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="/">Home</a>
       <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="about.html">About</a>
       <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="themes.html">Themes</a>
       <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="resource-persons.html">Resource Persons</a>
@@ -169,7 +189,7 @@
 
 <!-- Premium Mobile Nav Overlay -->
 <div id="mobile-nav" class="fixed inset-0 top-[70px] lg:hidden bg-white z-[100] overflow-y-auto px-6 py-12 flex flex-col items-center justify-start space-y-8">
-  <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="index.html">Home</a>
+  <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="/">Home</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="about.html">About</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="themes.html">Themes</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="resource-persons.html">Resource Persons</a>
@@ -571,7 +591,7 @@
       <!-- Next Chapter -->
       <div class="text-center md:text-right">
         <span class="text-secondary font-label text-xs tracking-[0.3em] uppercase mb-8 block">Next Chapter</span>
-        <a href="index.html" class="group inline-block w-full md:w-auto">
+        <a href="/" class="group inline-block w-full md:w-auto">
           <h2 class="text-2xl md:text-5xl font-headline font-bold text-primary group-hover:text-secondary transition-all duration-500 flex items-center justify-center md:justify-end gap-4">
             Return to Home
             <span class="material-symbols-outlined text-2xl md:text-4xl group-hover:translate-x-4 transition-transform duration-500">arrow_forward</span>
@@ -619,9 +639,10 @@
         </div>
       </div>
     </div>
-    <div>
+    <nav aria-label="Footer Navigation">
       <h5 class="font-bold text-white mb-6 uppercase text-xs tracking-widest">Navigate</h5>
       <ul class="space-y-4">
+        <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block" href="/">Home</a></li>
         <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block" href="about.html">About the Conference</a></li>
         <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block" href="themes.html">Focal Themes</a></li>
         <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block" href="resource-persons.html">Resource Persons</a></li>
@@ -632,7 +653,7 @@
         <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block" href="plan-your-trip.html">Plan Your Trip</a></li>
         <li><a class="font-sans text-sm tracking-wide text-white hover:text-white transition-colors block underline decoration-secondary" href="contact.html">Contact</a></li>
       </ul>
-    </div>
+    </nav>
     <div>
       <h5 class="font-bold text-white mb-6 uppercase text-xs tracking-widest">Contact</h5>
       <p class="text-sm text-white/70 mb-2">CRRET</p>
