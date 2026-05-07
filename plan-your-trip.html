@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <link rel="icon" type="image/png" href="assets/images/logos/sustainxlogo.png"/>
   <link rel="apple-touch-icon" href="assets/images/logos/sustainxlogo.png"/>
-  <title>Plan Your Trip | SustainX 2026 | Travel & Accommodation</title>
+  <title>Plan Your Trip | SustainX 2026 | IIT Madras</title>
   <meta name="description" content="Plan your visit to SustainX 2026 in Chennai. Find information on conference venue, accommodation, local travel, and visa requirements for international delegates."/>
   <meta name="keywords" content="Plan Your Trip SustainX, Chennai Travel Guide, IIT Madras Accommodation, Visa Information India, Conference Venue Chennai"/>
   <meta name="robots" content="index, follow"/>
@@ -23,16 +23,57 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://sustainxconference.org/plan-your-trip.html"/>
-  <meta property="og:title" content="Plan Your Trip | SustainX 2026"/>
+  <meta property="og:site_name" content="SustainX 2026"/>
+  <meta property="og:title" content="Plan Your Trip | SustainX 2026 | Travel Information"/>
   <meta property="og:description" content="Essential travel information for SustainX 2026 delegates, including accommodation and venue details at IIT Madras."/>
   <meta property="og:image" content="https://sustainxconference.org/assets/images/logos/og-card.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/png"/>
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:url" content="https://sustainxconference.org/plan-your-trip.html"/>
-  <meta property="twitter:title" content="Plan Your Trip | SustainX 2026"/>
+  <meta property="twitter:title" content="Plan Your Trip | SustainX 2026 | Travel Information"/>
   <meta property="twitter:description" content="Essential travel information for SustainX 2026 delegates, including accommodation and venue details at IIT Madras."/>
   <meta property="twitter:image" content="https://sustainxconference.org/assets/images/logos/og-card.png"/>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://sustainxconference.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Plan Your Trip",
+        "item": "https://sustainxconference.org/plan-your-trip.html"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is accommodation provided for SustainX 2026 participants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, we don't provide accommodation; participants are requested to arrange for their stay by themselves. Many PG hostels and hotels are available nearby IIT Madras (Adyar, Velachery, and Taramani areas)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Which gate should I use for vehicle entry to IIT Madras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Main Gate allows all vehicles (Cabs, Autos, Cars, Two-Wheelers). Entry to the ICSR building via cab is only possible through this gate."
+        }
+      }]
+    }
+  ]
+  </script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap"
@@ -237,9 +278,9 @@
   <header class="fixed top-0 w-full z-50 border-b-[0.5px] border-green-600/30 bg-white/80 glass-header">
     <div class="flex justify-between items-center w-full px-4 md:px-12 py-4 max-w-screen-2xl mx-auto">
       <div></div>
-      <nav class="hidden lg:flex items-center gap-8">
+      <nav id="primary-navigation" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-8">
         <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="index.html">Home</a>
+          href="/">Home</a>
         <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
           href="about.html">About</a>
         <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
@@ -279,7 +320,7 @@
   <div id="mobile-nav"
     class="fixed inset-0 top-[70px] lg:hidden bg-white z-[100] overflow-y-auto px-6 py-12 flex flex-col items-center justify-start space-y-8">
     <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors"
-      href="index.html">Home</a>
+      href="/">Home</a>
     <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors"
       href="about.html">About</a>
     <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors"
@@ -413,7 +454,7 @@
           </div>
 
           <div class="mb-8 overflow-hidden border border-outline-variant bg-white">
-            <img src="assets/images/venue/ebus.jpg" loading="lazy" decoding="async" loading="lazy" decoding="async" alt="IIT Madras Electric Bus"
+            <img src="assets/images/venue/ebus.jpg" loading="lazy" decoding="async" alt="IIT Madras Electric Bus"
               class="w-full h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 reveal-on-scroll">
           </div>
 
@@ -814,7 +855,7 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="overflow-hidden border border-outline-variant bg-white">
-              <img src="assets/images/venue/deer1.jpg" loading="lazy" decoding="async" loading="lazy" decoding="async" alt="Deer at IIT Madras"
+              <img src="assets/images/venue/deer1.jpg" loading="lazy" decoding="async" alt="Deer at IIT Madras"
                 class="w-full h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 reveal-on-scroll">
               <p class="p-3 text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/60">Spotted Deer
               </p>
@@ -916,9 +957,11 @@
           </div>
         </div>
       </div>
-      <div>
+      <nav aria-label="Footer Navigation">
         <h5 class="font-bold text-white mb-6 uppercase text-xs tracking-widest">Navigate</h5>
         <ul class="space-y-4">
+          <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block"
+              href="/">Home</a></li>
           <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block"
               href="about.html">About the Conference</a></li>
           <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block"
@@ -939,7 +982,7 @@
           <li><a class="font-sans text-sm tracking-wide text-white/70 hover:text-white transition-colors block"
               href="contact.html">Contact</a></li>
         </ul>
-      </div>
+      </nav>
       <div>
         <h5 class="font-bold text-white mb-6 uppercase text-xs tracking-widest">Contact</h5>
         <p class="text-sm text-white/70 mb-2">CRRET</p>
