@@ -36,83 +36,120 @@
 
 <!-- Structured Data -->
 <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SustainX 2026",
-    "url": "https://sustainxconference.org/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://sustainxconference.org/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "SustainX 2026",
-    "url": "https://sustainxconference.org/",
-    "logo": "https://sustainxconference.org/assets/images/logos/sustainxlogo.png",
-    "parentOrganization": {
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sustainxconference.org/#website",
+      "url": "https://sustainxconference.org/",
+      "name": "SustainX 2026",
+      "description": "Circularity in Energy, Earth and Environment conference at IIT Madras.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sustainxconference.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
       "@type": "EducationalOrganization",
-      "name": "Indian Institute of Technology Madras",
-      "url": "https://www.iitm.ac.in/"
-    },
-    "description": "Annual Conference by the School of Sustainability (SoS) in association with CRRET at IIT Madras."
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "SustainX 2026",
-    "description": "Circularity in Energy, Earth and Environment conference at IIT Madras.",
-    "startDate": "2026-07-23",
-    "endDate": "2026-07-25",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
-      "@type": "Place",
-      "name": "TTJ Auditorium, ICSR Building, IIT Madras",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "IIT Madras, Adyar",
-        "addressLocality": "Chennai",
-        "postalCode": "600036",
-        "addressRegion": "TN",
-        "addressCountry": "IN"
-      }
-    },
-    "image": "https://sustainxconference.org/assets/images/logos/og-card.png",
-    "performer": [
-      {
-        "@type": "Person",
-        "name": "Prof. Sivaram Swaminathan"
+      "@id": "https://sustainxconference.org/#organization",
+      "name": "SustainX 2026",
+      "url": "https://sustainxconference.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sustainxconference.org/assets/images/logos/sustainxlogo.png"
       },
-      {
-        "@type": "Person",
-        "name": "Prof. Madhavi Srinivasan"
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "Indian Institute of Technology Madras",
+        "url": "https://www.iitm.ac.in/"
       },
-      {
-        "@type": "Person",
-        "name": "Prof. Sirshendu De"
-      }
-    ],
-    "offers": {
-      "@type": "AggregateOffer",
-      "url": "https://sustainxconference.org/registration.html",
-      "lowPrice": "1000",
-      "highPrice": "9500",
-      "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2026-05-01"
+      "description": "Annual Conference by the School of Sustainability (SoS) in association with CRRET at IIT Madras."
     },
-    "organizer": {
-      "@type": "Organization",
-      "name": "School of Sustainability, IIT Madras",
-      "url": "https://sustainability.iitm.ac.in/"
+    {
+      "@type": "Event",
+      "@id": "https://sustainxconference.org/#event",
+      "name": "SustainX 2026",
+      "url": "https://sustainxconference.org/",
+      "description": "Circularity in Energy, Earth and Environment conference at IIT Madras.",
+      "startDate": "2026-07-23",
+      "endDate": "2026-07-25",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "TTJ Auditorium, ICSR Building, IIT Madras",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "IIT Madras, Adyar",
+          "addressLocality": "Chennai",
+          "postalCode": "600036",
+          "addressRegion": "TN",
+          "addressCountry": "IN"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sustainxconference.org/assets/images/logos/og-card.png",
+        "width": 1200,
+        "height": 630
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Prof. Kamakoti Veezhinathan",
+          "jobTitle": "Director, IIT Madras"
+        },
+        {
+          "@type": "Person",
+          "name": "Prof. Rajnish Kumar",
+          "jobTitle": "Head, School of Sustainability, IIT Madras"
+        },
+        {
+          "@type": "Person",
+          "name": "Dr. Sankha Karmakar",
+          "jobTitle": "Organizing Secretary, SustainX 2026"
+        },
+        {
+          "@type": "Person",
+          "name": "Prof. Sivaram Swaminathan"
+        },
+        {
+          "@type": "Person",
+          "name": "Prof. Madhavi Srinivasan"
+        },
+        {
+          "@type": "Person",
+          "name": "Prof. Sirshendu De"
+        }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://sustainxconference.org/registration.html",
+        "lowPrice": "1000",
+        "highPrice": "9500",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-05-01"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "School of Sustainability, IIT Madras",
+        "url": "https://sustainability.iitm.ac.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://sustainxconference.org/assets/images/logos/sos.png"
+        },
+        "parentOrganization": {
+          "@type": "EducationalOrganization",
+          "name": "Indian Institute of Technology Madras",
+          "url": "https://www.iitm.ac.in/"
+        }
+      }
     }
-  }
-]
+  ]
+}
 </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
