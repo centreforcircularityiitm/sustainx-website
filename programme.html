@@ -750,6 +750,82 @@
     </div>
   </div>
 
+  <!-- Featured Panel Discussion -->
+  <section class="mt-16 md:mt-32 reveal-on-scroll" id="featured-panel">
+    <div class="p-[1px] bg-gradient-to-r from-secondary/30 via-primary to-secondary/30">
+      <div class="bg-white p-8 md:p-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Logo & Branding -->
+          <div class="lg:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-outline-variant pb-8 lg:pb-0 lg:pr-12">
+            <img src="assets/images/logos/wri.png" alt="WRI India Logo" class="h-16 md:h-20 object-contain mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
+            <span class="text-[10px] font-label font-bold tracking-[0.3em] uppercase text-secondary mb-2">Confirmed Highlight</span>
+            <h3 class="text-xl font-headline font-bold text-primary">Panel Discussion — WRI India</h3>
+            <p class="text-xs text-on-surface-variant/60 font-label mt-2">Sponsored by World Resources Institute</p>
+          </div>
+          
+          <!-- Content -->
+          <div class="lg:col-span-9">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-headline font-bold text-primary mb-6 leading-tight">
+              Closing the Battery Loop: Regulatory Enablers and Industry Pathways for Battery Circularity in India
+            </h2>
+            <p class="text-fluid-body text-on-surface-variant mb-10 leading-relaxed">
+              A high-level expert panel convened by WRI India, bringing together policymakers, industry leaders, and researchers to examine the regulatory landscape, market drivers, and technological innovations shaping battery circularity in India.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div class="p-6 bg-surface-container-lowest border-l border-primary/20">
+                <h4 class="font-bold text-secondary uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm">event_note</span> Session Format
+                </h4>
+                <ul class="text-sm space-y-2 text-on-surface-variant leading-relaxed">
+                  <li class="flex gap-2"><span>•</span> Opening remarks by WRI India</li>
+                  <li class="flex gap-2"><span>•</span> Moderated panel (60 min)</li>
+                  <li class="flex gap-2"><span>•</span> Interactive Q&A with audience</li>
+                  <li class="flex gap-2"><span>•</span> Networking & collaboration hour</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-surface-container-lowest border-l border-primary/20">
+                <h4 class="font-bold text-secondary uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm">hub</span> Key Topics
+                </h4>
+                <ul class="text-sm space-y-2 text-on-surface-variant leading-relaxed">
+                  <li class="flex gap-2"><span>•</span> Extended Producer Responsibility (EPR) frameworks</li>
+                  <li class="flex gap-2"><span>•</span> Battery recycling infrastructure & technology</li>
+                  <li class="flex gap-2"><span>•</span> Secondary material markets & traceability</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-surface-container-lowest border-l border-primary/20">
+                <h4 class="font-bold text-secondary uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm">verified_user</span> Outcomes
+                </h4>
+                <ul class="text-sm space-y-2 text-on-surface-variant leading-relaxed">
+                  <li class="flex gap-2"><span>•</span> Policy brief for state & central regulators</li>
+                  <li class="flex gap-2"><span>•</span> Industry whitepaper on best practices</li>
+                  <li class="flex gap-2"><span>•</span> Stakeholder network for battery circularity</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Sponsorship CTA -->
+            <div class="bg-primary/5 p-8 border-l-4 border-primary group hover:bg-primary/10 transition-colors">
+               <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                 <div class="max-w-2xl">
+                   <h4 class="text-xl font-headline font-bold text-primary mb-2">Sponsor a Panel Discussion</h4>
+                   <p class="text-sm text-on-surface-variant leading-relaxed">
+                     Industry partners can recommend and sponsor a dedicated panel in their domain — battery circularity, green steel, carbon markets, or others. You propose the topic, we produce the panel.
+                   </p>
+                 </div>
+                 <a href="https://sustainxconference.org/contact" class="inline-block bg-primary text-on-primary px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-secondary transition-all whitespace-nowrap">
+                   Enquire Now
+                 </a>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Venue Spotlight -->
   <section class="mt-16 md:mt-32 p-1 bg-gradient-to-br from-primary to-secondary">
     <div class="bg-white/95 backdrop-blur-xl p-6 sm:p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -931,7 +1007,10 @@
         entry.target.classList.add('is-revealed');
       }
     });
-  }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  // Observe elements that already have the class
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
 
   // Automatically target grayscale images with hover effects
   document.querySelectorAll('.grayscale').forEach(el => {
