@@ -455,7 +455,12 @@
     </div>
     <div class="col-span-12 md:col-span-4 lg:col-span-5 flex flex-col justify-end pb-12">
       <div class="flex flex-col items-center mb-10 gap-fluid-gap">
-        <video src="assets/images/logos/premium.mp4" autoplay loop playsinline controls class="max-h-28 sm:max-h-36 md:max-h-44 w-auto object-contain drop-shadow-sm" decoding="async"></video>
+        <div class="relative group/video">
+          <video id="hero-video" src="assets/images/logos/premium.mp4" autoplay loop playsinline muted class="max-h-28 sm:max-h-36 md:max-h-44 w-auto object-contain drop-shadow-sm" decoding="async"></video>
+          <button id="unmute-btn" class="absolute bottom-1 right-1 bg-black/60 text-white rounded-full p-1.5 opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 hover:bg-black/80" aria-label="Unmute video">
+            <span id="unmute-icon" class="material-symbols-outlined text-lg">volume_off</span>
+          </button>
+        </div>
         <div class="flex items-center justify-center gap-fluid-gap flex-wrap">
           <img src="assets/images/logos/iitm.png" alt="IIT Madras" class="max-h-12 sm:max-h-16 w-auto object-contain opacity-80" decoding="async"/>
           <img src="assets/images/logos/sos.png" alt="School of Sustainability" class="max-h-12 sm:max-h-16 w-auto object-contain opacity-80" decoding="async"/>
@@ -784,6 +789,17 @@
       e.preventDefault();
     }
   }, false);
+
+  // Hero Video Unmute Toggle
+  const heroVideo = document.getElementById('hero-video');
+  const unmuteBtn = document.getElementById('unmute-btn');
+  const unmuteIcon = document.getElementById('unmute-icon');
+  if (heroVideo && unmuteBtn) {
+    unmuteBtn.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      unmuteIcon.innerText = heroVideo.muted ? 'volume_off' : 'volume_up';
+    });
+  }
 </script>
 </body>
 </html>
