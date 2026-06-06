@@ -323,28 +323,54 @@
   <!-- Navigation -->
   <header class="fixed top-0 w-full z-50 border-b-[0.5px] border-green-600/30 bg-white/80 glass-header">
     <div class="flex justify-between items-center w-full px-4 md:px-12 py-4 max-w-screen-2xl mx-auto">
-      <div></div>
+          <div>
+      <a href="/" class="font-headline font-bold text-primary text-xl md:text-2xl flex items-baseline tracking-tight">
+        <span>SUSTAIN</span><span class="text-[1.2em]">X</span><span class="ml-2 font-light">2026</span>
+      </a>
+    </div>
       <nav id="primary-navigation" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-8">
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="/">Home</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="about">About</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="themes">Themes</a>
-        <a class="font-serif text-lg tracking-tight nav-active" href="resource-persons">Resource Persons</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="programme">Programme</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="abstracts">Abstracts</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="gallery">Gallery</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="registration">Registration</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="plan-your-trip">Plan Your Trip</a>
-        <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300"
-          href="contact">Contact</a>
-      </nav>
+      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="/">Home</a>
+      
+      <div class="group relative">
+        <button class="font-serif text-lg tracking-tight nav-active flex items-center gap-1">
+          About <span class="material-symbols-outlined text-[1rem]">expand_more</span>
+        </button>
+        <div class="absolute left-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="bg-white border border-outline-variant shadow-lg flex flex-col py-2">
+            <a href="about" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">About the Conference</a>
+            <a href="themes" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Themes</a>
+            <a href="resource-persons" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Resource Persons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative">
+        <button class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Conference <span class="material-symbols-outlined text-[1rem]">expand_more</span>
+        </button>
+        <div class="absolute left-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="bg-white border border-outline-variant shadow-lg flex flex-col py-2">
+            <a href="programme" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Program</a>
+            <a href="abstracts" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Abstract</a>
+            <a href="gallery" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Gallery</a>
+            <a href="eposters" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">E-Poster Room</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative">
+        <button class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Attend <span class="material-symbols-outlined text-[1rem]">expand_more</span>
+        </button>
+        <div class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="bg-white border border-outline-variant shadow-lg flex flex-col py-2">
+            <a href="registration" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Registration</a>
+            <a href="plan-your-trip" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Plan your trip</a>
+            <a href="contact" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
       <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-primary focus:outline-none"
         aria-label="Toggle Menu">
         <span class="material-symbols-outlined text-3xl" id="menu-icon">menu</span>
@@ -1055,6 +1081,127 @@
 
       </div>
 
+    </section>
+
+    <div class="max-w-screen-2xl mx-auto px-4 md:px-12">
+      <div class="gold-rule mb-24"></div>
+    </div>
+
+    <!-- Team SustainX -->
+    <section class="max-w-screen-2xl mx-auto px-4 md:px-12 mb-24">
+      <div class="mb-16">
+        <span class="text-secondary tracking-[0.3em] uppercase text-xs mb-4 block">Conference Team</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">Team SustainX</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/dolly.png" loading="lazy" decoding="async"
+              alt="Ms. Dolly Sweetlin Jennifer" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Ms. Dolly Sweetlin Jennifer</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Program Coordinator</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/manimeghalai.png" loading="lazy" decoding="async" alt="Ms. Manimeghalai" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Ms. Manimeghalai</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Finance Manager</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/nobika.png" loading="lazy" decoding="async" alt="Ms. Nobika Joy" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Ms. Nobika Joy</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Registration Support</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/abraham.png" loading="lazy" decoding="async"
+              alt="Mr. Abraham Samuel Thangadurai" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Mr. Abraham Samuel Thangadurai</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Lodging Query</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/magesh.png" loading="lazy" decoding="async"
+              alt="Mr. Magesh" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Mr. Magesh</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Logistical Support</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/viswanathan.png" loading="lazy" decoding="async"
+              alt="Mr. Viswanathan" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Mr. Viswanathan</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Logistical Support</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/pushpa.png" loading="lazy" decoding="async"
+              alt="Pushpa Sweety Daniel" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Pushpa Sweety Daniel</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Student Coordinator</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/sivanesan.png" loading="lazy" decoding="async"
+              alt="Sivanesan J" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Sivanesan J</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Student Coordinator</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+        <div class="group flex flex-col">
+          <div
+            class="aspect-[3/4] mb-6 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-700">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src="assets/images/speakers/riya.png" loading="lazy" decoding="async"
+              alt="Riya Karmakar" />
+          </div>
+          <h4 class="text-xl font-bold text-primary mb-1">Riya Karmakar</h4>
+          <p class="text-sm text-secondary font-medium tracking-wide mb-3 uppercase">Student Coordinator</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed italic">Team SustainX</p>
+        </div>
+
+      </div>
     </section>
 
     <!-- CTA -->

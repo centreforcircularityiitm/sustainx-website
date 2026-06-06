@@ -252,6 +252,77 @@
   .premium-btn-pulse {
     animation: pulse-glow 3s ease-in-out infinite;
   }
+  /* Premium Notification Effects */
+  .notif-wrapper {
+    overflow: hidden;
+  }
+  .notif-unfold {
+    animation: notif-unfold 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+    transform-origin: center center;
+  }
+  @keyframes notif-unfold {
+    0% { transform: scaleX(0); }
+    60% { transform: scaleX(1.03); }
+    80% { transform: scaleX(0.98); }
+    100% { transform: scaleX(1); }
+  }
+  .notif-content {
+    animation: notif-content-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+  }
+  @keyframes notif-content-in {
+    0% { opacity: 0; transform: scale(0.95) translateY(4px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .notif-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .notif-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: notif-shimmer 4s ease-in-out 1.5s infinite;
+  }
+  @keyframes notif-shimmer {
+    0% { left: -60%; }
+    30% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  .notif-icon-ring {
+    animation: notif-ring 3s ease-in-out 0.5s infinite;
+    transform-origin: center center;
+  }
+  @keyframes notif-ring {
+    0%, 50%, 100% { transform: rotate(0deg) scale(1); }
+    5% { transform: rotate(10deg) scale(1.12); }
+    10% { transform: rotate(-8deg) scale(1.12); }
+    15% { transform: rotate(5deg) scale(1.06); }
+    20% { transform: rotate(0deg) scale(1); }
+  }
+
+  .notif-glow-border {
+    position: relative;
+  }
+  .notif-glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, transparent 30%, rgba(74, 144, 48, 0.5), transparent 70%);
+    z-index: -1;
+    animation: notif-glow 3s ease-in-out 0.8s infinite;
+    opacity: 0;
+  }
+  @keyframes notif-glow {
+    0%, 100% { opacity: 0; transform: scale(0.98); }
+    45%, 55% { opacity: 1; transform: scale(1); }
+  }
 </style>
 <style>
   :root {
@@ -349,18 +420,53 @@
 <!-- Navigation -->
 <header class="fixed top-0 w-full z-50 bg-white/80 glass-header">
   <div class="flex justify-between items-center w-full px-4 md:px-12 py-4 max-w-screen-2xl mx-auto">
-    <div></div>
+        <div>
+      <a href="/" class="font-headline font-bold text-primary text-xl md:text-2xl flex items-baseline tracking-tight">
+        <span>SUSTAIN</span><span class="text-[1.2em]">X</span><span class="ml-2 font-light">2026</span>
+      </a>
+    </div>
     <nav id="primary-navigation" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-8">
       <a class="font-serif text-lg tracking-tight nav-active" href="/">Home</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="about">About</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="themes">Themes</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="resource-persons">Resource Persons</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="programme">Programme</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="abstracts">Abstracts</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="gallery">Gallery</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="registration">Registration</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="plan-your-trip">Plan Your Trip</a>
-      <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="contact">Contact</a>
+      
+      <div class="group relative">
+        <button class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          About <span class="material-symbols-outlined text-[1rem]">expand_more</span>
+        </button>
+        <div class="absolute left-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="bg-white border border-outline-variant shadow-lg flex flex-col py-2">
+            <a href="about" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">About the Conference</a>
+            <a href="themes" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Themes</a>
+            <a href="resource-persons" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Resource Persons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative">
+        <button class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Conference <span class="material-symbols-outlined text-[1rem]">expand_more</span>
+        </button>
+        <div class="absolute left-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="bg-white border border-outline-variant shadow-lg flex flex-col py-2">
+            <a href="programme" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Program</a>
+            <a href="abstracts" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Abstract</a>
+            <a href="gallery" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Gallery</a>
+            <a href="eposters" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">E-Poster Room</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative">
+        <button class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Attend <span class="material-symbols-outlined text-[1rem]">expand_more</span>
+        </button>
+        <div class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="bg-white border border-outline-variant shadow-lg flex flex-col py-2">
+            <a href="registration" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Registration</a>
+            <a href="plan-your-trip" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Plan your trip</a>
+            <a href="contact" class="px-4 py-2 text-sm text-stone-600 hover:bg-surface hover:text-primary transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
     </nav>
     <!-- Mobile Menu Button -->
     <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
@@ -385,6 +491,7 @@
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="programme">Programme</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="abstracts">Abstracts</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="gallery">Gallery</a>
+  <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="eposters">E-Poster Room</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="registration">Registration</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="plan-your-trip">Plan Your Trip</a>
   <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="contact">Contact</a>
@@ -402,7 +509,21 @@
       src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5rOag5dedNkKSNU-GDjgYUTVeOaohDq7If96uHPYlj2518TX61yRmqtrWgZkGKm0BHsBkFtVSmJ8tZGHBCYiorvrq7UyY2YQrGtfeGAnZval-0yZmB6mXuUAdKqsFKn7Z-dZ6ApZ914m4KuBnr8gXZ4B_kAegs5wrTssUZy7wwGjP1g_GiG2MUIkCt0fgsPtnc_p7fZhdb54Ui99qy6jGqnsbEAFZjPVdBUOgF6Km4SbDQIMjJBOIcf-PnW61szylTkU2UGvqyKA"
       alt="Sustainable architecture with rhythmic patterns" fetchpriority="high" decoding="sync"/>
   </div>
-  <div class="container mx-auto px-4 md:px-12 relative z-20 editorial-grid">
+  <div class="container mx-auto px-4 md:px-12 relative z-20">
+    <!-- Abstract Notification -->
+    <div class="mb-0 text-center notif-wrapper mx-auto max-w-3xl lg:max-w-4xl">
+      <div class="notif-unfold">
+        <div class="notif-content notif-shimmer notif-glow-border bg-surface-container border-l-[3px] border-secondary/80 md:border-l-0 md:border-b-[3px] rounded-r-xl md:rounded-b-xl md:rounded-r-none px-4 md:px-6 py-3 md:py-3.5 flex items-start md:items-center justify-center gap-3 md:gap-4 shadow-sm">
+          <span class="notif-icon-ring material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5 md:mt-0">notifications</span>
+          <div class="text-xs md:text-sm leading-relaxed">
+            <span class="font-bold text-primary">Abstract submissions are now closed.</span>
+            <span class="text-on-surface-variant"> Acceptance notifications will be communicated by <span class="font-semibold text-primary">June 10, 2026</span>, along with comprehensive guidelines for preparing presentations and posters.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="editorial-grid -mt-[5em]">
     <div class="col-span-12 md:col-span-8 lg:col-span-7">
       <h1 class="text-fluid-h1 font-bold text-primary mb-6 md:mb-10">
         <span class="hero-title-grid">
@@ -419,6 +540,7 @@
           In association with the Centre for Resource Efficiency, Recyclability &amp; Circularity in Energy Transitions
         </span>
       </p>
+
       <div class="flex flex-col sm:flex-row flex-wrap gap-6 sm:gap-10 items-start sm:items-center mb-8 md:mb-12">
         <div>
           <p class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">When</p>
