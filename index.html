@@ -254,7 +254,9 @@
   }
   /* Premium Notification Effects */
   .notif-wrapper {
-    overflow: hidden;
+    position: sticky;
+    top: 5rem;
+    z-index: 30;
   }
   .notif-unfold {
     animation: notif-unfold 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
@@ -323,6 +325,44 @@
     0%, 100% { opacity: 0; transform: scale(0.98); }
     45%, 55% { opacity: 1; transform: scale(1); }
   }
+
+  .notif-float {
+    animation: notif-float 3s ease-in-out 1.5s infinite;
+  }
+  @keyframes notif-float {
+    0%, 100% { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    50% { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(74, 144, 48, 0.15); }
+  }
+
+  .notif-wrap-frame {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .notif-wrap-frame::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, var(--color-secondary), transparent 30%, var(--color-primary), transparent 60%);
+    animation: notif-spin 6s linear infinite;
+    z-index: 0;
+  }
+  .notif-wrap-frame::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--color-surface);
+    border-radius: inherit;
+    z-index: 1;
+  }
+  @keyframes notif-spin {
+    to { transform: rotate(360deg); }
+  }
+
 </style>
 <style>
   :root {
@@ -502,7 +542,7 @@
 </div>
 
 <!-- Hero Section -->
-<section class="relative min-h-dvh flex items-center pt-24 pb-fluid-padding overflow-hidden bg-surface-container-lowest">
+<section class="relative min-h-dvh flex items-center pt-24 pb-fluid-padding bg-surface-container-lowest">
   <div class="absolute inset-0 z-0 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/90 to-transparent z-10"></div>
     <img class="w-full h-full object-cover grayscale opacity-20"
@@ -511,13 +551,16 @@
   </div>
   <div class="container mx-auto px-4 md:px-12 relative z-20">
     <!-- Abstract Notification -->
-    <div class="mb-8 lg:mb-0 text-center notif-wrapper mx-auto max-w-3xl lg:max-w-4xl">
+    <div class="text-center notif-wrapper mx-auto max-w-3xl lg:max-w-4xl">
       <div class="notif-unfold">
-        <div class="notif-content notif-shimmer notif-glow-border bg-surface-container border-l-[3px] border-secondary/80 md:border-l-0 md:border-b-[3px] rounded-r-xl md:rounded-b-xl md:rounded-r-none px-4 md:px-6 py-3 md:py-3.5 flex items-start md:items-center justify-center gap-3 md:gap-4 shadow-sm">
-          <span class="notif-icon-ring material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5 md:mt-0">notifications</span>
-          <div class="text-xs md:text-sm leading-relaxed">
-            <span class="font-bold text-primary">Abstract submissions are now closed.</span>
-            <span class="text-on-surface-variant"> Acceptance notifications will be communicated by <span class="font-semibold text-primary">June 12, 2026</span>, along with comprehensive guidelines for preparing presentations and posters.</span>
+        <div class="notif-wrap-frame">
+          <div class="notif-content notif-float notif-shimmer notif-glow-border bg-surface-container border-l-[3px] border-secondary/80 md:border-l-0 md:border-b-[3px] rounded-r-xl md:rounded-b-xl md:rounded-r-none px-4 md:px-6 py-3 md:py-3.5 flex items-start md:items-center justify-center gap-3 md:gap-4 shadow-sm relative z-[2]">
+            <span class="notif-icon-ring material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5 md:mt-0">notifications</span>
+            <div class="text-xs md:text-sm leading-relaxed">
+              <span class="font-bold text-primary">Abstract submissions are now closed.</span>
+              <span class="text-on-surface-variant"> Acceptance notifications will be communicated by <span class="font-semibold text-primary">June 12, 2026</span>, along with comprehensive guidelines for preparing presentations and posters.</span>
+              <span class="block font-bold text-primary mt-1">Early bird registration date extended to June 21, 2026.</span>
+            </div>
           </div>
         </div>
       </div>
