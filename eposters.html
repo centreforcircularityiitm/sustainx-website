@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Security Headers -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://lh3.googleusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://lh3.googleusercontent.com https://fonts.gstatic.com https://images.unsplash.com; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://lh3.googleusercontent.com https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://lh3.googleusercontent.com https://fonts.gstatic.com https://images.unsplash.com; upgrade-insecure-requests;">
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -251,8 +251,8 @@
   <div id="lightbox-scroll-container" class="flex-grow flex items-center justify-center p-4 md:p-12 mt-16 overflow-auto relative">
     <!-- Transparent overlay to prevent right clicks -->
     <div class="absolute inset-0 z-20 pointer-events-none" oncontextmenu="return false;"></div>
-    <img id="lightbox-img" src="" alt="Poster Full View" class="max-w-full max-h-full object-contain shadow-2xl no-select hidden transform origin-center transition-transform duration-200" draggable="false" oncontextmenu="return false;">
-    <canvas id="lightbox-canvas" class="max-w-full object-contain shadow-2xl no-select hidden" draggable="false" oncontextmenu="return false;"></canvas>
+    <img id="lightbox-img" src="" alt="Poster Full View" class="max-w-full max-h-full object-contain shadow-2xl no-select hidden bg-white" draggable="false" oncontextmenu="return false;">
+    <canvas id="lightbox-canvas" class="max-w-full object-contain shadow-2xl no-select hidden bg-white" draggable="false" oncontextmenu="return false;"></canvas>
   </div>
 </div>
 
@@ -278,19 +278,39 @@
   const posters = [];
   for (let i = 1; i <= 75; i++) {
     let themeId = themes[i % 6];
-    // Using high quality unsplash images as placeholder "posters"
-    // Since 48x36 is 4:3, we use a consistent seed
     let imgId = 100 + i;
-    posters.push({
-      id: i,
-      title: `Evaluating Circular Methodologies in ${themeNames[themeId]} Systems - Case Study ${i}`,
-      author: `Dr. Researcher ${i}, Research Scholar ${i+1}`,
-      theme: themeId,
-      themeName: themeNames[themeId],
-      // For performance, thumb is smaller. Full is larger.
-      thumbUrl: `https://picsum.photos/id/${imgId}/800/600`, 
-      fullUrl: i === 1 ? 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf' : `https://picsum.photos/id/${imgId}/2000/1500`
-    });
+    
+    if (i === 1) {
+      posters.push({
+        id: 1,
+        title: "SustainX 2026 — Example E-Poster Template (A0 Portrait) (SVG Version)",
+        author: "School of Sustainability, IIT Madras",
+        theme: themeId,
+        themeName: themeNames[themeId],
+        thumbUrl: "assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg",
+        fullUrl: "assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg"
+      });
+    } else if (i === 2) {
+      posters.push({
+        id: 2,
+        title: "SustainX 2026 — Example E-Poster Template (A0 Portrait) (PDF Version)",
+        author: "School of Sustainability, IIT Madras",
+        theme: themeId,
+        themeName: themeNames[themeId],
+        thumbUrl: "assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg",
+        fullUrl: "assets/pdf/eposterpdf/sustainx-2026-example-eposter-template-a0-portrait.pdf"
+      });
+    } else {
+      posters.push({
+        id: i,
+        title: `Evaluating Circular Methodologies in ${themeNames[themeId]} Systems - Case Study ${i}`,
+        author: `Dr. Researcher ${i}, Research Scholar ${i+1}`,
+        theme: themeId,
+        themeName: themeNames[themeId],
+        thumbUrl: `https://picsum.photos/id/${imgId}/800/600`, 
+        fullUrl: i === 3 ? 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf' : `https://picsum.photos/id/${imgId}/2000/1500`
+      });
+    }
   }
 
   const grid = document.getElementById('poster-grid');
@@ -392,7 +412,100 @@
   let currentPdfPage = null;
   let isPdf = false;
   let currentScale = 1.0;
-  let baseScale = 1.5; // Base scale for PDF
+  let baseWidth = 0;
+  let baseHeight = 0;
+
+  const dragContainer = document.getElementById('lightbox-scroll-container');
+
+  function getDragTarget() {
+    return isPdf ? lbCanvas : lbImg;
+  }
+
+  function resetBaseDimensions() {
+    const target = getDragTarget();
+    if (!target) return;
+    
+    const tempScale = currentScale;
+    
+    target.style.width = '';
+    target.style.height = '';
+    target.style.maxWidth = '100%';
+    target.style.maxHeight = '100%';
+    
+    baseWidth = target.clientWidth;
+    baseHeight = target.clientHeight;
+    
+    currentScale = tempScale;
+    applyZoom();
+  }
+
+  function applyZoom() {
+    const target = getDragTarget();
+    if (!target) return;
+    
+    if (currentScale > 1.0) {
+      target.style.width = `${baseWidth * currentScale}px`;
+      target.style.height = `${baseHeight * currentScale}px`;
+      target.style.maxWidth = 'none';
+      target.style.maxHeight = 'none';
+      
+      dragContainer.classList.remove('items-center', 'justify-center');
+      dragContainer.classList.add('items-start', 'justify-start');
+      dragContainer.style.cursor = 'grab';
+    } else {
+      target.style.width = '';
+      target.style.height = '';
+      target.style.maxWidth = '100%';
+      target.style.maxHeight = '100%';
+      
+      dragContainer.classList.remove('items-start', 'justify-start');
+      dragContainer.classList.add('items-center', 'justify-center');
+      dragContainer.style.cursor = 'default';
+      
+      dragContainer.scrollLeft = 0;
+      dragContainer.scrollTop = 0;
+    }
+  }
+
+  // Click and drag to scroll container
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let scrollLeft = 0;
+  let scrollTop = 0;
+
+  dragContainer.addEventListener('mousedown', (e) => {
+    if (currentScale <= 1.0) return;
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    scrollLeft = dragContainer.scrollLeft;
+    scrollTop = dragContainer.scrollTop;
+    dragContainer.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    dragContainer.scrollLeft = scrollLeft - dx;
+    dragContainer.scrollTop = scrollTop - dy;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      dragContainer.style.cursor = 'grab';
+    }
+  });
+
+  dragContainer.addEventListener('mouseleave', () => {
+    if (isDragging) {
+      isDragging = false;
+      dragContainer.style.cursor = 'grab';
+    }
+  });
 
   async function openLightbox(poster) {
     lbTitle.textContent = poster.title;
@@ -421,8 +534,11 @@
     } else {
       lbCanvas.classList.add('hidden');
       lbImg.classList.remove('hidden');
+      
+      lbImg.onload = () => {
+        resetBaseDimensions();
+      };
       lbImg.src = poster.fullUrl;
-      lbImg.style.transform = `scale(${currentScale})`;
     }
     
     lightbox.classList.add('active');
@@ -431,17 +547,23 @@
 
   function renderPdf() {
     if (!currentPdfPage) return;
-    const viewport = currentPdfPage.getViewport({ scale: baseScale * currentScale });
+    const viewport = currentPdfPage.getViewport({ scale: 2.5 });
     const context = lbCanvas.getContext('2d');
     
     lbCanvas.height = viewport.height;
     lbCanvas.width = viewport.width;
     
+    lbCanvas.style.maxWidth = '100%';
+    lbCanvas.style.maxHeight = '100%';
+    lbCanvas.style.objectFit = 'contain';
+    
     const renderContext = {
       canvasContext: context,
       viewport: viewport
     };
-    currentPdfPage.render(renderContext);
+    currentPdfPage.render(renderContext).promise.then(() => {
+      resetBaseDimensions();
+    });
   }
 
   function closeLightbox() {
@@ -456,7 +578,7 @@
       }
       currentPdfDoc = null;
       currentPdfPage = null;
-    }, 300); // Clear image after animation
+    }, 300);
   }
 
   // Zoom functionality
@@ -465,26 +587,18 @@
   }
   
   btnZoomIn.addEventListener('click', () => {
-    if (currentScale < 3.0) {
-      currentScale += 0.25;
+    if (currentScale < 6.0) {
+      currentScale += 0.5;
       updateZoomText();
-      if (isPdf) {
-        renderPdf();
-      } else {
-        lbImg.style.transform = `scale(${currentScale})`;
-      }
+      applyZoom();
     }
   });
 
   btnZoomOut.addEventListener('click', () => {
     if (currentScale > 0.5) {
-      currentScale -= 0.25;
+      currentScale -= 0.5;
       updateZoomText();
-      if (isPdf) {
-        renderPdf();
-      } else {
-        lbImg.style.transform = `scale(${currentScale})`;
-      }
+      applyZoom();
     }
   });
 
