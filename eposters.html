@@ -507,7 +507,7 @@
     }
   });
 
-  async function openLightbox(poster) {
+  async function openLightbox(poster, updateUrl = true) {
     lbTitle.textContent = poster.title;
     lbAuthor.textContent = poster.author;
     lbTheme.textContent = poster.themeName;
@@ -516,6 +516,10 @@
     updateZoomText();
     zoomControls.classList.remove('hidden');
     zoomControls.classList.add('flex');
+    
+    if (updateUrl) {
+      window.location.hash = 'poster-' + poster.id;
+    }
     
     isPdf = poster.fullUrl.toLowerCase().endsWith('.pdf');
     
@@ -566,9 +570,14 @@
     });
   }
 
-  function closeLightbox() {
+  function closeLightbox(updateUrl = true) {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
+    
+    if (updateUrl && window.location.hash.startsWith('#poster-')) {
+      window.history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+    
     setTimeout(() => { 
       lbImg.src = ''; 
       lbImg.classList.add('hidden');
@@ -587,8 +596,8 @@
   }
   
   btnZoomIn.addEventListener('click', () => {
-    if (currentScale < 6.0) {
-      currentScale += 0.5;
+    if (currentScale < 10.0) {
+      currentScale = Math.min(currentScale + 0.5, 10.0);
       updateZoomText();
       applyZoom();
     }
@@ -596,10 +605,78 @@
 
   btnZoomOut.addEventListener('click', () => {
     if (currentScale > 0.5) {
-      currentScale -= 0.5;
+      currentScale = Math.max(currentScale - 0.5, 0.5);
       updateZoomText();
       applyZoom();
     }
+  });
+
+  // Touch Zoom (Pinch-to-zoom and Double-tap-to-zoom)
+  let touchStartDist = 0;
+  let touchStartScale = 1.0;
+  let lastTap = 0;
+
+  dragContainer.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      touchStartDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      touchStartScale = currentScale;
+    }
+  }, { passive: false });
+
+  dragContainer.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault(); // Prevent native browser zoom
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      if (touchStartDist > 0) {
+        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        
+        const rect = dragContainer.getBoundingClientRect();
+        const relativeX = midX - rect.left + dragContainer.scrollLeft;
+        const relativeY = midY - rect.top + dragContainer.scrollTop;
+        
+        let newScale = touchStartScale * (dist / touchStartDist);
+        newScale = Math.min(Math.max(newScale, 1.0), 10.0);
+        
+        const oldScale = currentScale;
+        currentScale = newScale;
+        updateZoomText();
+        applyZoom();
+        
+        if (oldScale > 0 && newScale !== oldScale) {
+          const ratio = newScale / oldScale;
+          dragContainer.scrollLeft = relativeX * ratio - (midX - rect.left);
+          dragContainer.scrollTop = relativeY * ratio - (midY - rect.top);
+        }
+      }
+    }
+  }, { passive: false });
+
+  dragContainer.addEventListener('touchend', (e) => {
+    if (e.touches.length < 2) {
+      touchStartDist = 0;
+    }
+    
+    // Double tap detection
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+    if (tapLength < 300 && tapLength > 0) {
+      if (currentScale > 1.0) {
+        currentScale = 1.0;
+      } else {
+        currentScale = 3.0;
+      }
+      updateZoomText();
+      applyZoom();
+      e.preventDefault();
+    }
+    lastTap = currentTime;
   });
 
   lbClose.addEventListener('click', closeLightbox);
@@ -610,8 +687,34 @@
     if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
   });
 
+  // Handle URL deep-linking
+  function checkUrlRoute() {
+    const hash = window.location.hash;
+    const urlParams = new URLSearchParams(window.location.search);
+    let posterId = parseInt(urlParams.get('poster') || urlParams.get('id'), 10);
+    
+    if (!posterId && hash.startsWith('#poster-')) {
+      posterId = parseInt(hash.replace('#poster-', ''), 10);
+    }
+    
+    if (posterId) {
+      const poster = posters.find(p => p.id === posterId);
+      if (poster) {
+        openLightbox(poster, false);
+      }
+    } else {
+      if (lightbox.classList.contains('active')) {
+        closeLightbox(false);
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', checkUrlRoute);
+  window.addEventListener('popstate', checkUrlRoute);
+
   // Initial Render
   renderPosters(posters);
+  checkUrlRoute();
 
   // Anti-Piracy Measures
   document.addEventListener('contextmenu', event => {
