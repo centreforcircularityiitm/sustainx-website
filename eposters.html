@@ -77,10 +77,6 @@
   }
   .poster-overlay {
     background: linear-gradient(to top, rgba(26,38,22,0.95) 0%, rgba(26,38,22,0.6) 50%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .poster-card:hover .poster-overlay {
     opacity: 1;
   }
   
@@ -561,17 +557,19 @@
       
       lbImg.onload = () => {
         resetBaseDimensions();
+        setTimeout(resetBaseDimensions, 350);
       };
       lbImg.src = poster.fullUrl;
     }
     
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    setTimeout(resetBaseDimensions, 350);
   }
 
   function renderPdf() {
     if (!currentPdfPage) return;
-    const viewport = currentPdfPage.getViewport({ scale: 2.5 });
+    const viewport = currentPdfPage.getViewport({ scale: 2.5, rotation: currentPdfPage.rotate || 0 });
     const context = lbCanvas.getContext('2d');
     
     lbCanvas.height = viewport.height;
@@ -587,6 +585,7 @@
     };
     currentPdfPage.render(renderContext).promise.then(() => {
       resetBaseDimensions();
+      setTimeout(resetBaseDimensions, 350);
     });
   }
 
