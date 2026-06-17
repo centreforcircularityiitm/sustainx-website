@@ -95,6 +95,16 @@
     visibility: visible;
   }
   
+  #lightbox-scroll-container {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  #lightbox-img, #lightbox-canvas {
+    will-change: width, height;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.05s ease-out;
+  }
+  
   /* Custom scrollbar for filter container */
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -615,14 +625,18 @@
   let touchStartDist = 0;
   let touchStartScale = 1.0;
   let lastTap = 0;
+  let isMultiTouch = false;
 
   dragContainer.addEventListener('touchstart', (e) => {
     if (e.touches.length === 2) {
+      isMultiTouch = true;
       touchStartDist = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
       touchStartScale = currentScale;
+    } else if (e.touches.length === 1) {
+      isMultiTouch = false;
     }
   }, { passive: false });
 
@@ -661,6 +675,13 @@
   dragContainer.addEventListener('touchend', (e) => {
     if (e.touches.length < 2) {
       touchStartDist = 0;
+    }
+    
+    if (isMultiTouch) {
+      if (e.touches.length === 0) {
+        isMultiTouch = false;
+      }
+      return;
     }
     
     // Double tap detection
