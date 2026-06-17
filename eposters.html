@@ -240,7 +240,7 @@
 <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex flex-col">
   <!-- Top Bar -->
   <div class="flex justify-between items-start p-6 absolute top-0 w-full z-10 bg-gradient-to-b from-black/80 to-transparent">
-    <div class="text-white max-w-[70%]">
+    <div id="lightbox-header-text" class="text-white max-w-[70%] transition-opacity duration-300">
       <h2 id="lightbox-title" class="text-xl md:text-3xl font-headline font-bold mb-2 text-white">Poster Title</h2>
       <p id="lightbox-author" class="text-sm md:text-base text-white/80">Author Name</p>
       <span id="lightbox-theme" class="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs uppercase tracking-wider text-white">Theme</span>
@@ -453,6 +453,8 @@
     const target = getDragTarget();
     if (!target) return;
     
+    const headerText = document.getElementById('lightbox-header-text');
+    
     if (currentScale > 1.0) {
       target.style.width = `${baseWidth * currentScale}px`;
       target.style.height = `${baseHeight * currentScale}px`;
@@ -462,6 +464,10 @@
       dragContainer.classList.remove('items-center', 'justify-center');
       dragContainer.classList.add('items-start', 'justify-start');
       dragContainer.style.cursor = 'grab';
+      
+      if (headerText) {
+        headerText.classList.add('opacity-0', 'pointer-events-none');
+      }
     } else {
       target.style.width = '';
       target.style.height = '';
@@ -474,6 +480,10 @@
       
       dragContainer.scrollLeft = 0;
       dragContainer.scrollTop = 0;
+      
+      if (headerText) {
+        headerText.classList.remove('opacity-0', 'pointer-events-none');
+      }
     }
   }
 
