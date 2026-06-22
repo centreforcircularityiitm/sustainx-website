@@ -555,16 +555,22 @@
       lbCanvas.classList.add('hidden');
       lbImg.classList.remove('hidden');
       
-      lbImg.onload = () => {
-        resetBaseDimensions();
-        setTimeout(resetBaseDimensions, 350);
-      };
+      lbImg.onload = null;
       lbImg.src = poster.fullUrl;
+      
+      const onReady = () => {
+        resetBaseDimensions();
+        setTimeout(resetBaseDimensions, 100);
+      };
+      if (lbImg.complete) {
+        onReady();
+      } else {
+        lbImg.onload = onReady;
+      }
     }
     
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
-    setTimeout(resetBaseDimensions, 350);
   }
 
   function renderPdf() {
@@ -585,7 +591,10 @@
     };
     currentPdfPage.render(renderContext).promise.then(() => {
       resetBaseDimensions();
-      setTimeout(resetBaseDimensions, 350);
+      requestAnimationFrame(() => {
+        resetBaseDimensions();
+        setTimeout(resetBaseDimensions, 100);
+      });
     });
   }
 
