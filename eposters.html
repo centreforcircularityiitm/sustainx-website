@@ -6,17 +6,19 @@
 <link rel="icon" type="image/png" href="assets/images/logos/sustainxlogo.png"/>
 <link rel="apple-touch-icon" href="assets/images/logos/sustainxlogo.png"/>
 <title>E-Poster Room | SustainX 2026 | IIT Madras</title>
-<meta name="description" content="Explore the SustainX 2026 Virtual E-Poster Room showcasing research across circularity in energy, earth, and environment."/>
+<meta name="description" content="Explore the SustainX 2026 Virtual E-Poster Room — a premium gallery showcasing 75+ cutting-edge research presentations across circularity in energy, earth, and environment at IIT Madras."/>
 <meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://sustainxconference.org/eposters"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Security Headers -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://lh3.googleusercontent.com https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://lh3.googleusercontent.com https://fonts.gstatic.com https://images.unsplash.com; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://lh3.googleusercontent.com https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://lh3.googleusercontent.com https://fonts.gstatic.com https://images.unsplash.com https://picsum.photos; upgrade-insecure-requests;">
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
 <script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -55,82 +57,314 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
+
 <style>
+  /* ==============================
+     BASE
+  ============================== */
+  :root {
+    --color-primary: #2d6a1a;
+    --color-secondary: #4a9030;
+    --color-surface: #f4f9f0;
+    --hero-bg-start: #071A0F;
+    --hero-bg-mid: #0F2D1A;
+  }
   body { font-family: 'Public Sans', sans-serif; background-color: #f4f9f0; color: #1a2616; overflow-x: hidden; }
   h1, h2, h3, h4 { font-family: 'Noto Serif', serif; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
   .glass-header { -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
   .nav-active { color: #2d6a1a; position: relative; }
   .nav-active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #4a9030; }
-  
-  /* Poster Card specific styles */
-  .poster-card {
-    aspect-ratio: 4 / 3;
-    perspective: 1000px;
-    overflow: hidden;
+
+  /* ==============================
+     HERO
+  ============================== */
+  .hero-section {
+    background: linear-gradient(135deg, var(--hero-bg-start) 0%, var(--hero-bg-mid) 55%, #0A3520 100%);
+    position: relative; overflow: hidden;
+    min-height: 65vh; display: flex; align-items: center;
   }
-  .poster-img {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  .hero-dot-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, rgba(74,144,48,0.22) 1px, transparent 0);
+    background-size: 38px 38px;
+    animation: dot-drift 28s linear infinite;
   }
-  .poster-card:hover .poster-img {
-    transform: scale(1.05);
+  @keyframes dot-drift { 0% { background-position: 0 0; } 100% { background-position: 38px 38px; } }
+
+  .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+  .hero-orb-a {
+    width: 520px; height: 520px; top: -160px; right: -120px;
+    background: radial-gradient(circle, rgba(74,144,48,0.28) 0%, transparent 70%);
+    animation: orb-a 13s ease-in-out infinite;
   }
-  .poster-overlay {
-    background: linear-gradient(to top, rgba(26,38,22,0.95) 0%, rgba(26,38,22,0.6) 50%, transparent 100%);
-    opacity: 1;
+  .hero-orb-b {
+    width: 420px; height: 420px; bottom: -120px; left: -100px;
+    background: radial-gradient(circle, rgba(15,80,40,0.38) 0%, transparent 70%);
+    animation: orb-b 10s ease-in-out infinite;
   }
-  
-  /* Lightbox Modal */
-  #lightbox {
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+  .hero-orb-c {
+    width: 220px; height: 220px; top: 35%; left: 38%;
+    background: radial-gradient(circle, rgba(156,216,120,0.14) 0%, transparent 70%);
+    animation: orb-a 9s ease-in-out 2s infinite;
   }
-  #lightbox.active {
-    opacity: 1;
-    visibility: visible;
+  @keyframes orb-a { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(28px,-28px) scale(1.07); } }
+  @keyframes orb-b { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-22px,22px) scale(1.05); } }
+
+  .hero-content { position: relative; z-index: 2; width: 100%; }
+
+  /* Hero entrance animations */
+  .hero-animate {
+    opacity: 0; transform: translateY(28px);
+    animation: hero-in 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
-  
-  #lightbox-scroll-container {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+  .hero-animate.d1 { animation-delay: 0.08s; }
+  .hero-animate.d2 { animation-delay: 0.22s; }
+  .hero-animate.d3 { animation-delay: 0.36s; }
+  .hero-animate.d4 { animation-delay: 0.50s; }
+  .hero-animate.d5 { animation-delay: 0.64s; }
+  @keyframes hero-in { to { opacity: 1; transform: translateY(0); } }
+
+  /* Hero search */
+  .hero-search {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-radius: 100px;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
   }
-  #lightbox-img, #lightbox-canvas {
-    will-change: width, height;
-    transform: translate3d(0, 0, 0);
-    transition: transform 0.05s ease-out;
+  .hero-search:focus-within {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(74,144,48,0.55);
+    box-shadow: 0 0 0 4px rgba(74,144,48,0.14);
   }
-  
-  /* Custom scrollbar for filter container */
+  .hero-search input { background: transparent; color: white; outline: none; width: 100%; }
+  .hero-search input::placeholder { color: rgba(255,255,255,0.45); }
+
+  /* ==============================
+     STATS BAND
+  ============================== */
+  .stat-num { font-variant-numeric: tabular-nums; transition: none; }
+
+  /* ==============================
+     FILTER BAR
+  ============================== */
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  
-  /* Anti-Piracy Styles */
-  @media print {
-    body { display: none !important; }
+
+  .filter-btn { transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
+  .filter-btn .tdot {
+    display: inline-block; width: 7px; height: 7px;
+    border-radius: 50%; margin-right: 5px; vertical-align: middle; flex-shrink: 0;
   }
+
+  /* ==============================
+     POSTER CARDS
+  ============================== */
+  .poster-card {
+    aspect-ratio: 3 / 4; position: relative; overflow: hidden;
+    cursor: pointer;
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1),
+                transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.3s ease;
+  }
+  .poster-card.revealed { opacity: 1; transform: translateY(0); }
+  .poster-card:hover { box-shadow: 0 22px 44px rgba(26,38,22,0.2), 0 0 0 1.5px rgba(74,144,48,0.35); z-index: 2; }
+  .poster-img { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); width: 100%; height: 100%; object-fit: cover; display: block; }
+  .poster-card:hover .poster-img { transform: scale(1.055); }
+
+  .poster-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(7,26,15,0.97) 0%, rgba(7,26,15,0.55) 45%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem;
+  }
+  .poster-abstract-peek {
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.28s ease;
+    font-size: 0.68rem; color: rgba(255,255,255,0.65); line-height: 1.5;
+  }
+  .poster-card:hover .poster-abstract-peek { max-height: 3.5rem; opacity: 1; }
+
+  /* Badges */
+  .poster-badge {
+    position: absolute; top: 9px; left: 9px;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 9px 3px 7px; border-radius: 100px;
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff;
+  }
+  .badge-award  { background: rgba(217,119,6,0.92); }
+  .badge-featured { background: rgba(34,90,20,0.92); border: 1px solid rgba(255,255,255,0.18); }
+  .badge-live   { background: rgba(185,28,28,0.92); }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: live-pulse 1.5s ease-in-out infinite; }
+  @keyframes live-pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.8); } }
+
+  /* Card hover action bar */
+  .poster-actions {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(7,26,15,0.96);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-evenly;
+    padding: 9px 6px; border-top: 1px solid rgba(74,144,48,0.3);
+    transform: translateY(100%);
+    transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+    z-index: 3;
+  }
+  .poster-card:hover .poster-actions { transform: translateY(0); }
+
+  .act-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    color: rgba(255,255,255,0.75); background: none; border: none; cursor: pointer;
+    font-size: 0.52rem; font-family: 'Public Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 5px;
+    border-radius: 3px; transition: color 0.2s, transform 0.2s;
+  }
+  .act-btn:hover { color: #9cd878; transform: translateY(-2px); }
+  .act-btn .material-symbols-outlined { font-size: 1.05rem; }
+  .act-btn.is-bm .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; color: #9cd878; }
+
+  /* ==============================
+     SKELETON
+  ============================== */
+  .skel-card {
+    aspect-ratio: 3 / 4;
+    background: linear-gradient(90deg, #e8f2e0 25%, #d5e4ce 50%, #e8f2e0 75%);
+    background-size: 200% 100%;
+    animation: skel-shimmer 1.6s infinite;
+  }
+  @keyframes skel-shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* ==============================
+     LIGHTBOX
+  ============================== */
+  #lightbox { opacity:0; visibility:hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  #lightbox.active { opacity:1; visibility:visible; }
+
+  .lb-viewer { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; min-width: 0; }
+
+  /* Sidebar */
+  .lb-sidebar {
+    width: 0; min-width: 0; overflow: hidden;
+    background: #f4f9f0; border-left: 1px solid rgba(0,0,0,0.09);
+    flex-shrink: 0;
+    transition: width 0.32s cubic-bezier(0.4,0,0.2,1), min-width 0.32s ease;
+  }
+  .lb-sidebar.sb-open { width: 360px; min-width: 360px; }
+  .lb-sidebar-scroll {
+    width: 360px; height: 100%; overflow-y: auto; padding: 1.4rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prev / Next arrows */
+  .lb-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 8;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+    color: white; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .lb-arrow:hover { background: rgba(255,255,255,0.2); transform: translateY(-50%) scale(1.06); }
+  .lb-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
+  .lb-arrow:disabled:hover { background: rgba(255,255,255,0.1); transform: translateY(-50%); }
+  #lb-prev { left: 14px; } #lb-next { right: 14px; }
+
+  #lightbox-scroll-container { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+  #lightbox-img, #lightbox-canvas {
+    will-change: width, height;
+    transform: translate3d(0,0,0);
+    transition: transform 0.05s ease-out;
+  }
+
+  /* Keyword tags */
+  .kw-tag {
+    display: inline-flex; align-items: center;
+    padding: 2px 10px; background: #e8f2e0; color: #2d6a1a;
+    border-radius: 100px; font-size: 0.68rem; font-weight: 500;
+  }
+
+  /* Related poster cards in sidebar */
+  .rel-card {
+    display: flex; gap: 10px; padding: 10px;
+    border: 1px solid #bcd4b0; cursor: pointer;
+    transition: background 0.2s; border-radius: 2px;
+  }
+  .rel-card:hover { background: #eef5e8; }
+  .rel-thumb { width: 48px; height: 66px; object-fit: cover; flex-shrink: 0; }
+
+  /* Mobile sidebar (bottom drawer) */
+  @media (max-width: 767px) {
+    .lb-body { flex-direction: column !important; }
+    .lb-sidebar {
+      width: 100% !important; min-width: 100% !important;
+      height: 0 !important; max-height: 0 !important;
+      border-left: none !important; border-top: 1px solid rgba(200,220,200,0.25);
+      transition: max-height 0.35s ease !important;
+    }
+    .lb-sidebar.sb-open { height: 55vh !important; max-height: 55vh !important; }
+    .lb-sidebar-scroll { width: 100% !important; max-height: 55vh; padding: 1rem; }
+  }
+
+  /* ==============================
+     TOAST
+  ============================== */
+  #toast {
+    position: fixed; bottom: 26px; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #1a2616; color: white;
+    padding: 11px 22px; border-radius: 100px;
+    font-size: 0.82rem; font-family: 'Public Sans', sans-serif;
+    z-index: 9999; white-space: nowrap; pointer-events: none;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.28);
+    transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+  }
+  #toast.toast-show { transform: translateX(-50%) translateY(0); }
+
+  /* ==============================
+     MOBILE NAV
+  ============================== */
+  #mobile-nav {
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    transform: translateY(-100%); opacity: 0; pointer-events: none;
+  }
+  #mobile-nav.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .mob-link { transform: translateX(-20px); opacity: 0; transition: all 0.3s ease; }
+  #mobile-nav.active .mob-link { transform: translateX(0); opacity: 1; }
+
+  /* ==============================
+     THEME DOT COLORS
+  ============================== */
+  .dot-ai      { background: #0d9488; }
+  .dot-water   { background: #0ea5e9; }
+  .dot-energy  { background: #f59e0b; }
+  .dot-battery { background: #8b5cf6; }
+  .dot-plastics{ background: #ec4899; }
+  .dot-industry{ background: #78716c; }
+
+  /* ==============================
+     ANTI-PIRACY
+  ============================== */
+  @media print { body { display: none !important; } }
   .no-select {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
+    -webkit-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none; -webkit-user-drag: none;
   }
 </style>
 </head>
 <body class="bg-surface">
 
-<!-- Navigation -->
+<!-- ===== NAVIGATION ===== -->
 <header class="fixed top-0 w-full z-50 border-b-[0.5px] border-green-600/30 bg-white/80 glass-header">
   <div class="flex justify-between items-center w-full px-4 md:px-12 py-4 max-w-screen-2xl mx-auto">
-    <div>
-      <a href="/" class="font-headline font-bold text-primary text-xl md:text-2xl flex items-baseline tracking-tight">
-        <span>SUSTAIN</span><span class="text-[1.2em]">X</span><span class="ml-2 font-light">2026</span>
-      </a>
-    </div>
+    <a href="/" class="font-headline font-bold text-primary text-xl md:text-2xl flex items-baseline tracking-tight">
+      <span>SUSTAIN</span><span class="text-[1.2em]">X</span><span class="ml-2 font-light">2026</span>
+    </a>
+
     <nav id="primary-navigation" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-8">
       <a class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300" href="/">Home</a>
-      
+
       <div class="group relative">
         <button class="font-serif text-lg tracking-tight text-stone-600 hover:text-primary transition-colors duration-300 flex items-center gap-1">
           About <span class="material-symbols-outlined text-[1rem]">expand_more</span>
@@ -171,612 +405,1140 @@
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Menu Button -->
+    <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
+      <span class="material-symbols-outlined text-3xl" id="menu-icon">menu</span>
+    </button>
+
+    <div class="hidden lg:flex gap-4">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawxO8fzPmdrxMJiPio2NZLZTkmgfrNpEZYgyrTj4C7nPozw/viewform"
+        target="_blank" rel="noopener noreferrer"
+        class="bg-primary text-on-primary px-6 py-2.5 font-medium hover:bg-secondary transition-all uppercase tracking-widest text-xs">
+        Submit Abstract
+      </a>
+      <a href="https://conf.code.iitm.ac.in/conf/SUSTAINX_2026/login" target="_blank" rel="noopener noreferrer"
+        class="border border-primary text-primary px-6 py-2.5 font-medium hover:bg-primary/5 transition-all uppercase tracking-widest text-xs">
+        Register
+      </a>
+    </div>
   </div>
 </header>
 
-<main class="pt-32 pb-24 min-h-screen flex flex-col">
-  <!-- Page Header -->
-  <section class="max-w-screen-2xl mx-auto w-full px-4 md:px-12 mb-12">
+<!-- Mobile Nav Overlay -->
+<div id="mobile-nav" class="fixed inset-0 top-[70px] lg:hidden bg-white z-[100] overflow-y-auto px-6 py-12 flex flex-col items-center justify-start space-y-8">
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="/">Home</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="about">About</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="themes">Themes</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="resource-persons">Resource Persons</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="programme">Programme</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="abstracts">Abstracts</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="gallery">Gallery</a>
+  <a class="mob-link font-serif text-3xl text-primary font-bold" href="eposters">E-Poster Room</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="registration">Registration</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="plan-your-trip">Plan Your Trip</a>
+  <a class="mob-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors" href="contact">Contact</a>
+  <div class="mob-link w-full flex flex-col gap-4">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawxO8fzPmdrxMJiPio2NZLZTkmgfrNpEZYgyrTj4C7nPozw/viewform"
+      target="_blank" rel="noopener noreferrer"
+      class="w-full bg-primary text-on-primary px-6 py-4 text-center font-medium uppercase tracking-widest text-sm">Submit Abstract</a>
+    <a href="https://conf.code.iitm.ac.in/conf/SUSTAINX_2026/login" target="_blank" rel="noopener noreferrer"
+      class="w-full border border-primary text-primary px-6 py-4 text-center font-medium uppercase tracking-widest text-sm">Register</a>
+  </div>
+</div>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section pt-[69px]" aria-label="E-Poster Room introduction">
+  <div class="hero-dot-grid" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-c" aria-hidden="true"></div>
+
+  <div class="hero-content max-w-screen-2xl mx-auto px-4 md:px-12 py-14 md:py-22">
     <div class="flex flex-col items-center text-center">
-      <span class="text-secondary font-label text-sm tracking-[0.2em] uppercase mb-4 block">Interactive Virtual Gallery</span>
-      <h1 class="text-5xl md:text-7xl text-primary font-bold mb-6 font-headline">E-Poster Room</h1>
-      <p class="text-lg md:text-xl font-serif text-on-surface-variant max-w-3xl">
-        Explore over 75+ cutting-edge research presentations across our six focal themes. Click on any poster to view it in full resolution.
+
+      <!-- Label chip -->
+      <span class="hero-animate d1 inline-flex items-center gap-2 text-[#9cd878] text-xs tracking-[0.25em] uppercase mb-5 border border-[#9cd878]/30 px-4 py-1.5 rounded-full bg-[#9cd878]/8">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#9cd878] animate-pulse inline-block"></span>
+        SustainX 2026 · Virtual Gallery
+      </span>
+
+      <!-- Main headline -->
+      <h1 class="hero-animate d2 font-headline font-bold text-white leading-[0.92] tracking-tight mb-5" style="font-size: clamp(3rem,10vw,7rem);">
+        E-Poster Room
+      </h1>
+
+      <!-- Sub -->
+      <p class="hero-animate d3 text-white/65 max-w-2xl mb-9 leading-relaxed" style="font-size:clamp(0.9rem,1.5vw,1.1rem);">
+        Explore 75+ cutting-edge research presentations across six focal themes — circularity in energy, earth, and environment.
       </p>
-      <div class="mt-6 bg-secondary/10 border-l-[3px] border-secondary rounded-r-xl px-4 md:px-6 py-3 md:py-4 flex items-start gap-3 mx-auto max-w-2xl text-left">
-        <span class="material-symbols-outlined text-secondary text-lg flex-shrink-0 mt-0.5">info</span>
-        <div class="text-sm text-primary leading-relaxed">
-          <p class="mb-1"><span class="font-semibold">E-Posters will go live on July 23, 2026</span><span class="text-on-surface-variant"> and will remain accessible throughout the conference dates (July 23–25, 2026).</span></p>
-          <p class="text-on-surface-variant">Poster submission criteria will be communicated along with the acceptance notification. All posters must be submitted <span class="font-semibold text-primary">one week before the conference</span>, accompanied by a table of contents (TOC) image for thumbnail generation.</p>
+
+      <!-- Hero search -->
+      <div class="hero-animate d4 w-full max-w-xl mb-7">
+        <div class="hero-search flex items-center gap-3 px-5 py-3.5">
+          <span class="material-symbols-outlined text-white/50 flex-shrink-0">search</span>
+          <input id="hero-search" type="text" placeholder="Search by title, author or keyword…" aria-label="Search posters" class="text-sm flex-1">
+          <span class="material-symbols-outlined text-white/30 text-sm flex-shrink-0">tune</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Filter and Search Bar -->
-  <section class="max-w-screen-2xl mx-auto w-full px-4 md:px-12 mb-10 sticky top-[80px] z-40 bg-surface/90 backdrop-blur-md py-4 border-y border-outline-variant/30">
-    <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
-      
-      <!-- Theme Filters -->
-      <div class="flex gap-2 overflow-x-auto hide-scrollbar w-full lg:w-auto pb-2 lg:pb-0 snap-x">
-        <button class="filter-btn active px-5 py-2.5 rounded-full border border-primary bg-primary text-white text-sm font-semibold whitespace-nowrap snap-start transition-colors" data-theme="all">All Themes</button>
-        <button class="filter-btn px-5 py-2.5 rounded-full border border-outline-variant bg-white text-on-surface text-sm hover:border-primary transition-colors whitespace-nowrap snap-start" data-theme="ai">AI-Driven</button>
-        <button class="filter-btn px-5 py-2.5 rounded-full border border-outline-variant bg-white text-on-surface text-sm hover:border-primary transition-colors whitespace-nowrap snap-start" data-theme="water">Water</button>
-        <button class="filter-btn px-5 py-2.5 rounded-full border border-outline-variant bg-white text-on-surface text-sm hover:border-primary transition-colors whitespace-nowrap snap-start" data-theme="energy">Energy</button>
-        <button class="filter-btn px-5 py-2.5 rounded-full border border-outline-variant bg-white text-on-surface text-sm hover:border-primary transition-colors whitespace-nowrap snap-start" data-theme="battery">Battery</button>
-        <button class="filter-btn px-5 py-2.5 rounded-full border border-outline-variant bg-white text-on-surface text-sm hover:border-primary transition-colors whitespace-nowrap snap-start" data-theme="plastics">Plastics</button>
-        <button class="filter-btn px-5 py-2.5 rounded-full border border-outline-variant bg-white text-on-surface text-sm hover:border-primary transition-colors whitespace-nowrap snap-start" data-theme="industry">Industry</button>
+      <!-- Hero quick-filter pills -->
+      <div class="hero-animate d4 flex flex-wrap gap-2 justify-center mb-8" id="hero-pills">
+        <button class="h-pill filter-btn active px-4 py-2 rounded-full text-xs font-semibold border border-white/30 bg-white/18 text-white" data-theme="all">All Themes</button>
+        <button class="h-pill filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-white/10 bg-white/6 text-white/75 hover:bg-white/15 transition-all" data-theme="ai"><span class="tdot dot-ai"></span>AI-Driven</button>
+        <button class="h-pill filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-white/10 bg-white/6 text-white/75 hover:bg-white/15 transition-all" data-theme="water"><span class="tdot dot-water"></span>Water</button>
+        <button class="h-pill filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-white/10 bg-white/6 text-white/75 hover:bg-white/15 transition-all" data-theme="energy"><span class="tdot dot-energy"></span>Energy</button>
+        <button class="h-pill filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-white/10 bg-white/6 text-white/75 hover:bg-white/15 transition-all" data-theme="battery"><span class="tdot dot-battery"></span>Battery</button>
+        <button class="h-pill filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-white/10 bg-white/6 text-white/75 hover:bg-white/15 transition-all" data-theme="plastics"><span class="tdot dot-plastics"></span>Plastics</button>
+        <button class="h-pill filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-white/10 bg-white/6 text-white/75 hover:bg-white/15 transition-all" data-theme="industry"><span class="tdot dot-industry"></span>Industry</button>
       </div>
 
-      <!-- Search -->
-      <div class="relative w-full lg:w-80 shrink-0">
-        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-        <input type="text" id="poster-search" placeholder="Search by author or title..." class="w-full pl-12 pr-4 py-3 rounded-full border border-outline-variant bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+      <!-- Go-live notice -->
+      <div class="hero-animate d5 bg-black/30 border border-white/10 rounded-xl px-5 py-4 flex items-start gap-3 max-w-lg text-left">
+        <span class="material-symbols-outlined text-[#9cd878] text-lg flex-shrink-0 mt-0.5">schedule</span>
+        <div class="text-sm text-white/75 leading-relaxed">
+          <span class="font-semibold text-white">E-Posters go live on July 23, 2026</span> and remain accessible through July 25. Submission deadline is one week prior to the conference.
+        </div>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Gallery Grid -->
-  <section class="max-w-screen-2xl mx-auto w-full px-4 md:px-12 flex-grow">
-    <div id="poster-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
-      <!-- Posters injected by JS -->
+<!-- ===== STATS BAND ===== -->
+<section class="bg-primary/6 border-y border-primary/12 py-7" aria-label="Gallery statistics">
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:divide-x md:divide-primary/12">
+      <div class="flex flex-col items-center text-center px-4">
+        <span class="stat-num text-3xl md:text-4xl font-bold font-headline text-primary" data-target="75" data-suffix="+">0</span>
+        <span class="text-[10px] text-on-surface-variant uppercase tracking-[0.18em] mt-1 font-medium">Research Posters</span>
+      </div>
+      <div class="flex flex-col items-center text-center px-4">
+        <span class="stat-num text-3xl md:text-4xl font-bold font-headline text-primary" data-target="6" data-suffix="">0</span>
+        <span class="text-[10px] text-on-surface-variant uppercase tracking-[0.18em] mt-1 font-medium">Focus Themes</span>
+      </div>
+      <div class="flex flex-col items-center text-center px-4">
+        <span class="text-3xl md:text-4xl font-bold font-headline text-primary">3</span>
+        <span class="text-[10px] text-on-surface-variant uppercase tracking-[0.18em] mt-1 font-medium">Conference Days</span>
+      </div>
+      <div class="flex flex-col items-center text-center px-4">
+        <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-tight">IIT Madras</span>
+        <span class="text-[10px] text-on-surface-variant uppercase tracking-[0.18em] mt-1 font-medium">Host Institution</span>
+      </div>
     </div>
-    
+  </div>
+</section>
+
+<!-- ===== STICKY FILTER BAR ===== -->
+<div id="filter-bar" class="sticky top-[69px] z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/40 py-3" aria-label="Filter and sort controls">
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-12 flex flex-col gap-3">
+
+    <!-- Row 1: pills + sort + view toggle -->
+    <div class="flex items-center gap-3">
+      <div class="flex gap-2 overflow-x-auto hide-scrollbar flex-1 snap-x pb-0.5" id="bar-pills">
+        <button class="b-pill filter-btn active px-4 py-1.5 rounded-full border border-primary bg-primary text-white text-xs font-semibold whitespace-nowrap snap-start" data-theme="all">All</button>
+        <button class="b-pill filter-btn px-4 py-1.5 rounded-full border border-outline-variant bg-white text-on-surface text-xs hover:border-primary transition-all whitespace-nowrap snap-start" data-theme="ai"><span class="tdot dot-ai"></span>AI-Driven</button>
+        <button class="b-pill filter-btn px-4 py-1.5 rounded-full border border-outline-variant bg-white text-on-surface text-xs hover:border-primary transition-all whitespace-nowrap snap-start" data-theme="water"><span class="tdot dot-water"></span>Water</button>
+        <button class="b-pill filter-btn px-4 py-1.5 rounded-full border border-outline-variant bg-white text-on-surface text-xs hover:border-primary transition-all whitespace-nowrap snap-start" data-theme="energy"><span class="tdot dot-energy"></span>Energy</button>
+        <button class="b-pill filter-btn px-4 py-1.5 rounded-full border border-outline-variant bg-white text-on-surface text-xs hover:border-primary transition-all whitespace-nowrap snap-start" data-theme="battery"><span class="tdot dot-battery"></span>Battery</button>
+        <button class="b-pill filter-btn px-4 py-1.5 rounded-full border border-outline-variant bg-white text-on-surface text-xs hover:border-primary transition-all whitespace-nowrap snap-start" data-theme="plastics"><span class="tdot dot-plastics"></span>Plastics</button>
+        <button class="b-pill filter-btn px-4 py-1.5 rounded-full border border-outline-variant bg-white text-on-surface text-xs hover:border-primary transition-all whitespace-nowrap snap-start" data-theme="industry"><span class="tdot dot-industry"></span>Industry</button>
+      </div>
+
+      <!-- Sort -->
+      <div class="relative shrink-0">
+        <select id="sort-select" class="appearance-none pl-3 pr-8 py-1.5 text-xs border border-outline-variant bg-white text-on-surface rounded-full cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary">
+          <option value="default">Default</option>
+          <option value="alpha">A → Z</option>
+          <option value="alpha-desc">Z → A</option>
+          <option value="theme">By Theme</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-xs text-on-surface-variant pointer-events-none">expand_more</span>
+      </div>
+
+      <!-- View toggle -->
+      <div class="flex border border-outline-variant rounded-full overflow-hidden shrink-0">
+        <button id="btn-grid-view" class="p-1.5 bg-primary text-white transition-colors" title="Grid view" aria-label="Grid view">
+          <span class="material-symbols-outlined text-sm leading-none">grid_view</span>
+        </button>
+        <button id="btn-list-view" class="p-1.5 bg-white text-on-surface-variant hover:bg-surface-container transition-colors" title="List view" aria-label="List view">
+          <span class="material-symbols-outlined text-sm leading-none">view_list</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Row 2: search + count -->
+    <div class="flex items-center gap-3">
+      <div class="relative flex-1 max-w-xs">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+        <input type="text" id="poster-search" placeholder="Search title, author, keyword…" class="w-full pl-9 pr-4 py-1.5 rounded-full border border-outline-variant bg-white focus:outline-none focus:ring-1 focus:ring-primary text-xs" aria-label="Search posters">
+      </div>
+      <span class="text-xs text-on-surface-variant whitespace-nowrap shrink-0">
+        Showing <strong id="count-num" class="text-primary">75</strong> of 75 posters
+      </span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== POSTER GALLERY ===== -->
+<main class="pb-24 min-h-[50vh]">
+  <section class="max-w-screen-2xl mx-auto w-full px-4 md:px-12 pt-8" aria-label="Poster gallery">
+
+    <!-- Skeleton (removed by JS on first render) -->
+    <div id="poster-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
+      <div class="skel-card"></div><div class="skel-card"></div><div class="skel-card"></div>
+      <div class="skel-card"></div><div class="skel-card"></div><div class="skel-card"></div>
+      <div class="skel-card"></div><div class="skel-card"></div><div class="skel-card"></div>
+      <div class="skel-card"></div>
+    </div>
+
     <!-- Empty State -->
     <div id="empty-state" class="hidden flex-col items-center justify-center py-24 text-center">
       <span class="material-symbols-outlined text-6xl text-outline mb-4">search_off</span>
-      <h3 class="text-2xl font-bold text-primary mb-2">No posters found</h3>
-      <p class="text-on-surface-variant">Try adjusting your search or filters.</p>
+      <h3 class="text-2xl font-bold text-primary font-headline mb-2">No posters found</h3>
+      <p class="text-on-surface-variant mb-6 text-sm">Try adjusting your search or clearing the filters.</p>
+      <button onclick="resetFilters()" class="px-6 py-2.5 bg-primary text-white text-sm font-medium hover:bg-secondary transition-colors">Clear Filters</button>
     </div>
   </section>
 </main>
 
-<!-- Lightbox Modal -->
-<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex flex-col">
-  <!-- Top Bar -->
-  <div class="flex justify-between items-start p-6 absolute top-0 w-full z-10 bg-gradient-to-b from-black/80 to-transparent">
-    <div id="lightbox-header-text" class="text-white max-w-[70%] transition-opacity duration-300">
-      <h2 id="lightbox-title" class="text-xl md:text-3xl font-headline font-bold mb-2 text-white">Poster Title</h2>
-      <p id="lightbox-author" class="text-sm md:text-base text-white/80">Author Name</p>
-      <span id="lightbox-theme" class="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs uppercase tracking-wider text-white">Theme</span>
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" class="fixed inset-0 z-[200] bg-black/96 flex flex-col" role="dialog" aria-modal="true" aria-label="Poster viewer">
+
+  <!-- Top bar -->
+  <div class="flex justify-between items-start px-4 md:px-6 py-4 absolute top-0 w-full z-10 bg-gradient-to-b from-black/80 to-transparent">
+    <div id="lb-header-text" class="text-white max-w-[60%] transition-opacity duration-300">
+      <h2 id="lb-title" class="text-base md:text-xl font-headline font-bold mb-0.5 text-white leading-snug">Poster Title</h2>
+      <p id="lb-author-line" class="text-xs text-white/65">Author</p>
+      <span id="lb-theme-chip" class="inline-block mt-1.5 px-3 py-0.5 bg-white/20 rounded-full text-[10px] uppercase tracking-wider text-white">Theme</span>
     </div>
-    <div class="flex gap-2 md:gap-4 items-center">
+    <div class="flex gap-1.5 md:gap-2 items-center flex-shrink-0">
+      <!-- Zoom -->
       <div id="zoom-controls" class="hidden items-center bg-white/10 rounded overflow-hidden">
-        <button id="btn-zoom-out" class="p-2 text-white hover:bg-white/20 transition-colors" title="Zoom Out"><span class="material-symbols-outlined text-sm md:text-base">zoom_out</span></button>
+        <button id="btn-zoom-out" class="p-2 text-white hover:bg-white/20 transition-colors" aria-label="Zoom out"><span class="material-symbols-outlined text-sm">zoom_out</span></button>
         <span id="zoom-level" class="px-2 text-xs text-white font-mono min-w-[3rem] text-center">100%</span>
-        <button id="btn-zoom-in" class="p-2 text-white hover:bg-white/20 transition-colors" title="Zoom In"><span class="material-symbols-outlined text-sm md:text-base">zoom_in</span></button>
+        <button id="btn-zoom-in" class="p-2 text-white hover:bg-white/20 transition-colors" aria-label="Zoom in"><span class="material-symbols-outlined text-sm">zoom_in</span></button>
       </div>
-      <button id="lightbox-close" class="text-white/80 hover:text-white p-2 transition-colors ml-2">
-        <span class="material-symbols-outlined text-3xl">close</span>
+      <!-- Fullscreen -->
+      <button id="btn-fullscreen" class="text-white/70 hover:text-white p-2 transition-colors" aria-label="Toggle fullscreen">
+        <span class="material-symbols-outlined text-lg" id="fullscreen-icon">fullscreen</span>
+      </button>
+      <!-- Info / sidebar toggle -->
+      <button id="btn-info" class="text-white/70 hover:text-white p-2 transition-colors" aria-label="Toggle info panel">
+        <span class="material-symbols-outlined text-lg">info</span>
+      </button>
+      <!-- Close -->
+      <button id="lightbox-close" class="text-white/70 hover:text-white p-2 ml-1 transition-colors" aria-label="Close">
+        <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
   </div>
 
-  <!-- Image/Canvas Container -->
-  <div id="lightbox-scroll-container" class="flex-grow flex items-center justify-center p-4 md:p-12 mt-16 overflow-auto relative">
-    <!-- Transparent overlay to prevent right clicks -->
-    <div class="absolute inset-0 z-20 pointer-events-none" oncontextmenu="return false;"></div>
-    <img id="lightbox-img" src="" alt="Poster Full View" class="max-w-full max-h-full object-contain shadow-2xl no-select hidden bg-white" draggable="false" oncontextmenu="return false;">
-    <canvas id="lightbox-canvas" class="max-w-full object-contain shadow-2xl no-select hidden bg-white" draggable="false" oncontextmenu="return false;"></canvas>
-  </div>
+  <!-- Viewer + sidebar row -->
+  <div class="lb-body flex flex-1 overflow-hidden pt-[60px]">
+
+    <!-- Viewer -->
+    <div class="lb-viewer">
+      <!-- Arrows -->
+      <button id="lb-prev" class="lb-arrow" aria-label="Previous poster">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button id="lb-next" class="lb-arrow" aria-label="Next poster">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+
+      <!-- Scroll / pan area -->
+      <div id="lightbox-scroll-container" class="flex-grow flex items-center justify-center p-4 md:p-10 overflow-auto relative">
+        <div class="absolute inset-0 z-10 pointer-events-none" oncontextmenu="return false;"></div>
+        <!-- Loading -->
+        <div id="lb-loading" class="hidden flex-col items-center gap-4 text-white/50">
+          <div class="w-10 h-10 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin"></div>
+          <span class="text-sm">Loading poster…</span>
+        </div>
+        <img id="lightbox-img" src="" alt="Poster full view" class="max-w-full max-h-full object-contain shadow-2xl no-select hidden bg-white" draggable="false" oncontextmenu="return false;">
+        <canvas id="lightbox-canvas" class="max-w-full object-contain shadow-2xl no-select hidden bg-white" draggable="false" oncontextmenu="return false;"></canvas>
+      </div>
+
+      <!-- Counter chip -->
+      <div class="absolute bottom-5 left-1/2 -translate-x-1/2 bg-black/50 text-white/60 text-[10px] px-4 py-1.5 rounded-full pointer-events-none">
+        <span id="lb-counter">1 / 75</span>
+      </div>
+    </div>
+
+    <!-- Sidebar (info panel) -->
+    <aside class="lb-sidebar" id="lb-sidebar" aria-label="Poster information">
+      <div class="lb-sidebar-scroll">
+
+        <!-- Author block -->
+        <div class="flex items-start gap-3 pb-4 mb-4 border-b border-outline-variant/50">
+          <div id="lb-avatar" class="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 font-bold text-primary text-sm">AP</div>
+          <div class="min-w-0">
+            <p id="lb-sb-author" class="font-semibold text-on-surface text-sm leading-snug">Author Name</p>
+            <p id="lb-sb-affil" class="text-xs text-on-surface-variant mt-0.5">Institution</p>
+          </div>
+        </div>
+
+        <!-- Abstract -->
+        <div class="mb-4">
+          <h3 class="text-[10px] uppercase tracking-[0.18em] text-on-surface-variant font-semibold mb-2">Abstract</h3>
+          <p id="lb-abstract" class="text-xs text-on-surface leading-relaxed">—</p>
+        </div>
+
+        <!-- Keywords -->
+        <div class="mb-4">
+          <h3 class="text-[10px] uppercase tracking-[0.18em] text-on-surface-variant font-semibold mb-2">Keywords</h3>
+          <div id="lb-keywords" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="flex gap-5 mb-4 py-3.5 border-y border-outline-variant/40">
+          <div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-sm">visibility</span>
+            <span id="lb-views">—</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-sm">bookmark</span>
+            <span id="lb-bm-count">—</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col gap-2 mb-5">
+          <button id="lb-btn-bm" onclick="sidebarToggleBookmark()" class="flex items-center justify-center gap-2 w-full py-2.5 border border-primary text-primary text-xs font-medium hover:bg-primary/5 transition-colors">
+            <span class="material-symbols-outlined text-sm" id="lb-bm-icon">bookmark</span>
+            <span id="lb-bm-label">Bookmark</span>
+          </button>
+          <button onclick="sidebarShare()" class="flex items-center justify-center gap-2 w-full py-2.5 border border-outline-variant text-on-surface text-xs font-medium hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined text-sm">share</span>
+            Share Poster
+          </button>
+          <a id="lb-btn-dl" href="#" target="_blank" rel="noopener noreferrer" class="hidden items-center justify-center gap-2 w-full py-2.5 bg-primary text-white text-xs font-medium hover:bg-secondary transition-colors">
+            <span class="material-symbols-outlined text-sm">download</span>
+            Download PDF
+          </a>
+        </div>
+
+        <!-- Related -->
+        <div>
+          <h3 class="text-[10px] uppercase tracking-[0.18em] text-on-surface-variant font-semibold mb-2.5">Related Posters</h3>
+          <div id="lb-related" class="flex flex-col gap-2"></div>
+        </div>
+
+      </div>
+    </aside>
+
+  </div><!-- end lb-body -->
+</div><!-- end lightbox -->
+
+<!-- ===== TOAST ===== -->
+<div id="toast" role="alert" aria-live="polite">
+  <span class="material-symbols-outlined text-secondary text-sm" id="toast-icon">check_circle</span>
+  <span id="toast-msg">Done!</span>
 </div>
 
-<!-- Footer (Simplified for example) -->
+<!-- ===== FOOTER ===== -->
 <footer class="bg-primary w-full py-16 px-4 md:px-12 border-t-[0.5px] border-white/10 text-on-primary">
-  <div class="max-w-screen-2xl mx-auto text-center">
-    <div class="font-serif text-2xl font-bold text-white mb-6">SustainX 2026</div>
-    <p class="text-white/70 max-w-sm mx-auto mb-8 leading-relaxed">
-      A premier gathering for scholars and practitioners in circular economy.
-    </p>
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div>
+        <div class="font-headline text-2xl font-bold text-white mb-3">SustainX 2026</div>
+        <p class="text-white/55 text-sm leading-relaxed mb-4">A premier gathering for scholars and practitioners in circularity — across energy, earth, and environment.</p>
+        <p class="text-white/35 text-xs flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-xs text-secondary/60">eco</span>
+          Lazy-loading &amp; optimized assets for low energy use.
+        </p>
+      </div>
+
+      <!-- Conference links -->
+      <div>
+        <h4 class="text-white/45 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">Conference</h4>
+        <div class="flex flex-col gap-2.5">
+          <a href="about" class="text-white/65 hover:text-white text-sm transition-colors">About SustainX</a>
+          <a href="themes" class="text-white/65 hover:text-white text-sm transition-colors">Themes</a>
+          <a href="programme" class="text-white/65 hover:text-white text-sm transition-colors">Programme</a>
+          <a href="abstracts" class="text-white/65 hover:text-white text-sm transition-colors">Abstracts</a>
+          <a href="eposters" class="text-white hover:text-secondary text-sm transition-colors font-medium">E-Poster Room</a>
+          <a href="gallery" class="text-white/65 hover:text-white text-sm transition-colors">Gallery</a>
+        </div>
+      </div>
+
+      <!-- Attend + orgs -->
+      <div>
+        <h4 class="text-white/45 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">Attend</h4>
+        <div class="flex flex-col gap-2.5 mb-6">
+          <a href="registration" class="text-white/65 hover:text-white text-sm transition-colors">Registration</a>
+          <a href="plan-your-trip" class="text-white/65 hover:text-white text-sm transition-colors">Plan Your Trip</a>
+          <a href="contact" class="text-white/65 hover:text-white text-sm transition-colors">Contact Us</a>
+          <a href="resource-persons" class="text-white/65 hover:text-white text-sm transition-colors">Resource Persons</a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <a href="https://sustainability.iitm.ac.in/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white/45 hover:text-white/80 transition-colors text-xs">
+            <span class="material-symbols-outlined text-xs">public</span>School of Sustainability, IIT Madras
+          </a>
+          <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white/45 hover:text-white/80 transition-colors text-xs">
+            <span class="material-symbols-outlined text-xs">public</span>Indian Institute of Technology Madras
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-white/10 text-center">
+      <p class="font-sans text-sm tracking-wide text-white">© 2026 CRRET, School of Sustainability, IIT Madras. All Rights Reserved.</p>
+      <p class="font-sans text-[10px] tracking-[0.2em] text-white/40 mt-3 uppercase">
+        Design by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors underline decoration-white/10">Academic Digital Services</a>
+      </p>
+    </div>
   </div>
 </footer>
 
+<!-- ===== SCRIPTS ===== -->
 <script>
-  // Poster Data (For 75+ posters, this would ideally be loaded via a JSON fetch)
-  // Generating dummy data to simulate 75 posters across the 6 themes
-  const themes = ['ai', 'water', 'energy', 'battery', 'plastics', 'industry'];
-  const themeNames = {
-    'ai': 'AI-Driven', 'water': 'Water Technologies', 'energy': 'Circular Energy',
-    'battery': 'Battery Industry', 'plastics': 'Plastics Economy', 'industry': 'Industrial Ecosystems'
-  };
-  
-  const posters = [];
-  for (let i = 1; i <= 75; i++) {
-    let themeId = themes[i % 6];
-    let imgId = 100 + i;
-    
-    if (i === 1) {
-      posters.push({
-        id: 1,
-        title: "SustainX 2026 — Example E-Poster Template (A0 Portrait) (SVG Version)",
-        author: "School of Sustainability, IIT Madras",
-        theme: themeId,
-        themeName: themeNames[themeId],
-        thumbUrl: "assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg",
-        fullUrl: "assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg"
-      });
-    } else if (i === 2) {
-      posters.push({
-        id: 2,
-        title: "SustainX 2026 — Example E-Poster Template (A0 Portrait) (PDF Version)",
-        author: "School of Sustainability, IIT Madras",
-        theme: themeId,
-        themeName: themeNames[themeId],
-        thumbUrl: "assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg",
-        fullUrl: "assets/pdf/eposterpdf/sustainx-2026-example-eposter-template-a0-portrait.pdf"
-      });
-    } else {
-      posters.push({
-        id: i,
-        title: `Evaluating Circular Methodologies in ${themeNames[themeId]} Systems - Case Study ${i}`,
-        author: `Dr. Researcher ${i}, Research Scholar ${i+1}`,
-        theme: themeId,
-        themeName: themeNames[themeId],
-        thumbUrl: `https://picsum.photos/id/${imgId}/800/600`, 
-        fullUrl: i === 3 ? 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf' : `https://picsum.photos/id/${imgId}/2000/1500`
-      });
-    }
+// ================================================================
+//  THEME DOT HELPER (for use in innerHTML)
+// ================================================================
+const THEME_COLORS = {
+  ai:'#0d9488', water:'#0ea5e9', energy:'#f59e0b',
+  battery:'#8b5cf6', plastics:'#ec4899', industry:'#78716c'
+};
+const THEME_NAMES = {
+  ai:'AI-Driven', water:'Water Technologies', energy:'Circular Energy',
+  battery:'Battery Industry', plastics:'Plastics Economy', industry:'Industrial Ecosystems'
+};
+const THEME_KW = {
+  ai:['Machine Learning','Predictive Analytics','Smart Systems','Digital Twins'],
+  water:['Wastewater Treatment','Desalination','Membrane Technology','Water Footprint'],
+  energy:['Solar PV','Wind Energy','Grid Storage','Energy Efficiency'],
+  battery:['Li-ion Recycling','Second Life Batteries','Solid State','Cathode Materials'],
+  plastics:['Bioplastics','Chemical Recycling','EPR Policy','Microplastics'],
+  industry:['Industrial Symbiosis','Life Cycle Assessment','Eco-Design','Supply Chains']
+};
+const ABSTRACTS = {
+  ai:'This study investigates the application of deep learning frameworks for optimising circular economy workflows in manufacturing environments. We demonstrate a 34% improvement in resource efficiency using transformer-based predictive models trained on industrial IoT sensor data.',
+  water:'A novel forward osmosis membrane system is evaluated for combined desalination and nutrient recovery from municipal wastewater. Results show high rejection rates for micropollutants alongside phosphorus recovery yields exceeding 85%.',
+  energy:'This paper presents a techno-economic analysis of community-scale solar-plus-storage microgrids integrated with circular economy principles. Lifecycle assessment reveals net carbon negativity achievable within 8–12 years under Indian grid conditions.',
+  battery:'We report on a hydrometallurgical route for lithium-nickel-manganese-cobalt oxide battery cathode recovery at 99.2% purity. The process uses 60% less water than conventional methods and enables direct recycling without resynthesis.',
+  plastics:'This research quantifies the environmental and economic impact of implementing an extended producer responsibility scheme for multi-layer plastic packaging in India. A dynamic material flow model projects 41% reduction in plastic leakage by 2035.',
+  industry:'Through stakeholder analysis and material flow mapping, this study designs an industrial symbiosis network for a cluster of 12 SMEs in the Chennai industrial corridor, enabling 2,300 t/yr of waste exchange and ₹4.2 Cr in annual cost savings.'
+};
+
+// ================================================================
+//  DATA
+// ================================================================
+const THEMES = ['ai','water','energy','battery','plastics','industry'];
+const posters = [];
+
+for (let i = 1; i <= 75; i++) {
+  const th = THEMES[i % 6];
+  const imgId = 100 + i;
+  const kw = THEME_KW[th];
+  const keywords = [kw[i % kw.length], kw[(i+1) % kw.length]];
+  const badge = i===1||i===2 ? 'featured' : i%11===0 ? 'award' : i%19===0 ? 'live' : null;
+  const views = Math.floor(Math.random()*180)+20;
+
+  if (i===1) {
+    posters.push({ id:1, title:'SustainX 2026 — E-Poster Template (A0 Portrait, SVG)',
+      author:'School of Sustainability, IIT Madras', affiliation:'IIT Madras',
+      theme:th, themeName:THEME_NAMES[th],
+      abstract:'The official SustainX 2026 e-poster template demonstrating the recommended layout, typography hierarchy, and colour system for research presentations in A0 portrait format. Available as an editable SVG.',
+      keywords:['Template','Design Guide','A0 Portrait'], badge:'featured', views:342,
+      thumbUrl:'assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg',
+      fullUrl:'assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg' });
+  } else if (i===2) {
+    posters.push({ id:2, title:'SustainX 2026 — E-Poster Template (A0 Portrait, PDF)',
+      author:'School of Sustainability, IIT Madras', affiliation:'IIT Madras',
+      theme:th, themeName:THEME_NAMES[th],
+      abstract:'The official SustainX 2026 e-poster template in print-ready PDF format. Use this as the starting point for your research poster submission.',
+      keywords:['Template','PDF Format','Print-Ready'], badge:'featured', views:289,
+      thumbUrl:'assets/images/eposters/sustainx-2026-example-eposter-template-a0-portrait.svg',
+      fullUrl:'assets/pdf/eposterpdf/sustainx-2026-example-eposter-template-a0-portrait.pdf' });
+  } else {
+    posters.push({ id:i,
+      title:`Evaluating Circular Methodologies in ${THEME_NAMES[th]} Systems — Case Study ${i}`,
+      author:`Dr. R. Researcher${i}, M. Scholar${i+1}`,
+      affiliation:`Dept. of ${THEME_NAMES[th]}, IIT Madras`,
+      theme:th, themeName:THEME_NAMES[th],
+      abstract:ABSTRACTS[th], keywords, badge, views,
+      thumbUrl:`https://picsum.photos/id/${imgId}/600/800`,
+      fullUrl: i===3
+        ? 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'
+        : `https://picsum.photos/id/${imgId}/1200/1600`
+    });
+  }
+}
+
+// ================================================================
+//  STATE
+// ================================================================
+let currentTheme = 'all';
+let searchQuery   = '';
+let sortMode      = 'default';
+let viewMode      = 'grid';
+let filteredList  = [...posters];
+let lbIndex       = 0;
+let sidebarOpen   = false;
+
+// PDF / lightbox state
+let currentPdfDoc = null, currentPdfPage = null;
+let isPdf = false, currentScale = 1.0, baseWidth = 0, baseHeight = 0;
+let isDragging = false, dStartX = 0, dStartY = 0, dScrollL = 0, dScrollT = 0;
+let touchStartDist = 0, touchStartScale = 1.0, lastTap = 0, isMultiTouch = false;
+
+// ================================================================
+//  LOCAL STORAGE
+// ================================================================
+function getBookmarks() { try { return JSON.parse(localStorage.getItem('sx26_bm')||'[]'); } catch { return []; } }
+function saveBookmarks(arr) { try { localStorage.setItem('sx26_bm', JSON.stringify(arr)); } catch {} }
+function isBookmarked(id) { return getBookmarks().includes(id); }
+function toggleBM(id) {
+  let bms = getBookmarks();
+  const had = bms.includes(id);
+  bms = had ? bms.filter(x=>x!==id) : [...bms, id];
+  saveBookmarks(bms);
+  return !had; // true = now bookmarked
+}
+function getStoredViews() { try { return JSON.parse(localStorage.getItem('sx26_views')||'{}'); } catch { return {}; } }
+function incView(id) {
+  const v = getStoredViews();
+  v[id] = (v[id]||0) + 1;
+  try { localStorage.setItem('sx26_views', JSON.stringify(v)); } catch {}
+  return v[id];
+}
+function totalViews(poster) { const v = getStoredViews(); return (v[poster.id]||0) + poster.views; }
+
+// ================================================================
+//  TOAST
+// ================================================================
+let toastTm;
+function showToast(msg, icon='check_circle') {
+  document.getElementById('toast-msg').textContent = msg;
+  document.getElementById('toast-icon').textContent = icon;
+  const t = document.getElementById('toast');
+  t.classList.add('toast-show');
+  clearTimeout(toastTm);
+  toastTm = setTimeout(() => t.classList.remove('toast-show'), 2800);
+}
+
+// ================================================================
+//  FILTER / SORT / RENDER
+// ================================================================
+const grid        = document.getElementById('poster-grid');
+const emptyState  = document.getElementById('empty-state');
+const countNumEl  = document.getElementById('count-num');
+
+function applyAll() {
+  let res = [...posters];
+  if (currentTheme !== 'all') res = res.filter(p => p.theme === currentTheme);
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    res = res.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      p.author.toLowerCase().includes(q) ||
+      p.abstract.toLowerCase().includes(q) ||
+      p.keywords.some(k => k.toLowerCase().includes(q))
+    );
+  }
+  if (sortMode === 'alpha')      res.sort((a,b) => a.title.localeCompare(b.title));
+  else if (sortMode === 'alpha-desc') res.sort((a,b) => b.title.localeCompare(a.title));
+  else if (sortMode === 'theme') res.sort((a,b) => a.theme.localeCompare(b.theme));
+  filteredList = res;
+  countNumEl.textContent = res.length;
+  render(res);
+}
+
+function render(list) {
+  grid.innerHTML = '';
+  if (!list.length) {
+    grid.classList.add('hidden');
+    emptyState.classList.remove('hidden'); emptyState.classList.add('flex');
+    return;
+  }
+  grid.classList.remove('hidden');
+  emptyState.classList.add('hidden'); emptyState.classList.remove('flex');
+
+  // Grid vs list classes
+  if (viewMode === 'list') {
+    grid.className = 'flex flex-col gap-3';
+  } else {
+    grid.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5';
   }
 
-  const grid = document.getElementById('poster-grid');
-  const emptyState = document.getElementById('empty-state');
-  
-  function renderPosters(postersToRender) {
-    grid.innerHTML = '';
-    
-    if (postersToRender.length === 0) {
-      grid.classList.add('hidden');
-      emptyState.classList.remove('hidden');
-      emptyState.classList.add('flex');
-      return;
-    }
-    
-    grid.classList.remove('hidden');
-    emptyState.classList.add('hidden');
-    emptyState.classList.remove('flex');
+  list.forEach((poster, idx) => {
+    const card = document.createElement('div');
+    const bm = isBookmarked(poster.id);
+    const bmFill = bm ? "'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24" : "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24";
+    const bmColor = bm ? '#9cd878' : 'rgba(255,255,255,0.75)';
 
-    postersToRender.forEach(poster => {
-      const card = document.createElement('div');
-      card.className = 'poster-card relative bg-white border border-outline-variant cursor-pointer group rounded-sm shadow-sm hover:shadow-xl transition-shadow duration-300';
-      card.onclick = () => openLightbox(poster);
-      
+    if (viewMode === 'list') {
+      card.className = 'bg-white border border-outline-variant hover:border-primary/40 flex items-center gap-4 p-3 cursor-pointer transition-all hover:shadow-sm group';
       card.innerHTML = `
-        <img src="${poster.thumbUrl}" alt="${poster.title}" class="poster-img w-full h-full object-cover no-select" loading="lazy" draggable="false" oncontextmenu="return false;">
-        <div class="poster-overlay absolute inset-0 flex flex-col justify-end p-6 pointer-events-none">
-          <span class="text-xs uppercase tracking-widest text-secondary font-bold mb-2">${poster.themeName}</span>
-          <h3 class="text-white font-serif font-bold leading-tight mb-1 line-clamp-2">${poster.title}</h3>
-          <p class="text-white/80 text-sm line-clamp-1">${poster.author}</p>
+        <img src="${poster.thumbUrl}" alt="${poster.title}" class="w-14 h-20 object-cover flex-shrink-0 no-select" loading="lazy" draggable="false" oncontextmenu="return false;">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-0.5">
+            <span style="width:6px;height:6px;border-radius:50%;background:${THEME_COLORS[poster.theme]};display:inline-block;flex-shrink:0;"></span>
+            <span class="text-[10px] text-on-surface-variant uppercase tracking-wider">${poster.themeName}</span>
+            ${poster.badge ? `<span style="font-size:.55rem;padding:2px 7px;border-radius:100px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:${poster.badge==='award'?'rgba(217,119,6,.9)':poster.badge==='live'?'rgba(185,28,28,.9)':'rgba(34,90,20,.9)'}">${poster.badge==='award'?'🏆 Award':poster.badge==='live'?'● Live':'⭐ Featured'}</span>` : ''}
+          </div>
+          <h3 class="font-headline font-bold text-on-surface text-sm leading-snug line-clamp-2 mb-0.5">${poster.title}</h3>
+          <p class="text-xs text-on-surface-variant line-clamp-1">${poster.author}</p>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <button onclick="event.stopPropagation();cardBM(${poster.id},this)" class="act-btn ${bm?'is-bm':''}" aria-label="Bookmark">
+            <span class="material-symbols-outlined" style="font-size:1.1rem;font-variation-settings:${bmFill};color:${bmColor}">bookmark</span>
+          </button>
+          <button onclick="event.stopPropagation();cardShare(${poster.id})" class="act-btn" aria-label="Share">
+            <span class="material-symbols-outlined" style="font-size:1.1rem;color:rgba(255,255,255,0.75)">share</span>
+          </button>
         </div>
       `;
-      grid.appendChild(card);
+      card.addEventListener('click', () => openLB(idx));
+    } else {
+      // Grid card
+      card.className = 'poster-card bg-white border border-outline-variant shadow-sm';
+      card.setAttribute('role','button');
+      card.setAttribute('tabindex','0');
+      card.setAttribute('aria-label',`View poster: ${poster.title}`);
+      card.style.transitionDelay = `${(idx % 10) * 45}ms`;
+      card.innerHTML = `
+        ${poster.badge ? `<div class="poster-badge badge-${poster.badge}">${poster.badge==='live'?'<span class="live-dot"></span>Live Q&A':poster.badge==='award'?'🏆 Award':'⭐ Featured'}</div>` : ''}
+        <img src="${poster.thumbUrl}" alt="${poster.title}" class="poster-img no-select" loading="lazy" draggable="false" oncontextmenu="return false;">
+        <div class="poster-overlay">
+          <span class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:${THEME_COLORS[poster.theme]}">${poster.themeName}</span>
+          <h3 class="text-white font-headline font-bold leading-snug text-[0.78rem] line-clamp-2 mb-0.5">${poster.title}</h3>
+          <p class="text-white/65 text-[0.65rem] line-clamp-1">${poster.author}</p>
+          <p class="poster-abstract-peek mt-1">${poster.abstract.substring(0,130)}…</p>
+        </div>
+        <div class="poster-actions">
+          <button class="act-btn" onclick="event.stopPropagation();openLB(${idx})" aria-label="View poster">
+            <span class="material-symbols-outlined">open_in_full</span><span>View</span>
+          </button>
+          <button class="act-btn ${bm?'is-bm':''}" onclick="event.stopPropagation();cardBM(${poster.id},this)" aria-label="${bm?'Remove bookmark':'Bookmark'}">
+            <span class="material-symbols-outlined" style="font-variation-settings:${bmFill};color:${bmColor}">bookmark</span>
+            <span>${bm?'Saved':'Save'}</span>
+          </button>
+          <button class="act-btn" onclick="event.stopPropagation();cardShare(${poster.id})" aria-label="Share">
+            <span class="material-symbols-outlined">share</span><span>Share</span>
+          </button>
+        </div>
+      `;
+      card.addEventListener('click', () => openLB(idx));
+      card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); openLB(idx); } });
+    }
+    grid.appendChild(card);
+  });
+
+  // Scroll reveal for grid cards
+  if (viewMode === 'grid') {
+    requestAnimationFrame(() => {
+      const cards = grid.querySelectorAll('.poster-card');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+      }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+      cards.forEach(c => obs.observe(c));
     });
   }
+}
 
-  // Filtering & Searching Logic
-  let currentTheme = 'all';
-  let searchQuery = '';
+function resetFilters() {
+  currentTheme = 'all'; searchQuery = ''; sortMode = 'default';
+  document.getElementById('poster-search').value = '';
+  document.getElementById('hero-search').value = '';
+  document.getElementById('sort-select').value = 'default';
+  syncPills('all');
+  applyAll();
+}
 
-  function filterPosters() {
-    let filtered = posters;
-    
-    if (currentTheme !== 'all') {
-      filtered = filtered.filter(p => p.theme === currentTheme);
-    }
-    
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      filtered = filtered.filter(p => 
-        p.title.toLowerCase().includes(q) || 
-        p.author.toLowerCase().includes(q)
-      );
-    }
-    
-    renderPosters(filtered);
+// ================================================================
+//  FILTER BUTTON SYNC
+// ================================================================
+function syncPills(theme) {
+  document.querySelectorAll('.h-pill').forEach(btn => {
+    const on = btn.dataset.theme === theme;
+    btn.style.background = on ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.06)';
+    btn.style.borderColor = on ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.12)';
+    btn.style.color = on ? 'white' : 'rgba(255,255,255,0.7)';
+    btn.classList.toggle('active', on);
+  });
+  document.querySelectorAll('.b-pill').forEach(btn => {
+    const on = btn.dataset.theme === theme;
+    btn.style.background = on ? '#2d6a1a' : 'white';
+    btn.style.color = on ? 'white' : '';
+    btn.style.borderColor = on ? '#2d6a1a' : '';
+    btn.classList.toggle('active', on);
+  });
+}
+
+// Attach filter events
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentTheme = btn.dataset.theme;
+    syncPills(currentTheme);
+    applyAll();
+  });
+});
+
+// Search sync (both inputs share state)
+function onSearch(val) {
+  searchQuery = val;
+  const hs = document.getElementById('hero-search');
+  const bs = document.getElementById('poster-search');
+  if (document.activeElement === hs && bs.value !== val) bs.value = val;
+  if (document.activeElement === bs && hs.value !== val) hs.value = val;
+  applyAll();
+}
+document.getElementById('hero-search').addEventListener('input', e => onSearch(e.target.value));
+document.getElementById('poster-search').addEventListener('input', e => onSearch(e.target.value));
+
+document.getElementById('sort-select').addEventListener('change', e => { sortMode = e.target.value; applyAll(); });
+
+// View toggle
+document.getElementById('btn-grid-view').addEventListener('click', () => {
+  viewMode = 'grid';
+  document.getElementById('btn-grid-view').className = 'p-1.5 bg-primary text-white transition-colors';
+  document.getElementById('btn-list-view').className = 'p-1.5 bg-white text-on-surface-variant hover:bg-surface-container transition-colors';
+  applyAll();
+});
+document.getElementById('btn-list-view').addEventListener('click', () => {
+  viewMode = 'list';
+  document.getElementById('btn-list-view').className = 'p-1.5 bg-primary text-white transition-colors';
+  document.getElementById('btn-grid-view').className = 'p-1.5 bg-white text-on-surface-variant hover:bg-surface-container transition-colors';
+  applyAll();
+});
+
+// ================================================================
+//  CARD ACTIONS
+// ================================================================
+function cardBM(id, btn) {
+  const nowBm = toggleBM(id);
+  btn.classList.toggle('is-bm', nowBm);
+  const icon = btn.querySelector('.material-symbols-outlined');
+  if (icon) {
+    icon.style.fontVariationSettings = nowBm ? "'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24" : "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24";
+    icon.style.color = nowBm ? '#9cd878' : 'rgba(255,255,255,0.75)';
   }
+  showToast(nowBm ? 'Poster bookmarked!' : 'Bookmark removed', nowBm ? 'bookmark' : 'bookmark_remove');
+  refreshSidebarBM();
+}
 
-  // Theme Buttons
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      // UI Update
-      filterBtns.forEach(b => {
-        b.classList.remove('bg-primary', 'text-white', 'active');
-        b.classList.add('bg-white', 'text-on-surface');
-      });
-      e.target.classList.remove('bg-white', 'text-on-surface');
-      e.target.classList.add('bg-primary', 'text-white', 'active');
-      
-      // Filter State Update
-      currentTheme = e.target.dataset.theme;
-      filterPosters();
-    });
-  });
+function cardShare(id) {
+  const url = `${location.origin}${location.pathname}#poster-${id}`;
+  navigator.clipboard.writeText(url)
+    .then(() => showToast('Link copied to clipboard!', 'link'))
+    .catch(() => showToast('Share: ' + url, 'share'));
+}
 
-  // Search Input
-  const searchInput = document.getElementById('poster-search');
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value;
-    filterPosters();
-  });
+// ================================================================
+//  LIGHTBOX CORE
+// ================================================================
+const lbEl      = document.getElementById('lightbox');
+const lbImg     = document.getElementById('lightbox-img');
+const lbCanvas  = document.getElementById('lightbox-canvas');
+const lbLoading = document.getElementById('lb-loading');
+const lbScroll  = document.getElementById('lightbox-scroll-container');
+const lbSidebar = document.getElementById('lb-sidebar');
+const lbCounter = document.getElementById('lb-counter');
 
-  // Lightbox Logic
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightbox-img');
-  const lbCanvas = document.getElementById('lightbox-canvas');
-  const lbTitle = document.getElementById('lightbox-title');
-  const lbAuthor = document.getElementById('lightbox-author');
-  const lbTheme = document.getElementById('lightbox-theme');
-  const lbClose = document.getElementById('lightbox-close');
+function getDragTarget() { return isPdf ? lbCanvas : lbImg; }
 
-  const zoomControls = document.getElementById('zoom-controls');
-  const btnZoomIn = document.getElementById('btn-zoom-in');
-  const btnZoomOut = document.getElementById('btn-zoom-out');
-  const zoomLevelText = document.getElementById('zoom-level');
-  
-  let currentPdfDoc = null;
-  let currentPdfPage = null;
-  let isPdf = false;
-  let currentScale = 1.0;
-  let baseWidth = 0;
-  let baseHeight = 0;
+function resetBaseDims() {
+  const t = getDragTarget(); if (!t) return;
+  const tmp = currentScale;
+  t.style.width=''; t.style.height=''; t.style.maxWidth='100%'; t.style.maxHeight='100%';
+  baseWidth=t.clientWidth; baseHeight=t.clientHeight; currentScale=tmp; applyZoom();
+}
 
-  const dragContainer = document.getElementById('lightbox-scroll-container');
-
-  function getDragTarget() {
-    return isPdf ? lbCanvas : lbImg;
+function applyZoom() {
+  const t = getDragTarget(); if (!t) return;
+  const header = document.getElementById('lb-header-text');
+  if (currentScale > 1.0) {
+    t.style.width=`${baseWidth*currentScale}px`; t.style.height=`${baseHeight*currentScale}px`;
+    t.style.maxWidth='none'; t.style.maxHeight='none';
+    lbScroll.classList.remove('items-center','justify-center'); lbScroll.classList.add('items-start','justify-start');
+    lbScroll.style.cursor='grab';
+    if (header) header.classList.add('opacity-0','pointer-events-none');
+  } else {
+    t.style.width=''; t.style.height=''; t.style.maxWidth='100%'; t.style.maxHeight='100%';
+    lbScroll.classList.remove('items-start','justify-start'); lbScroll.classList.add('items-center','justify-center');
+    lbScroll.style.cursor='default'; lbScroll.scrollLeft=0; lbScroll.scrollTop=0;
+    if (header) header.classList.remove('opacity-0','pointer-events-none');
   }
+}
 
-  function resetBaseDimensions() {
-    const target = getDragTarget();
-    if (!target) return;
-    
-    const tempScale = currentScale;
-    
-    target.style.width = '';
-    target.style.height = '';
-    target.style.maxWidth = '100%';
-    target.style.maxHeight = '100%';
-    
-    baseWidth = target.clientWidth;
-    baseHeight = target.clientHeight;
-    
-    currentScale = tempScale;
-    applyZoom();
-  }
+// Drag-to-pan
+lbScroll.addEventListener('mousedown', e => {
+  if (currentScale<=1.0) return;
+  isDragging=true; dStartX=e.clientX; dStartY=e.clientY;
+  dScrollL=lbScroll.scrollLeft; dScrollT=lbScroll.scrollTop;
+  lbScroll.style.cursor='grabbing'; e.preventDefault();
+});
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  lbScroll.scrollLeft = dScrollL-(e.clientX-dStartX);
+  lbScroll.scrollTop  = dScrollT-(e.clientY-dStartY);
+});
+document.addEventListener('mouseup', () => { if (isDragging) { isDragging=false; lbScroll.style.cursor='grab'; } });
 
-  function applyZoom() {
-    const target = getDragTarget();
-    if (!target) return;
-    
-    const headerText = document.getElementById('lightbox-header-text');
-    
-    if (currentScale > 1.0) {
-      target.style.width = `${baseWidth * currentScale}px`;
-      target.style.height = `${baseHeight * currentScale}px`;
-      target.style.maxWidth = 'none';
-      target.style.maxHeight = 'none';
-      
-      dragContainer.classList.remove('items-center', 'justify-center');
-      dragContainer.classList.add('items-start', 'justify-start');
-      dragContainer.style.cursor = 'grab';
-      
-      if (headerText) {
-        headerText.classList.add('opacity-0', 'pointer-events-none');
-      }
-    } else {
-      target.style.width = '';
-      target.style.height = '';
-      target.style.maxWidth = '100%';
-      target.style.maxHeight = '100%';
-      
-      dragContainer.classList.remove('items-start', 'justify-start');
-      dragContainer.classList.add('items-center', 'justify-center');
-      dragContainer.style.cursor = 'default';
-      
-      dragContainer.scrollLeft = 0;
-      dragContainer.scrollTop = 0;
-      
-      if (headerText) {
-        headerText.classList.remove('opacity-0', 'pointer-events-none');
-      }
-    }
-  }
+async function openLB(idx, pushUrl=true) {
+  lbIndex = idx;
+  const p = filteredList[idx]; if (!p) return;
 
-  // Click and drag to scroll container
-  let isDragging = false;
-  let startX = 0;
-  let startY = 0;
-  let scrollLeft = 0;
-  let scrollTop = 0;
+  // ── Open lightbox FIRST so the element is visible before any dimension
+  //    measurement. Cached images fire onload synchronously; if the lightbox
+  //    is still hidden (visibility:hidden) at that point clientWidth = 0,
+  //    which produces the "small/inverted" first-open bug.
+  lbEl.classList.add('active');
+  document.body.style.overflow = 'hidden';
 
-  dragContainer.addEventListener('mousedown', (e) => {
-    if (currentScale <= 1.0) return;
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    scrollLeft = dragContainer.scrollLeft;
-    scrollTop = dragContainer.scrollTop;
-    dragContainer.style.cursor = 'grabbing';
-    e.preventDefault();
-  });
+  // Reset content to loading state
+  lbImg.classList.add('hidden'); lbCanvas.classList.add('hidden');
+  lbLoading.classList.remove('hidden'); lbLoading.classList.add('flex');
 
-  document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-    dragContainer.scrollLeft = scrollLeft - dx;
-    dragContainer.scrollTop = scrollTop - dy;
-  });
+  document.getElementById('lb-title').textContent       = p.title;
+  document.getElementById('lb-author-line').textContent = p.author;
+  document.getElementById('lb-theme-chip').textContent  = p.themeName;
+  lbCounter.textContent = `${idx+1} / ${filteredList.length}`;
 
-  document.addEventListener('mouseup', () => {
-    if (isDragging) {
-      isDragging = false;
-      dragContainer.style.cursor = 'grab';
-    }
-  });
+  // Arrows
+  document.getElementById('lb-prev').disabled = idx === 0;
+  document.getElementById('lb-next').disabled = idx === filteredList.length - 1;
 
-  dragContainer.addEventListener('mouseleave', () => {
-    if (isDragging) {
-      isDragging = false;
-      dragContainer.style.cursor = 'grab';
-    }
-  });
+  currentScale = 1.0; updateZoomText();
+  document.getElementById('zoom-controls').classList.remove('hidden');
+  document.getElementById('zoom-controls').classList.add('flex');
 
-  async function openLightbox(poster, updateUrl = true) {
-    lbTitle.textContent = poster.title;
-    lbAuthor.textContent = poster.author;
-    lbTheme.textContent = poster.themeName;
-    
-    currentScale = 1.0;
-    updateZoomText();
-    zoomControls.classList.remove('hidden');
-    zoomControls.classList.add('flex');
-    
-    if (updateUrl) {
-      window.location.hash = 'poster-' + poster.id;
-    }
-    
-    isPdf = poster.fullUrl.toLowerCase().endsWith('.pdf');
-    
-    if (isPdf) {
-      lbImg.classList.add('hidden');
-      lbCanvas.classList.remove('hidden');
-      
-      try {
-        const loadingTask = pdfjsLib.getDocument(poster.fullUrl);
-        currentPdfDoc = await loadingTask.promise;
-        currentPdfPage = await currentPdfDoc.getPage(1);
-        renderPdf();
-      } catch (err) {
-        console.error('Error loading PDF: ', err);
-      }
-    } else {
-      lbCanvas.classList.add('hidden');
-      lbImg.classList.remove('hidden');
-      
-      lbImg.onload = null;
-      lbImg.src = poster.fullUrl;
-      
-      const onReady = () => {
-        resetBaseDimensions();
-        setTimeout(resetBaseDimensions, 100);
-      };
-      if (lbImg.complete) {
-        onReady();
-      } else {
-        lbImg.onload = onReady;
-      }
-    }
-    
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+  // Reset scroll container alignment — clears any leftover zoom/pan state
+  // from the previously viewed poster (otherwise it can appear off-center).
+  lbScroll.classList.remove('items-start', 'justify-start');
+  lbScroll.classList.add('items-center', 'justify-center');
+  lbScroll.style.cursor = 'default';
+  lbScroll.scrollLeft = 0;
+  lbScroll.scrollTop = 0;
 
-  function renderPdf() {
-    if (!currentPdfPage) return;
-    const viewport = currentPdfPage.getViewport({ scale: 2.5, rotation: currentPdfPage.rotate || 0 });
-    const context = lbCanvas.getContext('2d');
-    
-    lbCanvas.height = viewport.height;
-    lbCanvas.width = viewport.width;
-    
-    lbCanvas.style.maxWidth = '100%';
-    lbCanvas.style.maxHeight = '100%';
-    lbCanvas.style.objectFit = 'contain';
-    
-    const renderContext = {
-      canvasContext: context,
-      viewport: viewport
-    };
-    currentPdfPage.render(renderContext).promise.then(() => {
-      resetBaseDimensions();
+  if (pushUrl) window.location.hash = 'poster-' + p.id;
+  incView(p.id);
+  populateSidebar(p);
+
+  // Helper: defer resetBaseDims until after the browser has painted.
+  // double-rAF ensures layout has settled; the 250ms fallback catches
+  // edge cases (e.g. SVG decode latency, CSS transition still in flight).
+  function scheduleReset() {
+    requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        resetBaseDimensions();
-        setTimeout(resetBaseDimensions, 100);
+        resetBaseDims();
+        setTimeout(resetBaseDims, 250);
       });
     });
   }
 
-  function closeLightbox(updateUrl = true) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-    
-    if (updateUrl && window.location.hash.startsWith('#poster-')) {
-      window.history.pushState("", document.title, window.location.pathname + window.location.search);
+  isPdf = p.fullUrl.toLowerCase().endsWith('.pdf');
+  if (isPdf) {
+    try {
+      const task = pdfjsLib.getDocument(p.fullUrl);
+      currentPdfDoc  = await task.promise;
+      currentPdfPage = await currentPdfDoc.getPage(1);
+      // Keep the loading spinner visible — renderPDF() will hide it and
+      // reveal the canvas only AFTER the canvas has finished drawing.
+      // (Previously the canvas was shown here, before rendering completed,
+      //  which caused the blank/small flash on first open.)
+      renderPDF();
+    } catch(err) {
+      console.error(err);
+      lbLoading.classList.add('hidden'); lbLoading.classList.remove('flex');
     }
-    
-    setTimeout(() => { 
-      lbImg.src = ''; 
-      lbImg.classList.add('hidden');
-      lbCanvas.classList.add('hidden');
-      if (lbCanvas.getContext) {
-          lbCanvas.getContext('2d').clearRect(0, 0, lbCanvas.width, lbCanvas.height);
-      }
-      currentPdfDoc = null;
-      currentPdfPage = null;
-    }, 300);
-  }
+  } else {
+    lbImg.onload  = null;
+    lbImg.onerror = null;
+    lbImg.src = p.fullUrl;
 
-  // Zoom functionality
-  function updateZoomText() {
-    zoomLevelText.textContent = `${Math.round(currentScale * 100)}%`;
-  }
-  
-  btnZoomIn.addEventListener('click', () => {
-    if (currentScale < 10.0) {
-      currentScale = Math.min(currentScale + 0.5, 10.0);
-      updateZoomText();
-      applyZoom();
-    }
-  });
+    const showImage = () => {
+      lbLoading.classList.add('hidden'); lbLoading.classList.remove('flex');
+      lbImg.classList.remove('hidden');
+      scheduleReset();
+    };
 
-  btnZoomOut.addEventListener('click', () => {
-    if (currentScale > 0.5) {
-      currentScale = Math.max(currentScale - 0.5, 0.5);
-      updateZoomText();
-      applyZoom();
-    }
-  });
-
-  // Touch Zoom (Pinch-to-zoom and Double-tap-to-zoom)
-  let touchStartDist = 0;
-  let touchStartScale = 1.0;
-  let lastTap = 0;
-  let isMultiTouch = false;
-
-  dragContainer.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 2) {
-      isMultiTouch = true;
-      touchStartDist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      touchStartScale = currentScale;
-    } else if (e.touches.length === 1) {
-      isMultiTouch = false;
-    }
-  }, { passive: false });
-
-  dragContainer.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 2) {
-      e.preventDefault(); // Prevent native browser zoom
-      const dist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      if (touchStartDist > 0) {
-        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-        
-        const rect = dragContainer.getBoundingClientRect();
-        const relativeX = midX - rect.left + dragContainer.scrollLeft;
-        const relativeY = midY - rect.top + dragContainer.scrollTop;
-        
-        let newScale = touchStartScale * (dist / touchStartDist);
-        newScale = Math.min(Math.max(newScale, 1.0), 10.0);
-        
-        const oldScale = currentScale;
-        currentScale = newScale;
-        updateZoomText();
-        applyZoom();
-        
-        if (oldScale > 0 && newScale !== oldScale) {
-          const ratio = newScale / oldScale;
-          dragContainer.scrollLeft = relativeX * ratio - (midX - rect.left);
-          dragContainer.scrollTop = relativeY * ratio - (midY - rect.top);
-        }
-      }
-    }
-  }, { passive: false });
-
-  dragContainer.addEventListener('touchend', (e) => {
-    if (e.touches.length < 2) {
-      touchStartDist = 0;
-    }
-    
-    if (isMultiTouch) {
-      if (e.touches.length === 0) {
-        isMultiTouch = false;
-      }
-      return;
-    }
-    
-    // Double tap detection
-    const currentTime = new Date().getTime();
-    const tapLength = currentTime - lastTap;
-    if (tapLength < 300 && tapLength > 0) {
-      if (currentScale > 1.0) {
-        currentScale = 1.0;
-      } else {
-        currentScale = 3.0;
-      }
-      updateZoomText();
-      applyZoom();
-      e.preventDefault();
-    }
-    lastTap = currentTime;
-  });
-
-  lbClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-  });
-
-  // Handle URL deep-linking
-  function checkUrlRoute() {
-    const hash = window.location.hash;
-    const urlParams = new URLSearchParams(window.location.search);
-    let posterId = parseInt(urlParams.get('poster') || urlParams.get('id'), 10);
-    
-    if (!posterId && hash.startsWith('#poster-')) {
-      posterId = parseInt(hash.replace('#poster-', ''), 10);
-    }
-    
-    if (posterId) {
-      const poster = posters.find(p => p.id === posterId);
-      if (poster) {
-        openLightbox(poster, false);
-      }
+    // Image may already be cached — check naturalWidth to be sure it decoded
+    if (lbImg.complete && lbImg.naturalWidth > 0) {
+      showImage();
     } else {
-      if (lightbox.classList.contains('active')) {
-        closeLightbox(false);
-      }
+      lbImg.onload  = showImage;
+      lbImg.onerror = () => { lbLoading.classList.add('hidden'); lbLoading.classList.remove('flex'); };
     }
   }
+}
 
-  window.addEventListener('hashchange', checkUrlRoute);
-  window.addEventListener('popstate', checkUrlRoute);
-
-  // Initial Render
-  renderPosters(posters);
-  checkUrlRoute();
-
-  // Anti-Piracy Measures
-  document.addEventListener('contextmenu', event => {
-    if (event.target.tagName === 'IMG' || event.target.closest('.poster-card') || event.target.closest('#lightbox')) {
-        event.preventDefault();
-    }
+function renderPDF() {
+  if (!currentPdfPage) return;
+  const vp = currentPdfPage.getViewport({ scale:2.5, rotation:currentPdfPage.rotate||0 });
+  const ctx = lbCanvas.getContext('2d');
+  // Set canvas pixel buffer dimensions before drawing
+  lbCanvas.height = vp.height;
+  lbCanvas.width  = vp.width;
+  lbCanvas.style.width    = '';
+  lbCanvas.style.height   = '';
+  lbCanvas.style.maxWidth  = '100%';
+  lbCanvas.style.maxHeight = '100%';
+  currentPdfPage.render({ canvasContext: ctx, viewport: vp }).promise.then(() => {
+    // Drawing is DONE — now it is safe to show the canvas and hide the spinner.
+    // Doing this before render completes caused the blank/tiny canvas flash.
+    lbLoading.classList.add('hidden'); lbLoading.classList.remove('flex');
+    lbCanvas.classList.remove('hidden');
+    // Double-rAF: let the browser actually paint the revealed canvas before
+    // measuring its rendered dimensions for the zoom system.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        resetBaseDims();
+        setTimeout(resetBaseDims, 250); // safety fallback
+      });
+    });
   });
-  document.addEventListener('keydown', (e) => {
-    // Block Print (Ctrl+P, Cmd+P)
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-      e.preventDefault();
-      alert('Printing is disabled to protect research IP.');
+}
+
+
+function closeLB(pushUrl=true) {
+  lbEl.classList.remove('active');
+  document.body.style.overflow='';
+  if (pushUrl && window.location.hash.startsWith('#poster-')) {
+    history.pushState('', document.title, location.pathname + location.search);
+  }
+  setTimeout(() => {
+    lbImg.src=''; lbImg.classList.add('hidden'); lbCanvas.classList.add('hidden');
+    if (lbCanvas.getContext) lbCanvas.getContext('2d').clearRect(0,0,lbCanvas.width,lbCanvas.height);
+    currentPdfDoc=null; currentPdfPage=null;
+  }, 300);
+}
+
+// ================================================================
+//  SIDEBAR POPULATE
+// ================================================================
+function populateSidebar(p) {
+  // Avatar initials
+  const initials = p.author.split(/\s+/).filter(w=>w.match(/^[A-Z\u0900-\u097F]/)).slice(0,2).map(w=>w[0]).join('') || p.author.substring(0,2).toUpperCase();
+  document.getElementById('lb-avatar').textContent = initials;
+  document.getElementById('lb-sb-author').textContent = p.author;
+  document.getElementById('lb-sb-affil').textContent  = p.affiliation;
+  document.getElementById('lb-abstract').textContent  = p.abstract;
+
+  // Keywords
+  document.getElementById('lb-keywords').innerHTML = (p.keywords||[]).map(k=>`<span class="kw-tag">${k}</span>`).join('');
+
+  // Metrics
+  document.getElementById('lb-views').textContent    = `${totalViews(p)} views`;
+  document.getElementById('lb-bm-count').textContent = `${isBookmarked(p.id)?'Bookmarked':'Not bookmarked'}`;
+
+  // Bookmark button state
+  refreshSidebarBM(p);
+
+  // Download
+  const dl = document.getElementById('lb-btn-dl');
+  if (p.fullUrl.toLowerCase().endsWith('.pdf')) {
+    dl.href = p.fullUrl; dl.classList.remove('hidden'); dl.classList.add('flex');
+  } else {
+    dl.classList.add('hidden'); dl.classList.remove('flex');
+  }
+
+  // Related (same theme, ≠ id, up to 3)
+  const related = posters.filter(r=>r.theme===p.theme && r.id!==p.id).slice(0,3);
+  document.getElementById('lb-related').innerHTML = related.map(rp => {
+    const ri = filteredList.findIndex(x=>x.id===rp.id);
+    const click = ri>=0 ? `openLB(${ri})` : 'void(0)';
+    return `<div class="rel-card" onclick="${click}">
+      <img src="${rp.thumbUrl}" alt="${rp.title}" class="rel-thumb no-select" loading="lazy" draggable="false" oncontextmenu="return false;">
+      <div class="min-w-0">
+        <p class="text-xs font-semibold text-on-surface line-clamp-2 leading-snug mb-1">${rp.title}</p>
+        <p class="text-[10px] text-on-surface-variant line-clamp-1">${rp.author}</p>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function refreshSidebarBM(poster) {
+  poster = poster || filteredList[lbIndex];
+  if (!poster) return;
+  const bm = isBookmarked(poster.id);
+  const icon  = document.getElementById('lb-bm-icon');
+  const label = document.getElementById('lb-bm-label');
+  const count = document.getElementById('lb-bm-count');
+  if (icon) { icon.style.fontVariationSettings = bm ? "'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24" : "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24"; icon.style.color = bm ? '#2d6a1a' : ''; }
+  if (label) label.textContent = bm ? 'Bookmarked' : 'Bookmark';
+  if (count) count.textContent = bm ? 'Bookmarked' : 'Not bookmarked';
+}
+
+function sidebarToggleBookmark() {
+  const p = filteredList[lbIndex]; if (!p) return;
+  const nowBm = toggleBM(p.id);
+  refreshSidebarBM(p);
+  showToast(nowBm ? 'Poster bookmarked!' : 'Bookmark removed', nowBm ? 'bookmark' : 'bookmark_remove');
+}
+
+function sidebarShare() {
+  const p = filteredList[lbIndex]; if (!p) return;
+  cardShare(p.id);
+}
+
+// ================================================================
+//  ZOOM
+// ================================================================
+function updateZoomText() { document.getElementById('zoom-level').textContent = `${Math.round(currentScale*100)}%`; }
+document.getElementById('btn-zoom-in').addEventListener('click', () => {
+  if (currentScale<10.0) { currentScale=Math.min(currentScale+0.5,10.0); updateZoomText(); applyZoom(); }
+});
+document.getElementById('btn-zoom-out').addEventListener('click', () => {
+  if (currentScale>0.5) { currentScale=Math.max(currentScale-0.5,0.5); updateZoomText(); applyZoom(); }
+});
+
+// ================================================================
+//  PREV / NEXT
+// ================================================================
+document.getElementById('lb-prev').addEventListener('click', () => { if (lbIndex>0) openLB(lbIndex-1); });
+document.getElementById('lb-next').addEventListener('click', () => { if (lbIndex<filteredList.length-1) openLB(lbIndex+1); });
+
+// ================================================================
+//  SIDEBAR TOGGLE
+// ================================================================
+document.getElementById('btn-info').addEventListener('click', () => {
+  sidebarOpen = !sidebarOpen;
+  lbSidebar.classList.toggle('sb-open', sidebarOpen);
+});
+
+// ================================================================
+//  FULLSCREEN
+// ================================================================
+document.getElementById('btn-fullscreen').addEventListener('click', () => {
+  const icon = document.getElementById('fullscreen-icon');
+  if (!document.fullscreenElement) {
+    lbEl.requestFullscreen?.().catch(()=>{});
+    icon.textContent = 'fullscreen_exit';
+  } else {
+    document.exitFullscreen?.().catch(()=>{});
+    icon.textContent = 'fullscreen';
+  }
+});
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) document.getElementById('fullscreen-icon').textContent = 'fullscreen';
+});
+
+// ================================================================
+//  TOUCH ZOOM & DOUBLE-TAP
+// ================================================================
+lbScroll.addEventListener('touchstart', e => {
+  if (e.touches.length===2) {
+    isMultiTouch=true;
+    touchStartDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+    touchStartScale=currentScale;
+  } else if (e.touches.length===1) { isMultiTouch=false; }
+}, {passive:false});
+
+lbScroll.addEventListener('touchmove', e => {
+  if (e.touches.length===2) {
+    e.preventDefault();
+    const dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+    if (touchStartDist>0) {
+      currentScale=Math.min(Math.max(touchStartScale*(dist/touchStartDist),1.0),10.0);
+      updateZoomText(); applyZoom();
     }
-    // Block Save (Ctrl+S, Cmd+S)
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
-      e.preventDefault();
-    }
-    // Deterrent for Screenshots (PrintScreen key)
-    if (e.key === 'PrintScreen') {
-      navigator.clipboard.writeText('Screenshots are disabled.');
-      alert('Screenshots are disabled to protect research IP.');
-    }
+  }
+}, {passive:false});
+
+lbScroll.addEventListener('touchend', e => {
+  if (e.touches.length<2) touchStartDist=0;
+  if (isMultiTouch) { if (e.touches.length===0) isMultiTouch=false; return; }
+  const now=Date.now(), gap=now-lastTap;
+  if (gap<300&&gap>0) { currentScale=currentScale>1.0?1.0:3.0; updateZoomText(); applyZoom(); e.preventDefault(); }
+  lastTap=now;
+});
+
+// ================================================================
+//  KEYBOARD
+// ================================================================
+document.addEventListener('keydown', e => {
+  if (!lbEl.classList.contains('active')) return;
+  if (e.key==='Escape')      closeLB();
+  if (e.key==='ArrowLeft'  && lbIndex>0)                         openLB(lbIndex-1);
+  if (e.key==='ArrowRight' && lbIndex<filteredList.length-1)     openLB(lbIndex+1);
+});
+
+// Close on backdrop click
+document.getElementById('lightbox-close').addEventListener('click', closeLB);
+lbEl.addEventListener('click', e => { if (e.target===lbEl) closeLB(); });
+
+// ================================================================
+//  URL DEEP-LINK
+// ================================================================
+function checkRoute() {
+  const hash = location.hash;
+  const params = new URLSearchParams(location.search);
+  let pid = parseInt(params.get('poster')||params.get('id'),10);
+  if (!pid && hash.startsWith('#poster-')) pid = parseInt(hash.replace('#poster-',''),10);
+  if (pid) {
+    const idx = filteredList.findIndex(p=>p.id===pid);
+    if (idx>=0) openLB(idx, false);
+  } else {
+    if (lbEl.classList.contains('active')) closeLB(false);
+  }
+}
+window.addEventListener('hashchange', checkRoute);
+window.addEventListener('popstate', checkRoute);
+
+// ================================================================
+//  MOBILE NAV
+// ================================================================
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileNav     = document.getElementById('mobile-nav');
+const menuIcon      = document.getElementById('menu-icon');
+mobileMenuBtn.addEventListener('click', () => {
+  const active = mobileNav.classList.toggle('active');
+  menuIcon.innerText = active ? 'close' : 'menu';
+  document.body.classList.toggle('overflow-hidden', active);
+});
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    menuIcon.innerText='menu';
+    document.body.classList.remove('overflow-hidden');
   });
+});
+
+// ================================================================
+//  STATS COUNT-UP
+// ================================================================
+function countUp(el) {
+  const target = parseInt(el.dataset.target,10);
+  const suffix = el.dataset.suffix||'';
+  let start=null, dur=1100;
+  const tick = ts => {
+    if (!start) start=ts;
+    const p = Math.min((ts-start)/dur,1);
+    const eased = 1-Math.pow(1-p,3);
+    el.textContent = Math.floor(eased*target)+(p===1?suffix:'');
+    if (p<1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); statObs.unobserve(e.target); } });
+}, { threshold:0.5 });
+document.querySelectorAll('.stat-num[data-target]').forEach(el => statObs.observe(el));
+
+// ================================================================
+//  ANTI-PIRACY
+// ================================================================
+document.addEventListener('contextmenu', e => {
+  if (e.target.tagName==='IMG'||e.target.closest('.poster-card')||e.target.closest('#lightbox')) e.preventDefault();
+});
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='p') { e.preventDefault(); alert('Printing is disabled to protect research IP.'); }
+  if ((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='s') e.preventDefault();
+  if (e.key==='PrintScreen') { navigator.clipboard.writeText('Screenshots are disabled.'); alert('Screenshots are disabled to protect research IP.'); }
+});
+
+// ================================================================
+//  INIT
+// ================================================================
+syncPills('all');
+applyAll();
+checkRoute();
 </script>
 </body>
 </html>
