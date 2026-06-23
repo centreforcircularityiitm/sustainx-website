@@ -503,25 +503,415 @@
       <div class="gold-rule mt-12"></div>
     </section>
 
-    <!-- Accommodation Notice -->
-    <section class="max-w-screen-2xl mx-auto px-4 md:px-12 mb-12">
-      <div class="bg-surface-container-high border-l-8 border-primary p-8 md:p-12 shadow-sm relative overflow-hidden">
-        <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[10rem] text-primary/5 rotate-12">hotel</span>
-        <div class="relative z-10 flex flex-col md:flex-row items-start gap-8">
-          <div class="bg-primary text-white p-4 shrink-0">
-            <span class="material-symbols-outlined text-4xl">apartment</span>
+    <!-- Accommodation Section -->
+    <section class="max-w-screen-2xl mx-auto px-4 md:px-12 mb-24">
+
+      <!-- Accommodation Header -->
+      <div class="text-center mb-16">
+        <span class="text-secondary font-label text-sm tracking-[0.3em] uppercase mb-4 block">Accommodation & Stay</span>
+        <h2 class="text-3xl md:text-5xl font-headline text-primary mt-6">Accommodation Guide</h2>
+        <p class="text-on-surface-variant mt-4 max-w-2xl mx-auto leading-relaxed">
+          We apologize for not providing accommodation due to limited guest house availability. Please explore the options below to plan your stay.
+        </p>
+      </div>
+
+      <!-- Important Notice -->
+      <div class="group relative bg-gradient-to-br from-error/8 via-error/5 to-transparent border-l-[3px] border-error p-8 md:p-10 mb-16 overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-error/10">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-[0.03]">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-error rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-error rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
+        </div>
+        <!-- Decorative Grid Lines -->
+        <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(186,26,26,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(186,26,26,0.3) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <!-- Corner Accent -->
+        <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+          <div class="absolute top-4 right-4 w-24 h-24 border border-error/40 rotate-45 group-hover:rotate-[55deg] transition-transform duration-700"></div>
+          <div class="absolute top-6 right-6 w-20 h-20 border border-error/30 rotate-45 group-hover:rotate-[55deg] transition-transform duration-700 delay-75"></div>
+        </div>
+        <div class="relative z-10 flex items-start gap-6">
+          <!-- Animated Icon -->
+          <div class="relative shrink-0">
+            <div class="absolute inset-0 bg-error/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-500 animate-pulse"></div>
+            <div class="relative bg-gradient-to-br from-error to-red-700 text-white p-4 rounded-xl shadow-lg shadow-error/25 group-hover:shadow-error/40 group-hover:scale-105 transition-all duration-500">
+              <span class="material-symbols-outlined text-3xl">warning</span>
+            </div>
           </div>
-          <div>
-            <h2 class="text-2xl md:text-3xl font-headline text-primary mb-4">Accommodation Information</h2>
-            <p class="text-lg text-on-surface-variant leading-relaxed mb-4">
-              We <strong class="text-primary">won't provide any accommodation</strong>; participants are requested to arrange for their stay by themselves.
+          <div class="flex-1">
+            <!-- Title with animated underline -->
+            <div class="inline-block mb-3">
+              <h3 class="font-bold text-error uppercase tracking-[0.2em] text-sm">Important Notice</h3>
+              <div class="h-0.5 bg-gradient-to-r from-error via-error/60 to-transparent mt-1 group-hover:from-error group-hover:via-error group-hover:to-error/40 transition-all duration-500"></div>
+            </div>
+            <p class="text-on-surface-variant/90 leading-relaxed mb-3 text-[15px]">
+              The Conference Organizing Team <strong class="text-error font-semibold">does not provide or arrange accommodation</strong> for participants. Registered candidates who wish to stay at IIT Madras Hostel must <strong class="text-primary font-semibold">independently apply for temporary guest accommodation</strong>, subject to hostel availability.
             </p>
-            <p class="text-on-surface-variant leading-relaxed">
-              There are many <strong class="text-primary">PG hostels and hotels</strong> available nearby IIT Madras (Adyar, Velachery, and Taramani areas). We recommend exploring these options early to ensure a comfortable visit.
+            <p class="text-on-surface-variant/80 leading-relaxed text-[15px]">
+              Students can arrange their accommodation in the hostels following the SOP mentioned below. Participants may also explore hotel options near the campus.
             </p>
+            <!-- Bottom Accent Line -->
+            <div class="mt-6 pt-4 border-t border-error/10 flex items-center gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></div>
+              <span class="text-[10px] font-bold text-error/60 uppercase tracking-[0.2em]">Please read the accommodation procedures carefully</span>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Two Column Layout: Hostel SOP & Hotel Recommendations -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Left Column: IIT Madras Hostel Accommodation SOP -->
+        <div class="bg-surface-container-lowest border border-outline-variant shadow-sm">
+          <!-- Column Header -->
+          <div class="bg-primary p-6 flex items-center gap-4">
+            <span class="material-symbols-outlined text-white text-3xl">account_balance</span>
+            <div>
+              <h3 class="text-xl font-headline text-white">IIT Madras Hostel Accommodation</h3>
+              <p class="text-white/70 text-sm">Self-Organised Student Accommodation Procedure</p>
+            </div>
+          </div>
+
+          <div class="p-8">
+
+            <!-- Step 1 -->
+            <div class="mb-10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">1</div>
+                <h4 class="text-lg font-bold text-primary">Access the IIT Madras Hostel Portal</h4>
+              </div>
+              <div class="ml-14 space-y-3">
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Visit the IIT Madras Hostel Guest Accommodation Portal:</p>
+                </div>
+                <a href="https://ikollege.iitm.ac.in/iitmhostel/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 group bg-primary/5 px-4 py-3 border border-primary/10 hover:border-primary/30 transition-all">
+                  <span class="material-symbols-outlined text-primary text-lg">link</span>
+                  <span class="text-sm text-primary font-medium group-hover:underline">ikollege.iitm.ac.in/iitmhostel</span>
+                </a>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Click on <strong class="text-primary">"Temporary Guest Login"</strong></p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Follow the instructions and complete all required fields</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gold-rule mb-10"></div>
+
+            <!-- Step 2 -->
+            <div class="mb-10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">2</div>
+                <h4 class="text-lg font-bold text-primary">Complete the Accommodation Application</h4>
+              </div>
+              <div class="ml-14 space-y-4">
+                <!-- Coordinator Details Card -->
+                <div class="bg-surface-container-high p-5 border border-outline-variant">
+                  <h5 class="font-bold text-primary text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">person</span>
+                    Coordinator Details
+                  </h5>
+                  <div class="space-y-2 text-sm">
+                    <div class="flex gap-3">
+                      <span class="text-on-surface-variant font-medium w-24 shrink-0">Name:</span>
+                      <span class="text-primary font-bold">Prof Sankha Karmakar</span>
+                    </div>
+                    <div class="flex gap-3">
+                      <span class="text-on-surface-variant font-medium w-24 shrink-0">Email:</span>
+                      <span class="text-primary font-bold">skarmakar@iitm.ac.in</span>
+                    </div>
+                    <div class="flex gap-3">
+                      <span class="text-on-surface-variant font-medium w-24 shrink-0">Department:</span>
+                      <span class="text-primary font-bold">Chemical Engineering</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Upload Acceptance mail (for oral/poster presentation) or Registration proof (for workshop) if supporting documents are requested</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Mention your required accommodation dates corresponding to the conference duration</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gold-rule mb-10"></div>
+
+            <!-- Step 3 -->
+            <div class="mb-10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">3</div>
+                <h4 class="text-lg font-bold text-primary">Capture Application Screenshot</h4>
+              </div>
+              <div class="ml-14 space-y-3">
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Carefully review all entered information before submitting</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">check_circle</span>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">Take a clear screenshot of the completed application page showing accommodation request details</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gold-rule mb-10"></div>
+
+            <!-- Step 4 -->
+            <div class="mb-10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">4</div>
+                <h4 class="text-lg font-bold text-primary">Email for Accommodation Approval</h4>
+              </div>
+              <div class="ml-14 space-y-4">
+                <p class="text-sm text-on-surface-variant leading-relaxed">After completing the hostel application, send an email with the following attachments:</p>
+
+                <div class="bg-surface-container-high p-4 border border-outline-variant space-y-2">
+                  <p class="text-sm text-on-surface-variant flex items-center gap-2">
+                    <span class="material-symbols-outlined text-secondary text-lg">attach_file</span>
+                    Hostel Application Screenshot
+                  </p>
+                  <p class="text-sm text-on-surface-variant flex items-center gap-2">
+                    <span class="material-symbols-outlined text-secondary text-lg">attach_file</span>
+                    Conference Registration Payment Screenshot
+                  </p>
+                </div>
+
+                <div class="bg-primary/5 p-4 border border-primary/20">
+                  <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Send To:</p>
+                  <a href="mailto:centreforcircularity.iitm@gmail.com" class="text-sm text-primary font-bold hover:underline break-all">centreforcircularity.iitm@gmail.com</a>
+                </div>
+
+                <div class="bg-surface-container-high p-4 border border-outline-variant">
+                  <p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Email Subject Line:</p>
+                  <p class="text-sm text-primary font-bold italic">"Registered Student Accommodation Approval Request"</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gold-rule mb-10"></div>
+
+            <!-- Items Not Provided -->
+            <div class="mb-8">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-error text-xl">inventory_2</span>
+                <h4 class="font-bold text-error uppercase tracking-widest text-sm">Items Not Provided</h4>
+              </div>
+              <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+                IIT Madras Hostel provides <strong class="text-primary">accommodation space only</strong>. The following items are not included and may need to be rented separately through an external agency (recommended by CCW Office):
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div class="bg-error/5 border border-error/10 px-4 py-2 text-center">
+                  <span class="text-sm text-on-surface-variant">Mattress</span>
+                </div>
+                <div class="bg-error/5 border border-error/10 px-4 py-2 text-center">
+                  <span class="text-sm text-on-surface-variant">Pillow</span>
+                </div>
+                <div class="bg-error/5 border border-error/10 px-4 py-2 text-center">
+                  <span class="text-sm text-on-surface-variant">Bedsheet</span>
+                </div>
+                <div class="bg-error/5 border border-error/10 px-4 py-2 text-center">
+                  <span class="text-sm text-on-surface-variant">Blanket</span>
+                </div>
+                <div class="bg-error/5 border border-error/10 px-4 py-2 text-center">
+                  <span class="text-sm text-on-surface-variant">Bucket</span>
+                </div>
+                <div class="bg-error/5 border border-error/10 px-4 py-2 text-center">
+                  <span class="text-sm text-on-surface-variant">Mug</span>
+                </div>
+              </div>
+              <p class="text-xs text-on-surface-variant/70 mt-3 italic">Associated rental charges, if any, must be borne by the participant.</p>
+            </div>
+
+            <div class="gold-rule mb-8"></div>
+
+            <!-- Contact & Charges Info -->
+            <div class="space-y-4">
+              <div class="bg-surface-container-high p-5 border border-outline-variant">
+                <h5 class="font-bold text-primary text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">paid</span>
+                  Accommodation Charges
+                </h5>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  Hostel accommodation at IIT Madras is <strong class="text-primary">not free of charge</strong>. Accommodation is provided subject to availability and applicable hostel fees as determined by the IIT Madras Hostel Administration. All expenses must be borne by the participant.
+                </p>
+              </div>
+
+              <div class="bg-surface-container-high p-5 border border-outline-variant">
+                <h5 class="font-bold text-primary text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">contact_support</span>
+                  Accommodation Support
+                </h5>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-3">For accommodation-related queries, contact:</p>
+                <div class="space-y-2">
+                  <a href="mailto:ccw.accommodation@smail.iitm.ac.in" class="flex items-center gap-3 text-sm text-primary font-bold hover:underline">
+                    <span class="material-symbols-outlined text-lg">email</span>
+                    ccw.accommodation@smail.iitm.ac.in
+                  </a>
+                  <div class="flex items-center gap-3 text-sm text-on-surface-variant">
+                    <span class="material-symbols-outlined text-lg">phone</span>
+                    <span>044 2257 8513 / 9566229672</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Hotel Recommendations -->
+        <div class="bg-surface-container-lowest border border-outline-variant shadow-sm">
+          <!-- Column Header -->
+          <div class="bg-secondary p-6 flex items-center gap-4">
+            <span class="material-symbols-outlined text-white text-3xl">hotel</span>
+            <div>
+              <h3 class="text-xl font-headline text-white">Hotel Recommendations</h3>
+              <p class="text-white/70 text-sm">Alternative Accommodation Options Near Campus</p>
+            </div>
+          </div>
+
+          <div class="p-8">
+
+            <!-- Ginger Hotel Highlight -->
+            <div class="mb-10">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-secondary text-xl">star</span>
+                <h4 class="font-bold text-primary uppercase tracking-widest text-sm">Recommended: Ginger Hotel</h4>
+              </div>
+              <div class="bg-secondary/5 border border-secondary/20 p-6 relative overflow-hidden">
+                <span class="material-symbols-outlined absolute -right-2 -bottom-2 text-[6rem] text-secondary/10 rotate-12">hotel</span>
+                <div class="relative z-10">
+                  <h5 class="text-lg font-bold text-primary mb-2">Ginger Hotel, IITM Research Park</h5>
+                  <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+                    Located adjacent to the IIT Madras campus, this is one of the most convenient options for conference participants.
+                  </p>
+                  <a href="https://www.gingerhotels.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 font-medium hover:bg-primary transition-all uppercase tracking-widest text-xs">
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    Book at Ginger Hotels
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shuttle Service -->
+            <div class="mb-10">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-secondary text-xl">directions_bus</span>
+                <h4 class="font-bold text-primary uppercase tracking-widest text-sm">Shuttle Service</h4>
+              </div>
+              <div class="bg-surface-container-high p-5 border border-outline-variant">
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+                  Participants staying at IITM Research Park may use the shuttle service operating between IITM Research Park and the IIT Madras campus to conveniently access the conference venue.
+                </p>
+                <a href="https://mm.themint.space/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 font-medium hover:bg-secondary transition-all uppercase tracking-widest text-xs">
+                  <span class="material-symbols-outlined text-sm">open_in_new</span>
+                  View Shuttle Schedule
+                </a>
+              </div>
+            </div>
+
+            <!-- Other Hotel Options -->
+            <div class="mb-10">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-secondary text-xl">other_houses</span>
+                <h4 class="font-bold text-primary uppercase tracking-widest text-sm">Other Hotel Options</h4>
+              </div>
+              <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+                Participants are also encouraged to explore other hotels, guest houses, and serviced apartments available in and around the IIT Madras area according to their preferences and budget.
+              </p>
+
+              <!-- Budget Hotels -->
+              <div class="mb-4">
+                <h5 class="text-xs font-bold text-secondary uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm">savings</span>
+                  Budget Hotels
+                </h5>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3 bg-surface-container-high px-4 py-3 border border-outline-variant">
+                    <span class="material-symbols-outlined text-secondary text-lg">hotel</span>
+                    <span class="text-sm text-on-surface-variant">Essentia Premier Hotel Chennai OMR</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-surface-container-high px-4 py-3 border border-outline-variant">
+                    <span class="material-symbols-outlined text-secondary text-lg">hotel</span>
+                    <span class="text-sm text-on-surface-variant">Itsy Hotels Mirra</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-surface-container-high px-4 py-3 border border-outline-variant">
+                    <span class="material-symbols-outlined text-secondary text-lg">hotel</span>
+                    <span class="text-sm text-on-surface-variant">FIRST INN HOTELS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Premium Hotels -->
+              <div>
+                <h5 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm">diamond</span>
+                  Premium Hotels
+                </h5>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3 bg-primary/5 px-4 py-3 border border-primary/10">
+                    <span class="material-symbols-outlined text-primary text-lg">hotel</span>
+                    <span class="text-sm text-primary font-medium">Lemon Tree</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-primary/5 px-4 py-3 border border-primary/10">
+                    <span class="material-symbols-outlined text-primary text-lg">hotel</span>
+                    <span class="text-sm text-primary font-medium">Westin</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gold-rule mb-8"></div>
+
+            <!-- Disclaimer -->
+            <div class="bg-surface-container-high p-5 border border-outline-variant">
+              <h5 class="font-bold text-on-surface-variant text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">gavel</span>
+                Disclaimer
+              </h5>
+              <ul class="space-y-2 text-xs text-on-surface-variant/80 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="text-secondary mt-1">&#8226;</span>
+                  The above information is provided solely as a general advisory for the convenience of participants.
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-secondary mt-1">&#8226;</span>
+                  The Conference Organizing Team and IIT Madras do not endorse, guarantee, reserve, or manage any accommodation facility.
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-secondary mt-1">&#8226;</span>
+                  All bookings, payments, transportation arrangements, cancellations, and related expenses are the sole responsibility of the participant.
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-secondary mt-1">&#8226;</span>
+                  Accommodation availability, room tariffs, and terms of stay are subject to the policies of the respective accommodation provider.
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Advisory -->
+      <div class="mt-12 bg-primary/5 border border-primary/20 p-8 text-center">
+        <div class="flex items-center justify-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-2xl">event_upcoming</span>
+          <h4 class="font-bold text-primary uppercase tracking-widest text-sm">Early Booking Advisory</h4>
+        </div>
+        <p class="text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          Participants are strongly encouraged to make their accommodation arrangements <strong class="text-primary">well in advance</strong> to avoid last-minute availability constraints. Due to high demand and limited room availability, early booking is recommended.
+        </p>
+      </div>
+
     </section>
 
 
