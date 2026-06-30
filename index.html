@@ -614,58 +614,7 @@
       user-select: none;
     }
 
-    /* Coin Flip Animation */
-    .sponsor-coin {
-      perspective: 1000px;
-      width: 120px;
-      height: 60px;
-    }
 
-    .sponsor-coin-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-style: preserve-3d;
-      animation: sponsor-flip 8s infinite;
-    }
-
-    .sponsor-coin-front,
-    .sponsor-coin-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      items-center;
-      justify-center;
-      background: white;
-      border-radius: 12px;
-      padding: 8px;
-      border: 1px solid rgba(45, 106, 26, 0.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .sponsor-coin-back {
-      transform: rotateY(180deg);
-    }
-
-    @keyframes sponsor-flip {
-
-      0%,
-      40% {
-        transform: rotateY(0);
-      }
-
-      50%,
-      90% {
-        transform: rotateY(180deg);
-      }
-
-      100% {
-        transform: rotateY(360deg);
-      }
-    }
   </style>
   <script>
     document.addEventListener('contextmenu', event => {
@@ -812,15 +761,33 @@
         alt="Sustainable architecture with rhythmic patterns" fetchpriority="high" decoding="sync" />
     </div>
     <div class="container mx-auto px-4 md:px-12 relative z-20">
-      <!-- Accommodation Important Notice -->
-      <div class="text-center notif-wrapper mx-auto max-w-3xl lg:max-w-4xl">
-        <div class="notif-unfold">
-          <div class="notif-wrap-frame">
-            <div class="notif-content notif-float notif-shimmer notif-glow-border bg-surface-container border-l-[3px] border-error/80 md:border-l-0 md:border-b-[3px] rounded-r-xl md:rounded-b-xl md:rounded-r-none px-4 md:px-6 py-3 md:py-3.5 flex items-start md:items-center justify-center gap-3 md:gap-4 shadow-sm relative z-[2]">
-              <span class="notif-icon-ring material-symbols-outlined text-error text-lg md:text-xl flex-shrink-0 mt-0.5 md:mt-0">warning</span>
-              <div class="text-xs md:text-sm leading-relaxed text-left md:text-center">
-                <span class="font-bold text-error">Accommodation Notice</span>
-                <span class="block mt-1 text-on-surface-variant">The Conference Organizing Team <strong class="text-error">does not provide or arrange accommodation</strong> for participants. Students wishing to stay at IIT Madras Hostel must <strong class="text-primary">apply independently</strong>. <a href="plan-your-trip" class="font-bold text-primary underline underline-offset-2 hover:text-secondary transition-colors">View Accommodation Guide →</a></span>
+      <!-- Notices Section -->
+      <div class="mx-auto max-w-3xl lg:max-w-4xl flex flex-col gap-4 mb-6">
+        <!-- Oral Presentation Registration Notice -->
+        <div class="text-center notif-wrapper">
+          <div class="notif-unfold">
+            <div class="notif-wrap-frame">
+              <div class="notif-content notif-float notif-shimmer notif-glow-border bg-surface-container border-l-[3px] border-secondary md:border-l-0 md:border-b-[3px] rounded-r-xl md:rounded-b-xl md:rounded-r-none px-4 md:px-6 py-3 md:py-3.5 flex items-start md:items-center justify-center gap-3 md:gap-4 shadow-sm relative z-[2]">
+                <span class="notif-icon-ring material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5 md:mt-0">event_upcoming</span>
+                <div class="text-xs md:text-sm leading-relaxed text-left md:text-center">
+                  <span class="font-bold text-secondary">Oral Presentation Registration Notice</span>
+                  <span class="block mt-1 text-on-surface-variant">All participants selected for oral presentations must register for the conference on or before <strong class="text-secondary font-bold">July 6, 2026</strong>. <a href="https://conf.code.iitm.ac.in/conf/SUSTAINX_2026/login" target="_blank" rel="noopener noreferrer" class="font-bold text-primary underline underline-offset-2 hover:text-secondary transition-colors">Register Now →</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accommodation Important Notice -->
+        <div class="text-center notif-wrapper">
+          <div class="notif-unfold">
+            <div class="notif-wrap-frame">
+              <div class="notif-content notif-float notif-shimmer notif-glow-border bg-surface-container border-l-[3px] border-error/80 md:border-l-0 md:border-b-[3px] rounded-r-xl md:rounded-b-xl md:rounded-r-none px-4 md:px-6 py-3 md:py-3.5 flex items-start md:items-center justify-center gap-3 md:gap-4 shadow-sm relative z-[2]">
+                <span class="notif-icon-ring material-symbols-outlined text-error text-lg md:text-xl flex-shrink-0 mt-0.5 md:mt-0">warning</span>
+                <div class="text-xs md:text-sm leading-relaxed text-left md:text-center">
+                  <span class="font-bold text-error">Accommodation Notice</span>
+                  <span class="block mt-1 text-on-surface-variant">The Conference Organizing Team <strong class="text-error">does not provide or arrange accommodation</strong> for participants. Students wishing to stay at IIT Madras Hostel must <strong class="text-primary">apply independently</strong>. <a href="plan-your-trip" class="font-bold text-primary underline underline-offset-2 hover:text-secondary transition-colors">View Accommodation Guide →</a></span>
+                </div>
               </div>
             </div>
           </div>
@@ -865,26 +832,7 @@
             </div>
           </div>
 
-          <!-- WRI Panel Discussion Highlight Box -->
-          <div class="mb-8 p-5 bg-primary/5 border-l-4 border-secondary flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between shadow-sm rounded-r-xl">
-            <div class="flex-1">
-              <div class="flex items-center gap-3 mb-1.5 flex-wrap">
-                <span class="bg-secondary/15 text-secondary border border-secondary/20 px-2 py-0.5 text-[9px] font-bold tracking-widest uppercase rounded">Moderated Panel Discussion</span>
-                <span class="text-[9px] text-on-surface-variant/70 font-bold uppercase tracking-wider">Convened by WRI India</span>
-              </div>
-              <h4 class="text-base md:text-lg font-bold text-primary mb-1">Give Batteries a Second Charge</h4>
-              <p class="text-xs text-on-surface-variant leading-relaxed">
-                Examining reuse and recycling pathways for India’s grid-scale battery future.
-              </p>
-            </div>
-            <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-0 border-outline-variant/20 pt-3 sm:pt-0">
-              <img src="assets/images/logos/wrilogo.svg" alt="WRI Logo" class="h-8 w-auto object-contain opacity-90" />
-              <a href="programme#featured-panel" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-secondary whitespace-nowrap group">
-                <span>View Details</span>
-                <span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-              </a>
-            </div>
-          </div>
+
 
           <div class="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawxO8fzPmdrxMJiPio2NZLZTkmgfrNpEZYgyrTj4C7nPozw/viewform"
@@ -930,17 +878,8 @@
               <img src="assets/images/logos/crret.png" alt="CRRET"
                 class="max-h-12 sm:max-h-16 w-auto object-contain opacity-80" decoding="async" />
 
-              <!-- Animated Sponsor Coin -->
-              <div class="sponsor-coin ml-2">
-                <div class="sponsor-coin-inner">
-                  <div class="sponsor-coin-front">
-                    <img src="assets/images/logos/hsbc.png" alt="HSBC Sponsor" class="h-full w-full object-contain" />
-                  </div>
-                  <div class="sponsor-coin-back">
-                    <img src="assets/images/logos/wrilogo.svg" alt="WRI Sponsor" class="h-full w-full object-contain" />
-                  </div>
-                </div>
-              </div>
+              <img src="assets/images/logos/hsbc.png" alt="HSBC Sponsor"
+                class="max-h-12 sm:max-h-16 w-auto object-contain opacity-80 ml-2" decoding="async" />
             </div>
           </div>
           <div class="grid grid-cols-2 gap-6 md:gap-8 bg-surface-container p-6 md:p-8 border-t-4 border-primary">
@@ -1119,25 +1058,15 @@
             industrial collaboration.</p>
         </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
+      <div class="flex justify-center items-center max-w-md mx-auto">
         <!-- HSBC Card -->
         <div
-          class="group relative flex items-center justify-center p-6 sm:p-10 md:p-12 bg-white rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_-20px_rgba(45,106,26,0.15)] transition-all duration-700 hover:-translate-y-2 border border-outline-variant/30">
+          class="w-full group relative flex items-center justify-center p-6 sm:p-10 md:p-12 bg-white rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_-20px_rgba(45,106,26,0.15)] transition-all duration-700 hover:-translate-y-2 border border-outline-variant/30">
           <div
             class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
           </div>
           <img src="assets/images/logos/hsbc.png" alt="HSBC Logo"
             class="h-20 sm:h-28 md:h-36 w-auto max-w-[90%] object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 relative z-10"
-            loading="lazy" />
-        </div>
-        <!-- WRI Card -->
-        <div
-          class="group relative flex items-center justify-center p-6 sm:p-10 md:p-12 bg-white rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_-20px_rgba(45,106,26,0.15)] transition-all duration-700 hover:-translate-y-2 border border-outline-variant/30">
-          <div
-            class="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-transparent rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-          </div>
-          <img src="assets/images/logos/wrilogo.svg" alt="WRI Logo"
-            class="h-14 sm:h-18 md:h-22 w-auto max-w-[85%] object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 relative z-10"
             loading="lazy" />
         </div>
       </div>
