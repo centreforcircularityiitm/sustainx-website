@@ -473,107 +473,133 @@
       </div>
     </section>
 
-    <!-- Day Tabs -->
-    <div class="flex flex-col md:flex-row gap-2 md:gap-4 mb-fluid-gap border-b-[0.5px] border-outline-variant">
+    <!-- Day Tabs & Schedule Accordion Container -->
+    <div id="schedule-tabs-container" class="flex flex-col md:flex-row gap-2 md:gap-4 mb-fluid-gap border-b-[0.5px] border-outline-variant">
       <button type="button" id="tab-day1" onclick="showDay('day1')"
         class="tab-btn px-4 md:px-8 py-3 md:py-4 bg-primary text-on-primary text-left transition-all flex-1">
-        <div class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Thursday</div>
-        <div class="font-headline text-lg md:text-xl">Day 1: July 23</div>
+        <div class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Thursday • Pre-Conference</div>
+        <div class="font-headline text-lg md:text-xl">July 23 — Workshop Day</div>
       </button>
       <button type="button" id="tab-day2" onclick="showDay('day2')"
-        class="tab-btn px-4 md:px-8 py-3 md:py-4 bg-surface-container hover:bg-surface-container-high text-left transition-all flex-1">
-        <div class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Friday</div>
-        <div class="font-headline text-lg md:text-xl">Day 2: July 24</div>
+        class="tab-btn px-4 md:px-8 py-3 md:py-4 bg-surface-container hover:bg-surface-container-high text-stone-600 text-left transition-all flex-1">
+        <div class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Friday • Conference Day 1</div>
+        <div class="font-headline text-lg md:text-xl">July 24 — Inaugural Day</div>
       </button>
       <button type="button" id="tab-day3" onclick="showDay('day3')"
-        class="tab-btn px-4 md:px-8 py-3 md:py-4 bg-surface-container hover:bg-surface-container-high text-left transition-all flex-1">
-        <div class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Saturday</div>
-        <div class="font-headline text-lg md:text-xl">Day 3: July 25</div>
+        class="tab-btn px-4 md:px-8 py-3 md:py-4 bg-surface-container hover:bg-surface-container-high text-stone-600 text-left transition-all flex-1">
+        <div class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Saturday • Conference Day 2</div>
+        <div class="font-headline text-lg md:text-xl">July 25 — Closing Day</div>
       </button>
     </div>
 
-    <!-- DAY 1: Pre-Conference Workshop -->
+    <!-- Day Content Areas (these will be moved after buttons dynamically on mobile screens) -->
     <div id="day1" class="day-content active space-y-0 relative">
       <div class="bg-surface-container-low px-4 md:px-12 py-4 mb-8 border-l-4 border-secondary">
-        <p class="text-sm text-on-surface-variant uppercase tracking-widest font-bold">Pre-Conference Workshop:
-          Skill-Based Intensive Sessions</p>
+        <p class="text-sm text-on-surface-variant uppercase tracking-widest font-bold">Pre-Conference Workshop · Skill-Based Intensive Sessions · Hall III, ICSR Building</p>
       </div>
 
-      <!-- Workshop 1 Row -->
+      <!-- Registration -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+        <div class="hidden md:block md:col-span-2 py-6 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">08:00 onwards</span>
+        </div>
+        <div class="md:col-span-10 py-4 px-4 md:py-6 md:pl-12 bg-surface-container-lowest">
+          <div class="flex items-center gap-3">
+            <span class="bg-outline text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Registration</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Building Entrance</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-full h-[0.5px] bg-secondary/10"></div>
+
+      <!-- Workshop 1 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
         <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">09:00 — 10:30</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+        <div class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
           <div class="flex items-center gap-3 mb-4">
-            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop
-              1</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Building</span>
+            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop 1</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Hall III · ICSR Building</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            AI in Circularity</h2>
-          <p class="text-sm text-on-surface-variant font-bold mb-4 italic">Speakers: Dr. Abhinav S. Raman & Dr. Mudit
-            Dixit</p>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Smart Decision Intelligence · Machine Learning · Predictive Maintenance · Intelligent LCA
-          </p>
+          <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">AI in Circularity</h2>
+          <p class="text-sm text-on-surface-variant/70 leading-relaxed mb-6">Smart Decision Intelligence · Machine Learning · Predictive Maintenance · Intelligent LCA</p>
+          <!-- Speaker Photos -->
+          <div class="grid grid-cols-2 gap-4 max-w-xs">
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/ASR_photo.jpg" alt="Dr. Abhinav S. Raman" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Abhinav S. Raman</p>
+              <p class="text-[11px] text-on-surface-variant/70">IIT Madras</p>
+            </div>
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/mudit.jpg" alt="Dr. Mudit Dixit" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Mudit Dixit</p>
+              <p class="text-[11px] text-on-surface-variant/70">CSIR-CLRI, Chennai</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
-      <!-- Morning Break -->
+      <!-- Tea Break -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-8 border-r-[0.5px] border-green-600/20 text-right pr-8">
+        <div class="hidden md:block md:col-span-2 py-6 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">10:30 — 11:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-8 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors group">
-          <div class="flex items-center gap-3 mb-2">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Break</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments • ICSR Foyer</span>
+        <div class="md:col-span-10 py-5 px-4 md:py-6 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Tea Break</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments · ICSR Foyer</span>
           </div>
-          <h2 class="text-xl font-headline text-primary">High Tea</h2>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
-      <!-- Workshop 2 Row -->
+      <!-- Workshop 2 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
         <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">11:00 — 12:30</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+        <div class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
           <div class="flex items-center gap-3 mb-4">
-            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop
-              2</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Building</span>
+            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop 2</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Hall III · ICSR Building</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-2 leading-tight group-hover:translate-x-2 transition-transform duration-300">
-            Energy Audit & Circularity in Energy Sector</h2>
-          <p class="text-sm text-on-surface-variant font-bold mb-4 italic">Speakers: Dr. Nitin Muralidharan & Dr.
-            Sreeram K Kalpathy</p>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Energy Efficiency Assessment · Carbon Footprint Analysis · Renewable Integration
-          </p>
+          <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Green Economy &amp; Sustainable Engineering</h2>
+          <p class="text-sm text-on-surface-variant/70 leading-relaxed mb-6">Circular Business Models · Sustainable Design · Life Cycle Assessment · Green Supply Chains</p>
+          <!-- Speaker Photos -->
+          <div class="grid grid-cols-2 gap-4 max-w-xs">
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/santosh_sahu.jpg" alt="Dr. Santosh Kumar Sahu" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Santosh Kumar Sahu</p>
+              <p class="text-[11px] text-on-surface-variant/70">IIT Madras</p>
+            </div>
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/pkalbar.png" alt="Prof. Pradip Kalbar" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Prof. Pradip Kalbar</p>
+              <p class="text-[11px] text-on-surface-variant/70">IIT Bombay</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
-      <!-- Lunch Break -->
+      <!-- Lunch -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
         <div class="hidden md:block md:col-span-2 py-8 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">12:30 — 14:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-8 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
-          <div class="flex items-center gap-3 mb-2">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Lunch</span>
+        <div class="md:col-span-10 py-6 px-4 md:py-8 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3 mb-1">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Lunch</span>
             <span class="text-xs text-on-surface-variant/60 font-label">ICSR Lawn</span>
           </div>
           <h2 class="text-xl font-headline text-primary">Networking Lunch Break</h2>
@@ -581,409 +607,937 @@
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
-      <!-- Workshop 3 Row -->
+      <!-- Workshop 3 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
         <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">14:00 — 15:30</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+        <div class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
           <div class="flex items-center gap-3 mb-4">
-            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop
-              3</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Building</span>
+            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop 3</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Hall III · ICSR Building</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Multiscale Modelling in Industrial Practices</h2>
-          <p class="text-sm text-on-surface-variant font-bold mb-4 italic">Speakers: Dr. Himanshu Goyal & Dr. Jayabrata
-            Dhar</p>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Process Modelling · Simulation Tools · Data-Driven Optimization · Digital Twins
-          </p>
+          <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Multiscale Modelling in Industrial Practices</h2>
+          <p class="text-sm text-on-surface-variant/70 leading-relaxed mb-6">Process Modelling · Simulation Tools · Data-Driven Optimization · Digital Twins</p>
+          <!-- Speaker Photos -->
+          <div class="grid grid-cols-2 gap-4 max-w-xs">
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/himanshu.jpg" alt="Dr. Himanshu Goyal" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Himanshu Goyal</p>
+              <p class="text-[11px] text-on-surface-variant/70">IIT Madras</p>
+            </div>
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/Jayabrata_Dhar.jpg" alt="Dr. Jayabrata Dhar" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Jayabrata Dhar</p>
+              <p class="text-[11px] text-on-surface-variant/70">NIT Durgapur</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
-      <!-- Afternoon Break -->
+      <!-- High Tea -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-8 border-r-[0.5px] border-green-600/20 text-right pr-8">
+        <div class="hidden md:block md:col-span-2 py-6 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:30 — 16:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-8 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors group">
-          <div class="flex items-center gap-3 mb-2">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Break</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments • ICSR Foyer</span>
+        <div class="md:col-span-10 py-5 px-4 md:py-6 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">High Tea</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments · ICSR Foyer</span>
           </div>
-          <h2 class="text-xl font-headline text-primary">High Tea</h2>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
-      <!-- Workshop 4 Row -->
+      <!-- Workshop 4 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
         <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">16:00 — 17:30</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+        <div class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
           <div class="flex items-center gap-3 mb-4">
-            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop
-              4</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Building</span>
+            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Workshop 4</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Hall III · ICSR Building</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Green Economy & Sustainable Engineering</h2>
-          <p class="text-sm text-on-surface-variant font-bold mb-4 italic">Speaker: Dr. Santosh Kumar Sahu</p>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Circular Business Models · Sustainable Design · Life Cycle Assessment · Green Supply Chains
-          </p>
+          <h2 class="text-2xl font-headline text-primary mb-1 group-hover:translate-x-2 transition-transform duration-300">Circularity in Energy Transition</h2>
+          <p class="text-xs text-on-surface-variant/60 font-semibold uppercase tracking-widest mb-2">Battery &amp; Solar Energy Focus</p>
+          <p class="text-sm text-on-surface-variant/70 leading-relaxed mb-6">Battery Circularity · Solar Energy Systems · Critical Minerals Recovery · Sustainable Energy Transition</p>
+          <!-- Speaker Photos -->
+          <div class="grid grid-cols-2 gap-4 max-w-xs">
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/nitin.jpg" alt="Dr. Nitin Muralidharan" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Nitin Muralidharan</p>
+              <p class="text-[11px] text-on-surface-variant/70">IIT Madras</p>
+            </div>
+            <div class="group/sp flex flex-col">
+              <div class="aspect-[3/4] mb-2 overflow-hidden bg-surface-container grayscale group-hover/sp:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/sreeram.jpg" alt="Dr. Sreeram K Kalpathy" loading="lazy" class="w-full h-full object-cover group-hover/sp:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-xs font-bold text-primary leading-tight">Dr. Sreeram K. Kalpathy</p>
+              <p class="text-[11px] text-on-surface-variant/70">IIT Madras</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- DAY 2: Conference Day 1 -->
+    <!-- Day 2 -->
     <div id="day2" class="day-content space-y-0 relative">
       <div class="bg-primary px-4 md:px-12 py-4 mb-8">
-        <p class="text-sm text-on-primary/70 uppercase tracking-widest font-bold">Main Conference: Inaugural Day | TTJ
-          Auditorium, ICSR Building</p>
+        <p class="text-sm text-on-primary/70 uppercase tracking-widest font-bold">Conference Day 1 — Inaugural &amp; Plenary Sessions | TTJ Auditorium &amp; Hall III, ICSR Building</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">09:00 — 10:00</span>
+      <!-- Venue Legend -->
+      <div class="flex flex-wrap gap-3 px-4 md:px-0 mb-8">
+        <div class="flex items-center gap-2 bg-surface-container px-4 py-2">
+          <div class="w-3 h-3 bg-primary"></div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">TTJ Auditorium</span>
+          <span class="text-xs text-on-surface-variant/60">Plenary &amp; Keynote</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Inaugural</span>
+        <div class="flex items-center gap-2 bg-surface-container px-4 py-2">
+          <div class="w-3 h-3 bg-secondary"></div>
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">Hall III</span>
+          <span class="text-xs text-on-surface-variant/60">Parallel Technical Sessions</span>
+        </div>
+      </div>
+
+      <!-- Inauguration -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">09:00 — 09:55</span>
+        </div>
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Inaugural</span>
             <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <h2 class="text-2xl font-headline text-primary mb-5 group-hover:translate-x-2 transition-transform duration-300">Inauguration of SustainX 2026</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-secondary/80 pt-2 min-w-[90px]">09:00–09:10</span>
+              <div class="flex flex-col sm:flex-row sm:items-center gap-4 bg-surface-container/30 p-3 rounded-lg border border-outline-variant/10 w-full">
+                <div class="w-20 h-20 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500 border-2 border-primary/20">
+                  <img src="assets/images/speakers/director.jpg" alt="Prof. V. Kamakoti" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p class="text-base font-semibold text-on-surface">Director's Address</p>
+                  <p class="text-sm font-medium text-primary">Prof. V. Kamakoti</p>
+                  <p class="text-xs text-on-surface-variant/80">Director, IIT Madras</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-secondary/80 pt-2 min-w-[90px]">09:10–09:30</span>
+              <div class="flex flex-col gap-3 w-full">
+                <p class="text-sm font-semibold text-on-surface">Welcome Address by Deans</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10">
+                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500 border border-primary/20">
+                      <img src="assets/images/speakers/profashwin.jpg" alt="Prof. Ashwin Mahalingam" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-on-surface">Prof. Ashwin Mahalingam</p>
+                      <p class="text-[10px] text-on-surface-variant/80">Dean, R&amp;D</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10">
+                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500 border border-primary/20">
+                      <img src="assets/images/speakers/profmanu.jpg" alt="Prof. Manu Santhanam" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-on-surface">Prof. Manu Santhanam</p>
+                      <p class="text-[10px] text-on-surface-variant/80">Dean, IC&amp;SR</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-secondary/80 pt-2 min-w-[90px]">09:30–09:55</span>
+              <div class="flex flex-col gap-3 w-full">
+                <p class="text-sm font-semibold text-on-surface">Welcome Address by Heads of Departments</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
+                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                      <img src="assets/images/speakers/anbarasu-manivannan.jpg" alt="Prof. Anbarasu Manivannan" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Anbarasu Manivannan</p>
+                      <p class="text-[10px] text-on-surface-variant/70">Head, SiDIS</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
+                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                      <img src="assets/images/speakers/niket.png" alt="Prof. Niket Kaisare" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Niket Kaisare</p>
+                      <p class="text-[10px] text-on-surface-variant/70">Head, Chemical Eng</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
+                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                      <img src="assets/images/speakers/profseshadri.jpg" alt="Prof. Satyanarayan Seshadri" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Satyanarayan Seshadri</p>
+                      <p class="text-[10px] text-on-surface-variant/70">Head, SIE</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
+                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                      <img src="assets/images/speakers/profrajnish.jpg" alt="Prof. Rajnish Kumar" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Rajnish Kumar</p>
+                      <p class="text-[10px] text-on-surface-variant/70">Head, SoS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Plenary -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">10:00 — 11:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium • Plenary</span>
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-20 h-20 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+            <img src="assets/images/speakers/Swaminathan_Sivaram.jpeg" alt="Prof. S. Sivaram" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-[#1a3a1a] text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Plenary</span>
+              <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium</span>
+            </div>
+            <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Plenary Address</h2>
+            <p class="text-sm font-semibold text-on-surface mb-1">Prof. S. Sivaram</p>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Keynote 1 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">11:00 — 11:30</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">11:00 — 11:45</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Break</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments • ICSR Foyer</span>
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-20 h-20 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+            <img src="assets/images/speakers/romitsen.jpg" alt="Mr. Romit Sen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <h2 class="text-2xl font-headline text-primary">High Tea Break</h2>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
+              <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium · Plenary</span>
+            </div>
+            <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Keynote Address 1</h2>
+            <p class="text-sm font-semibold text-on-surface">Mr. Romit Sen</p>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Tea Break -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">11:30 — 13:00</span>
+        <div class="hidden md:block md:col-span-2 py-5 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">11:45 — 12:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Oral
-              Presentations</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Parallel Tracks A & B</span>
+        <div class="md:col-span-10 py-4 px-4 md:py-5 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Tea Break</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments · ICSR Foyer</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Parallel Sessions 1 & 2 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">13:00 — 14:00</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">12:00 — 13:30</span>
+          <p class="text-[10px] text-on-surface-variant/50 mt-1 tracking-wider">PARALLEL</p>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Lunch</span>
-            <span class="text-xs text-on-surface-variant/60">ICSR Lawn</span>
+        <div class="md:col-span-10 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/30">
+          <!-- Session 1 -->
+          <div class="py-6 px-4 md:py-8 md:pl-12 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 1</span>
+              <span class="bg-surface-container text-secondary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-secondary/30">Hall III</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">AI-Driven Circular Systems &amp; Smart Decision Intelligence</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/ASR_photo.jpg" alt="Dr. Abhinav Sankar Raman" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Abhinav Sankar Raman</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/arun.png" alt="Prof. Arun Tangirala" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Arun Tangirala</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IIT Tirupati · 12:00–12:20</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/ananth-govindrajan.jpg" alt="Dr. Ananth Govind Rajan" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Ananth Govind Rajan</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IISc Bengaluru · 12:25–12:45</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">12:50–13:00 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">13:00–13:10 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">13:10–13:20 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">13:20–13:30 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2 class="text-2xl font-headline text-primary">Lunch & Informal Networking</h2>
+          <!-- Session 2 -->
+          <div class="py-6 px-4 md:py-8 md:pl-8 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 2</span>
+              <span class="bg-primary/10 text-primary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-primary/20">TTJ Hall</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Energy Systems &amp; Carbon Resource Valorization</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/Swapna-Rabha.png" alt="Dr. Swapna Singha Rabha" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Swapna Singha Rabha</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/drranjith.png" alt="Dr. Ranjith Pai" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Ranjith Pai</p>
+                  <p class="text-[10px] text-on-surface-variant/70">DST · 12:00–12:20</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/kpmurthi.jpg" alt="Mr. KP Murthy" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Mr. K. P. Murthy</p>
+                  <p class="text-[10px] text-on-surface-variant/70">NIT Warangal · 12:25–12:45</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">12:50–13:00 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">13:00–13:10 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">13:10–13:20 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">13:20–13:30 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Lunch -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">14:00 — 15:30</span>
+        <div class="hidden md:block md:col-span-2 py-8 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">13:30 — 15:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Oral
-              Presentations</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Parallel Tracks C & D</span>
+        <div class="md:col-span-10 py-6 px-4 md:py-8 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3 mb-1">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Lunch</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Lawn</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <h2 class="text-xl font-headline text-primary">Lunch &amp; Networking</h2>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Keynote 2 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:30 — 16:00</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:00 — 15:45</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Break</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments • ICSR Foyer</span>
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-20 h-20 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+            <img src="assets/images/speakers/Madhavi Srinivasan.jpg" alt="Prof. Madhavi Srinivasan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <h2 class="text-2xl font-headline text-primary">High Tea Break</h2>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
+              <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium · Plenary</span>
+            </div>
+            <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Keynote Address 2</h2>
+            <p class="text-sm font-semibold text-on-surface">Prof. Madhavi Srinivasan <span class="text-on-surface-variant/60 font-normal text-xs">— NTU Singapore</span></p>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Tea Break -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">16:00 — 17:00</span>
+        <div class="hidden md:block md:col-span-2 py-5 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:45 — 16:00</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium • Plenary</span>
+        <div class="md:col-span-10 py-4 px-4 md:py-5 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Tea Break</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments · ICSR Foyer</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Parallel Sessions 3 & 4 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">17:30 — 19:00</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">16:00 — 17:30</span>
+          <p class="text-[10px] text-on-surface-variant/50 mt-1 tracking-wider">PARALLEL</p>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Poster
-              Session</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Grand Gallery</span>
+        <div class="md:col-span-10 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/30">
+          <!-- Session 3 -->
+          <div class="py-6 px-4 md:py-8 md:pl-12 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 3</span>
+              <span class="bg-primary/10 text-primary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-primary/20">TTJ Hall</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circularity in Battery Industry &amp; Critical Minerals Recovery</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/nitin.jpg" alt="Dr. Nitin Muralidharan" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Nitin Muralidharan</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/mamata_mohapatra.jpg" alt="Dr. Mamata Mohapatra" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Mamata Mohapatra</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IMMT Bhubaneswar · 16:00–16:20</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/venkata.jpg" alt="Dr. Venkatasailanathan Ramadesigan" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Venkatasailanathan Ramadesigan</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IIT Bombay · 16:25–16:45</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">16:50–17:00 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">17:00–17:10 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">17:10–17:20 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">17:20–17:30 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <!-- Session 4 -->
+          <div class="py-6 px-4 md:py-8 md:pl-8 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 4</span>
+              <span class="bg-surface-container text-secondary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-secondary/30">Hall III</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Water Technologies &amp; Sustainable Hydrosphere Management</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/kushboo.jpg" alt="Dr. Khushboo Suman" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Khushboo Suman</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/shilpi.jpg" alt="Dr. Shilpi Kushwaha" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Shilpi Kushwaha</p>
+                  <p class="text-[10px] text-on-surface-variant/70">CSIR-CSMCRI · 16:00–16:20</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/manalipal.jpg" alt="Dr. Manali Pal" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Manali Pal</p>
+                  <p class="text-[10px] text-on-surface-variant/70">NIT Warangal · 16:25–16:45</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">16:50–17:00 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">17:00–17:10 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">17:10–17:20 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">17:20–17:30 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- DAY 3: Conference Day 2 -->
+    <!-- DAY 3: Conference Day 2 — July 25 -->
     <div id="day3" class="day-content space-y-0 relative">
       <div class="bg-surface-container-low px-4 md:px-12 py-4 mb-8 border-l-4 border-primary">
-        <p class="text-sm text-on-surface-variant uppercase tracking-widest font-bold">Main Conference: Closing Day |
-          TTJ Auditorium, ICSR Building</p>
+        <p class="text-sm text-on-surface-variant uppercase tracking-widest font-bold">Conference Day 2 — Closing Day | TTJ Auditorium &amp; Hall III, ICSR Building</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">09:00 — 10:00</span>
+      <!-- Venue Legend -->
+      <div class="flex flex-wrap gap-3 px-4 md:px-0 mb-8">
+        <div class="flex items-center gap-2 bg-surface-container px-4 py-2">
+          <div class="w-3 h-3 bg-primary"></div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">TTJ Auditorium</span>
+          <span class="text-xs text-on-surface-variant/60">Plenary &amp; Keynote</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium • Plenary</span>
+        <div class="flex items-center gap-2 bg-surface-container px-4 py-2">
+          <div class="w-3 h-3 bg-secondary"></div>
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">Hall III</span>
+          <span class="text-xs text-on-surface-variant/60">Parallel Technical Sessions</span>
+        </div>
+      </div>
+
+      <!-- Keynote -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">09:30 — 10:15</span>
+        </div>
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-20 h-20 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+            <img src="assets/images/speakers/Sirshendu De.jpg" alt="Prof. Sirshendu De" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
+              <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium · Plenary</span>
+            </div>
+            <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Keynote Address</h2>
+            <p class="text-sm font-semibold text-on-surface">Prof. Sirshendu De <span class="text-on-surface-variant/60 font-normal text-xs">— IIT Kharagpur</span></p>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Tea Break -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">10:00 — 10:30</span>
+        <div class="hidden md:block md:col-span-2 py-5 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">10:15 — 10:30</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Break</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments • ICSR Foyer</span>
+        <div class="md:col-span-10 py-4 px-4 md:py-5 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Tea Break</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments · ICSR Foyer</span>
           </div>
-          <h2 class="text-2xl font-headline text-primary">High Tea Break</h2>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Parallel Sessions 1 & 2 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">10:30 — 12:00</span>
+          <p class="text-[10px] text-on-surface-variant/50 mt-1 tracking-wider">PARALLEL</p>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Oral
-              Presentations</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Track E • Seminar Hall 1</span>
+        <div class="md:col-span-10 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/30">
+          <!-- Session 1 -->
+          <div class="py-6 px-4 md:py-8 md:pl-12 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 1</span>
+              <span class="bg-primary/10 text-primary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-primary/20">TTJ Hall</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Plastics &amp; Polymer Economy</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/sreeram.jpg" alt="Prof. Sreeram Kalpathy" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Prof. Sreeram Kalpathy</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/sirish.jpg" alt="Prof. Sirish Namilae" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Sirish Namilae</p>
+                  <p class="text-[10px] text-on-surface-variant/70">Embry-Riddle University · 10:30–10:50</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/asrini.jpg" alt="Prof. Anandhan Srinivasan" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Anandhan Srinivasan</p>
+                  <p class="text-[10px] text-on-surface-variant/70">NIT Karnataka · 10:55–11:15</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">11:20–11:30 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">11:30–11:40 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">11:40–11:50 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">11:50–12:00 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <!-- Session 2 -->
+          <div class="py-6 px-4 md:py-8 md:pl-8 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 2</span>
+              <span class="bg-surface-container text-secondary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-secondary/30">Hall III</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Water Technologies &amp; Sustainable Hydrosphere Management</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/Saikat.jpeg" alt="Dr. Saikat Bhattacharjee" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Saikat Bhattacharjee</p>
+                <p class="text-[10px] text-on-surface-variant/80 font-medium leading-none mt-0.5">BITS Pilani</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/Indumathi.jpg" alt="Prof. Indumathi Nambi" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Indumathi Nambi</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IIT Madras · 10:30–10:50</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/mondal.jpg" alt="Dr. Mrinmoy Mondal" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Mrinmoy Mondal</p>
+                  <p class="text-[10px] text-on-surface-variant/70">CSIR-CSMCRI · 10:55–11:15</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">11:20–11:30 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">11:30–11:40 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">11:40–11:50 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">11:50–12:00 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Lunch -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">12:00 — 13:00</span>
+        <div class="hidden md:block md:col-span-2 py-8 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">12:00 — 13:30</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Lunch</span>
+        <div class="md:col-span-10 py-6 px-4 md:py-8 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3 mb-1">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Lunch</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">ICSR Lawn</span>
           </div>
-          <h2 class="text-2xl font-headline text-primary">Lunch Break</h2>
+          <h2 class="text-xl font-headline text-primary">Lunch &amp; Networking</h2>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Parallel Sessions 3 & 4 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">13:00 — 14:00</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">13:30 — 15:00</span>
+          <p class="text-[10px] text-on-surface-variant/50 mt-1 tracking-wider">PARALLEL</p>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Panel
-              Discussion</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium • Plenary</span>
+        <div class="md:col-span-10 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/30">
+          <!-- Session 3 -->
+          <div class="py-6 px-4 md:py-8 md:pl-12 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 3</span>
+              <span class="bg-primary/10 text-primary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-primary/20">TTJ Hall</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circularity in Battery Industry &amp; Critical Minerals Recovery</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/aravind.jpeg" alt="Prof. Aravind Kumar Chandiran" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Prof. Aravind Kumar Chandiran</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/vanchiappan_aravindan.jpg" alt="Prof. Vanchiappan Aravindan" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Vanchiappan Aravindan</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IISER Tirupati · 13:30–13:50</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/prathish.png" alt="Dr. K. P. Pratish" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. K. P. Pratish</p>
+                  <p class="text-[10px] text-on-surface-variant/70">CSIR-NIIST · 13:55–14:15</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">14:20–14:30 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">14:30–14:40 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">14:40–14:50 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">14:50–15:00 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <!-- Session 4 -->
+          <div class="py-6 px-4 md:py-8 md:pl-8 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 4</span>
+              <span class="bg-surface-container text-secondary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-secondary/30">Hall III</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Energy Systems &amp; Carbon Resource Valorization</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/Tanushree.jpg" alt="Prof. Tanushree Parsai" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Prof. Tanushree Parsai</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/sachin.png" alt="Prof. Sachin Madavgane" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Sachin Madavgane</p>
+                  <p class="text-[10px] text-on-surface-variant/70">VNIT Nagpur · 13:30–13:50</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/IC.jpg" alt="Prof. Indrajit Chakraborty" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Prof. Indrajit Chakraborty</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IIT Bombay · 13:55–14:15</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">14:20–14:30 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">14:30–14:40 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">14:40–14:50 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">14:50–15:00 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Tea Break -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">14:00 — 15:00</span>
+        <div class="hidden md:block md:col-span-2 py-5 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:00 — 15:20</span>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Award
-              Session</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium • Plenary</span>
+        <div class="md:col-span-10 py-4 px-4 md:py-5 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Tea Break</span>
+            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments · ICSR Foyer</span>
           </div>
-          <h2
-            class="text-2xl font-headline text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-            Session Title to be Finalized</h2>
-          <p class="text-on-surface-variant leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Parallel Sessions 5 & 6 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:00 — 15:30</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:30 — 17:00</span>
+          <p class="text-[10px] text-on-surface-variant/50 mt-1 tracking-wider">PARALLEL</p>
         </div>
-        <div
-          class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-surface-container hover:bg-surface-container-high transition-colors group">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary-container text-on-secondary-fixed px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Break</span>
-            <span class="text-xs text-on-surface-variant/60 font-label">Refreshments • ICSR Foyer</span>
+        <div class="md:col-span-10 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/30">
+          <!-- Session 5 -->
+          <div class="py-6 px-4 md:py-8 md:pl-12 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 5</span>
+              <span class="bg-primary/10 text-primary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-primary/20">TTJ Hall</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Plastics &amp; Polymer Economy</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/sreeram.jpg" alt="Dr. Sreeram Kalpathy" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Sreeram Kalpathy</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/ratheesh.jpg" alt="Dr. R. Ratheesh" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-amber-700 bg-amber-50 px-1 py-0.2 uppercase shrink-0">Distinguished</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. R. Ratheesh</p>
+                  <p class="text-[10px] text-on-surface-variant/70">C-MET Pune · 15:30–15:50</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/pankaj-pathak.jpg" alt="Dr. Pankaj Pathak" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Pankaj Pathak</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IIT Kharagpur · 15:55–16:15</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">16:20–16:30 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">16:30–16:40 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">16:40–16:50 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">16:50–17:00 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2 class="text-2xl font-headline text-primary">High Tea Break</h2>
+          <!-- Session 6 -->
+          <div class="py-6 px-4 md:py-8 md:pl-8 md:pr-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Session 6</span>
+              <span class="bg-surface-container text-secondary px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-secondary/30">Hall III</span>
+            </div>
+            <h2 class="text-lg font-headline text-primary mb-1 leading-snug group-hover:translate-x-1 transition-transform duration-300">Circular Energy Systems &amp; Carbon Resource Valorization</h2>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="assets/images/speakers/sanka.jpg" alt="Dr. Sankha Karmakar" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary">Chair: Dr. Sankha Karmakar</p>
+              </div>
+            </div>
+            <div class="space-y-3 border-t border-outline-variant/30 pt-3">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/ishitha.png" alt="Dr. Ishita Sarkar" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Ishita Sarkar</p>
+                  <p class="text-[10px] text-on-surface-variant/70">CSIR-CGCRI · 15:30–15:50</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <img src="assets/images/speakers/sagar.jpg" alt="Dr. Sagar Sourav" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Sagar Sourav</p>
+                  <p class="text-[10px] text-on-surface-variant/70">IIT Bombay · 15:55–16:15</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
+                <div class="space-y-1">
+                  <p class="text-[11px] text-on-surface-variant/70">16:20–16:30 · Student Talk 1</p>
+                  <p class="text-[11px] text-on-surface-variant/70">16:30–16:40 · Student Talk 2</p>
+                  <p class="text-[11px] text-on-surface-variant/70">16:40–16:50 · Student Talk 3</p>
+                  <p class="text-[11px] text-on-surface-variant/70">16:50–17:00 · Student Talk 4</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full h-[0.5px] bg-secondary/10"></div>
 
+      <!-- Valedictory -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-        <div class="hidden md:block md:col-span-2 py-12 border-r-[0.5px] border-green-600/20 text-right pr-8">
-          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">15:30 — 16:30</span>
+        <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
+          <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">17:00 onwards</span>
         </div>
-        <div class="md:col-span-10 py-6 px-4 md:py-12 md:pl-12 bg-primary text-on-primary group">
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-primary text-on-primary group">
           <div class="flex items-center gap-3 mb-4">
-            <span
-              class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Valedictory</span>
-            <span class="text-xs text-on-primary/60 font-label">TTJ Auditorium • Plenary</span>
+            <span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Valedictory</span>
+            <span class="text-xs text-on-primary/60 font-label">TTJ Auditorium · Closing Ceremony</span>
           </div>
-          <h2 class="text-2xl font-headline text-on-primary mb-4">Session Title to be Finalized</h2>
-          <p class="text-on-primary/80 leading-relaxed max-w-3xl">
-            Detailed description and speaker information for this session will be updated soon.
-          </p>
+          <h2 class="text-2xl font-headline text-on-primary mb-2">Valedictory &amp; Award Ceremony</h2>
+          <p class="text-on-primary/80 text-sm">Best Paper Awards · Closing Remarks · Conference Conclusion</p>
         </div>
       </div>
     </div>
@@ -1195,16 +1749,64 @@
   </footer>
 
   <script>
+    function repositionForAccordion() {
+      const container = document.getElementById('schedule-tabs-container');
+      const isMobile = window.innerWidth < 768;
+      
+      ['day1', 'day2', 'day3'].forEach(dayId => {
+        const btn = document.getElementById('tab-' + dayId);
+        const content = document.getElementById(dayId);
+        
+        if (isMobile) {
+          // In mobile, move day contents into the tabs container directly after their respective buttons
+          if (btn && content && content.parentNode !== container) {
+            btn.after(content);
+          }
+        } else {
+          // On desktop, restore day contents back to their original position in the main flow
+          if (content && content.parentNode === container) {
+            container.after(content);
+          }
+        }
+      });
+    }
+
+    // Run repositioning on load and resize
+    window.addEventListener('DOMContentLoaded', repositionForAccordion);
+    window.addEventListener('resize', repositionForAccordion);
+
     function showDay(day) {
+      const targetDayContent = document.getElementById(day);
+      const activeTab = document.getElementById('tab-' + day);
+      const isMobile = window.innerWidth < 768;
+      
+      // If it is mobile, allow toggling the same accordion panel closed
+      if (isMobile && targetDayContent.classList.contains('active')) {
+        targetDayContent.classList.remove('active');
+        activeTab.classList.remove('bg-primary', 'text-on-primary');
+        activeTab.classList.add('bg-surface-container', 'text-stone-600');
+        return;
+      }
+
       document.querySelectorAll('.day-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('bg-primary', 'text-on-primary');
-        btn.classList.add('bg-surface-container', 'text-primary');
+        btn.classList.add('bg-surface-container', 'text-stone-600');
       });
-      document.getElementById(day).classList.add('active');
-      const activeTab = document.getElementById('tab-' + day);
-      activeTab.classList.remove('bg-surface-container', 'text-primary');
+      
+      targetDayContent.classList.add('active');
+      activeTab.classList.remove('bg-surface-container', 'text-stone-600');
       activeTab.classList.add('bg-primary', 'text-on-primary');
+
+      // Scroll active content top into viewport on mobile screen to prevent tedious manual scrolling
+      if (isMobile) {
+        // Offset scroll slightly to account for the sticky header
+        setTimeout(() => {
+          const yOffset = -90; 
+          const y = activeTab.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        }, 150);
+      }
     }
 
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
