@@ -305,6 +305,19 @@
       opacity: 1 !important;
     }
 
+    /* Global speaker hover scale animation */
+    .grayscale img, [class*="grayscale"] img {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .group:hover .grayscale img,
+    .group:hover [class*="grayscale"] img,
+    [class*="group"]:hover .grayscale img,
+    [class*="group"]:hover [class*="grayscale"] img,
+    .flex:hover .grayscale img {
+      transform: scale(1.05);
+    }
+
     /* Image Protection */
     img {
       -webkit-user-drag: none;
@@ -722,9 +735,9 @@
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <span class="text-[10px] font-bold tracking-widest uppercase text-secondary/80 pt-2 min-w-[90px]">09:00–09:10</span>
-              <div class="flex flex-col sm:flex-row sm:items-center gap-4 bg-surface-container/30 p-3 rounded-lg border border-outline-variant/10 w-full">
-                <div class="w-20 h-20 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500 border-2 border-primary/20">
-                  <img src="assets/images/speakers/director.jpg" alt="Prof. V. Kamakoti" class="w-full h-full object-cover" />
+              <div class="flex flex-col sm:flex-row sm:items-center gap-4 bg-surface-container/30 p-3 rounded-lg border border-outline-variant/10 w-full group/dir">
+                <div class="w-20 h-20 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dir:grayscale-0 transition-all duration-500 border-2 border-primary/20">
+                  <img src="assets/images/speakers/director.jpg" alt="Prof. V. Kamakoti" class="w-full h-full object-cover group-hover/dir:scale-105 transition-transform duration-500" />
                 </div>
                 <div>
                   <p class="text-base font-semibold text-on-surface">Director's Address</p>
@@ -739,18 +752,18 @@
               <div class="flex flex-col gap-3 w-full">
                 <p class="text-sm font-semibold text-on-surface">Welcome Address by Deans</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10">
-                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500 border border-primary/20">
-                      <img src="assets/images/speakers/profashwin.jpg" alt="Prof. Ashwin Mahalingam" class="w-full h-full object-cover" />
+                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10 group/dean1">
+                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dean1:grayscale-0 transition-all duration-500 border border-primary/20">
+                      <img src="assets/images/speakers/profashwin.jpg" alt="Prof. Ashwin Mahalingam" class="w-full h-full object-cover group-hover/dean1:scale-105 transition-transform duration-500" />
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface">Prof. Ashwin Mahalingam</p>
                       <p class="text-[10px] text-on-surface-variant/80">Dean, R&amp;D</p>
                     </div>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10">
-                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500 border border-primary/20">
-                      <img src="assets/images/speakers/profmanu.jpg" alt="Prof. Manu Santhanam" class="w-full h-full object-cover" />
+                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10 group/dean2">
+                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dean2:grayscale-0 transition-all duration-500 border border-primary/20">
+                      <img src="assets/images/speakers/profmanu.jpg" alt="Prof. Manu Santhanam" class="w-full h-full object-cover group-hover/dean2:scale-105 transition-transform duration-500" />
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface">Prof. Manu Santhanam</p>
@@ -765,37 +778,37 @@
               <span class="text-[10px] font-bold tracking-widest uppercase text-secondary/80 pt-2 min-w-[90px]">09:30–09:55</span>
               <div class="flex flex-col gap-3 w-full">
                 <p class="text-sm font-semibold text-on-surface">Welcome Address by Heads of Departments</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
-                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
-                      <img src="assets/images/speakers/anbarasu-manivannan.jpg" alt="Prof. Anbarasu Manivannan" class="w-full h-full object-cover" />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod1">
+                    <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod1:grayscale-0 transition-all duration-500 border border-primary/10">
+                      <img src="assets/images/speakers/anbarasu-manivannan.jpg" alt="Prof. Anbarasu Manivannan" class="w-full h-full object-cover group-hover/hod1:scale-105 transition-transform duration-500" />
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Anbarasu Manivannan</p>
                       <p class="text-[10px] text-on-surface-variant/70">Head, SiDIS</p>
                     </div>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
-                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
-                      <img src="assets/images/speakers/niket.png" alt="Prof. Niket Kaisare" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover" />
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod2">
+                    <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod2:grayscale-0 transition-all duration-500 border border-primary/10">
+                      <img src="assets/images/speakers/niket.png" alt="Prof. Niket Kaisare" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0a0a0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" class="w-full h-full object-cover group-hover/hod2:scale-105 transition-transform duration-500" />
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Niket Kaisare</p>
                       <p class="text-[10px] text-on-surface-variant/70">Head, Chemical Eng</p>
                     </div>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
-                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
-                      <img src="assets/images/speakers/profseshadri.jpg" alt="Prof. Satyanarayan Seshadri" class="w-full h-full object-cover" />
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod3">
+                    <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod3:grayscale-0 transition-all duration-500 border border-primary/10">
+                      <img src="assets/images/speakers/profseshadri.jpg" alt="Prof. Satyanarayan Seshadri" class="w-full h-full object-cover group-hover/hod3:scale-105 transition-transform duration-500" />
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Satyanarayan Seshadri</p>
                       <p class="text-[10px] text-on-surface-variant/70">Head, SIE</p>
                     </div>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/10 p-2 rounded-lg border border-outline-variant/10">
-                    <div class="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
-                      <img src="assets/images/speakers/profrajnish.jpg" alt="Prof. Rajnish Kumar" class="w-full h-full object-cover" />
+                  <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod4">
+                    <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod4:grayscale-0 transition-all duration-500 border border-primary/10">
+                      <img src="assets/images/speakers/profrajnish.jpg" alt="Prof. Rajnish Kumar" class="w-full h-full object-cover group-hover/hod4:scale-105 transition-transform duration-500" />
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Rajnish Kumar</p>
