@@ -755,8 +755,9 @@ body {
           <video id="video" autoplay playsinline muted class="mirror"></video>
           <div class="cam-off" id="camOff">
             <span class="co-ico">📷</span>
-            <p>Allow camera access to start,<br/>or pick a photo from your gallery.</p>
+            <p id="camOffMsg">Allow camera access to start,<br/>or pick a photo from your gallery.</p>
           </div>
+
           <div class="f-wm">#SustainX2026</div>
           <div class="countdown" id="countdown"><span class="cd-num" id="cdNum">3</span></div>
           <div class="flash" id="flash"></div>
@@ -958,7 +959,16 @@ async function startCamera() {
     console.warn('Camera failed:', err);
     $('camOff').style.display = 'flex';
     $('btnShutter').disabled = true;
-    toast('Camera unavailable — you can use a gallery photo instead');
+    
+    let helpText = "Allow camera access to start,<br/>or pick a photo from your gallery.";
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+      helpText = "<b style='color:#e8b923;'>HTTPS Required:</b><br/>Camera access requires a secure HTTPS connection. Please reload via HTTPS.";
+    } else {
+      helpText = "<b style='color:#e8b923;'>Chrome Permission Blocked:</b><br/>1. Close overlays (e.g. Chat Heads).<br/>2. Allow camera in site settings.<br/>Or choose a photo from your gallery.";
+    }
+    $('camOffMsg').innerHTML = helpText;
+    
+    toast('Camera blocked — use the gallery option');
     return false;
   }
 }
