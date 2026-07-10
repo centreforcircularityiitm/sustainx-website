@@ -794,15 +794,32 @@
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <span class="text-[10px] font-bold tracking-widest uppercase text-secondary/80 pt-2 min-w-[90px]">09:00–09:10</span>
-              <div class="flex flex-col sm:flex-row sm:items-center gap-4 bg-surface-container/30 p-3 rounded-lg border border-outline-variant/10 w-full group/dir">
-                <div class="w-20 h-20 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dir:grayscale-0 transition-all duration-500 border-2 border-primary/20">
-                  <img src="assets/images/speakers/director.jpg" alt="Prof. V. Kamakoti" class="w-full h-full object-cover group-hover/dir:scale-105 transition-transform duration-500" />
+              <div class="flex flex-col gap-3 w-full">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 bg-surface-container/30 p-3 rounded-lg border border-outline-variant/10 w-full group/dir">
+                  <div class="w-20 h-20 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dir:grayscale-0 transition-all duration-500 border-2 border-primary/20">
+                    <img src="assets/images/speakers/director.jpg" alt="Prof. V. Kamakoti" class="w-full h-full object-cover group-hover/dir:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div>
+                    <p class="text-base font-semibold text-on-surface">Director's Address</p>
+                    <p class="text-sm font-medium text-primary">Prof. V. Kamakoti</p>
+                    <p class="text-xs text-on-surface-variant/80">Director, IIT Madras</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="text-base font-semibold text-on-surface">Director's Address</p>
-                  <p class="text-sm font-medium text-primary">Prof. V. Kamakoti</p>
-                  <p class="text-xs text-on-surface-variant/80">Director, IIT Madras</p>
-                </div>
+
+                <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details">
+                  <summary class="flex justify-between items-center px-4 py-3 cursor-pointer select-none font-bold text-sm text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[1.2rem]">person</span>
+                      <span>View Biography</span>
+                    </span>
+                    <span class="material-symbols-outlined transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+                  </summary>
+                  <div class="px-4 pb-4 pt-2 border-t border-outline-variant/20 text-sm text-on-surface-variant/80 space-y-3">
+                    <p>Kamakoti Veezhinathan received his M.S. and Ph.D. degrees in Computer Science and Engineering from IIT Madras. He joined the faculty of IIT Madras in 2001 and took over as its Director in January 2022.</p>
+                    <p>He specializes in the area of Computer Architecture, Information Security and VLSI Design. He heads the Microprocessor Development Program and the Information Security Education and Awareness Program at IIT Madras funded by the Ministry of Electronics and Information Technology, Government of India. He is member of the National Security Advisory Board. He was also the Chairman of the Artificial Intelligence Task Force constituted by the Ministry of Commerce and Industry, Government of India. At IIT Madras he has served as the Chairman, JEE and as Associate Dean, Industrial Consultancy and Sponsored Research.</p>
+                    <p>Dr. Kamakoti is the recipient of DRDO Academic Excellence Award, Indian Electronics and Semiconductor Association Techno Visionary Award, 'Abdul Kalam Technology Innovation National Fellowship', ACCS Life-time Achievement Award, IBM Faculty Award and VASVIK Industrial Research award.</p>
+                  </div>
+                </details>
               </div>
             </div>
             
@@ -811,23 +828,55 @@
               <div class="flex flex-col gap-3 w-full">
                 <p class="text-sm font-semibold text-on-surface">Welcome Address by Deans</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10 group/dean1">
-                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dean1:grayscale-0 transition-all duration-500 border border-primary/20">
-                      <img src="assets/images/speakers/profashwin.jpg" alt="Prof. Ashwin Mahalingam" class="w-full h-full object-cover group-hover/dean1:scale-105 transition-transform duration-500" />
+                  <div class="flex flex-col gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10 group/dean1">
+                    <div class="flex items-center gap-3">
+                      <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dean1:grayscale-0 transition-all duration-500 border border-primary/20">
+                        <img src="assets/images/speakers/profashwin.jpg" alt="Prof. Ashwin Mahalingam" class="w-full h-full object-cover group-hover/dean1:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div>
+                        <p class="text-xs font-semibold text-on-surface">Prof. Ashwin Mahalingam</p>
+                        <p class="text-[10px] text-on-surface-variant/80">Dean, Alumni &amp; Corporate Relations, IIT Madras</p>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-xs font-semibold text-on-surface">Prof. Ashwin Mahalingam</p>
-                      <p class="text-[10px] text-on-surface-variant/80">Dean, R&amp;D</p>
-                    </div>
+
+                    <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details w-full">
+                      <summary class="flex justify-between items-center px-3 py-2 cursor-pointer select-none font-bold text-xs text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                        <span class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-[1rem]">person</span>
+                          <span>View Biography</span>
+                        </span>
+                        <span class="material-symbols-outlined text-[1.1rem] transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+                      </summary>
+                      <div class="px-3 pb-3 pt-1.5 border-t border-outline-variant/20 text-xs text-on-surface-variant/80 space-y-2">
+                        <p>Dr. Ashwin Mahalingam is a professor in the Building Technology, Construction Materials, and Management (BTCM) Group, Department of Civil Engineering at IIT Madras in 2006. He received his B.Tech in Civil engineering from IIT-Madras and then proceeded to Stanford University for a Masters in Construction Engineering and Management. He then helped start up an internet based company in the USA called All Star Fleet, aimed at providing asset management services for construction companies. Following this he returned to Stanford University to pursue a PhD in the area of Infrastructure Project Management. His research interests are in the areas of Public Private Partnerships (PPP) in Infrastructure planning and management, the management and governance of large engineering projects and the use of technology in infrastructure development. He is also a co-founder of Okapi Advisory Services Pvt. Ltd and serves as a Director on the Board. He is the Editor of the Engineering Project Organization Journal (EPOJ) and has served on many national committees.</p>
+                        <p class="pt-2"><a href="https://civil.iitm.ac.in/faculty/mash/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold inline-flex items-center gap-1">Visit Faculty Webpage <span class="material-symbols-outlined text-[1rem]">open_in_new</span></a></p>
+                      </div>
+                    </details>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10 group/dean2">
-                    <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dean2:grayscale-0 transition-all duration-500 border border-primary/20">
-                      <img src="assets/images/speakers/profmanu.jpg" alt="Prof. Manu Santhanam" class="w-full h-full object-cover group-hover/dean2:scale-105 transition-transform duration-500" />
+                  <div class="flex flex-col gap-3 bg-surface-container/20 p-2.5 rounded-lg border border-outline-variant/10 group/dean2">
+                    <div class="flex items-center gap-3">
+                      <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/dean2:grayscale-0 transition-all duration-500 border border-primary/20">
+                        <img src="assets/images/speakers/profmanu.jpg" alt="Prof. Manu Santhanam" class="w-full h-full object-cover group-hover/dean2:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div>
+                        <p class="text-xs font-semibold text-on-surface">Prof. Manu Santhanam</p>
+                        <p class="text-[10px] text-on-surface-variant/80">Dean, Centre for Industrial Consultancy and Sponsored Research, IIT Madras</p>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-xs font-semibold text-on-surface">Prof. Manu Santhanam</p>
-                      <p class="text-[10px] text-on-surface-variant/80">Dean, IC&amp;SR</p>
-                    </div>
+
+                    <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details w-full">
+                      <summary class="flex justify-between items-center px-3 py-2 cursor-pointer select-none font-bold text-xs text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                        <span class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-[1rem]">person</span>
+                          <span>View Biography</span>
+                        </span>
+                        <span class="material-symbols-outlined text-[1.1rem] transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+                      </summary>
+                      <div class="px-3 pb-3 pt-1.5 border-t border-outline-variant/20 text-xs text-on-surface-variant/80 space-y-2">
+                        <p>Dr. Manu Santhanam is a professor in the Building Technology and Construction Management division, Department of Civil Engineering and currently Dean for Industrial Consultancy and Sponsored Research (ICSR), IIT Madras. He completed his Bachelor Degree in Civil Engineering from IIT Madras in 1994. He joined Purdue University for Master's program to explore wider research opportunities. Professor Manu joined Sika Corporation, USA as Senior R&amp;D Chemist in May 1996 and served for more than 2 years. Later, he pursued his doctoral research from Purdue University, USA. He joined back his alma mater, Purdue University, as an instructor in May 2001 for short period. In October 2001, he joined IIT Madras as Assistant Professor in the BTCM division of the Department of Civil Engineering. He became Associate Professor on March 2009 and was promoted as Professor on July 2013. He teaches undergraduate and graduate-level courses mainly in the areas of construction materials, concrete technology, non-destructive testing and characterization of construction materials. His research domains cover cement chemistry and multi-scale characterization of concrete including non-destructive testing, assessment of deterioration mechanisms in concrete and masonry structures, 3D printing of concrete structures, concrete durability and use of supplementary cementing materials. He is also a part of the National Centre for Safety of Heritage Structures (NCSHS) in IITM which focuses on scientific methods for conservation of heritage structures. He is actively involved in several research projects funded by government and private agencies on the design, durability studies and development of performance specification for high performance and self-compacting concrete. He has co-authored more than 70+ international journal publications, 30+ national journal publications and about 70 conference papers on construction material properties and performance. His contributions extend to several book chapters which he co-authored with national and international researchers. He is also active in various professional associations such as ACI, ICI, and RILEM and has been distinguished as a RILEM fellow in 2019. He is also a member of Editorial Board in leading international journal on construction materials such as Advances in Cement Research, ASCE Journal of Materials in Civil Engineering (Associate Editor), Journal of Sustainable Cement-Based Materials and Journal of Cement and Concrete Composites.</p>
+                        <p class="pt-2"><a href="https://civil.iitm.ac.in/faculty/manus/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold inline-flex items-center gap-1">Visit Faculty Webpage <span class="material-symbols-outlined text-[1rem]">open_in_new</span></a></p>
+                      </div>
+                    </details>
                   </div>
                 </div>
               </div>
@@ -844,7 +893,7 @@
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Anbarasu Manivannan</p>
-                      <p class="text-[10px] text-on-surface-variant/70">Head, SiDIS</p>
+                      <p class="text-[10px] text-on-surface-variant/70">Department of Electrical Engineering, IIT Madras</p>
                     </div>
                   </div>
                   <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod2">
@@ -853,26 +902,62 @@
                     </div>
                     <div>
                       <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Niket Kaisare</p>
-                      <p class="text-[10px] text-on-surface-variant/70">Head, Chemical Eng</p>
+                      <p class="text-[10px] text-on-surface-variant/70">Head, Chemical Eng, IIT Madras</p>
                     </div>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod3">
-                    <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod3:grayscale-0 transition-all duration-500 border border-primary/10">
-                      <img src="assets/images/speakers/profseshadri.jpg" alt="Prof. Satyanarayan Seshadri" class="w-full h-full object-cover group-hover/hod3:scale-105 transition-transform duration-500" />
+                  <div class="flex flex-col gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod3">
+                    <div class="flex items-center gap-3">
+                      <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod3:grayscale-0 transition-all duration-500 border border-primary/10">
+                        <img src="assets/images/speakers/profseshadri.jpg" alt="Prof. Satyanarayan Seshadri" class="w-full h-full object-cover group-hover/hod3:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div>
+                        <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Satyanarayan Seshadri</p>
+                        <p class="text-[10px] text-on-surface-variant/70">Head of Energy Consortium &amp; School of Innovation and Entrepreneurship, IIT Madras</p>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Satyanarayan Seshadri</p>
-                      <p class="text-[10px] text-on-surface-variant/70">Head, SIE</p>
-                    </div>
+
+                    <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details w-full">
+                      <summary class="flex justify-between items-center px-3 py-2 cursor-pointer select-none font-bold text-xs text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                        <span class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-[1rem]">person</span>
+                          <span>View Biography</span>
+                        </span>
+                        <span class="material-symbols-outlined text-[1.1rem] transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+                      </summary>
+                      <div class="px-3 pb-3 pt-1.5 border-t border-outline-variant/20 text-xs text-on-surface-variant/80 space-y-2">
+                        <p>Satyanarayanan is the faculty advisor for the Nirmaan pre-incubation center at IIT Madras. He is an Associate professor in the Department of Applied Mechanics at IIT Madras and the principal investigator of the Energy and Emissions Research Group (EnERG) at IITM, whose main focus is on development of technologies enabling energy efficiency and emission mitigation in industries. Satya started his career with GE in their Global Research Center, in the domain of Energy Systems and waste heat recovery and continued with Forbes Marshall, a leading company in steam systems in India. Thereafter, Satya transitioned to an academic role working on energy recovery systems for process industries, deep decarbonization of process heating using high temperature and steam generation heat pumps and waste heat recovery from multi-source resources using advanced Organic Rankine Cycle (ORC) architectures. He works with various industries and industry bodies such as SICCI, CII to promote continuous energy and resource assessments through the Industrial Energy Assessment Cell (IEAC) and Center for Technology and Policy (CTaP). He earned a PhD from Texas A&amp;M University in Aerosol Science.</p>
+                        <p class="pt-2"><a href="https://energyconsortium.org/member/satyanarayanan-seshadri/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold inline-flex items-center gap-1">Visit Website <span class="material-symbols-outlined text-[1rem]">open_in_new</span></a></p>
+                      </div>
+                    </details>
                   </div>
-                  <div class="flex items-center gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod4">
-                    <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod4:grayscale-0 transition-all duration-500 border border-primary/10">
-                      <img src="assets/images/speakers/profrajnish.jpg" alt="Prof. Rajnish Kumar" class="w-full h-full object-cover group-hover/hod4:scale-105 transition-transform duration-500" />
+                  <div class="flex flex-col gap-3 bg-surface-container/10 p-2.5 rounded-lg border border-outline-variant/10 group/hod4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden bg-surface-container grayscale group-hover/hod4:grayscale-0 transition-all duration-500 border border-primary/10">
+                        <img src="assets/images/speakers/profrajnish.jpg" alt="Prof. Rajnish Kumar" class="w-full h-full object-cover group-hover/hod4:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div>
+                        <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Rajnish Kumar</p>
+                        <p class="text-[10px] text-on-surface-variant/70">Head, SoS, IIT Madras</p>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-xs font-semibold text-on-surface leading-tight">Prof. Rajnish Kumar</p>
-                      <p class="text-[10px] text-on-surface-variant/70">Head, SoS</p>
-                    </div>
+
+                    <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details w-full">
+                      <summary class="flex justify-between items-center px-3 py-2 cursor-pointer select-none font-bold text-xs text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                        <span class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-[1rem]">person</span>
+                          <span>View Biography</span>
+                        </span>
+                        <span class="material-symbols-outlined text-[1.1rem] transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+                      </summary>
+                      <div class="px-3 pb-3 pt-1.5 border-t border-outline-variant/20 text-xs text-on-surface-variant/80 space-y-2">
+                        <p>Dr. Rajnish Kumar is a pioneering leader in sustainable energy and environmental engineering, serving as Professor of Chemical Engineering and Head of the School of Sustainability at IIT Madras. His work at the intersection of clean energy, carbon management, and water purification is shaping the future of sustainable resource use and advancing the frontiers of chemical engineering.</p>
+                        <p>As Head of the School of Sustainability, Dr. Kumar leads visionary initiatives focused on solving global challenges in sustainability through multidisciplinary research, fostering collaboration across science, technology, and policy.</p>
+                        <p>His research on natural gas hydrates, carbon dioxide capture, methane and hydrogen storage materials, and hydrothermal biofuel production has established him as a global authority in both industrial and academic spheres.</p>
+                        <p>Dr. Kumar's transformative impact in his field is recognized through numerous honors, including the Shanti Swarup Bhatnagar Award (2022) and recognition as a Highly Cited Researcher in Engineering (2018). His pioneering achievements in methane recovery, hydrate inhibition, and hydrate-based water purification have led to over 120 high-impact publications and patents, with frequent invitations to speak at international conferences.</p>
+                        <p>With a deep commitment to addressing the world's energy and environmental challenges, Dr. Kumar is driving IIT Madras's School of Sustainability to new heights, creating sustainable technologies that directly benefit industry, society, and the environment.</p>
+                        <p class="pt-2"><a href="https://rrg-iitm.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold inline-flex items-center gap-1">Visit Website <span class="material-symbols-outlined text-[1rem]">open_in_new</span></a></p>
+                      </div>
+                    </details>
                   </div>
                 </div>
               </div>
@@ -908,17 +993,36 @@
         <div class="hidden md:block md:col-span-2 py-10 border-r-[0.5px] border-green-600/20 text-right pr-8">
           <span class="text-sm font-label font-bold text-secondary uppercase tracking-tighter">11:00 — 11:45</span>
         </div>
-        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group flex flex-col md:flex-row md:items-center gap-6">
+        <div class="md:col-span-10 py-6 px-4 md:py-10 md:pl-12 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group flex flex-col md:flex-row md:items-start gap-6">
           <div class="w-20 h-20 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
             <img src="assets/images/speakers/romitsen.jpg" alt="Mr. Romit Sen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
-              <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium · Plenary</span>
+          <div class="flex flex-col gap-3 w-full">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Keynote</span>
+                <span class="text-xs text-on-surface-variant/60 font-label">TTJ Auditorium · Plenary</span>
+              </div>
+              <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Keynote Address 1</h2>
+              <p class="text-sm font-semibold text-on-surface">Mr. Romit Sen</p>
+              <p class="text-xs text-on-surface-variant/80">Senior Vice President – Sustainability, HSBC India</p>
             </div>
-            <h2 class="text-2xl font-headline text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Keynote Address 1</h2>
-            <p class="text-sm font-semibold text-on-surface">Mr. Romit Sen</p>
+
+            <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details w-full">
+              <summary class="flex justify-between items-center px-4 py-3 cursor-pointer select-none font-bold text-sm text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                <span class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[1.2rem]">person</span>
+                  <span>View Biography</span>
+                </span>
+                <span class="material-symbols-outlined transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+              </summary>
+              <div class="px-4 pb-4 pt-2 border-t border-outline-variant/20 text-sm text-on-surface-variant/80 space-y-3">
+                <p>Romit Sen is the Senior Vice President, Sustainability at HSBC India. In this role, he leads HSBC India’s environment and financial inclusion community investment initiatives and works closely with cross-functional teams to advance the bank’s broader climate and sustainability agenda.</p>
+                <p>Romit is an environmental and sustainability professional with 21 years of experience spanning programme design and delivery, action research, and evidence-based advocacy across development-sector organisations, international NGOs, and industry chambers.</p>
+                <p>He currently serves as an Advisory Council Member of the People’s World Commission on Drought and Flood. Previously, he was a member of the Ministry of Jal Shakti’s committee on Water Use Efficiency and served as a Technical Committee Member of the Alliance for Water Stewardship.</p>
+                <p>Romit holds a Master’s degree in Natural Resources from TERI School of Advance Studies and a Bachelor’s degree in Botany from the University of Delhi.</p>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -971,15 +1075,35 @@
                   <p class="text-[10px] text-on-surface-variant/70">IIT Tirupati · 12:00–12:20</p>
                 </div>
               </div>
-              <div class="flex gap-3 items-center">
-                <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
-                  <img src="assets/images/speakers/ananth-govindrajan.jpg" alt="Dr. Ananth Govind Rajan" class="w-full h-full object-cover" />
+              <div class="flex flex-col gap-2">
+                <div class="flex gap-3 items-center">
+                  <div class="w-10 h-10 shrink-0 overflow-hidden bg-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <img src="assets/images/speakers/ananth-govindrajan.jpg" alt="Dr. Ananth Govind Rajan" class="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
+                    <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Ananth Govind Rajan</p>
+                    <p class="text-[10px] text-on-surface-variant/70">IISc Bengaluru · 12:25–12:45</p>
+                  </div>
                 </div>
-                <div>
-                  <span class="text-[8px] font-bold tracking-wider text-green-800 bg-green-50 px-1 py-0.2 uppercase shrink-0">Invited</span>
-                  <p class="text-xs font-semibold text-on-surface leading-tight mt-0.5">Dr. Ananth Govind Rajan</p>
-                  <p class="text-[10px] text-on-surface-variant/70">IISc Bengaluru · 12:25–12:45</p>
-                </div>
+
+                <details class="bg-surface-container/30 border border-outline-variant/30 rounded-lg group/details w-full">
+                  <summary class="flex justify-between items-center px-3 py-2 cursor-pointer select-none font-bold text-xs text-primary hover:bg-primary/5 transition-all list-none [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[1rem]">menu_book</span>
+                      <span>Abstract &amp; Bio</span>
+                    </span>
+                    <span class="material-symbols-outlined text-[1.1rem] transition-transform duration-300 group-open/details:rotate-180">expand_more</span>
+                  </summary>
+                  <div class="px-3 pb-3 pt-1.5 border-t border-outline-variant/20 text-xs text-on-surface-variant/80 space-y-2">
+                    <p class="font-semibold text-primary leading-snug">Advancing Materials Design for Sustainability via Machine Learning: CO<sub>2</sub> Capture and Conversion</p>
+                    <p><b>Abstract.</b> Research problems involving the capture and conversion of carbon dioxide (CO<sub>2</sub>) form some of the most pressing global challenges, due to the onslaught of climate change. The capture of CO<sub>2</sub> from flue gas and its thermochemical conversion to valuable chemicals are the key to a sustainable future. In this talk, I will present our work on using machine learning (ML) approaches, coupled with atomic-scale simulations, to design materials for CO<sub>2</sub> capture and conversion. Nanopores in two-dimensional (2D) can enable the sieving of CO<sub>2</sub> from flue gas mixtures. However, the large number of possible nanopore isomers makes their study onerous, while the lack of machine-learnable representations stymies progress toward structure–property relationships. Here, we develop a language for nanopores in 2D materials, called STring Representation Of Nanopore Geometry (STRONG), that opens the field of 2D nanopore informatics. We show that STRONGs are naturally suited for ML via recurrent neural networks, predicting formation energies/times of arbitrary nanopores and transport barriers for CO<sub>2</sub>, N<sub>2</sub>, and O<sub>2</sub> gas molecules, enabling structure–property relationships. The ML models enable the discovery of specific nanopore topologies to separate CO<sub>2</sub>/N<sub>2</sub>, O<sub>2</sub>/CO<sub>2</sub>, and O<sub>2</sub>/N<sub>2</sub> gas mixtures with high selectivity ratios. We also enable the rapid enumeration of unique configurations of stable, functionalized nanopores in 2D materials via STRONGs, allowing systematic searching of the vast chemical space of nanopores. Using the STRONGs approach, we find that a mix of hydrogen and quinone functionalization results in the most stable functionalized nanopore configuration in graphene, a discovery made feasible by expedited chemical space exploration. Additionally, we also unravel the STRONGs approach as ∼1000 times faster than graph theory algorithms to distinguish nanopore shapes. These advances in the language-based representation of 2D nanopores will accelerate the tailored design of nanoporous materials for CO<sub>2</sub> capture.</p>
+                    <p>Furthermore, I will present a data-driven approach for massive reaction network exploration for CO<sub>2</sub> conversion accelerated by machine learning. Heterogeneous catalytic pathways for clean energy conversion involve thousands of elementary steps, but most quantum-mechanical models involve only a few dozen reactions. We combine extensive density functional theory (DFT) calculations, ML for activation barrier prediction, and human intelligence-inspired reaction enumeration and elementary reaction identification. This enables automated kinetic modeling of CO<sub>2</sub> hydrogenation on copper, a key process to produce fuels and chemicals. We construct the largest dataset of 152 elementary CO<sub>2</sub> reduction reactions and experimentally determine CO<sub>2</sub> conversion, finding that even large networks with 100+ reactions are insufficient. In contrast, our approach reveals 9389 elementary reactions, reducing human bias in the reaction pathway. We unravel 40-fold higher CO<sub>2</sub> conversion rates, following experimental trends of methanol and CO production. We establish the crucial role of intermolecular hydrogen transfer and hydrogenation by molecular hydrogen, a surprising ML-enabled discovery validated post-facto. The proposed strategy to comprehensively model complex catalytic mechanisms will significantly advance catalysis research and carbon conversion processes. Overall, the multi-scale simulations and ML-enabled approaches presented in this talk will accelerate the discovery and understanding of materials and mechanisms for CO<sub>2</sub> conversion processes.</p>
+                    <p class="font-semibold text-primary pt-1">Biography</p>
+                    <p>Dr. Ananth Govind Rajan is an Associate Professor in the Department of Chemical Engineering at the Indian Institute of Science (IISc), Bangalore. He received his B.Tech. from the Indian Institute of Technology (IIT) Delhi in 2013 and his Masters and Ph.D. in Chemical Engineering in 2015 and 2019, respectively, from the Massachusetts Institute of Technology (MIT). Subsequently, he conducted postdoctoral research at Princeton University, before joining IISc in 2020 as an Assistant Professor and being promoted in 2025. Dr. Govind Rajan’s research interests lie in the modeling and simulation of nanomaterials, including their synthesis and applications for clean energy and water technologies. His group focuses on combining quantum-mechanical and molecular simulations with machine learning for modeling materials for membrane separations, electrochemical water splitting, and catalytic carbon dioxide reduction to chemicals. He was recently featured by Nature Index as one of three scientists pushing chemistry in new directions. He is an Associate of the Indian National Academy of Engineering and the Indian Academy of Sciences.</p>
+                    <p class="pt-1.5"><a href="https://agrgroup.org/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold inline-flex items-center gap-1">Visit Research Group <span class="material-symbols-outlined text-[0.95rem]">open_in_new</span></a></p>
+                  </div>
+                </details>
               </div>
               <div class="flex gap-3 items-start">
                 <span class="text-[9px] font-bold tracking-wider text-primary/80 bg-primary/5 px-1.5 py-0.5 uppercase mt-0.5 shrink-0">Student</span>
@@ -1846,16 +1970,47 @@
     }
 
     // Run repositioning on load and resize
-    window.addEventListener('DOMContentLoaded', repositionForAccordion);
+    window.addEventListener('DOMContentLoaded', () => {
+      repositionForAccordion();
+      handleHash();
+    });
+    window.addEventListener('hashchange', handleHash);
     window.addEventListener('resize', repositionForAccordion);
 
-    function showDay(day) {
+    function handleHash() {
+      const hash = window.location.hash.toLowerCase();
+      if (!hash) return;
+      
+      if (hash === '#preconference' || hash === '#day1') {
+        showDay('day1', true);
+        scrollToTab('tab-day1');
+      } else if (hash === '#day2' || hash === '#conference-day1') {
+        showDay('day2', true);
+        scrollToTab('tab-day2');
+      } else if (hash === '#day3' || hash === '#conference-day2') {
+        showDay('day3', true);
+        scrollToTab('tab-day3');
+      }
+    }
+
+    function scrollToTab(tabId) {
+      const tabEl = document.getElementById(tabId);
+      if (tabEl) {
+        setTimeout(() => {
+          const yOffset = -90; 
+          const y = tabEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        }, 300);
+      }
+    }
+
+    function showDay(day, forceActive = false) {
       const targetDayContent = document.getElementById(day);
       const activeTab = document.getElementById('tab-' + day);
       const isMobile = window.innerWidth < 768;
       
-      // If it is mobile, allow toggling the same accordion panel closed
-      if (isMobile && targetDayContent.classList.contains('active')) {
+      // If it is mobile, allow toggling the same accordion panel closed (unless forced active)
+      if (isMobile && targetDayContent.classList.contains('active') && !forceActive) {
         targetDayContent.classList.remove('active');
         activeTab.classList.remove('bg-primary', 'text-on-primary');
         activeTab.classList.add('bg-surface-container', 'text-stone-600');
