@@ -360,18 +360,11 @@
         <p class="text-fluid-body text-on-surface-variant font-light max-w-[70ch] leading-relaxed mb-10">
           Access the comprehensive collection of research abstracts and conference materials from SustainX 2026. Organized by thematic pillars, this repository showcases the innovative contributions of the global scholarly community at IIT Madras.
         </p>
-        <div class="flex flex-wrap gap-6 items-center">
-          <a href="assets/pdf/sustainx_abstract_template.docx" download class="inline-flex items-center gap-3 bg-secondary text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-primary transition-all shadow-lg hover:shadow-xl translate-y-0 hover:-translate-y-1">
-            <span class="material-symbols-outlined">download</span>
-            Download Abstract Template (.docx)
-          </a>
-          <p class="text-xs text-stone-500 font-medium italic opacity-70">Official Microsoft Word Template</p>
-        </div>
       </div>
       <div class="col-span-12 md:col-span-4 flex items-end justify-end">
         <div class="text-right border-l-[0.5px] border-secondary/30 pl-8 pb-2">
           <p class="text-stone-500 text-sm uppercase tracking-widest mb-1">Total Abstracts</p>
-          <p class="text-4xl font-headline text-secondary">TBA</p>
+          <p class="text-4xl font-headline text-secondary">100</p>
         </div>
       </div>
     </div>
@@ -380,7 +373,19 @@
 
   <!-- Abstracts Repository Section -->
   <section class="max-w-screen-2xl mx-auto px-4 md:px-12 mb-24">
-    
+
+    <!-- Abstract Search -->
+    <div class="max-w-2xl mx-auto mb-10 md:mb-12">
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">search</span>
+        <input type="text" id="abstract-search" autocomplete="off" placeholder="Search by title, author, or ID (e.g. SUS-PP-12)&hellip;" class="w-full pl-12 pr-12 py-3.5 border border-outline-variant bg-white text-sm text-on-surface placeholder:text-stone-400 focus:outline-none focus:border-secondary transition-colors" />
+        <button type="button" id="abstract-search-clear" aria-label="Clear search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-stone-400 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+      <p id="abstract-search-count" class="hidden text-xs text-stone-500 mt-2 text-center"></p>
+    </div>
+
     <!-- Tab Navigation -->
     <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 mb-fluid-gap border-b border-outline-variant">
       <button onclick="switchTab('oral')" id="tab-oral" class="tab-btn active pb-4 font-serif text-lg md:text-2xl tracking-tight text-stone-500 hover:text-primary">
@@ -447,15 +452,15 @@
     </div>
     <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
     <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-04</span>
-    <h3 class="font-serif text-lg text-primary leading-snug mt-1">Discovery of Efficient and Stable Ionic Liquids for CO<sub>2</sub> Capture Using Machine Learning-Driven Experiments</h3>
-    <p class="text-sm text-stone-600 mt-1"><u>V. Parambil</u>, S. Kumari, B. Chenthamara, L. Paul, S. Sourav, R. Batra, R. L. Gardas and R. Kumar <span class="text-stone-400">&middot;</span> IIT Madras</p>
+    <h3 class="font-serif text-lg text-primary leading-snug mt-1">TransChem: A Hybrid Transformer-Cheminformatics Framework for Predicting Li-Ion Conductivity in Polymer Electrolytes</h3>
+    <p class="text-sm text-stone-600 mt-1"><u>V. Parambil</u>, U. Tripathi, H. Goyal and R. Batra <span class="text-stone-400">&middot;</span> IIT Madras</p>
     <details class="mt-3 group/pabs">
     <summary class="flex items-center gap-2 cursor-pointer select-none text-xs font-bold text-secondary hover:text-primary uppercase tracking-widest list-none [&::-webkit-details-marker]:hidden">
     <span class="material-symbols-outlined text-base">menu_book</span>
     <span>Abstract</span>
     <span class="material-symbols-outlined text-base transition-transform duration-300 group-open/pabs:rotate-180">expand_more</span>
     </summary>
-    <p class="text-sm text-stone-600 leading-relaxed mt-2">Reducing human-generated carbon dioxide (CO<sub>2</sub>) emissions continues to be a major challenge in the development of sustainable energy and environmental solutions. Ionic liquids (ILs) have attracted considerable interest as effective media for CO<sub>2</sub> capture, but the immense combinatorial space of possible cation–anion pairs renders exhaustive experimental evaluation impractical. Machine learning (ML) techniques were employed to systematically explore the IL design space, with high-performing candidates subsequently synthesized and experimentally validated, demonstrating close agreement between measured properties and ML predictions.</p>
+    <p class="text-sm text-stone-600 leading-relaxed mt-2">Lithium-ion batteries have gained significant attention in applications ranging from portable electronics to electric vehicles and grid-scale energy storage. However, conventional liquid electrolytes pose safety risks and environmental concerns due to flammability and leakage. Solid polymer electrolytes (SPEs) offer a safer, more sustainable alternative with improved mechanical stability and recyclability. Over the past decade, machine learning (ML) approaches have accelerated the discovery of new SPE materials, reducing the experimental cost and waste associated with traditional trial-and-error methods. Among various ML models, transformer-based architectures such as TransPolymer have demonstrated superior performance over classical approaches by capturing complex contextual information embedded in polymer sequences. However, such deep learning models often operate as “black boxes,” limiting their interpretability and, consequently, their utility for advancing chemical understanding. In contrast, classical ML models based on cheminformatics-derived features offer greater interpretability but suffer from lower predictive accuracy and limited scalability across large chemical spaces. In this work, we introduce TransChem, a hybrid ML framework that integrates transformer architectures with cheminformatics-based descriptors to achieve state-of-the-art performance in predicting Li-ion conductivity of polymers. Our analysis demonstrates that incorporating cheminformatics features provides complementary, chemically meaningful information to the transformer-based model, enhancing both its predictive accuracy and interpretability. Furthermore, feature analysis on trained TransChem models identifies key chemical factors governing Li-ion conductivity in polymers, underscoring the interpretability of the framework. TransChem thus offers a promising hybrid approach for data-driven polymer design, with potential for extension to the broader field of molecular and materials informatics.</p>
     </details>
     </div>
     <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
@@ -926,19 +931,46 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">The rapid growth of electronic waste has intensified the need for sustainable technologies enabling resource recovery while minimizing environmental impact. This work develops a low-temperature (<200°C), atmospheric-pressure solvothermal debromination process achieving approximately 98% removal of brominated compounds from waste PCBs (TRL 4), with the processed solvent regenerated via vacuum distillation to establish a zero-liquid-discharge system. The technology is being scaled to a pilot plant processing 200 kg of PCBs per day, alongside proof-of-concept green-solvent-based gold recovery from waste RAM modules.</p>
     </details>
     </div>
+    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
+    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-41</span>
+    <h3 class="font-serif text-lg text-primary leading-snug mt-1">Lead Removal from Aqueous Medium Using Thiol-Rich Novel Fe/TGA Nanocrystals</h3>
+    <p class="text-sm text-stone-600 mt-1"><u>R. V. Mohan Malavya</u> and Sirshendu De <span class="text-stone-400">&middot;</span> Department of Chemical Engineering, Indian Institute of Technology, Kharagpur</p>
+    <details class="mt-3 group/pabs">
+    <summary class="flex items-center gap-2 cursor-pointer select-none text-xs font-bold text-secondary hover:text-primary uppercase tracking-widest list-none [&::-webkit-details-marker]:hidden">
+    <span class="material-symbols-outlined text-base">menu_book</span>
+    <span>Abstract</span>
+    <span class="material-symbols-outlined text-base transition-transform duration-300 group-open/pabs:rotate-180">expand_more</span>
+    </summary>
+    <p class="text-sm text-stone-600 leading-relaxed mt-2">Novel thiol functionalized iron-based nanocrystalline particles (denoted as Fe/TGA) was synthesized using a facile precipitation strategy. The physico-chemical characteristics of Fe/TGA were explored using different analytical techniques (XRD, FTIR, FESEM, EDX and Zeta potential). The material exhibited significant lead (Pb) adsorption capacity which was analyzed using detailed batch mode experimentation to elucidate the influence of different operating parameters, such as, pH, dose, feed concentration, time and temperature. Langmuir isotherm fitted better with the adsorption profile and a maximum adsorption capacity of nearly 600 mg/g was evidenced. Pb adsorption was endothermic in nature and followed pseudo-second order kinetics. The material showed appreciable Pb selectivity with different ionic groups. The regeneration studies revealed good efficacy of the material after 4 cycles of operation. The strong Pb binding capacity of thiol groups through effective chelation was determined to be the uptake mechanism confirming chemisorption. The negative surface charge of Fe/TGA also facilitated the sorption of Pb moieties through strong electrostatic forces. Overall, the simple synthesis process and superior Pb removal capacity of the nanoparticles offer credible promise and scope for application in field of water treatment.</p>
+    </details>
+    </div>
     </div>
 <!-- Poster Container -->
     <div id="poster-container" class="tab-content space-y-4">
-      <!-- Theme 1 Accordion -->
-      <div class="accordion-item border-b border-outline-variant bg-surface-container-low transition-colors hover:bg-surface-container">
-        <button class="w-full flex justify-between items-center py-8 px-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-          <div class="flex items-center gap-6">
-            <span class="text-stone-400 font-headline text-2xl italic">01</span>
-            <h2 class="text-xl md:text-2xl font-headline text-primary">AI-Driven Circular Systems</h2>
+      <div class="rounded-xl border border-secondary/30 bg-secondary/5 px-6 py-5 flex items-start gap-4 mb-4">
+        <span class="material-symbols-outlined text-secondary mt-0.5">info</span>
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-secondary">Poster Display Instructions</p>
+          <p class="text-sm text-stone-600 mt-1">Kindly report by <b class="text-on-surface font-semibold">8:30 AM</b> for registration and proceed to <b class="text-on-surface font-semibold">Hall 4, IC&amp;SR</b> to put up your posters.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+            <div class="bg-white/70 border border-secondary/20 rounded-lg px-4 py-3">
+              <p class="text-[10px] font-bold text-secondary uppercase tracking-widest">24 July</p>
+              <p class="text-sm text-stone-600 mt-0.5">Poster Registration Nos. 1–30</p>
+            </div>
+            <div class="bg-white/70 border border-secondary/20 rounded-lg px-4 py-3">
+              <p class="text-[10px] font-bold text-secondary uppercase tracking-widest">25 July</p>
+              <p class="text-sm text-stone-600 mt-0.5">Poster Registration No. 31 onwards</p>
+            </div>
           </div>
-          <span class="material-symbols-outlined toggle-icon transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="accordion-content px-6 md:px-12">
+
+          <ul class="text-sm text-stone-600 mt-4 space-y-1.5 list-disc list-inside">
+            <li>Presenters displaying their posters on 24 July are requested to remove their posters at the end of the day (EOD).</li>
+            <li>Detailed instructions regarding poster pin-up and display will be provided at the Registration Desk.</li>
+            <li>For any queries related to your poster presentation, please contact the Registration Desk for assistance.</li>
+          </ul>
+        </div>
+      </div>
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-01</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Role of Artificial Intelligence in Advancing Sustainable Development, Circular Economy, and Economic Growth in India’s Chemical Industry under Union Budget 2026–27</h3>
@@ -991,19 +1023,6 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Municipal solid waste management in India is a complex socio-technical challenge shaped by rapid urbanization, changing consumption patterns, heterogeneous waste composition, infrastructure deficits, informal recycling networks, environmental externalities, and evolving policy mandates. This paper presents an integrated decision-support methodology for evaluating and optimizing urban waste-management systems in the Indian context. The proposed framework combines five complementary analytical layers: life-cycle assessment for environmental quantification, system dynamics for long-term, feedback-rich simulation, artificial-intelligence-based forecasting for waste-generation prediction, fuzzy TOPSIS for technology ranking under uncertainty, and reinforcement learning for adaptive policy sequencing. The framework is designed around Indian municipal realities, including high organic fractions, variable collection efficiency, monsoon effects, festival-linked waste spikes, legacy dumpsites, dependence on the informal sector, and limited municipal finance. Recent policy and empirical research are incorporated to continue the expansion of the Swachh Bharat Mission–Urban 2.0, to address India’s approximately 150,000 tonnes per day of urban waste generation, and to address global projections that municipal solid waste may increase substantially by 2050. The methodology supports comparative assessment of sanitary landfilling, composting, anaerobic digestion, material recovery, waste-to-energy, refuse-derived fuel systems, and biomining of legacy waste. By coupling environmental, economic, technical, social, and policy variables, the framework provides a reproducible, transparent, and adaptive basis for sustainable waste-management planning in Indian cities.</p>
           </details>
         </div>
-        </div>
-      </div>
-
-      <!-- Theme 2 Accordion -->
-      <div class="accordion-item border-b border-outline-variant bg-surface-container-low transition-colors hover:bg-surface-container">
-        <button class="w-full flex justify-between items-center py-8 px-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-          <div class="flex items-center gap-6">
-            <span class="text-stone-400 font-headline text-2xl italic">02</span>
-            <h2 class="text-xl md:text-2xl font-headline text-primary">Circular Water Technologies</h2>
-          </div>
-          <span class="material-symbols-outlined toggle-icon transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="accordion-content px-6 md:px-12">
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-05</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Digital Twin-Integrated Circular Water Management for Sustainable Hydrosphere Governance</h3>
@@ -1186,19 +1205,6 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">One of the most recent advancements in the enhancement of pollutant removal in municipal wastewater treatment is Chemically Enhanced Primary Treatment (CEPT). By treating the primary stage of wastewater treatment with coagulants and flocculants, there is an increase in the removal of suspended solids and particulate organic matter, along with an overall improvement in treatment efficiency and organic load reduction provided to subsequent downstream biological treatment processes. CEPT does, however, increase the rate of chemical consumption and sludge generation, as well as operational costs and the hazards of chemical handling and disposal. At the same time, hybrid decentralized wastewater treatment systems have been gaining popularity, presenting an even more viable option as they focus on treating domestic wastewater in the absence of centralized treatment systems; these systems combine one or more treatment processes such as septic tanks, Up-flow Anaerobic Sludge Blanket (UASB) reactors, and constructed wetlands to promote organic matter removal without high energy or operational costs, and have been proven through numerous studies to remove high and low levels of Chemical Oxygen Demand (COD), Biological Oxygen Demand (BOD), and Total Suspended Solids (TSS) from domestic wastewater. In this regard, improving the hydrolysis and solubilization of complex organic matter during the initial stages of treatment has been identified as crucial for augmenting subsequent biological processes. The present study examines current treatment methods and hybrid configurations to gain insights into their mechanisms, treatment efficacy, benefits, and shortcomings, and elucidates major technological deficiencies while indicating possible avenues for the creation of novel, sustainable methods to enhance the primary stages of wastewater treatment while minimizing chemical use and lowering operational costs.</p>
           </details>
         </div>
-        </div>
-      </div>
-
-      <!-- Theme 3 Accordion -->
-      <div class="accordion-item border-b border-outline-variant bg-surface-container-low transition-colors hover:bg-surface-container">
-        <button class="w-full flex justify-between items-center py-8 px-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-          <div class="flex items-center gap-6">
-            <span class="text-stone-400 font-headline text-2xl italic">03</span>
-            <h2 class="text-xl md:text-2xl font-headline text-primary">Circular Energy Systems</h2>
-          </div>
-          <span class="material-symbols-outlined toggle-icon transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="accordion-content px-6 md:px-12">
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-19</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Glucoside-Assisted Enhancement of CO<sub>2</sub> Hydrate Formation Kinetics: Molecular Dynamics Investigation</h3>
@@ -1420,19 +1426,6 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">With the growth of the human population, the need for sustainable energy resources has increased substantially; large-scale utilisation of fossil fuels would leave few viable energy resources for future generations, making renewable and clean sources of energy – Green Energy Resources – essential. Biological hydrogen (H<sub>2</sub>) production (BHP) enhancement through the use of nanoparticle (NP) supplements in the growth media has recently emerged as a promising approach; nanoparticles, including metal and metal oxide NPs, have shown significant improvement in BHP. Suitable bacteria such as <i>C. butyricum</i>, used as inoculum together with gold nanoparticles (AuNPs), provided an effective approach for H<sub>2</sub> production from sucrose, while <i>Kappaphycus alvarezii</i> and sludge were also processed for bio-hydrogen production. Aqueous phase reforming with 7.5 wt% Au was found to give a 62.3% higher yield from synthetic wastewater containing sucrose as feed under anaerobic culture, compared to a control applying the minimum amount of AuNPs; overall, the catalyst achieved 61.25% bio-hydrogen production. The maximum bio-hydrogen yield was 36.1% for a 2:1 (sludge:algae) ratio at 360°C. The high ratio of acetate to butyrate and low ethanol production observed in the presence of AuNPs is associated with a significant increase in H<sub>2</sub> production. With the aim of expanding applications of bio-nanotechnology for hydrogen production, AuNPs were also biosynthesized via aqueous-phase reforming of a synthetic compound (brewery wastewater) supported on activated carbon; these AuNPs demonstrated strong catalytic performance for the degradation of industrial pollutants, making the environment cleaner and more sustainable. Overall, hydrothermal gasification (aqueous phase reforming) yielded syngas, biochar, and enhanced H<sub>2</sub> production via liquid-phase formation, while anaerobic digestion of cyanobacterial biomass broke down complex organic and inorganic compounds in industrial wastewater, facilitating an efficient reforming process.</p>
           </details>
         </div>
-        </div>
-      </div>
-
-      <!-- Theme 4 Accordion -->
-      <div class="accordion-item border-b border-outline-variant bg-surface-container-low transition-colors hover:bg-surface-container">
-        <button class="w-full flex justify-between items-center py-8 px-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-          <div class="flex items-center gap-6">
-            <span class="text-stone-400 font-headline text-2xl italic">04</span>
-            <h2 class="text-xl md:text-2xl font-headline text-primary">Battery Industry Circularity</h2>
-          </div>
-          <span class="material-symbols-outlined toggle-icon transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="accordion-content px-6 md:px-12">
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-36</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Machine Learning-Based Battery Second-Life Classification for Sustainable Electric Vehicle Ecosystems</h3>
@@ -1566,7 +1559,7 @@
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-46</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Carbon Alchemy: Lignite Transformed into High-Performance Graphite Anode</h3>
-          <p class="text-sm text-stone-600 mt-1"><u>Venkatesan Natesan</u>, Santhoshini Murugan, Mysore Sridhar Santos, Karthic Natarajan and Kothandaraman Ramanujam <span class="text-stone-400">&middot;</span> Clean Energy Laboratory, Department of Chemistry, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India · The Energy Consortium, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India · CIL Centre for Sustainable Energy, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India · CSIR-Central Institute of Mining and Fuel Research, Digwadih Campus, Dhanbad, Jharkhand 828108, India</p>
+          <p class="text-sm text-stone-600 mt-1">Venkatesan Natesan, Santhoshini Murugan, Mysore Sridhar Santos, <u>Karthic Natarajan</u> and Kothandaraman Ramanujam <span class="text-stone-400">&middot;</span> Clean Energy Laboratory, Department of Chemistry, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India · The Energy Consortium, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India · CIL Centre for Sustainable Energy, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India · CSIR-Central Institute of Mining and Fuel Research, Digwadih Campus, Dhanbad, Jharkhand 828108, India</p>
           <details class="mt-3 group/pabs">
             <summary class="flex items-center gap-2 cursor-pointer select-none text-xs font-bold text-secondary hover:text-primary uppercase tracking-widest list-none [&::-webkit-details-marker]:hidden">
               <span class="material-symbols-outlined text-base">menu_book</span>
@@ -1589,19 +1582,6 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Bimetallic MOFs stand out as the most promising approach since they combine the synergistic effect of two metals. Doping nickel (Ni) with a dopant is a common practice to modify the electrical and chemical properties of the resulting Ni-MOF. For doping, the size of the dopant should be comparable to nickel, which minimizes the lattice distortion and maintains the structural integrity of the MOF material. The ionic radii of Co<sup>2+</sup> and Ni<sup>2+</sup> are very similar, with Co<sup>2+</sup> having an ionic radius of ≈79 pm and Ni<sup>2+</sup> ≈83 pm. The incorporation of cobalt into the nickel framework improves both the electrochemical activity and structural properties of the material, making it more suitable for applications such as supercapacitors and batteries. The outstanding electrochemical performance of these hybrid materials can be attributed to (i) the synergistic effect between the metals, which enhances electrical conductivity; (ii) the presence of mesopores, which facilitates the easy diffusion of electrolyte; and (iii) a large surface area and pore volume, which provide significantly more electroactive sites. The flower-like morphology provides a larger surface area compared to the pristine Ni-BDC, facilitating more active sites for electrochemical reactions. Flower-like structures composed of nanosheets can be synthesized by incorporating 0.05 M cobalt solution into synthesized Ni-BDC. The optimized Co@Ni-BDC demonstrated remarkable electrochemical performance, delivering impressive specific capacitances of 2753.3 F/g at a current density of 3 A/g. The retention remained impressively high for Co@Ni-BDC, with 84% capacity retention even after 5000 cycles.</p>
           </details>
         </div>
-        </div>
-      </div>
-
-      <!-- Theme 5 Accordion -->
-      <div class="accordion-item border-b border-outline-variant bg-surface-container-low transition-colors hover:bg-surface-container">
-        <button class="w-full flex justify-between items-center py-8 px-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-          <div class="flex items-center gap-6">
-            <span class="text-stone-400 font-headline text-2xl italic">05</span>
-            <h2 class="text-xl md:text-2xl font-headline text-primary">Circular Plastics Economy</h2>
-          </div>
-          <span class="material-symbols-outlined toggle-icon transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="accordion-content px-6 md:px-12">
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-48</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Thermal Stability and Fire Performance of PBS/Bagasse Sustainable Composites – Effect of Diammonium Phosphate Treatment</h3>
@@ -1641,19 +1621,6 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Agricultural mulching sheets are widely adopted for enhancing crop productivity, offering benefits such as weed control and moisture retention in soil. However, commercial mulching sheets made from synthetic polymers such as low-density polyethylene, polybutylene adipate terephthalate, and polybutylene succinate contribute to secondary pollution in the form of micro/nano plastics in the soil after use. The present work focuses on the development of biodegradable cellulose-based mulching sheets made from agricultural residues such as sugarcane bagasse, corn husk, rice straw, and banana peduncle as environmentally sustainable alternatives, with the additional objective of in-situ photocatalytic soil remediation. The biomass-derived fibers are subjected to alkaline treatment, bleaching, and homogenization to produce micro-cellulose-rich pulp (MCP); the fiber morphology and hydrodynamics of the MCP are further optimized by the inclusion of biopolymer binders such as polyvinyl alcohol and sodium alginate, which enhance dispersion, consistency, and mechanical integrity during sheet formation. Among the tested precursors, corn husk and sugarcane bagasse show improved homogeneity and processability. The key innovation of the present work is the integration of MCP with a metal-free, soil-friendly photocatalyst, which endows the sheets with soil remediation functionality by photocatalytically degrading pesticide residues present on the soil surface. In summary, this work establishes a sustainable material framework for the development of photocatalyst-integrated cellulose-based mulches with enhanced environmental functionality, advancing both agricultural practice and environmental preservation.</p>
           </details>
         </div>
-        </div>
-      </div>
-
-      <!-- Theme 6 Accordion -->
-      <div class="accordion-item border-b border-outline-variant bg-surface-container-low transition-colors hover:bg-surface-container">
-        <button class="w-full flex justify-between items-center py-8 px-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-          <div class="flex items-center gap-6">
-            <span class="text-stone-400 font-headline text-2xl italic">06</span>
-            <h2 class="text-xl md:text-2xl font-headline text-primary">Sustainable Industrial Ecosystems</h2>
-          </div>
-          <span class="material-symbols-outlined toggle-icon transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="accordion-content px-6 md:px-12">
         <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
           <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-51</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">PDMS-Based Nanocomposite Films as Encapsulations to Improve Photovoltaic Reliability and Longevity</h3>
@@ -1745,8 +1712,32 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">This paper presents a review of reverse supply chains (RSCs) for used electric vehicle batteries. It integrates existing knowledge across battery recycling, battery reuse, second-life applications, material recovery, and policy frameworks. The review highlights multi-dimensional uncertainties in return quality, quantity, costs, and regulation that determine an efficient RSC or used electric vehicle batteries. While recycling shows strong technical feasibility, its industrial scalability remains limited, and the logistics costs dominate the economics. Second-life deployment at 70–80% residual capacity, although it is established, in reality is constrained by liability, standardised state-of-health assessment, and pricing. Policy analysis shows insufficiently regulated global regulations. The paper concludes by identifying research gaps in integrating scalable supply chain logistics, adopting regulation, and viable second-life business models.</p>
           </details>
         </div>
+        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
+          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-58</span>
+          <h3 class="font-serif text-lg text-primary leading-snug mt-1">Valorization of <i>Clitoria ternatea</i> Biomass for Domestic Wastewater Treatment and Sustainable Concrete Production: A Circular Water-Energy Nexus Approach</h3>
+          <p class="text-sm text-stone-600 mt-1"><u>Karthika Saramariraj</u> and V. R. Prasath Kumar <span class="text-stone-400">&middot;</span> Department of Civil Engineering, Faculty of Engineering and Technology, SRM Institute of Science and Technology, Kattankulathur, Chengalpattu Dt., Tamil Nadu 603203, India</p>
+          <details class="mt-3 group/pabs">
+            <summary class="flex items-center gap-2 cursor-pointer select-none text-xs font-bold text-secondary hover:text-primary uppercase tracking-widest list-none [&::-webkit-details-marker]:hidden">
+              <span class="material-symbols-outlined text-base">menu_book</span>
+              <span>Abstract</span>
+              <span class="material-symbols-outlined text-base transition-transform duration-300 group-open/pabs:rotate-180">expand_more</span>
+            </summary>
+            <p class="text-sm text-stone-600 leading-relaxed mt-2">The increasing demand for sustainable and decentralized wastewater treatment has driven advances in biomass-based adsorbents to enhance water quality. This research explores the use of biochar derived from <i>Clitoria ternatea</i> biomass (CT-BC) as an environmentally friendly adsorbent for treating domestic wastewater. Biochar was produced via pyrolysis and tested under various operating conditions to improve pollutant removal efficiency. The adsorption process was analysed using equilibrium and kinetic models to better understand the mechanisms involved in treatment. Advanced characterization methods, including XRD, FTIR, and SEM–EDS, were used to analyse the physicochemical properties of CT-BC. The findings showed a porous, heterogeneous surface with oxygen-rich functional groups, which are ideal for contaminant adsorption. Isotherm and kinetic tests demonstrated that the adsorption was driven by heterogeneous surface interactions and chemisorption. Statistical results confirmed that CT-BC effectively and consistently enhanced wastewater quality at various sampling sites. The results show that biochar made from <i>Clitoria ternatea</i> is an effective, affordable, and eco-friendly option for treating domestic wastewater. Turning biomass waste into a valuable water-purification tool promotes circular resource use and supports sustainable water management. This research supports circular economy principles and helps achieve the UN Sustainable Development Goals on clean water, sanitation, and responsible resource use.</p>
+          </details>
         </div>
-      </div>
+        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
+          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-59</span>
+          <h3 class="font-serif text-lg text-primary leading-snug mt-1">From Residue Burning to Resource Recovery: Crop-Residue Roof Insulation for Sustainable Livestock Shelters in India</h3>
+          <p class="text-sm text-stone-600 mt-1"><u>S. Rahul Bharath</u>, Srinivasan Periaswamy and Srikant Routroy <span class="text-stone-400">&middot;</span> Department of Mechanical Engineering, Birla Institute of Technology and Science, Pilani, Rajasthan 333031, India</p>
+          <details class="mt-3 group/pabs">
+            <summary class="flex items-center gap-2 cursor-pointer select-none text-xs font-bold text-secondary hover:text-primary uppercase tracking-widest list-none [&::-webkit-details-marker]:hidden">
+              <span class="material-symbols-outlined text-base">menu_book</span>
+              <span>Abstract</span>
+              <span class="material-symbols-outlined text-base transition-transform duration-300 group-open/pabs:rotate-180">expand_more</span>
+            </summary>
+            <p class="text-sm text-stone-600 leading-relaxed mt-2">Agricultural residues are often treated as waste, despite their potential for productive reuse in rural infrastructure. This study explores a circular application of pearl millet and paddy straw as roof-insulation materials for naturally ventilated dairy shelters in India, with the aim of reducing heat stress while creating value from locally available biomass. A validated EnergyPlus model was used to assess shelter performance across representative Indian climates. The analysis considered roof heat transfer, indoor thermal conditions, Temperature–Humidity Index (THI), and the influence of key design parameters such as insulation thickness, sidewall height, shelter capacity, and cattle heat load. The thermal results were further connected to productivity-related economic benefits and greenhouse-gas mitigation. Crop-residue insulation substantially reduced roof-mediated heat gain and improved indoor thermal conditions, with annual THI reduction varying from 730 to 5826 THI&middot;h across climates. Maximum reductions of 5.62&nbsp;&deg;C in indoor temperature and 4.18 THI units were observed. Pearl millet straw showed consistently better performance than paddy straw, while shelter geometry and insulation thickness were identified as important design factors. Beyond thermal performance, the intervention showed considerable potential for economic benefit, lower milk-related emission intensity, and avoided emissions from residue burning. The results highlight crop-residue insulation as a practical pathway linking resource recovery, passive cooling, climate resilience, and sustainable dairy production.</p>
+          </details>
+        </div>
     </div>
 
     <!-- Conference Proceedings Container -->
@@ -1776,18 +1767,7 @@
 
     <!-- Other Materials Container -->
     <div id="materials-container" class="tab-content space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-surface-container-low p-12 border border-outline-variant flex flex-col items-center text-center">
-          <span class="material-symbols-outlined text-6xl text-stone-300 mb-6">description</span>
-          <h3 class="text-2xl font-headline text-primary mb-4">Abstract Template</h3>
-          <p class="text-stone-500 max-w-sm mx-auto mb-8 leading-relaxed">
-            Please download and use this official Microsoft Word template to prepare your abstract submission for SustainX 2026.
-          </p>
-          <a href="assets/pdf/sustainx_abstract_template.docx" download class="bg-primary text-on-primary px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-secondary transition-all flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm">download</span>
-            Download Template (.docx)
-          </a>
-        </div>
+      <div class="grid grid-cols-1 max-w-xl mx-auto">
         <div class="bg-surface-container-low p-12 border border-outline-variant text-center opacity-60">
           <span class="material-symbols-outlined text-6xl text-stone-300 mb-6">slideshow</span>
           <h3 class="text-2xl font-headline text-primary mb-4">Session Materials</h3>
@@ -1948,6 +1928,76 @@
     // Toggle current item
     item.classList.toggle('active', !isActive);
   }
+
+  // ═══ Abstract Search (title, author, ID, keyword) ═══
+  (function () {
+    const input = document.getElementById('abstract-search');
+    const clearBtn = document.getElementById('abstract-search-clear');
+    const countEl = document.getElementById('abstract-search-count');
+    if (!input) return;
+
+    const containerIds = ['oral-container', 'poster-container'];
+
+    function getEntries(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return [];
+      return Array.from(container.children).filter(
+        el => el.tagName === 'DIV' && el.classList.contains('border-outline-variant/60')
+      );
+    }
+
+    function getEmptyState(containerId) {
+      const container = document.getElementById(containerId);
+      let el = container.querySelector('.search-empty-state');
+      if (!el) {
+        el = document.createElement('div');
+        el.className = 'search-empty-state hidden text-center py-16';
+        el.innerHTML =
+          '<span class="material-symbols-outlined text-5xl text-stone-300 mb-4 block">search_off</span>' +
+          '<p class="text-stone-500">No abstracts match your search.</p>';
+        container.appendChild(el);
+      }
+      return el;
+    }
+
+    function runSearch() {
+      const raw = input.value.trim();
+      const q = raw.toLowerCase();
+      clearBtn.classList.toggle('hidden', !q);
+
+      let totalMatches = 0;
+      let totalEntries = 0;
+
+      containerIds.forEach(id => {
+        const entries = getEntries(id);
+        const emptyState = getEmptyState(id);
+        let visibleCount = 0;
+
+        entries.forEach(entry => {
+          totalEntries++;
+          const match = !q || entry.textContent.toLowerCase().includes(q);
+          entry.style.display = match ? '' : 'none';
+          if (match) { visibleCount++; totalMatches++; }
+        });
+
+        emptyState.classList.toggle('hidden', !(q && visibleCount === 0));
+      });
+
+      if (q) {
+        countEl.textContent = totalMatches + ' of ' + totalEntries + ' abstracts match “' + raw + '”';
+        countEl.classList.remove('hidden');
+      } else {
+        countEl.classList.add('hidden');
+      }
+    }
+
+    input.addEventListener('input', runSearch);
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      runSearch();
+      input.focus();
+    });
+  })();
 
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
