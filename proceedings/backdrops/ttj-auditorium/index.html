@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>SustainX 2026 — Resource Person Backdrops · TTJ Auditorium</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<style>
+/* ════════════════════════════════════════════════════════════════
+   SustainX 2026 — PREMIUM Resource-Person Backdrop (16:9)
+   Engineered for a large, fully-lit auditorium:
+   · luminous cream masthead + gold footer band (projector's
+     brightest output carries the identity — ambient light washes
+     out darks, not lights)
+   · giant, bold, high-contrast typography readable from the back row
+   · large rectangular portrait, not a small circle
+   Self-contained: local fonts, local images. No internet needed.
+   ════════════════════════════════════════════════════════════════ */
+:root{
+  --green-deep:#173009;
+  --green:#1E3A12;
+  --green-bright:#2D5A1B;
+  --gold:#C9A227;
+  --gold-bright:#E8C547;
+  --gold-deep:#8f6b12;
+  --cream:#FAF7EA;
+  --cream-warm:#F5EFD8;
+  --paper:#FFFEF8;
+  --mint:#EAF2DC;
+  --ink-on-gold:#1a2e0c;
+  --panel:#0f1a0a;
+  --panel-2:#152410;
+  --line:rgba(201,162,39,.30);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --display:'Cinzel',Georgia,serif;
+  --sans:'Barlow',Arial,sans-serif;
+  --cond:'Barlow Condensed',Arial,sans-serif;
+}
+*{ box-sizing:border-box; }
+html,body{ height:100%; margin:0; }
+body{
+  font-family:var(--sans);
+  background:
+    radial-gradient(circle at 15% -10%, rgba(201,162,39,.10), transparent 45%),
+    linear-gradient(160deg, #0b1408 0%, #0e1a0a 55%, #0a1207 100%);
+  color:var(--mint);
+  min-height:100vh; display:flex; flex-direction:column;
+}
+
+/* ═══════════ App chrome (never projected) ═══════════ */
+.topbar{
+  display:flex; align-items:center; gap:18px; padding:13px 22px;
+  background:linear-gradient(180deg, var(--panel-2), var(--panel));
+  border-bottom:1px solid var(--line); flex:0 0 auto;
+}
+.brand{ display:flex; flex-direction:column; line-height:1.1; margin-right:auto; }
+.brand b{ font-family:var(--display); font-size:15px; letter-spacing:.14em; color:var(--gold); font-weight:600; }
+.brand span{ font-family:var(--cond); font-size:11px; letter-spacing:.08em; color:#9db089; text-transform:uppercase; margin-top:2px; }
+.venue-chip{
+  font-family:var(--cond); font-weight:700; letter-spacing:.1em; text-transform:uppercase; font-size:12.5px;
+  color:var(--ink-on-gold); background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  padding:7px 16px; border-radius:999px;
+}
+.day-toggle{ display:flex; background:rgba(0,0,0,.28); border:1px solid var(--line); border-radius:999px; padding:3px; }
+.day-toggle button{
+  border:none; background:transparent; color:#9db089; font-family:var(--cond);
+  font-weight:600; letter-spacing:.08em; font-size:12.5px; text-transform:uppercase;
+  padding:8px 20px; border-radius:999px; cursor:pointer; transition:all .2s;
+}
+.day-toggle button.active{ background:linear-gradient(135deg,var(--gold),var(--gold-deep)); color:var(--ink-on-gold); }
+.topbar-actions{ display:flex; gap:8px; }
+.btn{
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(201,162,39,.08); border:1px solid var(--line); color:#FAF0C0;
+  font-family:var(--cond); font-weight:600; letter-spacing:.06em; font-size:13px; text-transform:uppercase;
+  padding:9px 16px; border-radius:8px; cursor:pointer; transition:all .18s;
+}
+.btn:hover{ background:rgba(201,162,39,.18); border-color:var(--gold); }
+.btn.primary{ background:linear-gradient(135deg,var(--gold-bright),var(--gold-deep)); color:var(--ink-on-gold); border:none; font-weight:700; }
+.btn.primary:hover{ filter:brightness(1.08); }
+.btn .glyph{ font-size:16px; line-height:1; }
+
+.workspace{ flex:1 1 auto; display:flex; min-height:0; }
+.rail{
+  width:300px; flex:0 0 auto; overflow-y:auto;
+  background:linear-gradient(180deg, var(--panel), #0a1207);
+  border-right:1px solid var(--line); padding:14px 12px 40px;
+}
+.rail-group + .rail-group{ margin-top:18px; }
+.rail-group h4{
+  margin:0 0 8px 6px; font-family:var(--cond); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold-deep); font-weight:700;
+}
+.card{
+  display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:10px; cursor:pointer;
+  border:1px solid transparent; margin-bottom:4px; transition:all .15s;
+}
+.card:hover{ background:rgba(201,162,39,.07); }
+.card.active{ background:rgba(201,162,39,.14); border-color:var(--line); }
+.card img{
+  width:38px; height:38px; border-radius:8px; object-fit:cover; flex:0 0 auto;
+  border:1.5px solid var(--gold-deep); background:#0a1207;
+}
+.card .ct{ min-width:0; }
+.card .ct b{ display:block; font-size:12.6px; color:var(--paper); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.card .ct span{ display:block; font-size:10.6px; color:#9db089; margin-top:1px; font-family:var(--cond); letter-spacing:.03em; }
+
+.stage-area{
+  flex:1 1 auto; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:26px; gap:14px;
+  background:radial-gradient(ellipse at 50% 30%, rgba(201,162,39,.05), transparent 60%), #060a04;
+}
+.stage-wrap{
+  width:min(100%, 1200px); aspect-ratio:16/9;
+  container-type:size; container-name:stage;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(201,162,39,.25);
+  border-radius:6px; overflow:hidden;
+}
+.nav-hint{ font-family:var(--cond); font-size:11.5px; letter-spacing:.06em; color:#9db089; text-transform:uppercase; }
+.nav-hint b{ color:var(--gold); }
+
+#fsRoot{ background:#000; display:flex; align-items:center; justify-content:center; }
+#fsRoot:not(:fullscreen){ display:contents; }
+#fsRoot:fullscreen .stage-wrap{
+  width:min(100vw, 177.78vh); height:min(100vh, 56.25vw);
+  box-shadow:none; border-radius:0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   THE BACKDROP (everything below uses container units)
+   ════════════════════════════════════════════════════════════════ */
+.stage{
+  position:relative; width:100%; height:100%; overflow:hidden;
+  background:
+    radial-gradient(ellipse 85% 90% at 82% 30%, rgba(201,162,39,.20), transparent 58%),
+    radial-gradient(ellipse 70% 80% at 6% 105%, rgba(232,197,71,.12), transparent 55%),
+    linear-gradient(150deg, #1c3510 0%, #275016 46%, #16290b 100%);
+  font-family:var(--sans); color:var(--paper);
+}
+/* big soft ring motif for depth */
+.stage .ring{ position:absolute; right:-10cqw; top:6cqh; width:52cqw; height:52cqw;
+  border-radius:50%; border:.5cqw solid rgba(232,197,71,.10); pointer-events:none; }
+.stage .ring::after{ content:''; position:absolute; inset:5cqw; border-radius:50%;
+  border:.22cqw solid rgba(232,197,71,.08); }
+
+/* bold outer frame — thick enough to survive projection */
+.stage .frame{ position:absolute; inset:1.6cqh 1.4cqw; border:.42cqh solid var(--gold); pointer-events:none; z-index:6; }
+.stage .frame::after{ content:''; position:absolute; inset:.7cqh .62cqw; border:.12cqh solid rgba(232,197,71,.65); }
+
+/* ── MASTHEAD — luminous cream band ── */
+.stage .masthead{
+  position:absolute; top:2.6cqh; left:2.4cqw; right:2.4cqw; height:15.5cqh; z-index:5;
+  background:linear-gradient(180deg, #FFFEF8 0%, #F7F1DC 100%);
+  border-bottom:.34cqh solid var(--gold);
+  display:flex; align-items:center; gap:2cqw; padding:0 2.2cqw;
+  box-shadow:0 .7cqh 2.2cqh rgba(0,0,0,.35);
+}
+.stage .masthead .mark{ height:12.4cqh; flex:0 0 auto; }
+.stage .masthead .mark img{ height:100%; width:auto; display:block; }
+.stage .masthead .mtext{ flex:1 1 auto; min-width:0; }
+.stage .masthead .mtext .t1{
+  font-family:var(--display); font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  font-size:5.6cqh; line-height:1; color:var(--green);
+}
+.stage .masthead .mtext .t1 b{ color:var(--gold-deep); font-weight:700; }
+.stage .masthead .mtext .t2{
+  margin-top:1cqh; font-family:var(--sans); font-weight:600; font-size:1.9cqh; line-height:1.25;
+  color:#4a5c39; letter-spacing:.015em;
+}
+.stage .masthead .orgs{ display:flex; align-items:center; gap:1cqw; flex:0 0 auto; }
+.stage .masthead .orgs img{ height:8.6cqh; width:auto; display:block; }
+.stage .masthead .orgs .osep{ width:.14cqw; height:7.4cqh; background:rgba(143,107,18,.35); }
+
+/* ── MAIN ZONE ── */
+.stage .body{
+  position:absolute; left:5cqw; right:5cqw; top:22.4cqh; bottom:12.6cqh;
+  display:flex; align-items:center; gap:4cqw; z-index:4;
+}
+.stage .info{ flex:1 1 auto; min-width:0; }
+.stage .ribbon{
+  display:inline-block; font-family:var(--cond); font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  font-size:2.6cqh; color:var(--ink-on-gold);
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  padding:1.1cqh 2cqw; border-radius:.7cqh;
+  box-shadow:0 .4cqh 1.2cqh rgba(0,0,0,.35);
+}
+.stage h1.name{
+  font-family:var(--serif); font-weight:600; color:var(--paper);
+  line-height:1.04; margin:2.2cqh 0 0; letter-spacing:.002em;
+  text-shadow:0 .35cqh 1.4cqh rgba(0,0,0,.55);
+}
+.stage .rule{ width:7cqw; height:.55cqh; background:linear-gradient(90deg,var(--gold-bright),var(--gold)); margin:2cqh 0; border-radius:.3cqh; }
+.stage .affil{
+  font-family:var(--sans); font-weight:700; font-size:3.1cqh; color:#FAF0C0; letter-spacing:.01em;
+  text-shadow:0 .25cqh .9cqh rgba(0,0,0,.5);
+}
+.stage .talk{
+  margin-top:2.2cqh; font-family:var(--serif); font-style:italic; font-weight:500;
+  font-size:3.3cqh; line-height:1.3; color:var(--mint); max-width:52cqw;
+  text-shadow:0 .25cqh .9cqh rgba(0,0,0,.45);
+}
+.stage .chairline{
+  margin-top:2.2cqh; font-family:var(--sans); font-weight:600; font-size:2.7cqh; color:var(--mint);
+  max-width:50cqw; line-height:1.35; text-shadow:0 .25cqh .9cqh rgba(0,0,0,.45);
+}
+
+/* portrait — large rectangular, gold frame, white keyline */
+.stage .portrait-wrap{ position:relative; flex:0 0 auto; }
+.stage .portrait-card{
+  width:41.6cqh; height:52cqh; border-radius:1.6cqh; overflow:hidden;
+  border:.55cqh solid var(--gold);
+  box-shadow:0 0 0 .28cqh #FFFEF8 inset, 0 1.6cqh 4cqh rgba(0,0,0,.55);
+  background:#0f1a0a;
+}
+.stage .portrait-card img{ width:100%; height:100%; object-fit:cover; display:block; }
+.stage .portrait-tab{
+  position:absolute; left:50%; bottom:-2.2cqh; transform:translateX(-50%);
+  font-family:var(--cond); font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  font-size:1.9cqh; color:var(--ink-on-gold); white-space:nowrap;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  padding:.8cqh 1.6cqw; border-radius:99px; box-shadow:0 .4cqh 1.2cqh rgba(0,0,0,.4);
+}
+
+/* sponsors — white tiles, bottom-left above footer band */
+.stage .sponsors{
+  position:absolute; left:5cqw; bottom:11.6cqh; z-index:4;
+  display:flex; align-items:center; gap:.9cqw;
+}
+.stage .sponsors .label{
+  font-family:var(--cond); font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  font-size:1.5cqh; color:rgba(250,240,192,.85); margin-right:.4cqw;
+}
+.stage .sponsors .tile{
+  background:var(--paper); border-radius:.55cqh; height:5.4cqh; padding:.55cqh 1cqw;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 .35cqh 1cqh rgba(0,0,0,.35);
+}
+.stage .sponsors .tile img{ max-height:100%; max-width:9cqw; object-fit:contain; display:block; }
+
+/* ── FOOTER BAND — gold, dark text: highest-contrast pairing ── */
+.stage .footband{
+  position:absolute; left:1.4cqw; right:1.4cqw; bottom:1.6cqh; height:8.2cqh; z-index:5;
+  background:linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 60%, #b28f1e 100%);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 3.2cqw; box-shadow:0 -.5cqh 1.8cqh rgba(0,0,0,.3);
+}
+.stage .footband .fl{
+  font-family:var(--cond); font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  font-size:2.7cqh; color:var(--ink-on-gold); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.stage .footband .fr{
+  font-family:var(--cond); font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  font-size:2.7cqh; color:var(--ink-on-gold); white-space:nowrap; margin-left:2cqw;
+}
+.stage .footband .sep{ opacity:.55; padding:0 .7cqw; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <b>SustainX 2026</b>
+    <span>Premium Resource-Person Backdrops</span>
+  </div>
+  <span class="venue-chip" id="venueChip"></span>
+  <div class="day-toggle" id="dayToggle">
+    <button type="button" data-day="2" class="active">Day 2</button>
+    <button type="button" data-day="3">Day 3</button>
+  </div>
+  <div class="topbar-actions">
+    <button type="button" class="btn" id="prevBtn" title="Previous (←)"><span class="glyph">‹</span></button>
+    <button type="button" class="btn" id="nextBtn" title="Next (→)"><span class="glyph">›</span></button>
+    <button type="button" class="btn primary" id="fsBtn"><span class="glyph">⛶</span>&nbsp;Present Fullscreen</button>
+  </div>
+</div>
+
+<div class="workspace">
+  <div class="rail" id="rail"></div>
+  <div class="stage-area">
+    <div id="fsRoot">
+      <div class="stage-wrap">
+        <div class="stage" id="stage"></div>
+      </div>
+    </div>
+    <div class="nav-hint">Use <b>← →</b> to move between speakers · <b>Esc</b> exits fullscreen · 16∶9 locked · works fully offline</div>
+  </div>
+</div>
+
+<script>
+/* ═══════ VENUE (the only line that differs between the two folders) ═══════ */
+const VENUE = { name:'TTJ Auditorium', label:'TTJ AUDITORIUM' };
+
+/* ═══════ Full Day 2 + Day 3 roster (both venues; filtered by VENUE) ═══════
+   Source of truth: programme.html — resync if the schedule changes. */
+const DATA = [
+  // ---------------- DAY 2 · TTJ Auditorium ----------------
+  { name:"Prof. S. Sivaram", role:"Plenary Speaker", day:2, session:"Plenary", time:"10:00–11:00", venue:"TTJ Auditorium", affiliation:"Honorary Professor Emeritus, IISER Pune", talkTitle:"Accomplishing Material Circularity: Why Is It So Challenging?", portrait:"assets/speakers/sivaram.jpeg" },
+  { name:"Mr. Romit Sen", role:"Keynote Speaker", day:2, session:"Keynote", time:"11:00–11:45", venue:"TTJ Auditorium", affiliation:"Senior Vice President – Sustainability, HSBC India", portrait:"assets/speakers/romitsen.jpg" },
+  { name:"Prof. Madhavi Srinivasan", role:"Keynote Speaker", day:2, session:"Keynote", time:"15:00–15:45", venue:"TTJ Auditorium", affiliation:"NTU Singapore", talkTitle:"“From Waste to Worth”: Sustainable Lithium-ion Batteries Recycling", portrait:"assets/speakers/madhavi-srinivasan.jpg" },
+  { name:"Dr. Swapna Singha Rabha", role:"Session Chair", day:2, session:"Session 2", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"12:00–13:30", venue:"TTJ Auditorium", affiliation:"IIT Madras", portrait:"assets/speakers/swapna-rabha.png" },
+  { name:"Dr. Ranjith Krishna Pai, Ph. D, FRSC", role:"Distinguished Speaker", day:2, session:"Session 2", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"12:00–12:20", venue:"TTJ Auditorium", affiliation:"Department of Science & Technology (DST)", talkTitle:"From Advanced Energy Storage Materials to Hydrogen Valley Innovation Clusters: Accelerating India’s National Green Hydrogen Mission", portrait:"assets/speakers/drranjith.png" },
+  { name:"Mr. K. P. Murthy", role:"Invited Speaker", day:2, session:"Session 2", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"12:25–12:45", venue:"TTJ Auditorium", affiliation:"Former Senior GM, Bosch Limited", talkTitle:"Sustainable Engineering Applications of Bamboo – A Deep Dive", portrait:"assets/speakers/kpmurthi.jpg" },
+  { name:"Dr. Nitin Muralidharan", role:"Session Chair", day:2, session:"Session 3", sessionTitle:"Circularity in Battery Industry & Critical Minerals Recovery", time:"16:00–17:30", venue:"TTJ Auditorium", affiliation:"IIT Madras", portrait:"assets/speakers/nitin.jpg" },
+  { name:"Prof. Vanchiappan Aravindan", role:"Distinguished Speaker", day:2, session:"Session 3", sessionTitle:"Circularity in Battery Industry & Critical Minerals Recovery", time:"16:00–16:20", venue:"TTJ Auditorium", affiliation:"IISER Tirupati", talkTitle:"Na-ion Batteries from Spent Li-ion Batteries", portrait:"assets/speakers/aravindan.jpg" },
+  { name:"Dr. Venkatasailanathan Ramadesigan", role:"Invited Speaker", day:2, session:"Session 3", sessionTitle:"Circularity in Battery Industry & Critical Minerals Recovery", time:"16:25–16:45", venue:"TTJ Auditorium", affiliation:"IIT Bombay", talkTitle:"Synergistic Critical Mineral Recovery: A Waste-for-Waste Framework for Sustainable Battery Recycling", portrait:"assets/speakers/venkata.jpg" },
+  // ---------------- DAY 2 · Hall III ----------------
+  { name:"Dr. Abhinav Sankar Raman", role:"Session Chair", day:2, session:"Session 1", sessionTitle:"AI-Driven Circular Systems & Smart Decision Intelligence", time:"12:00–13:30", venue:"Hall III", affiliation:"IIT Madras", portrait:"assets/speakers/abhinav.jpg" },
+  { name:"Prof. Arun Tangirala", role:"Distinguished Speaker", day:2, session:"Session 1", sessionTitle:"AI-Driven Circular Systems & Smart Decision Intelligence", time:"12:00–12:20", venue:"Hall III", affiliation:"IIT Tirupati", talkTitle:"Data-Driven Circularity: Optimization and Intelligence in Industrial Systems", portrait:"assets/speakers/arun.png" },
+  { name:"Dr. Ananth Govind Rajan", role:"Invited Speaker", day:2, session:"Session 1", sessionTitle:"AI-Driven Circular Systems & Smart Decision Intelligence", time:"12:25–12:45", venue:"Hall III", affiliation:"IISc Bengaluru", talkTitle:"Advancing Materials Design for Sustainability via Machine Learning: CO₂ Capture and Conversion", portrait:"assets/speakers/ananth.jpg" },
+  { name:"Dr. Khushboo Suman", role:"Session Chair", day:2, session:"Session 4", sessionTitle:"Circular Water Technologies & Sustainable Hydrosphere Management", time:"16:00–17:30", venue:"Hall III", affiliation:"IIT Madras", portrait:"assets/speakers/khushboo.jpg" },
+  { name:"Dr. Shilpi Kushwaha", role:"Invited Speaker", day:2, session:"Session 4", sessionTitle:"Circular Water Technologies & Sustainable Hydrosphere Management", time:"16:00–16:20", venue:"Hall III", affiliation:"CSIR-CSMCRI", talkTitle:"From Molecular Precision to Sustainable Ecosystems and Green Supply Chains: A Chemistry-Centric Perspective for Resource, Water, and Energy Security", portrait:"assets/speakers/shilpi.jpg" },
+  { name:"Dr. Sankha Karmakar", role:"Invited Speaker", day:2, session:"Session 4", sessionTitle:"Circular Water Technologies & Sustainable Hydrosphere Management", time:"16:25–16:45", venue:"Hall III", affiliation:"IIT Madras", talkTitle:"Waste to Wealth: Facile Activation of Red Mud Waste and Insights into Industrial Reactive Dye Removal from Wastewater", portrait:"assets/speakers/sanka.jpg" },
+  // ---------------- DAY 3 · TTJ Auditorium ----------------
+  { name:"Prof. Sirshendu De", role:"Keynote Speaker", day:3, session:"Keynote", time:"09:30–10:15", venue:"TTJ Auditorium", affiliation:"IIT Kharagpur", talkTitle:"Indigenous Scalable & Sustainable Water Treatment Technologies", portrait:"assets/speakers/sirshendu-de.jpg" },
+  { name:"Prof. Sreeram Kalpathy", role:"Session Chair", day:3, session:"Session 1", sessionTitle:"Circular Plastics & Polymer Economy", time:"10:30–12:00", venue:"TTJ Auditorium", affiliation:"IIT Madras", portrait:"assets/speakers/sreeram.jpg" },
+  { name:"Prof. Sirish Namilae", role:"Distinguished Speaker", day:3, session:"Session 1", sessionTitle:"Circular Plastics & Polymer Economy", time:"10:30–10:50", venue:"TTJ Auditorium", affiliation:"Embry-Riddle Aeronautical University", talkTitle:"Advancing Sustainability Through Multifunctional Composite Materials", portrait:"assets/speakers/sirish.jpg" },
+  { name:"Prof. Anandhan Srinivasan", role:"Invited Speaker", day:3, session:"Session 1", sessionTitle:"Circular Plastics & Polymer Economy", time:"10:55–11:15", venue:"TTJ Auditorium", affiliation:"NIT Karnataka", talkTitle:"A New MOF Based on Copper and Zinc for Efficient Photocatalytic Degradation of a Commercial Dye and an Antibiotic under Visible Light Irradiation", portrait:"assets/speakers/asrini.jpg" },
+  { name:"Prof. Tiju Thomas", role:"Session Chair", day:3, session:"Session 3", sessionTitle:"Circularity in Battery Industry & Critical Minerals Recovery", time:"13:30–15:00", venue:"TTJ Auditorium", affiliation:"IIT Madras", portrait:"assets/speakers/tiju.png" },
+  { name:"Dr. Mamata Mohapatra", role:"Distinguished Speaker", day:3, session:"Session 3", sessionTitle:"Circularity in Battery Industry & Critical Minerals Recovery", time:"13:30–13:50", venue:"TTJ Auditorium", affiliation:"IMMT Bhubaneswar", talkTitle:"Leaching of Metal Ions from Spent Lithium-ion Battery and Regeneration of NMC811 Cathode Materials", portrait:"assets/speakers/mamata.jpg" },
+  { name:"Dr. Pratish K P", role:"Invited Speaker", day:3, session:"Session 3", sessionTitle:"Circularity in Battery Industry & Critical Minerals Recovery", time:"13:55–14:15", venue:"TTJ Auditorium", affiliation:"CSIR-NIIST", talkTitle:"Closing the Dumpsite Legacy: WtE as a Pathway for Sustainable MSW Management in India", portrait:"assets/speakers/prathish.png" },
+  { name:"Dr. Sankha Karmakar", role:"Session Chair", day:3, session:"Session 5", sessionTitle:"Circular Plastics & Polymer Economy", time:"15:30–17:00", venue:"TTJ Auditorium", affiliation:"IIT Madras · Organising Secretary", portrait:"assets/speakers/sanka.jpg" },
+  { name:"Dr. R. Ratheesh", role:"Distinguished Speaker", day:3, session:"Session 5", sessionTitle:"Circular Plastics & Polymer Economy", time:"15:30–15:50", venue:"TTJ Auditorium", affiliation:"Director General, C-MET Pune", talkTitle:"Resource Efficiency and Circular Economy through Urban Mining: Challenges & Opportunities", portrait:"assets/speakers/ratheesh.jpg" },
+  { name:"Dr. Pankaj Pathak", role:"Invited Speaker", day:3, session:"Session 5", sessionTitle:"Circular Plastics & Polymer Economy", time:"15:55–16:15", venue:"TTJ Auditorium", affiliation:"SRM University-AP", talkTitle:"Resource Independence for India’s Sustainable Clean Tech: Combating Mineral Vulnerabilities via Recycling", portrait:"assets/speakers/pankaj-pathak.jpg" },
+  // ---------------- DAY 3 · Hall III ----------------
+  { name:"Dr. Saikat Bhattacharjee", role:"Session Chair", day:3, session:"Session 2", sessionTitle:"Circular Water Technologies & Sustainable Hydrosphere Management", time:"10:30–12:00", venue:"Hall III", affiliation:"BITS Pilani", portrait:"assets/speakers/saikat.jpeg" },
+  { name:"Prof. Indumathi Nambi", role:"Distinguished Speaker", day:3, session:"Session 2", sessionTitle:"Circular Water Technologies & Sustainable Hydrosphere Management", time:"10:30–10:50", venue:"Hall III", affiliation:"IIT Madras", portrait:"assets/speakers/indumathi.jpg" },
+  { name:"Dr. Mrinmoy Mondal", role:"Invited Speaker", day:3, session:"Session 2", sessionTitle:"Circular Water Technologies & Sustainable Hydrosphere Management", time:"10:55–11:15", venue:"Hall III", affiliation:"CSIR-CSMCRI", talkTitle:"Fundamentals, Preparation and Applications of Indigenous Polymeric Membranes for Water and Wastewater Treatment", portrait:"assets/speakers/mondal.jpg" },
+  { name:"Prof. Tanushree Parsai", role:"Session Chair", day:3, session:"Session 4", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"13:30–15:00", venue:"Hall III", affiliation:"IIT Madras", portrait:"assets/speakers/tanushree.jpg" },
+  { name:"Prof. Susmita Dutta", role:"Invited Speaker", day:3, session:"Session 4", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"13:30–13:50", venue:"Hall III", affiliation:"NIT Durgapur", talkTitle:"Microalgae as a Sustainable Platform for Wastewater Treatment, Carbon Sequestration, and Resource Recovery", portrait:"assets/speakers/susmita.jpg" },
+  { name:"Prof. Indrajit Chakraborty", role:"Invited Speaker", day:3, session:"Session 4", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"13:55–14:15", venue:"Hall III", affiliation:"IIT Bombay", talkTitle:"Waste-derived Biochar for Enhancing Bio-recovery, Pollutant Removal and Energy Applications", portrait:"assets/speakers/indrajit.jpg" },
+  { name:"Dr. Krishna Malakar", role:"Session Chair", day:3, session:"Session 6", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"15:30–17:00", venue:"Hall III", affiliation:"IIT Madras", portrait:"assets/speakers/krishna.png" },
+  { name:"Dr. Ishita Sarkar", role:"Invited Speaker", day:3, session:"Session 6", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"15:30–15:50", venue:"Hall III", affiliation:"CSIR-CMERI", talkTitle:"Catalytic Thermochemical Conversion of Biomass: A Pathway to Hydrogen-Rich Syngas and Clean Energy", portrait:"assets/speakers/ishita.png" },
+  { name:"Dr. Sagar Sourav", role:"Invited Speaker", day:3, session:"Session 6", sessionTitle:"Circular Energy Systems & Carbon Resource Valorization", time:"15:55–16:15", venue:"Hall III", affiliation:"IIT Madras", talkTitle:"Engineering Catalysts for Thermocatalytic CO₂ Utilization", portrait:"assets/speakers/sagar.jpg" },
+];
+
+const ROLE_LABEL = {
+  "Plenary Speaker":"Plenary Address",
+  "Keynote Speaker":"Keynote Address",
+  "Distinguished Speaker":"Distinguished Speaker",
+  "Invited Speaker":"Invited Speaker",
+  "Session Chair":"Session Chair",
+};
+
+let activeDay = 2;
+let activeIndex = 0;
+
+function venueList(){ return DATA.filter(p => p.venue === VENUE.name && p.day === activeDay); }
+
+/* big names must stay big but never overflow — tiered auto-size */
+function nameSize(name){
+  const n = name.length;
+  if (n <= 16) return 11.5;
+  if (n <= 22) return 10.2;
+  if (n <= 28) return 9.0;
+  if (n <= 34) return 8.0;
+  return 7.0;
+}
+
+function renderRail(){
+  const rail = document.getElementById('rail');
+  rail.innerHTML = '';
+  const list = venueList();
+  const groups = [];
+  list.forEach(p=>{
+    const key = (p.session === 'Plenary' || p.session === 'Keynote') ? 'Plenary & Keynote' : p.session;
+    let g = groups.find(g=>g.key===key);
+    if(!g){ g = {key, items:[]}; groups.push(g); }
+    g.items.push(p);
+  });
+  groups.forEach(g=>{
+    const box = document.createElement('div');
+    box.className = 'rail-group';
+    const h = document.createElement('h4');
+    h.textContent = g.key;
+    box.appendChild(h);
+    g.items.forEach(p=>{
+      const idx = list.indexOf(p);
+      const card = document.createElement('div');
+      card.className = 'card' + (idx===activeIndex ? ' active' : '');
+      card.innerHTML = `<img src="${p.portrait}" alt=""><div class="ct"><b>${p.name}</b><span>${ROLE_LABEL[p.role]}</span></div>`;
+      card.addEventListener('click', ()=>{ activeIndex = idx; render(); syncHash(); });
+      box.appendChild(card);
+    });
+    rail.appendChild(box);
+  });
+}
+
+function renderStage(){
+  const list = venueList();
+  if(!list.length){ document.getElementById('stage').innerHTML=''; return; }
+  if(activeIndex >= list.length) activeIndex = 0;
+  const p = list[activeIndex];
+  const isChair = p.role === 'Session Chair';
+  const sessionLabel = (p.session === 'Plenary' || p.session === 'Keynote')
+    ? p.session
+    : `${p.session} — ${p.sessionTitle}`;
+
+  document.getElementById('stage').innerHTML = `
+    <div class="ring"></div>
+    <div class="frame"></div>
+    <div class="masthead">
+      <div class="mark"><img src="assets/logos/premium.svg" alt="SustainX 2026"></div>
+      <div class="mtext">
+        <div class="t1">SustainX <b>2026</b></div>
+        <div class="t2">International Conference on Circularity in Energy, Earth &amp; Environment · IIT Madras</div>
+      </div>
+      <div class="orgs">
+        <img src="assets/logos/iitm.png" alt="IIT Madras">
+        <span class="osep"></span>
+        <img src="assets/logos/sos.png" alt="School of Sustainability">
+        <span class="osep"></span>
+        <img src="assets/logos/crret.png" alt="CRRET">
+      </div>
+    </div>
+    <div class="body">
+      <div class="info">
+        <span class="ribbon">${ROLE_LABEL[p.role]}</span>
+        <h1 class="name" style="font-size:${nameSize(p.name)}cqh">${p.name}</h1>
+        <div class="rule"></div>
+        ${p.affiliation ? `<div class="affil">${p.affiliation}</div>` : ''}
+        ${p.talkTitle ? `<div class="talk">“${p.talkTitle}”</div>` : ''}
+        ${isChair ? `<div class="chairline">Presiding over ${p.session} — ${p.sessionTitle}</div>` : ''}
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait-card"><img src="${p.portrait}" alt="${p.name}"></div>
+        <div class="portrait-tab">${p.time}</div>
+      </div>
+    </div>
+    <div class="sponsors">
+      <span class="label">Sponsors</span>
+      <div class="tile"><img src="assets/logos/hsbc.png" alt="HSBC"></div>
+      <div class="tile"><img src="assets/logos/smla.png" alt="SMLA.Life"></div>
+      <div class="tile"><img src="assets/logos/cse.png" alt="CSE"></div>
+      <div class="tile"><img src="assets/logos/iwma.png" alt="IWMA"></div>
+    </div>
+    <div class="footband">
+      <span class="fl">Day ${p.day}<span class="sep">·</span>${sessionLabel}</span>
+      <span class="fr">${VENUE.label}<span class="sep">·</span>${p.time}</span>
+    </div>
+  `;
+}
+
+function render(){ renderRail(); renderStage(); }
+
+document.getElementById('venueChip').textContent = VENUE.label;
+
+document.getElementById('dayToggle').addEventListener('click', e=>{
+  const btn = e.target.closest('button[data-day]');
+  if(!btn) return;
+  activeDay = parseInt(btn.dataset.day, 10);
+  activeIndex = 0;
+  document.querySelectorAll('#dayToggle button').forEach(b=>b.classList.toggle('active', b===btn));
+  render(); syncHash();
+});
+
+function step(delta){
+  const list = venueList();
+  activeIndex = (activeIndex + delta + list.length) % list.length;
+  render(); syncHash();
+}
+document.getElementById('prevBtn').addEventListener('click', ()=>step(-1));
+document.getElementById('nextBtn').addEventListener('click', ()=>step(1));
+document.addEventListener('keydown', e=>{
+  if(e.key === 'ArrowRight') step(1);
+  if(e.key === 'ArrowLeft') step(-1);
+});
+
+const fsRoot = document.getElementById('fsRoot');
+const fsBtn = document.getElementById('fsBtn');
+fsBtn.addEventListener('click', ()=>{
+  if(!document.fullscreenElement) fsRoot.requestFullscreen().catch(()=>{});
+  else document.exitFullscreen();
+});
+document.addEventListener('fullscreenchange', ()=>{
+  fsBtn.innerHTML = document.fullscreenElement
+    ? '<span class="glyph">⛶</span>&nbsp;Exit Fullscreen'
+    : '<span class="glyph">⛶</span>&nbsp;Present Fullscreen';
+});
+
+function syncHash(){ location.hash = `day=${activeDay}&i=${activeIndex}`; }
+(function initFromHash(){
+  const m = location.hash.match(/day=(\d)&i=(\d+)/);
+  if(m){ activeDay = parseInt(m[1],10); activeIndex = parseInt(m[2],10); }
+  document.querySelectorAll('#dayToggle button').forEach(b=>b.classList.toggle('active', parseInt(b.dataset.day,10)===activeDay));
+})();
+render();
+</script>
+</body>
+</html>

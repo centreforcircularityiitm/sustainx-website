@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -2 255 248" width="800" height="778">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #489b35; /* Dark Green */
+      }
+
+      .cls-2 {
+        fill: #97c684; /* Light Green */
+      }
+      
+      .bg {
+        fill: none;
+      }
+
+      .text-logo {
+        fill: #489b35;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 38px;
+        letter-spacing: 2px;
+        stroke: none;
+      }
+      
+      .text-logo-x {
+        font-size: 1.35em;
+        line-height: 1;
+      }
+
+      .text-sub {
+        fill: #489b35;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        font-size: 10.5px;
+        letter-spacing: 4px;
+        stroke: none;
+      }
+      
+      .divider {
+        stroke: #b6d7a9; /* Solid color simulating 70% opacity to prevent PDF rasterization */
+        stroke-width: 1px;
+        fill: none;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background matched exactly to viewBox bounds -->
+  <rect x="-40" y="-40" width="236.62" height="330" class="bg"/>
+  
+  <g id="logo-mark">
+    <!-- Logo Mark Paths -->
+    <path class="cls-2" d="M59.48,25.85S31.37,32.63,25.6,0c.31,1.72,9.97,3.77,11.29,4.06,3.68.83,7.48,1.23,11.26.94,5.25-.39,9.51-2.35,14.44.51,4.13,2.4,6.42,6.68,7.19,11.3,0,0-4.27-1.51-11.8-.5,0,0-5.52,1.76-10.54-1,0,0,3.26,10.79,12.05,10.54Z"/>
+    <path class="cls-1" d="M75.3,20.83s-2.01-13.55,12.8-14.81c0,0,11.8,3.01,14.31-3.76,0,0,2.01,9.04-8.28,16.06,0,0-4.77,3.01-11.8,2.76,0,0,1.51-5.02,7.28-6.78,0,0-9.29-2.76-14.31,6.53Z"/>
+    <path class="cls-1" d="M67.01,55.97s-11.04-13.8-1.76-29.62l-4.27-5.77s14.06.75,17.32,7.78c0,0,4.02,6.27,7.28,7.53,0,0,11.29,8.53.25,8.78,0,0-20.08-6.02-18.82,11.29Z"/>
+    <path class="cls-2" d="M58.23,30.87s-6.02,28.61,24.85,40.41c0,0,18.57,8.53,38.15-9.29,0,0,.25,8.28-4.77,9.79,0,0,18.32,12.05,5.02,29.37l16.06,32.13s.25,1.25-3.76,1.25c0,0-26.1-38.9-36.39-43.17l.5,2.51s-10.29,9.54-30.12,5.27c0,0-1,15.31,2.01,23.59l1,7.03-4.27-.25s-4.52-26.6-14.31-37.15c0,0-25.85-30.12,6.02-61.49Z"/>
+    <path class="cls-1" d="M101.9,101.15l4.27,4.02-12.3,24.85-5.27-.5s14.06-24.85,13.3-28.36Z"/>
+    <path class="cls-1" d="M47.44,92.11l4.02,6.02s-15.56,30.37-16.31,34.13l-5.27-.25s14.56-25.85,17.57-39.91Z"/>
+    <path class="cls-1" d="M0,142.56s59.23-23.09,156.62,0c0,0-104.41-8.28-156.62,0Z"/>
+  </g>
+  
+  <!-- Premium Typography Arrangement -->
+  <g id="typography">
+    <text x="85" y="173" text-anchor="middle" class="text-logo">SUSTAIN<tspan class="text-logo-x">X</tspan></text>
+    
+    <!-- Anchor Line -->
+    <line x1="-15" y1="188" x2="171.62" y2="188" class="divider"/>
+    
+    <text x="80" y="210" text-anchor="middle" class="text-sub">CIRCULARITY IN ENERGY,</text>
+    <text x="80" y="230" text-anchor="middle" class="text-sub">EARTH AND ENVIRONMENT</text>
+  </g>
+</svg>

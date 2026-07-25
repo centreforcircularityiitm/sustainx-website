@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SustainX 2026 — Portrait Certificate Studio · Premium Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js" defer></script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DASHBOARD (screen only) — same studio chrome as the standard file
+   ═══════════════════════════════════════════════════════════ */
+@media screen{
+  body{
+    background:radial-gradient(circle at center,#1b2e15 0%,#0c150a 100%)!important;
+    font-family:'Barlow',sans-serif; color:#e2ebd5; margin:0; padding:26px;
+    display:flex; flex-direction:column; align-items:center; min-height:100vh;
+  }
+  h1{ font-family:'Cinzel',serif; font-size:24px; color:#C9A227; margin:0 0 4px;
+      text-align:center; letter-spacing:2px; text-shadow:0 2px 4px rgba(0,0,0,.4); }
+  .subhead{ font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#a8b89d; margin-bottom:18px; }
+
+  .dashboard-container{ display:flex; gap:32px; max-width:1560px; width:100%; align-items:flex-start; }
+  .controls-panel{
+    flex:0 0 400px; background:rgba(30,58,18,.45); backdrop-filter:blur(10px);
+    padding:24px; border-radius:16px; border:1px solid rgba(201,162,39,.3);
+    box-shadow:0 20px 40px rgba(0,0,0,.5); display:flex; flex-direction:column; gap:14px;
+    max-height:calc(100vh - 40px); overflow-y:auto;
+  }
+  .section-title{ font-family:'Cinzel',serif; font-size:13px; color:#FAF0C0;
+    border-bottom:1px solid rgba(201,162,39,.25); padding-bottom:6px; letter-spacing:1.5px; }
+  .form-group{ display:flex; flex-direction:column; gap:5px; }
+  label{ font-size:10.5px; text-transform:uppercase; letter-spacing:1.3px; color:#a8b89d; font-weight:600; }
+  input,select,textarea{
+    padding:9px 11px; background:rgba(12,21,10,.7); border:1px solid rgba(201,162,39,.3);
+    border-radius:8px; color:#FAFBF5; font-size:13px; font-family:'Barlow',sans-serif;
+  }
+  textarea{ resize:vertical; min-height:52px; line-height:1.4; }
+  input:focus,select:focus,textarea:focus{ border-color:#E8C547; outline:none;
+    box-shadow:0 0 10px rgba(232,197,71,.15); }
+  select optgroup{ background:#1a2e10; color:#C9A227; font-weight:700; }
+  select option{ background:#0c150a; color:#FAFBF5; }
+  .btn-container{ display:flex; gap:10px; }
+  button{
+    flex:1; padding:11px 14px; background:linear-gradient(135deg,#C9A227 0%,#B8860B 100%);
+    border:none; border-radius:8px; color:#1E3A12; font-family:'Barlow Condensed',sans-serif;
+    font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; cursor:pointer;
+    transition:all .25s ease; box-shadow:0 4px 12px rgba(184,134,11,.2);
+  }
+  button:hover{ transform:translateY(-2px); background:linear-gradient(135deg,#E8C547,#C9A227); }
+  button.btn-sec{ background:transparent; border:1px solid #C9A227; color:#C9A227; box-shadow:none; }
+  button.btn-sec:hover{ background:rgba(201,162,39,.1); color:#E8C547; }
+  button:disabled{ opacity:.45; cursor:not-allowed; transform:none; }
+
+  .drop{
+    border:1.5px dashed rgba(201,162,39,.5); border-radius:10px; padding:16px 12px;
+    text-align:center; font-size:12px; color:#cdd8bd; cursor:pointer; transition:all .2s;
+  }
+  .drop:hover,.drop.on{ border-color:#E8C547; background:rgba(201,162,39,.07); }
+  .drop b{ color:#E8C547; }
+  .hint{ font-size:10.5px; line-height:1.55; color:#93a487; }
+  .hint code{ color:#E8C547; font-size:10px; }
+  details.types{ font-size:11px; color:#a8b89d; }
+  details.types summary{ cursor:pointer; color:#C9A227; font-weight:600; letter-spacing:.5px; }
+  details.types .cols{ column-count:2; margin-top:6px; }
+  details.types div{ padding:1.5px 0; break-inside:avoid; }
+
+  .preview-panel{ flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .preview-label{ font-family:'Cinzel',serif; font-size:11px; text-transform:uppercase;
+    letter-spacing:3px; color:#E8C547; opacity:.85; }
+  .preview-scale-wrap{ width:100%; display:flex; justify-content:center; overflow:hidden; }
+  #live-mount{ transform-origin:top center; }
+
+  .batch-section{ max-width:1560px; width:100%; margin-top:28px; }
+  .batch-bar{ display:flex; align-items:center; gap:14px; margin:10px 0; flex-wrap:wrap; }
+  .batch-bar .stat{ font-size:12px; color:#cdd8bd; }
+  .batch-bar .stat b{ color:#E8C547; }
+  table.batch{
+    width:100%; border-collapse:collapse; font-size:12px; background:rgba(12,21,10,.55);
+    border:1px solid rgba(201,162,39,.25); border-radius:10px; overflow:hidden;
+  }
+  table.batch th{ font-family:'Barlow Condensed'; letter-spacing:1px; text-transform:uppercase;
+    font-size:11px; color:#C9A227; text-align:left; padding:8px 10px;
+    border-bottom:1px solid rgba(201,162,39,.3); background:rgba(30,58,18,.5); }
+  table.batch td{ padding:7px 10px; border-bottom:1px solid rgba(201,162,39,.12); color:#e2ebd5; vertical-align:top; }
+  table.batch tr:hover td{ background:rgba(201,162,39,.05); cursor:pointer; }
+  td.ok{ color:#9dc23c; font-weight:700; }
+  td.bad{ color:#ff7a6e; font-weight:700; }
+  .print-container{ display:none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM CERTIFICATE — A4 PORTRAIT 210 × 297 mm
+   Design language: engraved diploma. Layered gold frames with an
+   etched diamond-chain band, corner rosettes, laid-paper texture,
+   foil monogram medallion, calligraphic flourish under the name.
+   ═══════════════════════════════════════════════════════════ */
+.cert{
+  width:210mm; height:297mm; position:relative; overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(201,162,39,.035) 0 .3mm, transparent .3mm 1.7mm),
+    radial-gradient(ellipse at 50% 36%, #FFFEF7 0%, #FBF5E0 52%, #F1E7C6 100%);
+  font-family:'Cormorant Garamond',serif; color:#243318;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.cert *{ margin:0; padding:0; box-sizing:border-box; }
+
+/* ── frame system ───────────────────────────────────────────
+   b-outer: strong gold rule
+   b-band : 2.6mm etched diamond-chain band (4 edge strips)
+   b-mid  : hairline gold
+   b-fine : hairline deep green                                */
+.cert .b-outer{ position:absolute; inset:6mm; border:.75mm solid #B8860B; pointer-events:none;
+  box-shadow:inset 0 0 0 .18mm #E8C547; }
+.cert .band{ position:absolute; background-repeat:repeat; pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='10' viewBox='0 0 24 10'><polygon points='12,1 16,5 12,9 8,5' fill='none' stroke='%23B8860B' stroke-width='0.9'/><circle cx='2' cy='5' r='1' fill='%23C9A227'/><circle cx='22' cy='5' r='1' fill='%23C9A227'/></svg>");
+  background-size:6.2mm 2.6mm; opacity:.65; }
+.cert .band.t{ top:7.6mm; left:7.6mm; right:7.6mm; height:2.6mm; }
+.cert .band.b{ bottom:7.6mm; left:7.6mm; right:7.6mm; height:2.6mm; }
+.cert .band.l{ top:7.6mm; bottom:7.6mm; left:7.6mm; width:2.6mm;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='24' viewBox='0 0 10 24'><polygon points='1,12 5,8 9,12 5,16' fill='none' stroke='%23B8860B' stroke-width='0.9'/><circle cx='5' cy='2' r='1' fill='%23C9A227'/><circle cx='5' cy='22' r='1' fill='%23C9A227'/></svg>");
+  background-size:2.6mm 6.2mm; }
+.cert .band.r{ top:7.6mm; bottom:7.6mm; right:7.6mm; width:2.6mm;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='24' viewBox='0 0 10 24'><polygon points='1,12 5,8 9,12 5,16' fill='none' stroke='%23B8860B' stroke-width='0.9'/><circle cx='5' cy='2' r='1' fill='%23C9A227'/><circle cx='5' cy='22' r='1' fill='%23C9A227'/></svg>");
+  background-size:2.6mm 6.2mm; }
+.cert .b-mid{ position:absolute; inset:10.8mm; border:.22mm solid rgba(184,134,11,.75); pointer-events:none; }
+.cert .b-fine{ position:absolute; inset:11.9mm; border:.15mm solid rgba(45,90,27,.5); pointer-events:none; }
+
+/* corner rosettes — engraved concentric medallions */
+.cert .corner{ position:absolute; width:17mm; height:17mm; z-index:3; }
+.cert .corner svg{ width:100%; height:100%; display:block; }
+.cert .corner.tl{ top:3.4mm; left:3.4mm; }
+.cert .corner.tr{ top:3.4mm; right:3.4mm; }
+.cert .corner.bl{ bottom:3.4mm; left:3.4mm; }
+.cert .corner.br{ bottom:3.4mm; right:3.4mm; }
+
+/* faint watermark */
+.cert .wm{ position:absolute; top:50%; left:50%; transform:translate(-50%,-52%);
+  width:118mm; opacity:.04; z-index:0; }
+.cert .wm img{ width:100%; height:auto; display:block; filter:grayscale(30%); }
+
+.cert .inner{
+  position:absolute; inset:14mm; z-index:1;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  padding:4.2mm 9.5mm 3.2mm;
+}
+
+/* header */
+.cert .hero{ width:45mm; margin-top:.4mm; }
+.cert .hero img{ width:100%; height:auto; display:block; }
+.cert .subtitle{
+  margin-top:2mm; font-family:'Cinzel',serif; font-size:10pt; font-weight:700;
+  letter-spacing:.22em; color:#2D5A1B;
+}
+.cert .orgline{
+  margin-top:1.3mm; font-family:'Barlow',sans-serif; font-size:7pt; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:#6b7a5a; line-height:1.5;
+}
+.cert .logorow{ margin-top:2.6mm; display:flex; align-items:center; gap:6.5mm; }
+.cert .logorow img{ height:11.5mm; width:auto; display:block; }
+.cert .logorow .lsep{ width:.2mm; height:9mm; background:rgba(201,162,39,.5); }
+
+/* engraved divider — swash + diamond */
+.cert .divider-main{ width:126mm; height:5.2mm; margin:2.8mm auto 2.2mm; position:relative; }
+.cert .divider-main svg{ width:100%; height:100%; display:block; }
+
+/* award title — engraved two-tone */
+.cert .cert-title{
+  font-family:'Cinzel',serif; font-size:20.5pt; font-weight:800; color:#8f6b12;
+  letter-spacing:.14em; line-height:1.28; max-width:160mm;
+  text-shadow:0 .35mm 0 rgba(255,253,244,.9), 0 .55mm 1mm rgba(143,107,18,.28);
+}
+.cert .title-rule{ width:44mm; height:.4mm; margin:2mm auto 0;
+  background:linear-gradient(90deg, rgba(201,162,39,0), #C9A227 25%, #E8C547 50%, #C9A227 75%, rgba(201,162,39,0)); }
+
+/* body */
+.cert .cert-body{ flex:1; display:flex; flex-direction:column; justify-content:center;
+  align-items:center; width:100%; max-width:162mm; }
+.cert .body-text{ font-size:12pt; font-weight:500; color:#3a4a2c; line-height:1.5; margin:1.5mm 0;
+  font-style:italic; letter-spacing:.02em; }
+.cert .body-detail{ font-size:12pt; color:#243318; line-height:1.5; margin:1.5mm 0; }
+.cert .recipient-name{
+  display:block; font-family:'Cormorant Garamond',serif; font-size:29pt; font-weight:600;
+  color:#1E3A12; line-height:1.12; margin:2.2mm 0 0; padding:0 6mm;
+}
+.cert .name-flourish{ width:74mm; height:4.6mm; margin:.4mm auto 1mm; }
+.cert .name-flourish svg{ width:100%; height:100%; display:block; }
+.cert .recipient-affiliation{ font-size:12.5pt; font-style:italic; font-weight:500;
+  color:#2D5A1B; margin:1.5mm 0; }
+.cert .talk-title{ font-size:14pt; font-style:italic; font-weight:600; color:#1E3A12;
+  line-height:1.38; margin:1.8mm 0; max-width:152mm; }
+.cert .authors-line{ font-size:11.5pt; font-weight:600; color:#2D5A1B;
+  line-height:1.45; margin:1mm 0 .4mm; max-width:154mm; }
+.cert .affil-lines{ font-family:'Barlow',sans-serif; font-size:8pt; font-weight:500;
+  color:#5c6b4a; line-height:1.5; margin:.4mm 0 1mm; max-width:150mm; }
+.cert .body-closing{ font-size:10.5pt; font-style:italic; font-weight:500; color:#5c6b4a;
+  line-height:1.55; margin:2.4mm 0 0; max-width:148mm; }
+
+/* signatures */
+.cert .signatures{
+  width:100%; display:flex; justify-content:space-between; align-items:flex-end;
+  gap:2.5mm; margin-top:2.6mm;
+}
+.cert .sig{ flex:1 1 0; min-width:0; text-align:center; display:flex; flex-direction:column; align-items:center; }
+.cert .sig .simg{ height:9.5mm; display:flex; align-items:flex-end; justify-content:center; margin-bottom:.7mm; }
+.cert .sig .simg img{ max-height:9.5mm; max-width:27mm; object-fit:contain; display:block; }
+.cert .sig .line{ width:92%; margin:0 auto 1.2mm; border-bottom:.25mm solid #6b7a5a; }
+.cert .sig .nm{ font-family:'Barlow',sans-serif; font-size:7.6pt; font-weight:700; color:#1E3A12; line-height:1.25; }
+.cert .sig .tt{ font-family:'Barlow',sans-serif; font-size:5.8pt; font-weight:500; color:#5c6b4a; line-height:1.35; margin-top:.7mm; }
+
+/* footer badge — etched plate */
+.cert .badge{
+  margin-top:3mm; padding-top:2.1mm; width:100%;
+  border-top:.2mm solid rgba(201,162,39,.55); position:relative;
+  font-family:'Barlow Condensed',sans-serif; font-size:8pt; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase; color:#8f6b12;
+}
+.cert .badge::before{
+  content:'◆'; position:absolute; top:-2.05mm; left:50%; transform:translateX(-50%);
+  background:#FBF5E0; padding:0 2.2mm; color:#C9A227; font-size:7.5pt; line-height:1;
+}
+
+/* certificate number — gold plate chip, top-right */
+.cert .certno-tag{
+  position:absolute; right:17.5mm; top:16.4mm; z-index:2;
+  font-family:'Barlow Condensed',sans-serif; font-size:7.2pt; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; color:#8f6b12;
+  border:.22mm solid rgba(184,134,11,.55); border-radius:1mm;
+  padding:1mm 2.2mm; background:rgba(255,253,244,.8);
+}
+
+/* print */
+@media print{
+  @page{ size:210mm 297mm; margin:0; }
+  body{ background:#fff!important; padding:0!important; margin:0!important; }
+  h1,.subhead,.dashboard-container,.batch-section,.preview-label{ display:none!important; }
+  .print-container{ display:block!important; }
+  .print-container .cert{ page-break-after:always; }
+  .print-container .cert:last-child{ page-break-after:auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>SustainX 2026 — Portrait Certificate Studio</h1>
+<div class="subhead">Premium Edition · A4 Portrait · Single &amp; Batch Generation · CSV / Excel</div>
+
+<div class="dashboard-container">
+
+  <!-- ══════════════ CONTROLS ══════════════ -->
+  <div class="controls-panel">
+
+    <div class="section-title">Single Certificate</div>
+    <div class="form-group">
+      <label for="input-cert-type">Certificate Type</label>
+      <select id="input-cert-type"></select>
+    </div>
+    <div class="form-group">
+      <label for="input-certno">Certificate No.</label>
+      <input type="text" id="input-certno" value="SX26-C-001" placeholder="e.g. SX26-C-001">
+    </div>
+    <div class="form-group" id="group-name">
+      <label id="label-name">Recipient Name</label>
+      <div style="display:flex;gap:8px;">
+        <select id="input-name-prefix" style="flex:0 0 92px;">
+          <option value="">None</option>
+          <option value="Prof. ">Prof.</option>
+          <option value="Dr. ">Dr.</option>
+          <option value="Prof./Dr. ">Prof./Dr.</option>
+          <option value="Mr. ">Mr.</option>
+          <option value="Ms. ">Ms.</option>
+          <option value="Mrs. ">Mrs.</option>
+        </select>
+        <input type="text" id="input-name" value="Sankha Karmakar" placeholder="Full name" style="flex:1;">
+      </div>
+    </div>
+    <div class="form-group" id="group-authors" style="display:none;">
+      <label for="input-authors">Full Author List (all co-authors)</label>
+      <textarea id="input-authors" rows="2" placeholder="e.g. Anjali Singh, Rohan Mehta and Priya Iyer"></textarea>
+    </div>
+    <div class="form-group" id="group-affiliation">
+      <label for="input-affiliation" id="label-affiliation">Affiliation / Organization</label>
+      <input type="text" id="input-affiliation" value="Indian Institute of Technology Madras">
+    </div>
+    <div class="form-group" id="group-title" style="display:none;">
+      <label id="label-title">Title</label>
+      <textarea id="input-talk-title" rows="2"></textarea>
+    </div>
+    <div class="btn-container">
+      <button id="btn-print">Print This Certificate</button>
+    </div>
+
+    <div class="section-title" style="margin-top:8px;">Signatories (all certificates)</div>
+    <div class="hint">
+      Every certificate carries the five official signatories with their digital signatures:
+      <b>Dr. Sankha Karmakar</b> (Organising Secretary), <b>Dr. Nitin Muralidharan</b>,
+      <b>Prof. Satyanarayan Seshadri</b>, <b>Dr. Sreeram K. Kalpathy</b> (Organising Committee)
+      and <b>Prof. Rajnish Kumar</b> (Patron · Head, School of Sustainability).
+    </div>
+
+    <div class="section-title" style="margin-top:8px;">Batch — CSV / Excel Upload</div>
+    <div class="form-group">
+      <label for="input-certno-prefix">Certificate No. — Prefix &amp; Start</label>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="input-certno-prefix" value="SX26-C-" style="flex:1;">
+        <input type="number" id="input-certno-start" value="1" min="1" style="flex:0 0 80px;">
+      </div>
+    </div>
+    <div class="hint">
+      Auto-numbers as <code>SX26-C-001</code>, <code>SX26-C-002</code>… in row order.
+      Add a <code>Certificate No.</code> column in your file to override specific rows.
+    </div>
+    <div class="drop" id="drop">
+      <b>Click to choose</b> or drop a <b>.csv / .xlsx</b> file here<br>
+      <span style="font-size:10.5px;opacity:.8;">Columns: Certificate Type · Prefix · Name · Authors · Affiliation · Title · Certificate No. (optional)</span>
+      <input type="file" id="file-input" accept=".csv,.xlsx,.xls" style="display:none;">
+    </div>
+    <div class="btn-container">
+      <button class="btn-sec" id="btn-template">Download CSV Template</button>
+    </div>
+    <div class="hint">
+      Header names are matched flexibly (<code>type / nature / certificate</code>,
+      <code>name</code>, <code>affiliation / organization</code>,
+      <code>title / presentation / session / topic</code>, optional <code>prefix</code>).
+      Excel needs internet on first load (SheetJS); CSV always works offline.
+    </div>
+    <details class="types">
+      <summary>Accepted certificate types (5)</summary>
+      <div class="cols" id="types-list"></div>
+    </details>
+  </div>
+
+  <!-- ══════════════ LIVE PREVIEW ══════════════ -->
+  <div class="preview-panel">
+    <div class="preview-label">Live Preview — A4 Portrait · Premium</div>
+    <div class="preview-scale-wrap"><div id="live-mount"></div></div>
+  </div>
+</div>
+
+<!-- ══════════════ BATCH TABLE ══════════════ -->
+<div class="batch-section" id="batch-section" style="display:none;">
+  <div class="section-title">Batch Queue</div>
+  <div class="batch-bar">
+    <span class="stat"><b id="stat-total">0</b> rows</span>
+    <span class="stat"><b id="stat-ok">0</b> ready</span>
+    <span class="stat"><b id="stat-bad">0</b> with problems (skipped)</span>
+    <button id="btn-generate" style="flex:0 0 260px;">Generate All Certificates (Print)</button>
+    <button id="btn-clear" class="btn-sec" style="flex:0 0 120px;">Clear</button>
+  </div>
+  <table class="batch">
+    <thead><tr><th style="width:28px;">#</th><th style="width:100px;">Cert No.</th><th style="width:160px;">Certificate</th><th style="width:170px;">Presenter</th><th>Authors</th><th>Affiliation</th><th>Title</th><th style="width:150px;">Status</th></tr></thead>
+    <tbody id="batch-body"></tbody>
+  </table>
+  <div class="hint" style="margin-top:8px;">Click a row to load it into the single-certificate editor. “Generate All” opens the print dialog — choose “Save as PDF”, A4, margins “None”, background graphics ON.</div>
+</div>
+
+<div class="print-container" id="print-container"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   APPROVED CONFERENCE TEXT (identical to the standard studio —
+   wording is client-approved, do not alter)
+   ═══════════════════════════════════════════════════════════ */
+const CONFERENCE_FULL = 'SustainX 2026, National Flagship Conference on Circularity in Energy, Earth, and Environment';
+const CONFERENCE_ORG  = 'organized by Centre for Resource Efficiency, Recyclability and Circularity in Energy Transition (CRRET), School of Sustainability, Indian Institute of Technology Madras, held during July 24-25, 2026, Chennai, India.';
+const CONFERENCE_HELD = 'SustainX 2026 held during July 24-25, 2026, Chennai, India.';
+
+function authorBlock(v,b){
+  if(v.authors){ b.push({type:'text',text:'a research contribution authored by'},{type:'authors',value:v.authors}); }
+  if(v.affiliation){ b.push({type:'affiliations',value:v.affiliation}); }
+  return b;
+}
+const CERT_TYPES = [
+  { id:'best-oral-presentation', group:'Awards', label:'Best Oral Presentation',
+    title:'BEST ORAL PRESENTATION AWARD',
+    hasAffiliation:true, affiliationLabel:'Authors’ Affiliation(s)', hasAuthors:true,
+    hasTitle:true, titleLabel:'Presentation Title', namePrefix:'',
+    body:v=>{
+      const b=[
+        {type:'text',text:'This award is proudly presented to'},
+        {type:'name',value:v.name},
+        {type:'text',text:'for delivering the Best Oral Presentation entitled'},
+        {type:'title',value:v.talkTitle}];
+      authorBlock(v,b);
+      b.push({type:'text',text:'at '+CONFERENCE_HELD},
+        {type:'closing',text:'The Scientific Committee recognizes the collective excellence of all authors in research quality, innovation, and presentation delivery.'});
+      return b; }},
+  { id:'best-poster-presentation', group:'Awards', label:'Best Poster Presentation',
+    title:'BEST POSTER PRESENTATION AWARD',
+    hasAffiliation:true, affiliationLabel:'Authors’ Affiliation(s)', hasAuthors:true,
+    hasTitle:true, titleLabel:'Poster Title', namePrefix:'',
+    body:v=>{
+      const b=[
+        {type:'text',text:'This award is proudly presented to'},
+        {type:'name',value:v.name},
+        {type:'text',text:'for presenting the Best Poster Presentation entitled'},
+        {type:'title',value:v.talkTitle}];
+      authorBlock(v,b);
+      b.push({type:'text',text:'at '+CONFERENCE_HELD},
+        {type:'closing',text:'The Scientific Committee recognizes the collective excellence of all authors in research presentation and innovation.'});
+      return b; }},
+  { id:'oral-presentation', group:'Presentations', label:'Oral Presentation',
+    title:'CERTIFICATE OF ORAL PRESENTATION',
+    hasAffiliation:true, affiliationLabel:'Authors’ Affiliation(s)', hasAuthors:true,
+    hasTitle:true, titleLabel:'Presentation Title', namePrefix:'',
+    body:v=>{
+      const b=[
+        {type:'text',text:'This is to certify that'},
+        {type:'name',value:v.name},
+        {type:'text',text:'delivered an oral presentation entitled'},
+        {type:'title',value:v.talkTitle}];
+      authorBlock(v,b);
+      b.push({type:'text',text:'at '+CONFERENCE_HELD},
+        {type:'closing',text:'This certificate equally honours the scholarship of every author whose combined effort made this contribution possible.'});
+      return b; }},
+  { id:'poster-presentation', group:'Presentations', label:'Poster Presentation',
+    title:'CERTIFICATE OF POSTER PRESENTATION',
+    hasAffiliation:true, affiliationLabel:'Authors’ Affiliation(s)', hasAuthors:true,
+    hasTitle:true, titleLabel:'Poster Title', namePrefix:'',
+    body:v=>{
+      const b=[
+        {type:'text',text:'This is to certify that'},
+        {type:'name',value:v.name},
+        {type:'text',text:'presented the poster entitled'},
+        {type:'title',value:v.talkTitle}];
+      authorBlock(v,b);
+      b.push({type:'text',text:'at '+CONFERENCE_HELD},
+        {type:'closing',text:'This certificate equally honours the scholarship of every author whose combined effort made this contribution possible.'});
+      return b; }},
+  { id:'general-participation', group:'Participation', label:'General Participation',
+    title:'CERTIFICATE OF PARTICIPATION',
+    hasAffiliation:false, hasTitle:false, namePrefix:'',
+    body:v=>[
+      {type:'text',text:'This certificate is presented to'},
+      {type:'name',value:v.name},
+      {type:'text',text:'in recognition of active engagement in the deliberations of'},
+      {type:'text-bold',text:'SustainX 2026 – National Flagship Conference on Circularity in Energy, Earth, and Environment'},
+      {type:'text',text:'held during July 24-25, 2026, Chennai, India.'},
+      {type:'closing',text:'Your presence and participation enriched the collective dialogue on building a circular future for energy, earth, and environment.'}]}
+];
+
+const TYPE_ALIASES = {
+  'oral':'oral-presentation','oralpresentation':'oral-presentation',
+  'poster':'poster-presentation','posterpresentation':'poster-presentation',
+  'bestoral':'best-oral-presentation','bestoralpresentation':'best-oral-presentation',
+  'bestposter':'best-poster-presentation','bestposterpresentation':'best-poster-presentation',
+  'participation':'general-participation','participant':'general-participation','generalparticipation':'general-participation','delegate':'general-participation'
+};
+
+/* ═══ premium ornaments (all inline SVG — print-safe, no masks) ═══ */
+
+/* corner rosette: engraved concentric medallion with petals */
+function cornerSVG(rot){
+  return `<svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(${rot}deg)">
+    <path d="M6,64 L6,6 L64,6" fill="none" stroke="#B8860B" stroke-width="1.7"/>
+    <path d="M12,58 L12,12 L58,12" fill="none" stroke="#C9A227" stroke-width="0.7" opacity="0.5"/>
+    <circle cx="6" cy="6" r="9" fill="#FBF5E0" stroke="#B8860B" stroke-width="1.1"/>
+    <circle cx="6" cy="6" r="6.4" fill="none" stroke="#C9A227" stroke-width="0.55"/>
+    <circle cx="6" cy="6" r="4" fill="none" stroke="#C9A227" stroke-width="0.4" opacity="0.7"/>
+    <g stroke="#B8860B" stroke-width="0.55" opacity="0.85">
+      <line x1="6" y1="-0.5" x2="6" y2="2.2"/><line x1="6" y1="9.8" x2="6" y2="12.5"/>
+      <line x1="-0.5" y1="6" x2="2.2" y2="6"/><line x1="9.8" y1="6" x2="12.5" y2="6"/>
+      <line x1="1.4" y1="1.4" x2="3.3" y2="3.3"/><line x1="8.7" y1="8.7" x2="10.6" y2="10.6"/>
+      <line x1="10.6" y1="1.4" x2="8.7" y2="3.3"/><line x1="3.3" y1="8.7" x2="1.4" y2="10.6"/>
+    </g>
+    <circle cx="6" cy="6" r="1.7" fill="#C9A227"/>
+    <circle cx="6" cy="6" r="0.7" fill="#F2D875"/>
+    <circle cx="6" cy="24" r="1.2" fill="#C9A227" opacity="0.6"/>
+    <circle cx="24" cy="6" r="1.2" fill="#C9A227" opacity="0.6"/>
+    <polygon points="6,17 8,19.5 6,22 4,19.5" fill="#C9A227" opacity="0.75"/>
+    <polygon points="17,6 19.5,8 22,6 19.5,4" fill="#C9A227" opacity="0.75"/>
+  </svg>`;
+}
+
+/* horizontal engraved divider — swashes meeting at a diamond */
+function dividerSVG(){
+  return `<svg viewBox="0 0 476 22" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <g fill="none" stroke="#B8860B">
+      <path d="M8,11 C90,11 150,11 218,11" stroke-width="1.1" stroke-linecap="round" opacity="0.9"/>
+      <path d="M468,11 C386,11 326,11 258,11" stroke-width="1.1" stroke-linecap="round" opacity="0.9"/>
+      <path d="M50,11 C110,4 170,18 214,11" stroke-width="0.55" opacity="0.55"/>
+      <path d="M426,11 C366,18 306,4 262,11" stroke-width="0.55" opacity="0.55"/>
+    </g>
+    <polygon points="238,3 246,11 238,19 230,11" fill="none" stroke="#B8860B" stroke-width="1.1"/>
+    <polygon points="238,6.5 242.5,11 238,15.5 233.5,11" fill="#C9A227"/>
+    <circle cx="222" cy="11" r="1.6" fill="#C9A227"/>
+    <circle cx="254" cy="11" r="1.6" fill="#C9A227"/>
+    <circle cx="8" cy="11" r="1.8" fill="#B8860B"/>
+    <circle cx="468" cy="11" r="1.8" fill="#B8860B"/>
+  </svg>`;
+}
+
+/* calligraphic flourish under the recipient name */
+function flourishSVG(){
+  return `<svg viewBox="0 0 280 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <g fill="none" stroke="#C9A227" stroke-linecap="round">
+      <path d="M14,9 C80,9 200,9 266,9" stroke-width="1.3"/>
+      <path d="M60,9 C110,2 170,16 220,9" stroke-width="0.6" opacity="0.6"/>
+      <path d="M14,9 C8,9 4,6.5 6,4 C7.6,2 11,3.4 10,6 C9.4,7.6 7,8.4 5,8" stroke-width="0.9"/>
+      <path d="M266,9 C272,9 276,11.5 274,14 C272.4,16 269,14.6 270,12 C270.6,10.4 273,9.6 275,10" stroke-width="0.9"/>
+    </g>
+    <polygon points="140,4.6 144,9 140,13.4 136,9" fill="#C9A227"/>
+  </svg>`;
+}
+
+function escapeHTML(s){ if(s==null)return''; return String(s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  .replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+/* Five fixed signatories — identical to the standard studio */
+const SIGNATORIES=[
+  { img:'workshops/assets/signs/sankha.png',  n:'Dr. Sankha Karmakar',         t:'Organising Secretary<br>SustainX 2026 · IIT Madras' },
+  { img:'workshops/assets/signs/nitin.png',   n:'Dr. Nitin Muralidharan',      t:'Organising Committee<br>SustainX 2026 · IIT Madras' },
+  { img:'workshops/assets/signs/satya.png',   n:'Prof. Satyanarayan Seshadri', t:'Organising Committee<br>SustainX 2026 · IIT Madras' },
+  { img:'workshops/assets/signs/sreeram.png', n:'Dr. Sreeram K. Kalpathy',     t:'Organising Committee<br>SustainX 2026 · IIT Madras' },
+  { img:'workshops/assets/signs/rajnish.png', n:'Prof. Rajnish Kumar',         t:'Patron, SustainX 2026<br>Head, School of Sustainability, IIT Madras' }
+];
+
+/* ═══ build one premium portrait certificate ═══ */
+function buildCert(certType, values){
+  const prefix = values.namePrefix!=null ? values.namePrefix : '';
+  const lines = certType.body({
+    name: prefix + (values.name||''),
+    affiliation: values.affiliation||'',
+    talkTitle: values.talkTitle||'',
+    authors: values.authors||''
+  });
+  const bodyHTML = lines.map(l=>{
+    switch(l.type){
+      case 'text':       return `<p class="body-text">${escapeHTML(l.text)}</p>`;
+      case 'text-bold':  return `<p class="body-detail" style="font-weight:600;">${escapeHTML(l.text)}</p>`;
+      case 'name':       return `<span class="recipient-name">${escapeHTML(l.value||'')}</span><span class="name-flourish">${flourishSVG()}</span>`;
+      case 'affiliation':return l.value?`<p class="recipient-affiliation">${escapeHTML(l.value)}</p>`:'';
+      case 'authors':    return `<p class="authors-line">${escapeHTML(l.value||'')}</p>`;
+      case 'affiliations':return `<p class="affil-lines">${escapeHTML(l.value||'')}</p>`;
+      case 'title': {
+        const raw=l.value||'';
+        const visible=raw.replace(/​/g,'').trim();
+        return visible ? `<p class="talk-title">“${escapeHTML(raw)}”</p>` : `<p class="talk-title">${escapeHTML(raw)}</p>`;
+      }
+      case 'closing':    return `<p class="body-closing">${escapeHTML(l.text)}</p>`;
+      default: return '';
+    }
+  }).join('');
+
+  const sigHTML = SIGNATORIES.map(s=>`
+    <div class="sig">
+      <div class="simg"><img src="${s.img}" alt=""></div>
+      <div class="line"></div>
+      <p class="nm">${s.n}</p>
+      <p class="tt">${s.t}</p>
+    </div>`).join('');
+
+  return `
+  <div class="cert">
+    <div class="b-outer"></div>
+    <div class="band t"></div><div class="band b"></div><div class="band l"></div><div class="band r"></div>
+    <div class="b-mid"></div><div class="b-fine"></div>
+    <div class="corner tl">${cornerSVG(0)}</div>
+    <div class="corner tr">${cornerSVG(90)}</div>
+    <div class="corner br">${cornerSVG(180)}</div>
+    <div class="corner bl">${cornerSVG(270)}</div>
+    <div class="wm"><img src="../cover/logos/premium.svg" alt=""></div>
+    <div class="certno-tag">Certificate No. ${escapeHTML(values.certNo||'')}</div>
+    <div class="inner">
+      <div class="hero"><img src="../cover/logos/premium.svg" alt="SustainX 2026"></div>
+      <div class="subtitle">NATIONAL FLAGSHIP CONFERENCE</div>
+      <div class="orgline">Centre for Resource Efficiency, Recyclability and<br>Circularity in Energy Transition<br>School of Sustainability &middot; Indian Institute of Technology Madras</div>
+      <div class="logorow">
+        <img src="../cover/logos/iitm.png" alt="IIT Madras">
+        <span class="lsep"></span>
+        <img src="../cover/logos/sos.png" alt="School of Sustainability">
+        <span class="lsep"></span>
+        <img src="../cover/logos/host_crret-alpha.png" alt="CRRET">
+      </div>
+      <div class="divider-main">${dividerSVG()}</div>
+      <div class="cert-title">${escapeHTML(certType.title)}</div>
+      <div class="title-rule"></div>
+      <div class="cert-body">${bodyHTML}</div>
+      <div class="divider-main">${dividerSVG()}</div>
+      <div class="signatures">${sigHTML}</div>
+      <div class="badge">SustainX 2026 &bull; National Flagship Conference &bull; July 24&#8211;25, 2026 &bull; IIT Madras &bull; Chennai, India</div>
+    </div>
+  </div>`;
+}
+
+/* ═══ dropdown + live preview ═══ */
+function populateDropdown(){
+  const sel=document.getElementById('input-cert-type');
+  const groups={};
+  CERT_TYPES.forEach(ct=>{ (groups[ct.group]=groups[ct.group]||[]).push(ct); });
+  sel.innerHTML=Object.keys(groups).map(g=>
+    `<optgroup label="${escapeHTML(g)}">`+groups[g].map(ct=>`<option value="${ct.id}">${escapeHTML(ct.label)}</option>`).join('')+`</optgroup>`).join('');
+  document.getElementById('types-list').innerHTML =
+    CERT_TYPES.map(ct=>`<div>&bull; ${escapeHTML(ct.label)}</div>`).join('');
+}
+function currentValues(){
+  const id=document.getElementById('input-cert-type').value;
+  return {
+    certType:CERT_TYPES.find(c=>c.id===id),
+    certNo:document.getElementById('input-certno').value,
+    namePrefix:document.getElementById('input-name-prefix').value,
+    name:document.getElementById('input-name').value,
+    authors:document.getElementById('input-authors').value,
+    affiliation:document.getElementById('input-affiliation').value,
+    talkTitle:document.getElementById('input-talk-title').value
+  };
+}
+function renderPreview(){
+  const v=currentValues();
+  document.getElementById('group-authors').style.display=v.certType.hasAuthors?'':'none';
+  document.getElementById('group-affiliation').style.display=v.certType.hasAffiliation?'':'none';
+  document.getElementById('label-affiliation').innerText=v.certType.affiliationLabel||'Affiliation / Organization';
+  document.getElementById('group-title').style.display=v.certType.hasTitle?'':'none';
+  if(v.certType.hasTitle) document.getElementById('label-title').innerText=v.certType.titleLabel||'Title';
+  const mount=document.getElementById('live-mount');
+  mount.innerHTML=buildCert(v.certType,v);
+  fitPreview();
+}
+function fitPreview(){
+  const wrap=document.querySelector('.preview-scale-wrap');
+  const mount=document.getElementById('live-mount');
+  if(!wrap||!mount) return;
+  const certW=794; // 210mm @96dpi
+  const s=Math.min(1,(wrap.clientWidth-10)/certW);
+  mount.style.transform=`scale(${s})`;
+  mount.style.marginBottom=(-1123*(1-s))+'px';
+}
+
+/* ═══ CSV parsing (RFC-4180-ish, handles quotes) ═══ */
+function parseCSV(text){
+  const rows=[]; let row=[],cur='',inQ=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(inQ){
+      if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else inQ=false; }
+      else cur+=c;
+    }else{
+      if(c==='"') inQ=true;
+      else if(c===','){ row.push(cur); cur=''; }
+      else if(c==='\n'||c==='\r'){
+        if(c==='\r'&&text[i+1]==='\n') i++;
+        row.push(cur); cur='';
+        if(row.length>1||row[0].trim()!=='') rows.push(row);
+        row=[];
+      }else cur+=c;
+    }
+  }
+  row.push(cur);
+  if(row.length>1||row[0].trim()!=='') rows.push(row);
+  return rows;
+}
+
+/* ═══ header mapping + type resolution ═══ */
+function norm(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
+function mapHeaders(headers){
+  const map={};
+  headers.forEach((h,i)=>{
+    const n=norm(h);
+    if(!n) return;
+    if(map.type==null && /(certificatetype|certtype|nature|type|certificate|category|role)/.test(n)) map.type=i;
+    else if(map.certno==null && /(certificateno|certno|serialno|serial|certnumber)/.test(n)) map.certno=i;
+    else if(map.prefix==null && /(prefix|salutation|titleprefix)/.test(n)) map.prefix=i;
+    else if(map.authors==null && /(authors|authorlist|coauthors|fullauthors|authorline)/.test(n)) map.authors=i;
+    else if(map.name==null && /(name|recipient|participant|presenter)/.test(n) && !/session|file/.test(n)) map.name=i;
+    else if(map.affiliation==null && /(affiliation|organization|organisation|institute|institution|university|company)/.test(n)) map.affiliation=i;
+    else if(map.title==null && /(titleofpresentation|presentationtitle|papertitle|postertitle|talktitle|sessionname|session|title|topic|presentation|paper)/.test(n)) map.title=i;
+  });
+  return map;
+}
+function resolveType(raw){
+  const n=norm(raw);
+  if(!n) return null;
+  let ct=CERT_TYPES.find(c=>norm(c.id)===n||norm(c.label)===n);
+  if(ct) return ct;
+  if(TYPE_ALIASES[n]) return CERT_TYPES.find(c=>c.id===TYPE_ALIASES[n]);
+  ct=CERT_TYPES.find(c=>n.includes(norm(c.label))||norm(c.label).includes(n));
+  return ct||null;
+}
+function splitPrefix(name){
+  const m=String(name||'').match(/^((?:prof\.?\/dr\.?|prof\.?|dr\.?|mr\.?|ms\.?|mrs\.?)\s+)(.*)$/i);
+  return m?{prefix:m[1],rest:m[2]}:{prefix:'',rest:String(name||'')};
+}
+
+/* ═══ batch state ═══ */
+let BATCH=[];
+function handleRows(rows){
+  if(!rows.length){ alert('The file appears to be empty.'); return; }
+  const map=mapHeaders(rows[0]);
+  if(map.type==null||map.name==null){
+    alert('Could not find the required columns. The file must have at least a “Certificate Type” column and a “Name” column.');
+    return;
+  }
+  BATCH=[];
+  const certnoPrefix=document.getElementById('input-certno-prefix').value||'SX26-C-';
+  const certnoStart=parseInt(document.getElementById('input-certno-start').value,10)||1;
+  let autoSeq=certnoStart;
+  for(let r=1;r<rows.length;r++){
+    const row=rows[r];
+    if(!row||row.every(c=>String(c||'').trim()==='')) continue;
+    const rawType=row[map.type], rawName=String(row[map.name]||'').trim();
+    const ct=resolveType(rawType);
+    let prefix=map.prefix!=null?String(row[map.prefix]||'').trim():'';
+    if(prefix && !/\s$/.test(prefix)) prefix+=' ';
+    let name=rawName;
+    if(!prefix){
+      const sp=splitPrefix(rawName);
+      if(sp.prefix){ prefix=sp.prefix; name=sp.rest; }
+      else if(ct&&ct.namePrefix) prefix=ct.namePrefix;
+    }
+    const explicitCertNo=map.certno!=null?String(row[map.certno]||'').trim():'';
+    const certNo=explicitCertNo||(certnoPrefix+String(autoSeq).padStart(3,'0'));
+    if(!explicitCertNo) autoSeq++;
+    const rec={
+      certType:ct, rawType:String(rawType||'').trim(),
+      certNo,
+      namePrefix:prefix, name,
+      authors:map.authors!=null?String(row[map.authors]||'').trim():'',
+      affiliation:map.affiliation!=null?String(row[map.affiliation]||'').trim():'',
+      talkTitle:map.title!=null?String(row[map.title]||'').trim():'',
+      problems:[]
+    };
+    if(!ct) rec.problems.push('unknown type “'+rec.rawType+'”');
+    if(!name) rec.problems.push('missing name');
+    if(ct&&ct.hasTitle&&!rec.talkTitle) rec.problems.push('missing '+(ct.titleLabel||'title'));
+    BATCH.push(rec);
+  }
+  renderBatch();
+}
+function renderBatch(){
+  const sec=document.getElementById('batch-section');
+  const body=document.getElementById('batch-body');
+  if(!BATCH.length){ sec.style.display='none'; return; }
+  sec.style.display='';
+  let ok=0;
+  body.innerHTML=BATCH.map((r,i)=>{
+    const good=!r.problems.length; if(good) ok++;
+    return `<tr data-i="${i}">
+      <td>${i+1}</td>
+      <td>${escapeHTML(r.certNo)}</td>
+      <td>${r.certType?escapeHTML(r.certType.label):('<i>'+escapeHTML(r.rawType)+'</i>')}</td>
+      <td>${escapeHTML(r.namePrefix+r.name)}</td>
+      <td>${escapeHTML(r.authors)}</td>
+      <td>${escapeHTML(r.affiliation)}</td>
+      <td>${escapeHTML(r.talkTitle)}</td>
+      <td class="${good?'ok':'bad'}">${good?'✓ ready':escapeHTML(r.problems.join('; '))}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('stat-total').innerText=BATCH.length;
+  document.getElementById('stat-ok').innerText=ok;
+  document.getElementById('stat-bad').innerText=BATCH.length-ok;
+  document.getElementById('btn-generate').disabled=!ok;
+  body.querySelectorAll('tr').forEach(tr=>{
+    tr.addEventListener('click',()=>{
+      const r=BATCH[+tr.getAttribute('data-i')];
+      if(!r.certType) return;
+      document.getElementById('input-cert-type').value=r.certType.id;
+      document.getElementById('input-certno').value=r.certNo;
+      document.getElementById('input-name-prefix').value=
+        [...document.getElementById('input-name-prefix').options].some(o=>o.value===r.namePrefix)?r.namePrefix:'';
+      document.getElementById('input-name').value=r.name;
+      document.getElementById('input-authors').value=r.authors;
+      document.getElementById('input-affiliation').value=r.affiliation;
+      document.getElementById('input-talk-title').value=r.talkTitle;
+      renderPreview();
+      document.getElementById('live-mount').scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  });
+}
+
+/* ═══ file input ═══ */
+function handleFile(file){
+  const ext=file.name.split('.').pop().toLowerCase();
+  if(ext==='csv'){
+    const fr=new FileReader();
+    fr.onload=e=>handleRows(parseCSV(String(e.target.result).replace(/^﻿/,'')));
+    fr.readAsText(file,'utf-8');
+  }else if(ext==='xlsx'||ext==='xls'){
+    if(typeof XLSX==='undefined'){
+      alert('Excel support (SheetJS) has not loaded — check your internet connection, or save the sheet as CSV instead.');
+      return;
+    }
+    const fr=new FileReader();
+    fr.onload=e=>{
+      const wb=XLSX.read(new Uint8Array(e.target.result),{type:'array'});
+      const ws=wb.Sheets[wb.SheetNames[0]];
+      const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+      handleRows(rows.map(r=>r.map(c=>String(c))));
+    };
+    fr.readAsArrayBuffer(file);
+  }else{
+    alert('Please choose a .csv or .xlsx file.');
+  }
+}
+
+/* ═══ printing ═══ */
+function printCerts(certHTMLs){
+  const pc=document.getElementById('print-container');
+  pc.innerHTML=certHTMLs.join('');
+  const imgs=pc.querySelectorAll('img');
+  let pending=imgs.length;
+  const go=()=>{ window.print(); };
+  if(!pending){ go(); return; }
+  let done=0;
+  imgs.forEach(img=>{
+    if(img.complete){ if(++done===pending) go(); }
+    else img.addEventListener('load',()=>{ if(++done===pending) go(); }),
+         img.addEventListener('error',()=>{ if(++done===pending) go(); });
+  });
+  setTimeout(go,4000); // fallback
+}
+window.addEventListener('afterprint',()=>{ /* keep content for re-print */ });
+
+function printSingle(){
+  const v=currentValues();
+  printCerts([buildCert(v.certType,v)]);
+}
+function generateAll(){
+  const good=BATCH.filter(r=>!r.problems.length);
+  if(!good.length) return;
+  printCerts(good.map(r=>buildCert(r.certType,r)));
+}
+
+/* ═══ CSV template ═══ */
+function downloadTemplate(){
+  const lines=[
+    'Certificate Type,Certificate No.,Prefix,Name,Authors,Affiliation,Title of Presentation',
+    'Oral Presentation,,,Rohan Mehta,"Rohan Mehta, Priya Iyer and Arjun Nair","Department of Electrical Engineering, IIT Madras, Chennai, India",Decentralized Microgrids for Rural Electrification',
+    'Poster Presentation,,,Anjali Singh,"Anjali Singh and Kavya Reddy","Department of Biotechnology, Anna University, Chennai, India",Algal Biofuels: A Circular Economy Approach',
+    'Best Oral Presentation,,,Aditya Sharma,"Aditya Sharma, Neha Verma and Vikram Patel","Department of Chemistry, IIT Bombay, Mumbai, India",Bio-inspired Catalysts for CO2 Reduction',
+    'Best Poster Presentation,,,Sara Khan,"Sara Khan and Meera Krishnan","School of Environmental Sciences, JNU, New Delhi, India",Microplastics Removal Using Biochar',
+    'General Participation,,Dr.,Rajesh Patel,,,'
+  ];
+  const blob=new Blob([lines.join('\r\n')],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='sustainx-certificates-template.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ═══ boot ═══ */
+document.addEventListener('DOMContentLoaded',()=>{
+  populateDropdown();
+  document.getElementById('input-cert-type').value='best-oral-presentation';
+  document.getElementById('input-certno').value='SX26-C-001';
+  document.getElementById('input-name').value='Anjali Singh';
+  document.getElementById('input-authors').value='Anjali Singh and Kavya Reddy';
+  document.getElementById('input-affiliation').value='Department of Biotechnology, Anna University, Chennai, India';
+  document.getElementById('input-talk-title').value='Algal Biofuels: A Circular Economy Approach';
+  document.getElementById('input-name-prefix').value='';
+  renderPreview();
+
+  ['input-cert-type','input-name-prefix'].forEach(id=>
+    document.getElementById(id).addEventListener('change',renderPreview));
+  ['input-certno','input-name','input-authors','input-affiliation','input-talk-title'].forEach(id=>
+    document.getElementById(id).addEventListener('input',renderPreview));
+
+  document.getElementById('btn-print').addEventListener('click',printSingle);
+  document.getElementById('btn-template').addEventListener('click',downloadTemplate);
+  document.getElementById('btn-generate').addEventListener('click',generateAll);
+  document.getElementById('btn-clear').addEventListener('click',()=>{ BATCH=[]; renderBatch(); });
+
+  const drop=document.getElementById('drop'), fi=document.getElementById('file-input');
+  drop.addEventListener('click',()=>fi.click());
+  fi.addEventListener('change',()=>{ if(fi.files[0]) handleFile(fi.files[0]); fi.value=''; });
+  ['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('on');}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('on');}));
+  drop.addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) handleFile(f); });
+
+  window.addEventListener('resize',fitPreview);
+
+  /* ?proof=<id> renders one bare certificate for design checks */
+  const m=location.search.match(/proof(?:=([a-z-]+))?/);
+  if(m){
+    const ct=CERT_TYPES.find(c=>c.id===(m[1]||'best-oral-presentation'))||CERT_TYPES[0];
+    const html=buildCert(ct,{namePrefix:'',name:'Anjali Singh',certNo:'SX26-C-001',
+      authors:'Anjali Singh and Kavya Reddy',
+      affiliation:'Department of Biotechnology, Anna University, Chennai, India',
+      talkTitle:'Algal Biofuels: A Circular Economy Approach'});
+    document.body.innerHTML='';
+    document.body.style.cssText='background:#fff;margin:0;padding:0;display:block;';
+    const d=document.createElement('div');
+    d.innerHTML=html;
+    document.body.appendChild(d);
+  }
+});
+</script>
+</body>
+</html>

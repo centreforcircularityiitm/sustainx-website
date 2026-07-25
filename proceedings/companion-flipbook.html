@@ -384,6 +384,11 @@ h1,h2,h3{ font-family:var(--serif); font-weight:600; color:var(--ink); }
   }
   body:not(.print-color) .page:not(.keep-colour) img{ filter:grayscale(1) contrast(1.06); }
 
+  /* Monochrome print: the cream "recycled paper" page background is a
+     screen/e-book styling cue, not something to actually print as ink
+     on every page — force true white for print-monochrome only. */
+  body:not(.print-color) .page{ background:#fff; }
+
   /* QR codes belong to the monochrome print edition only.
      The colour e-book keeps live short links instead. */
   body:not(.print-color) .slink,
@@ -398,6 +403,14 @@ h1,h2,h3{ font-family:var(--serif); font-weight:600; color:var(--ink); }
   body:not(.print-color) .page:not(.page--bleed).verso{ padding-left:12mm; padding-right:20mm; }
   body:not(.print-color) .page.recto[data-runner]::before{ left:20mm; right:12mm; }
   body:not(.print-color) .page.verso[data-runner]::before{ left:12mm; right:20mm; }
+
+  /* Monochrome print: no solid ink fills — dividers and badges become
+     white background with ink text/outline instead of black background. */
+  body:not(.print-color) .divider{ background:#fff; color:var(--ink); }
+  body:not(.print-color) .divider .kicker{ color:var(--ink-3); opacity:1; }
+  body:not(.print-color) .divider h1{ color:var(--ink); }
+  body:not(.print-color) .divider-num{ -webkit-text-stroke:.6pt rgba(22,22,22,.4); }
+  body:not(.print-color) .sess-badge{ background:transparent; color:var(--ink); border:.6pt solid var(--ink); }
 }
 
 /* ============ Flipbook viewer ============ */
@@ -728,18 +741,46 @@ body.fb{
 </section></div>
 <div class="face back" data-page="11"><section class="page keep-colour" data-runner="SustainX 2026 · Front Matter" data-chrono="10" data-folio="10">
   <p class="kicker">Welcome</p>
-  <h1 style="font-size:22pt; margin-bottom:5mm;">From the Organising Committee</h1>
-  <div class="feature" style="grid-template-columns:40mm 1fr;">
+  <h1 style="font-size:17pt; margin-bottom:3.5mm;">From the Patron &amp; the Organising Committee</h1>
+
+  <p style="font-size:6.4pt; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); margin-bottom:2mm;">From the Patron</p>
+  <div class="feature" style="grid-template-columns:28mm 1fr; gap:6mm; margin-top:0;">
+    <div>
+      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/profrajnish.jpg" alt="Prof. Rajnish Kumar" style="aspect-ratio:3/4; object-fit:cover;" /></div>
+      <p class="small" style="margin-top:2mm; font-size:6.8pt; line-height:1.35;"><b style="color:var(--ink);">Prof. Rajnish Kumar</b><br/>Patron, SustainX 2026<br/>Head, School of Sustainability<br/>IIT Madras</p>
+    </div>
+    <div>
+      <p style="font-size:7.6pt; line-height:1.42; color:var(--ink-2); text-align:justify; margin-bottom:2mm;">It is my pleasure to welcome all delegates to SustainX 2026 &mdash; Circularity in Energy, Earth and Environment &mdash; hosted by CRRET and SoS, IIT Madras. Sustainability is no longer an option but a global imperative. Addressing the challenges of climate change, resource depletion, and environmental degradation requires interdisciplinary research, technological innovation, and strong collaborations among academia, industry, government, and society. SustainX 2026 provides a valuable platform for sharing knowledge, exchanging ideas, and fostering partnerships that can accelerate the transition towards a circular and sustainable future.</p>
+      <p style="font-size:7.6pt; line-height:1.42; color:var(--ink-2); text-align:justify; margin-bottom:2mm;">I am delighted to see the participation of eminent experts, researchers, and young scholars from around the world. I encourage every participant to make the most of this opportunity through meaningful discussions and collaborations.</p>
+      <p style="font-size:7.6pt; line-height:1.42; color:var(--ink-2); text-align:justify;">I congratulate the organizing committee for their dedicated efforts and wish all participants a fruitful and enriching conference.</p>
+    </div>
+  </div>
+
+  <hr class="rule" style="margin:4mm 0;" />
+
+  <p style="font-size:6.4pt; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); margin-bottom:2mm;">From the Organising Committee</p>
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6mm; margin-bottom:4mm;">
     <div>
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sanka.jpg" alt="Dr. Sankha Karmakar" style="aspect-ratio:3/4; object-fit:cover;" /></div>
-      <p class="small" style="margin-top:2mm;"><b style="color:var(--ink);">Dr. Sankha Karmakar</b><br/>Organising Secretary, SustainX 2026<br/>IIT Madras</p>
+      <p class="small" style="margin-top:2mm; font-size:6.8pt; line-height:1.35;"><b style="color:var(--ink);">Dr. Sankha Karmakar</b><br/>Organising Secretary, SustainX 2026<br/>IIT Madras</p>
     </div>
     <div>
-      <p class="pull">&ldquo;SustainX 2026 represents a critical milestone in our collective journey toward closing the loop on resource use, energy systems, and environmental management.&rdquo;</p>
-      <p style="font-size:8.6pt; color:var(--ink-2); text-align:justify; margin-bottom:3mm;">On behalf of the Organizing Committee, it is my distinct privilege to welcome you to SustainX 2026 at the Indian Institute of Technology Madras. As we gather in Chennai, we bring together a transdisciplinary network of leading researchers, industrial pioneers, and policymakers who share a unified vision: translating theoretical circularity into scalable, real-world solutions.</p>
-      <p style="font-size:8.6pt; color:var(--ink-2); text-align:justify; margin-bottom:3mm;">This conference companion is designed as an interactive guide to the discussions, scientific sessions, and technical tracks that will shape the coming days. By focusing on resource efficiency, recyclability, and the circular energy transition, we hope to establish new frameworks that redefine how industries, academics, and societies manage resource lifecycles.</p>
-      <p style="font-size:8.6pt; color:var(--ink-2); text-align:justify;">I encourage you to participate actively in the dialogues, explore the collaborative projects hosted by our partners, and utilize the notes sections to capture the insights generated here. Welcome to IIT Madras, and welcome to SustainX 2026.</p>
+      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/nitin.jpg" alt="Dr. Nitin Muralidharan" style="aspect-ratio:3/4; object-fit:cover;" /></div>
+      <p class="small" style="margin-top:2mm; font-size:6.8pt; line-height:1.35;"><b style="color:var(--ink);">Dr. Nitin Muralidharan</b><br/>Organising Committee, SustainX 2026<br/>IIT Madras</p>
     </div>
+    <div>
+      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sreeram.jpg" alt="Dr. Sreeram K. Kalpathy" style="aspect-ratio:3/4; object-fit:cover;" /></div>
+      <p class="small" style="margin-top:2mm; font-size:6.8pt; line-height:1.35;"><b style="color:var(--ink);">Dr. Sreeram K. Kalpathy</b><br/>Organising Committee, SustainX 2026<br/>IIT Madras</p>
+    </div>
+    <div>
+      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/profseshadri.jpg" alt="Prof. Satyanarayan Seshadri" style="aspect-ratio:3/4; object-fit:cover;" /></div>
+      <p class="small" style="margin-top:2mm; font-size:6.8pt; line-height:1.35;"><b style="color:var(--ink);">Prof. Satyanarayan Seshadri</b><br/>Organising Committee, SustainX 2026<br/>IIT Madras</p>
+    </div>
+  </div>
+  <div>
+    <p style="font-size:7.6pt; line-height:1.42; color:var(--ink-2); text-align:justify; margin-bottom:2mm;">On behalf of the Organizing Committee, it is our distinct privilege to welcome you to SustainX 2026 at the Indian Institute of Technology Madras. As we gather in Chennai, we bring together a transdisciplinary network of leading researchers, industrial pioneers, and policymakers who share a unified vision: translating theoretical circularity into scalable, real-world solutions.</p>
+    <p style="font-size:7.6pt; line-height:1.42; color:var(--ink-2); text-align:justify; margin-bottom:2mm;">This conference companion is designed as an interactive guide to the discussions, scientific sessions, and technical tracks that will shape the coming days. By focusing on resource efficiency, recyclability, and the circular energy transition, we hope to establish new frameworks that redefine how industries, academics, and societies manage resource lifecycles.</p>
+    <p style="font-size:7.6pt; line-height:1.42; color:var(--ink-2); text-align:justify;">We encourage you to participate actively in the dialogues, explore the collaborative projects hosted by our partners, and utilize the notes sections to capture the insights generated here. Welcome to IIT Madras, and welcome to SustainX 2026.</p>
   </div>
 </section></div>
 </div>
@@ -814,7 +855,7 @@ body.fb{
         <li><b>12:00</b>Lunch · ICSR Lawn</li>
         <li><b>13:30</b>Sessions 3 &amp; 4</li>
         <li><b>15:30</b>Sessions 5 &amp; 6</li>
-        <li><b>17:30</b>Valedictory &amp; Awards</li>
+        <li><b>17:00</b>Valedictory &amp; Awards</li>
       </ul>
     </div>
   </div>
@@ -862,25 +903,24 @@ body.fb{
 <div class="face back" data-page="17"><section class="page keep-colour" data-runner="Schedule · Table of Contents" data-chrono="16" data-folio="16">
   <div class="toc-day">
     <div class="toc-day-head"><h2>Day 3 — Closing Day</h2><span>Sat 25 July · TTJ &amp; Hall III</span></div>
-    <a class="toc-row" href="#key3"><span class="t">09:15–10:00</span><span class="s">Keynote Address<em>Prof. Sirshendu De · IIT Kharagpur</em></span><span class="v">TTJ Auditorium</span><span class="p">57</span></a>
+    <a class="toc-row" href="#key3"><span class="t">09:30–10:15</span><span class="s">Keynote Address<em>Prof. Sirshendu De · IIT Kharagpur</em></span><span class="v">TTJ Auditorium</span><span class="p">58</span></a>
     <div class="toc-row toc-row--pause"><span class="t">10:00–10:30</span><span class="s">Networking Tea Break</span><span class="v">ICSR Foyer</span><span class="p">—</span></div>
-    <a class="toc-row" href="#d3s1"><span class="t">10:30–12:00</span><span class="s">Session 1 · Circular Plastics &amp; Polymer Economy<em>Chair: Prof. Sreeram Kalpathy</em></span><span class="v">TTJ Auditorium</span><span class="p">73</span></a>
-    <a class="toc-row" href="#d3s2"><span class="t">10:30–12:00</span><span class="s">Session 2 · Circular Water Technologies &amp; Sustainable Hydrosphere Mgmt.<em>Chair: Dr. Saikat Bhattacharjee</em></span><span class="v">Hall III</span><span class="p">77</span></a>
+    <a class="toc-row" href="#d3s1"><span class="t">10:30–12:00</span><span class="s">Session 1 · Circular Plastics &amp; Polymer Economy<em>Chair: Prof. Sreeram Kalpathy</em></span><span class="v">TTJ Auditorium</span><span class="p">74</span></a>
+    <a class="toc-row" href="#d3s2"><span class="t">10:30–12:00</span><span class="s">Session 2 · Circular Water Technologies &amp; Sustainable Hydrosphere Mgmt.<em>Chair: Dr. Saikat Bhattacharjee</em></span><span class="v">Hall III</span><span class="p">78</span></a>
     <div class="toc-row toc-row--pause"><span class="t">12:00–13:30</span><span class="s">Lunch &amp; Networking</span><span class="v">ICSR Lawn</span><span class="p">—</span></div>
-    <a class="toc-row" href="#d3s3"><span class="t">13:30–15:00</span><span class="s">Session 3 · Circularity in Battery Industry &amp; Critical Minerals Recovery<em>Chair: Prof. Aravind Kumar Chandiran</em></span><span class="v">TTJ Auditorium</span><span class="p">81</span></a>
-    <a class="toc-row" href="#d3s4"><span class="t">13:30–15:00</span><span class="s">Session 4 · Circular Energy Systems &amp; Carbon Resource Valorization<em>Chair: Prof. Tanushree Parsai</em></span><span class="v">Hall III</span><span class="p">84</span></a>
+    <a class="toc-row" href="#d3s3"><span class="t">13:30–15:00</span><span class="s">Session 3 · Circularity in Battery Industry &amp; Critical Minerals Recovery<em>Chair: Prof. Tiju Thomas</em></span><span class="v">TTJ Auditorium</span><span class="p">82</span></a>
+    <a class="toc-row" href="#d3s4"><span class="t">13:30–15:00</span><span class="s">Session 4 · Circular Energy Systems &amp; Carbon Resource Valorization<em>Chair: Prof. Tanushree Parsai</em></span><span class="v">Hall III</span><span class="p">85</span></a>
     <div class="toc-row toc-row--pause"><span class="t">15:00–15:20</span><span class="s">Tea Break</span><span class="v">ICSR Foyer</span><span class="p">—</span></div>
-    <a class="toc-row" href="#d3s5"><span class="t">15:30–17:00</span><span class="s">Session 5 · Circular Plastics &amp; Polymer Economy<em>Chair: Dr. Sankha Karmakar</em></span><span class="v">TTJ Auditorium</span><span class="p">87</span></a>
-    <a class="toc-row" href="#d3s6"><span class="t">15:30–17:00</span><span class="s">Session 6 · Circular Energy Systems &amp; Carbon Resource Valorization<em>Chair: Dr. Krishna Malakar</em></span><span class="v">Hall III</span><span class="p">90</span></a>
-    <div class="toc-row toc-row--pause"><span class="t">17:00–17:30</span><span class="s">Tea Break</span><span class="v">ICSR Foyer</span><span class="p">—</span></div>
-    <a class="toc-row" href="#vale"><span class="t">17:30 →</span><span class="s">Valedictory &amp; Award Ceremony<em>Best paper awards · closing remarks</em></span><span class="v">TTJ Auditorium</span><span class="p">94</span></a>
+    <a class="toc-row" href="#d3s5"><span class="t">15:30–17:00</span><span class="s">Session 5 · Circular Plastics &amp; Polymer Economy<em>Chair: Dr. Sankha Karmakar</em></span><span class="v">TTJ Auditorium</span><span class="p">88</span></a>
+    <a class="toc-row" href="#d3s6"><span class="t">15:30–17:00</span><span class="s">Session 6 · Circular Energy Systems &amp; Carbon Resource Valorization<em>Chair: Dr. Krishna Malakar</em></span><span class="v">Hall III</span><span class="p">91</span></a>
+    <a class="toc-row" href="#vale"><span class="t">17:00 →</span><span class="s">Valedictory &amp; Award Ceremony<em>Best paper awards · closing remarks</em></span><span class="v">TTJ Auditorium</span><span class="p">95</span></a>
   </div>
   <div class="toc-day" style="margin-top:4mm;">
     <div class="toc-day-head"><h2 style="font-size:12pt;">Back Matter</h2><span></span></div>
-    <a class="toc-row" href="#posters" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Poster Gallery</span><span class="p">95</span></a>
-    <a class="toc-row" href="#venue" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Venue &amp; Campus</span><span class="p">133</span></a>
-    <a class="toc-row" href="#ack" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Committees &amp; Acknowledgements</span><span class="p">134</span></a>
-    <a class="toc-row" href="#colophon" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Colophon &amp; Sustainability Statement</span><span class="p">135</span></a>
+    <a class="toc-row" href="#posters" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Poster Gallery</span><span class="p">96</span></a>
+    <a class="toc-row" href="#venue" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Venue &amp; Campus</span><span class="p">135</span></a>
+    <a class="toc-row" href="#ack" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Committees &amp; Acknowledgements</span><span class="p">136</span></a>
+    <a class="toc-row" href="#colophon" style="grid-template-columns:21mm 1fr 9mm;"><span class="t">—</span><span class="s">Colophon &amp; Sustainability Statement</span><span class="p">137</span></a>
   </div>
 </section></div>
 </div>
@@ -1188,6 +1228,10 @@ body.fb{
     <img src="../assets/images/speakers/profmanu.jpg" alt="Prof. Manu Santhanam" />
     <div><b>Prof. Manu Santhanam</b><span>Dean, Centre for Industrial Consultancy and Sponsored Research, IIT Madras</span></div>
   </div>
+  <div class="dign" style="padding:2mm 0;">
+    <img src="../assets/images/speakers/preeti.png" alt="Prof. Preeti Aghalayam" />
+    <div><b>Prof. Preeti Aghalayam</b><span>Dean, Global Engagement, IIT Madras</span></div>
+  </div>
   <div style="padding:4mm 0 1.5mm 0;">
     <span style="font-family:var(--sans); font-size:6.4pt; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); display:block;">09:30 – 09:55 · Welcome Address by Heads of Departments</span>
   </div>
@@ -1425,21 +1469,21 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="41"><section class="page" id="manali" data-runner="Day 2 · Session 4 · Hall III · 16:00 — 17:30" data-chrono="49" data-folio="38">
+<div class="face back" data-page="41"><section class="page" id="karmakar4" data-runner="Day 2 · Session 4 · Hall III · 16:00 — 17:30" data-chrono="49" data-folio="38">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
-      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/manalipal.jpg" alt="Dr. Manali Pal" /></div>
+      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sanka.jpg" alt="Dr. Sankha Karmakar" /></div>
       <div style="margin-top:4mm; display:flex; flex-direction:column; align-items:center; gap:2mm; width:100%;">
         <img class="qr" src="../assets/images/qr-day1.png" alt="QR Code" style="background: none; display: block !important; margin: 0 auto;" />
         <a class="slink" target="_blank" rel="noopener" href="https://sustainxconference.org/programme#day2" target="_blank" rel="noopener noreferrer" style="font-size:6.2pt; text-align:center; display:block !important; text-transform:uppercase; font-family:var(--sans); font-weight:700; letter-spacing:.08em; white-space:nowrap;">View profile ↗</a>
       </div>
     </div>
     <span class="tag" style="display:inline-block; margin-bottom:1mm;">Invited · 16:25–16:45</span>
-    <h3 style="margin-top:1mm;">Dr. Manali Pal</h3>
-    <p class="aff">NIT Warangal</p>
-    <p class="talk-title">Computation of Ecosystem Service Values with Spatio-Temporal Variations in LULC for Tier-1 Cities in India</p>
-    <p style="font-size:8.2pt; color:var(--ink-2); text-align:justify; margin-bottom:2mm; line-height:1.42;"><b>Abstract.</b> Urban expansion across India&rsquo;s Tier-1 cities has altered land systems and reduced the capacity of ecosystems to supply essential services. This study examines land use and land cover (LULC) changes in seven Tier-1 cities from 1995 to 2022 and evaluates the associated variations in the Ecosystem Service Value (ESV) of 17 services. The analysis shows a marked increase in built-up area and a decline in cropland and vegetation across most cities. These shifts resulted in substantial losses in provisioning and habitat-related services. City-wise net ESV losses ranged from 2.60 to 59.61 M$ over the study period, with the highest reductions occurring where cropland and vegetation were most extensively converted to built-up land. Recreational services showed a marginal increase. The Ecological Contribution Ratio (ECR) further confirms that transitions from cropland to built-up land were the dominant contributors to ESV decline. The findings highlight the need to incorporate ecosystem valuation into urban planning to minimize ecological losses during future development.</p>
-    <p style="font-size:8.2pt; color:var(--ink-2); text-align:justify; line-height:1.42;"><b>Biography.</b> Dr. Manali Pal is an Assistant Professor in the Department of Civil Engineering at the National Institute of Technology Warangal. Her research integrates remote sensing, GIS, artificial intelligence, and hydrological modelling to develop sustainable solutions for water resources management, climate adaptation, and environmental resilience. Her work focuses on satellite-based soil moisture retrieval, agricultural drought monitoring, heatwave prediction, ecosystem service valuation, and land-use change assessment, supporting evidence-based decision-making for sustainable development. Through interdisciplinary research, externally funded projects, and international collaborations, she contributes to achieving the UN Sustainable Development Goals, particularly those related to climate action, clean water, sustainable cities, and life on land. She has authored numerous high-impact journal publications, led externally funded research projects, and supervised Ph.D. and postgraduate students. She actively contributes to international collaborations, editorial activities, and advanced teaching in geospatial technologies and water resources engineering.</p>
+    <h3 style="margin-top:1mm;">Dr. Sankha Karmakar</h3>
+    <p class="aff">IIT Madras</p>
+    <p class="talk-title">Waste to Wealth: Facile Activation of Red Mud Waste and Insights into Industrial Reactive Dye Removal from Wastewater</p>
+    <p style="font-size:8.2pt; color:var(--ink-2); text-align:justify; margin-bottom:2mm; line-height:1.42;"><b>Abstract.</b> Reactive dyes, widely applied in the textile industry for their vibrant colors, excellent fastness, and ease of application. Their presence poses multifaceted threats to aquatic ecosystems and health risks, including skin irritation, allergic reactions, respiratory problems, and increased cancer risk. In response to these challenges, this study explores the potential of acid-activated red mud, an industrial solid waste by-product from the aluminum industry, as an economical adsorbent for the removal of commercial reactive dyes from industrial wastewater. The robustness of the employed Box&ndash;Behnken design is evidenced by the high determination coefficient (0.997) and correlation coefficient (0.994) values. The optimum acid activation condition was determined to be 385 K activation temperature, 91 minutes activation time, and 2.5 N HCl acid concentration, resulting in a 99.24 &plusmn; 0.04% removal efficiency for reactive dyes. Analysis of X-ray Diffraction and X-ray Fluorescence data revealed that the activation process significantly increased the composition of Al and Fe compounds. This enhancement was achieved by eliminating compounds that block active sites and improves the overall surface area from 37.35 m<sup>2</sup>/g to 173.81 m<sup>2</sup>/g. Detailed morphological analysis, conducted through high-resolution transmission electron microscopy and scanning electron microscopy, reveals profound transformation in the surface structure. The study primarily focuses on removing four commercial reactive dyes: Reactive Blue 2 (RBL-2), Reactive Black 5 (RBK-5), Reactive Red 24 (RR-24), and Reactive Yellow 15 (RY-15). These dyes demonstrate maximum adsorption capacities of 118.24 mg/g, 121.02 mg/g, 129.19 mg/g, and 142.64 mg/g, respectively. In order to comprehend the interactions between dye molecules and the adsorbent, a first principle based model was employed to simulate the adsorption kinetics.</p>
+    <p style="font-size:8.2pt; color:var(--ink-2); text-align:justify; line-height:1.42;"><b>Biography.</b> Dr. Sankha Karmakar is an Assistant Professor in the Department of Chemical Engineering at IIT Madras, and Organising Secretary of SustainX 2026. He is a leading researcher in metal&ndash;organic framework (MOF) science and its integration into mixed matrix membranes for water treatment, resource recovery, and environmental applications. He earned his M.Tech and Ph.D. in membrane separation technology from IIT Kharagpur, and previously served on the faculty at the Institute of Chemical Technology, Odisha, and NIT Durgapur. He was recently awarded the ANRF Early Career Research Grant and serves on the Early Career Editorial Board of the <i>Journal of Water Process Engineering</i>.</p>
     <div style="clear:both;"></div>
   </div>
 </section></div>
@@ -1530,7 +1574,7 @@ body.fb{
       <li><span><b>SUS-OP-01</b>12:50–13:00</span><span><b>Machine Learning Framework for Forecasting N<sub>2</sub>O Emissions in Industrial Wastewater Treatment Systems</b><span class="pr">Sarisa Hemalatha, Seshagiri Rao Ambati · IIPE Visakhapatnam</span></span></li>
       <li><span><b>SUS-OP-02</b>13:00–13:10</span><span><b>Physics-Informed Neural Networks for Turbulent Wake Reconstruction of a Marine Current Turbine</b><span class="pr">Thiagarajan Vijaya Lakshmi et al. · IIT Madras</span></span></li>
       <li><span><b>SUS-OP-03</b>13:10–13:20</span><span><b>Comparative Evaluation of RL-based Single &amp; Dual Agent Architectures against DE-Tuned PI Benchmark Controllers on Activated Sludge WWTPs</b><span class="pr">Srinivas Tenneti, Seshagiri Rao Ambati · IIPE Visakhapatnam</span></span></li>
-      <li><span><b>SUS-OP-04</b>13:20–13:30</span><span><b>Discovery of Efficient and Stable Ionic Liquids for CO<sub>2</sub> Capture Using Machine Learning-Driven Experiments</b><span class="pr">Vijith Parambil et al. · IIT Madras</span></span></li>
+      <li><span><b>SUS-OP-04</b>13:20–13:30</span><span><b>TransChem: A Hybrid Transformer-Cheminformatics Framework for Predicting Li-Ion Conductivity in Polymer Electrolytes</b><span class="pr">V. Parambil et al. · IIT Madras</span></span></li>
     </ul>
   </div>
 </section></div>
@@ -1563,7 +1607,7 @@ body.fb{
   </article>
   <article class="stu-abs">
     <span class="slot">SUS-OP-03 · 13:10–13:20</span>
-    <h3>Comparative Evaluation of Reinforcement Learning based Standalone Single MIMO Agent and Dual Agent Architectures against DE-Tuned PI Benchmark Controllers on Activated Sludge Wastewater Treatment Plants</h3>
+    <h3>Comparative Evaluation of RL-based Single &amp; Dual Agent Architectures against DE-Tuned PI Benchmark Controllers on Activated Sludge WWTPs</h3>
     <p class="au-line"><span class="pres">S. Tenneti</span><sup>†</sup> and S. R. Ambati<sup>*,†</sup></p>
     <p class="affil-line"><sup>†</sup>Indian Institute of Petroleum and Energy, Visakhapatnam</p>
     <p class="corr-line">*&nbsp;Corresponding author · seshagiri.che@iipe.ac.in</p>
@@ -1573,11 +1617,11 @@ body.fb{
 <div class="face back" data-page="47"><section class="page" data-runner="Day 2 · Session 1 · Hall III · 12:50 — 13:30" data-chrono="36" data-folio="44">
   <article class="stu-abs">
     <span class="slot">SUS-OP-04 · 13:20–13:30</span>
-    <h3>Discovery of Efficient and Stable Ionic Liquids for CO<sub>2</sub> Capture Using Machine Learning-Driven Experiments</h3>
-    <p class="au-line"><span class="pres">V. Parambil</span><sup>†</sup>, S. Kumari<sup>†</sup>, B. Chenthamara<sup>‡</sup>, L. Paul<sup>‡</sup>, S. Sourav<sup>‡</sup>, R. Batra<sup>*,†</sup>, R. L. Gardas<sup>§</sup> and R. Kumar<sup>‡</sup></p>
-    <p class="affil-line"><sup>†</sup>Department of Metallurgical and Materials Engineering, IIT Madras &nbsp;·&nbsp; <sup>‡</sup>Department of Chemical Engineering, IIT Madras &nbsp;·&nbsp; <sup>§</sup>Department of Chemistry, IIT Madras, Chennai</p>
+    <h3>TransChem: A Hybrid Transformer-Cheminformatics Framework for Predicting Li-Ion Conductivity in Polymer Electrolytes</h3>
+    <p class="au-line"><span class="pres">V. Parambil</span><sup>†</sup>, U. Tripathi<sup>†</sup>, H. Goyal<sup>†</sup> and R. Batra<sup>*,†</sup></p>
+    <p class="affil-line"><sup>†</sup>Indian Institute of Technology Madras, Chennai</p>
     <p class="corr-line">*&nbsp;Corresponding author · rbatra@iitm.ac.in</p>
-    <p class="abs-text"><b>Abstract.</b> Reducing human-generated carbon dioxide (CO<sub>2</sub>) emissions continues to be a major challenge in the development of sustainable energy and environmental solutions. Among the various approaches being explored, ionic liquids (ILs) have attracted considerable interest as effective media for CO<sub>2</sub> capture, owing to their adjustable physicochemical characteristics and strong capacity for gas absorption. However, the immense combinatorial space of possible cation&ndash;anion pairs, together with the complexity of their molecular interactions, renders exhaustive experimental evaluation and optimization impractical because of the associated time and cost constraints. To address this challenge, machine learning (ML) techniques were employed to systematically explore the IL design space. In this study, both classical and transformer-based ML models were developed for predicting the CO<sub>2</sub> capture ability, viscosity, and decomposition temperature of ionic liquids. The predictions are made on a large hypothetical dataset with various combinations of cations and anions. High-performing IL candidates were identified through multi-objective screening based on threshold criteria for CO<sub>2</sub> uptake, viscosity, and decomposition temperature. Selected candidates were subsequently synthesized and experimentally validated at 1 bar and 313 K for CO<sub>2</sub> absorption, followed by evaluation under simulated flue gas conditions (15% CO<sub>2</sub>). The measured properties showed close agreement with the machine learning predictions, demonstrating the ability of ML models to discover novel high-performing ILs. Further investigation of the physicochemical and process-level properties of these ILs is required to assess their feasibility for large-scale industrial applications. Overall, this study highlights how AI-based approaches can reduce experimental effort in screening ionic liquids for efficient CO<sub>2</sub> capture.</p>
+    <p class="abs-text"><b>Abstract.</b> Lithium-ion batteries have gained significant attention in applications ranging from portable electronics to electric vehicles and grid-scale energy storage. However, conventional liquid electrolytes pose safety risks and environmental concerns due to flammability and leakage. Solid polymer electrolytes (SPEs) offer a safer, more sustainable alternative with improved mechanical stability and recyclability. Over the past decade, machine learning (ML) approaches have accelerated the discovery of new SPE materials, reducing the experimental cost and waste associated with traditional trial-and-error methods. Among various ML models, transformer-based architectures such as TransPolymer have demonstrated superior performance over classical approaches by capturing complex contextual information embedded in polymer sequences. However, such deep learning models often operate as &ldquo;black boxes,&rdquo; limiting their interpretability and, consequently, their utility for advancing chemical understanding. In contrast, classical ML models based on cheminformatics-derived features offer greater interpretability but suffer from lower predictive accuracy and limited scalability across large chemical spaces. In this work, we introduce TransChem, a hybrid ML framework that integrates transformer architectures with cheminformatics-based descriptors to achieve state-of-the-art performance in predicting Li-ion conductivity of polymers. Our analysis demonstrates that incorporating cheminformatics features provides complementary, chemically meaningful information to the transformer-based model, enhancing both its predictive accuracy and interpretability. Furthermore, feature analysis on trained TransChem models identifies key chemical factors governing Li-ion conductivity in polymers, underscoring the interpretability of the framework. TransChem thus offers a promising hybrid approach for data-driven polymer design, with potential for extension to the broader field of molecular and materials informatics.</p>
   </article>
 </section></div>
 </div>
@@ -1603,7 +1647,7 @@ body.fb{
     <ul>
       <li><span><b>SUS-OP-05</b>12:50–13:00</span><span><b>Cooperative Game-Theoretic Framework for Circular EV Energy Ecosystem Planning: A Case Study of Mangaluru Taluk, Dakshina Kannada, Karnataka, India</b><span class="pr">Aditya V. Padwalkar et al. · Chanakya University</span></span></li>
       <li><span><b>SUS-OP-06</b>13:00–13:10</span><span><b>Techno-Economic Optimization of Solar-Driven Green Hydrogen Systems for Circular Energy Transition, Carbon Resource Valorization, and Industrial Decarbonization</b><span class="pr">Seshagiri Rao Ambati · IIPE</span></span></li>
-      <li><span><b>SUS-OP-07</b>13:10–13:20</span><span><b>SmartHybrid: An AI-Driven Solar&ndash;Wind Hybrid Energy Planning Platform with a Common DC-Bus Multiport Converter for Rural Electrification</b><span class="pr">Sachin Gowda U S et al. · RV College of Engineering</span></span></li>
+      <li><span><b>SUS-OP-07</b>13:10–13:20</span><span><b>Why India&rsquo;s EV Battery Boom Is a Future Waste Crisis Waiting to Happen: A Multi-Stakeholder Analysis of Circularity Gaps</b><span class="pr">Aman Srivastava et al. · IIT Madras</span></span></li>
       <li><span><b>SUS-OP-08</b>13:20–13:30</span><span><b>Multi-Objective Life Cycle Optimization of Biomass-to-Value-Added Products Conversion Networks</b><span class="pr">Kaushik Kundu et al. · IIT Delhi</span></span></li>
     </ul>
   </div>
@@ -1622,7 +1666,7 @@ body.fb{
   </article>
   <article class="stu-abs">
     <span class="slot">SUS-OP-06 · 13:00–13:10</span>
-    <h3>Techno-Economic Optimization of Solar-Driven Green Hydrogen Systems for Circular Energy Transition, Carbon Resource Valorization, and Industrial Decarbonization under Emerging Carbon Compliance Frameworks</h3>
+    <h3>Techno-Economic Optimization of Solar-Driven Green Hydrogen Systems for Circular Energy Transition, Carbon Resource Valorization, and Industrial Decarbonization</h3>
     <p class="au-line"><span class="pres">V Durga Praveena</span><sup>†</sup> and Seshagiri Rao Ambati, PhD<sup>*,†</sup></p>
     <p class="affil-line"><sup>†</sup>Department of Chemical Engineering, Indian Institute of Petroleum &amp; Energy (IIPE), Vangali, Sabbavaram, Anakapalli, Andhra Pradesh</p>
     <p class="corr-line">*&nbsp;Corresponding author · seshagiri.che@iipe.ac.in</p>
@@ -1638,11 +1682,11 @@ body.fb{
   </article>
   <article class="stu-abs">
     <span class="slot">SUS-OP-07 · 13:10–13:20</span>
-    <h3>SmartHybrid: An AI-Driven Solar&ndash;Wind Hybrid Energy Planning Platform with a Common DC-Bus Multiport Converter for Rural Electrification</h3>
-    <p class="au-line"><span class="pres">Sachin Gowda U S</span><sup>*,†</sup>, Manohar D S<sup>†</sup> and Lokeshwari M<sup>†</sup></p>
-    <p class="affil-line"><sup>†</sup>RV College of Engineering, Mysore Road, Bengaluru</p>
-    <p class="corr-line">*&nbsp;Corresponding author · sachingowdau.ee23@rvce.edu.in</p>
-    <p class="abs-text"><b>Abstract.</b> The increasing demand for reliable and affordable clean energy in rural and semi-urban regions requires intelligent renewable energy planning solutions. Solar photovoltaic (PV) and wind energy are inherently intermittent, but their complementary nature makes hybrid solar&ndash;wind systems suitable for decentralized power generation. However, existing hybrid systems often require expert-driven planning and suffer from efficiency losses due to multiple independent power conversion stages. This paper presents SmartHybrid, an integrated AI-driven platform for optimized solar&ndash;wind hybrid energy planning and efficient power conversion. The proposed system combines two major contributions. First, an intelligent planning engine uses geospatial and meteorological datasets along with machine learning and optimization techniques to recommend location-specific configurations of PV panels, wind turbines, and battery storage based on energy demand, climatic conditions, and budget constraints. The platform estimates annual energy generation, system reliability, Levelized Cost of Energy (LCOE), and return on investment, making hybrid energy planning accessible to non-expert users. Second, the work introduces a common DC-bus multiport converter that integrates solar, wind and battery storage through a unified architecture with a single inverter stage. This design reduces redundant conversion stages, minimizes power losses, simplifies control, and improves overall system efficiency. Simulation and prototype results demonstrate approximately 5&ndash;10% improvement in conversion efficiency and reduced LCOE compared to conventional standalone systems. The proposed SmartHybrid framework supports sustainable rural electrification and aligns with India&rsquo;s national solar&ndash;wind hybrid energy policy, providing a scalable and data-driven pathway for clean energy deployment.</p>
+    <h3>Why India&rsquo;s EV Battery Boom Is a Future Waste Crisis Waiting to Happen: A Multi-Stakeholder Analysis of Circularity Gaps</h3>
+    <p class="au-line"><span class="pres">Aman Srivastava</span><sup>*,†</sup>, Krishna Malakar<sup>†</sup> and Rahul Muralidharan<sup>†</sup></p>
+    <p class="affil-line"><sup>†</sup>Indian Institute of Technology Madras, Chennai, Tamil Nadu</p>
+    <p class="corr-line">*&nbsp;Corresponding author · hs26r001@smail.iitm.ac.in</p>
+    <p class="abs-text"><b>Abstract.</b> India&rsquo;s electric vehicle transition is predicated on a rapid shift to LFP (Lithium Iron Phosphate) chemistry (86% market share), yet the economic viability of LFP battery recycling remains critically underexamined within the policy architecture of the Battery Waste Management Rules, 2022. This study addresses the research gap between ambitious Extended Producer Responsibility (EPR) targets and the operational realities of domestic refining capacity. Employing a multi-stakeholder mixed-methods framework, we assessed circular design maturity, traceability readiness, and EPR compliance across OEMs (Original Equipment Manufacturers), battery producers, and formal recyclers. Results reveal a unanimous consensus (100% of stakeholders) that LFP recycling is presently unprofitable &ndash; a market failure wherein the dominant chemistry of the future constitutes a latent waste liability. Further findings expose a &ldquo;closed-loop impossibility&rdquo;: recyclers achieve 99.5% battery-grade material purity but lack domestic cell manufacturing offtakers, rendering the value chain linear (import&ndash;use&ndash;export). Additionally, while OEMs assert minimal leakage, recyclers report 60&ndash;90% feedstock sourcing from an informal sector disproportionately burdened by an 18% GST (Goods and Services Tax) rate on recycled scrap. We also identify a temporal misalignment wherein EPR collection targets are set for an 8-year horizon against a 15-year LFP lifespan. To reconcile policy intent with industrial viability, there is a need for a phased mandate for battery passports, chemistry-specific performance-based EPR targets, state-facilitated aggregation to formalize the informal sector, and targeted subsidies for LFP hydrometallurgical refining. We conclude that absent these structural interventions, India&rsquo;s circular economy framework will remain a notional construct rather than a functional, closed-loop system.</p>
   </article>
 </section></div>
 <div class="face back" data-page="51"><section class="page" data-runner="Day 2 · Session 2 · TTJ Auditorium · 12:50 — 13:30" data-chrono="41" data-folio="48">
@@ -1711,7 +1755,7 @@ body.fb{
   </article>
   <article class="stu-abs">
     <span class="slot">SUS-OP-11 · 17:10–17:20</span>
-    <h3>Spatiotemporal Foresight of EV Battery End-of-Life Flows in India: District-Scale Hotspots for Critical Mineral Recovery and Circular Supply Chain Planning</h3>
+    <h3>Spatiotemporal Foresight of EV Battery End-of-Life Flows in India: District-Scale Hotspots for Critical Mineral Recovery</h3>
     <p class="au-line"><span class="pres">Suprava Mishra</span><sup>†</sup>, JL Sriniketh<sup>†</sup> and Agnivesh Pani<sup>*,†</sup></p>
     <p class="affil-line"><sup>†</sup>Department of Civil Engineering, Indian Institute of Technology (BHU) Varanasi</p>
     <p class="corr-line">*&nbsp;Corresponding author · agnivesh.civ@iitbhu.ac.in</p>
@@ -1747,20 +1791,21 @@ body.fb{
   </div>
   <ul class="talk-list">
     <li><span class="tt">16:00–16:20</span><span class="tn"><span class="tag">Invited</span><b>Dr. Shilpi Kushwaha</b><span>CSIR-CSMCRI &nbsp;·&nbsp; <a class="slink" href="#shilpi" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 37)</a></span></span></li>
-    <li><span class="tt">16:25–16:45</span><span class="tn"><span class="tag">Invited</span><b>Dr. Manali Pal</b><span>NIT Warangal &nbsp;·&nbsp; <a class="slink" href="#manali" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 38)</a></span></span></li>
+    <li><span class="tt">16:25–16:45</span><span class="tn"><span class="tag">Invited</span><b>Dr. Sankha Karmakar</b><span>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#karmakar4" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 38)</a></span><i style="display:block; font-family:var(--serif); font-size:7.3pt; color:var(--ink-3); margin-top:.6mm;">Waste to Wealth: Facile Activation of Red Mud Waste and Insights into Industrial Reactive Dye Removal from Wastewater</i></span></li>
   </ul>
   <div class="students">
     <p style="font-family:var(--serif); font-style:italic; font-size:8.4pt; color:var(--ink-3); margin-bottom:3mm; line-height:1.45;">Note: Sustainable Industrial Ecosystems &amp; Green Supply Chains does not have a dedicated conference session, as no Distinguished or Invited speakers were confirmed under this theme. The student presentations submitted under this theme have accordingly been scheduled within this session.</p>
-    <h4>Student Presentations · 16:50 — 17:30 · Abstracts p. 54</h4>
+    <h4>Student Presentations · 16:50 — 17:40 · Abstracts p. 54</h4>
     <ul>
       <li><span><b>SUS-OP-13</b>16:50–17:00</span><span><b>Integrating Circular Economy into Infrastructure Projects: A Site-Level C&sup3;E Framework for Construction Execution</b><span class="pr">Paidi Maneesha et al. · NIT Tiruchirappalli</span></span></li>
       <li><span><b>SUS-OP-14</b>17:00–17:10</span><span><b>Exploring Pathways to Industrial Water Circularity: A Configurational Analysis of Corporate Water Management Practices</b><span class="pr">Shweta Dasgupta et al. · MANIT Bhopal</span></span></li>
       <li><span><b>SUS-OP-15</b>17:10–17:20</span><span><b>Processing of Printed Circuit Board Waste for Selective Recovery of Valuable Metals: A Sustainable Urban Mining Approach</b><span class="pr">Rajesh Cheduri, Pankaj Pathak · SRM University-AP</span></span></li>
       <li><span><b>SUS-OP-16</b>17:20–17:30</span><span><b>Pyrolysis-Based Circular Recycling of Waste Printed Circuit Boards for Resource Recovery and Emission Reduction</b><span class="pr">Anjana E I et al. · CSIR-NIIST</span></span></li>
+      <li><span><b>SUS-OP-41</b>17:30–17:40</span><span><b>Lead Removal from Aqueous Medium Using Thiol-Rich Novel Fe/TGA Nanocrystals</b><span class="pr">R. V. Mohan Malavya, Sirshendu De · IIT Kharagpur</span></span></li>
     </ul>
   </div>
 </section></div>
-<div class="face back" data-page="57"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:30" data-chrono="50" data-folio="54">
+<div class="face back" data-page="57"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:40" data-chrono="50" data-folio="54">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 2 · Session 4 — Circular Water Technologies &amp; Sustainable Hydrosphere Management</p>
   <article class="stu-abs">
@@ -1781,7 +1826,7 @@ body.fb{
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="58"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:30" data-chrono="50.3" data-folio="55">
+<div class="face front" data-page="58"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:40" data-chrono="50.3" data-folio="55">
   <article class="stu-abs">
     <p class="abs-text">Drawing on publicly available sustainability disclosures and secondary reports, the study constructs a set of firm-level cases across sectors, analyzed to assess the extent of water circularity as proxied through indicators such as water reuse, reduction in freshwater withdrawal, and adoption of closed-loop systems, considering key conditions including technological capability, regulatory context, water stress environment, corporate sustainability orientation, and infrastructural support. Rather than identifying a single determinant, the study adopts a configurational perspective to examine how different combinations of these conditions support higher water circularity. The findings highlight that multiple pathways exist: technologically advanced firms operating under regulatory and water stress pressures tend to achieve high circularity, while in other cases, strong sustainability orientation combined with supportive infrastructure can also enable similar outcomes; at the same time, the absence of key enabling conditions constrains the adoption of circular practices. The study contributes to the emerging discourse on maximizing the life of water in industrial systems using configurational methods to understand complex industrial sustainability transitions, offering indicative insights on the combinations of factors that can support scaling of circular water practices in industrial contexts.</p>
   </article>
@@ -1794,7 +1839,7 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Waste printed circuit boards (PCBs) represent a high-value fraction of electronic waste due to their complex multi-metallic composition and elevated concentrations of base, precious, and strategic metals. The present study investigates a hydrometallurgical route for the selective recovery of valuable metals from discarded PCB waste through integrated pre-treatment, leaching, and separation processes. PCB samples were initially subjected to mechanical comminution, followed by alkaline treatment to disrupt the polymeric/epoxy matrix and liberate metallic phases. Chemical digestion and compositional characterisation were performed to quantify the elemental distribution within the PCB matrix. Metal dissolution behaviour was evaluated using acidic leaching systems under varying operational parameters, including lixiviant concentration, reaction time, temperature, and solid-to-liquid ratio. The generated pregnant leach solution was subsequently processed using selective separation techniques to achieve enhanced metal selectivity and purification efficiency. Metal concentration analysis and process monitoring were carried out using ICP-OES to assess extraction performance and recovery yields. The study emphasises the optimisation of process conditions to maximise extraction efficiency while minimising reagent consumption and secondary waste generation. Efficient recovery of valuable metallic constituents from PCB waste not only reduces environmental risks associated with uncontrolled e-waste handling but also promotes resource circularity, secondary raw-material generation, and sustainable urban mining practices aligned with circular economy objectives.</p>
   </article>
 </section></div>
-<div class="face back" data-page="59"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:30" data-chrono="50.6" data-folio="56">
+<div class="face back" data-page="59"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:40" data-chrono="50.6" data-folio="56">
   <article class="stu-abs">
     <span class="slot">SUS-OP-16 · 17:20–17:30</span>
     <h3>Pyrolysis-Based Circular Recycling of Waste Printed Circuit Boards for Resource Recovery and Emission Reduction</h3>
@@ -1806,14 +1851,28 @@ body.fb{
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="60"><section class="page divider" id="day3" data-chrono="52">
+<div class="face front" data-page="60"><section class="page" data-runner="Day 2 · Session 4 · Hall III · 16:50 — 17:40" data-chrono="50.8" data-folio="57">
+  <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
+  <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 2 · Session 4 — Circular Water Technologies &amp; Sustainable Hydrosphere Management</p>
+  <article class="stu-abs">
+    <span class="slot">SUS-OP-41 · 17:30–17:40</span>
+    <h3>Lead Removal from Aqueous Medium Using Thiol-Rich Novel Fe/TGA Nanocrystals</h3>
+    <p class="au-line"><span class="pres">R. V. Mohan Malavya</span><sup>*,†</sup> and Sirshendu De<sup>†</sup></p>
+    <p class="affil-line"><sup>†</sup>Department of Chemical Engineering, Indian Institute of Technology, Kharagpur</p>
+    <p class="corr-line">*&nbsp;Corresponding author · malavya.rvm.96@gmail.com</p>
+    <p class="abs-text"><b>Abstract.</b> Novel thiol functionalized iron-based nanocrystalline particles (denoted as Fe/TGA) was synthesized using a facile precipitation strategy. The physico-chemical characteristics of Fe/TGA were explored using different analytical techniques (XRD, FTIR, FESEM, EDX and Zeta potential). The material exhibited significant lead (Pb) adsorption capacity which was analyzed using detailed batch mode experimentation to elucidate the influence of different operating parameters, such as, pH, dose, feed concentration, time and temperature. Langmuir isotherm fitted better with the adsorption profile and a maximum adsorption capacity of nearly 600 mg/g was evidenced. Pb adsorption was endothermic in nature and followed pseudo-second order kinetics. The material showed appreciable Pb selectivity with different ionic groups. The regeneration studies revealed good efficacy of the material after 4 cycles of operation. The strong Pb binding capacity of thiol groups through effective chelation was determined to be the uptake mechanism confirming chemisorption. The negative surface charge of Fe/TGA also facilitated the sorption of Pb moieties through strong electrostatic forces. Overall, the simple synthesis process and superior Pb removal capacity of the nanoparticles offer credible promise and scope for application in field of water treatment.</p>
+  </article>
+</section></div>
+<div class="face back" data-page="61"><section class="page divider" id="day3" data-chrono="52">
   <p class="kicker" style="margin-top:30mm;">Saturday · 25 July 2026 · Conference Day 2</p>
   <h1>Closing<br/>Day</h1>
   <p class="meta">TTJ Auditorium &amp; Hall III · ICSR Building · 09:30 — 17:30</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:11pt; opacity:.85; margin-top:10mm; max-width:100mm; line-height:1.6;">Six parallel sessions, a closing keynote, and the valedictory — the loop closes where it began.</p>
   <span class="divider-num">3</span>
 </section></div>
-<div class="face back" data-page="61"><section class="page" id="key3" data-runner="Day 3 · Keynote · TTJ Auditorium · 09:15 — 10:00" data-chrono="53" data-folio="57">
+</div>
+<div class="sheet">
+<div class="face front" data-page="62"><section class="page" id="key3" data-runner="Day 3 · Keynote · TTJ Auditorium · 09:30 — 10:15" data-chrono="53" data-folio="58">
   <span class="sess-badge">Keynote</span><span class="sess-badge sess-badge--outline">TTJ Auditorium</span>
   <div class="abs-block" style="margin-top:5mm; display:block;">
     <div style="float: left; width: 40mm; margin-right: 6mm; margin-bottom: 2mm;">
@@ -1823,7 +1882,7 @@ body.fb{
         <a class="slink" target="_blank" rel="noopener" href="https://sustainxconference.org/programme#day3" target="_blank" rel="noopener noreferrer" style="font-size:6.2pt; text-align:center; display:block !important; text-transform:uppercase; font-family:var(--sans); font-weight:700; letter-spacing:.08em; white-space:nowrap;">View profile ↗</a>
       </div>
     </div>
-    <p class="kicker">09:15 — 10:00</p>
+    <p class="kicker">09:30 — 10:15</p>
     <h2>Prof. Sirshendu De</h2>
     <p class="aff" style="font-size:7pt; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:3mm;">Keynote Address · IIT Kharagpur</p>
     <p class="talk-title" style="font-family:var(--serif); font-style:italic; font-size:10.5pt; margin-bottom:3mm;">Indigenous Scalable &amp; Sustainable Water Treatment Technologies</p>
@@ -1832,11 +1891,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
   <hr class="rule" />
-  <p class="small">Followed by a tea break in the ICSR Foyer, 10:00 — 10:30. Parallel sessions begin at 10:30.</p>
+  <p class="small">Followed by a tea break in the ICSR Foyer, 10:15 — 10:30. Parallel sessions begin at 10:30.</p>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="62"><section class="page" id="sirish" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.1" data-folio="58">
+<div class="face back" data-page="63"><section class="page" id="sirish" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.1" data-folio="59">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sirish.jpg" alt="Prof. Sirish Namilae" /></div>
@@ -1854,7 +1911,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="63"><section class="page" id="indumathi" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.15" data-folio="59">
+</div>
+<div class="sheet">
+<div class="face front" data-page="64"><section class="page" id="indumathi" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.15" data-folio="60">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/Indumathi.jpg" alt="Prof. Indumathi Nambi" /></div>
@@ -1873,9 +1932,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="64"><section class="page" id="aravindan" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.2" data-folio="60">
+<div class="face back" data-page="65"><section class="page" id="aravindan" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.2" data-folio="61">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/mamata_mohapatra.jpg" alt="Dr. Mamata Mohapatra" /></div>
@@ -1893,7 +1950,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="65"><section class="page" id="ratheesh" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.25" data-folio="61">
+</div>
+<div class="sheet">
+<div class="face front" data-page="66"><section class="page" id="ratheesh" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.25" data-folio="62">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/ratheesh.jpg" alt="Dr. R. Ratheesh" /></div>
@@ -1914,9 +1973,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="66"><section class="page" id="anandhan" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.3" data-folio="62">
+<div class="face back" data-page="67"><section class="page" id="anandhan" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.3" data-folio="63">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/asrini.jpg" alt="Prof. Anandhan Srinivasan" /></div>
@@ -1936,7 +1993,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="67"><section class="page" id="mondal" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.35" data-folio="63">
+</div>
+<div class="sheet">
+<div class="face front" data-page="68"><section class="page" id="mondal" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.35" data-folio="64">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/mondal.jpg" alt="Dr. Mrinmoy Mondal" /></div>
@@ -1954,9 +2013,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="68"><section class="page" id="prathish" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.4" data-folio="64">
+<div class="face back" data-page="69"><section class="page" id="prathish" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.4" data-folio="65">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/prathish.png" alt="Dr. K. P. Prathish" /></div>
@@ -1978,7 +2035,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="69"><section class="page" id="susmita" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.45" data-folio="65">
+</div>
+<div class="sheet">
+<div class="face front" data-page="70"><section class="page" id="susmita" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.45" data-folio="66">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/susmitha.png" alt="Prof. Susmita Dutta" /></div>
@@ -1998,9 +2057,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="70"><section class="page" id="chakraborty" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.48" data-folio="66">
+<div class="face back" data-page="71"><section class="page" id="chakraborty" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.48" data-folio="67">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/IC.jpg" alt="Dr. Indrajit Chakraborty" /></div>
@@ -2020,7 +2077,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="71"><section class="page" id="pathak" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.5" data-folio="67">
+</div>
+<div class="sheet">
+<div class="face front" data-page="72"><section class="page" id="pathak" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.5" data-folio="68">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/pankaj-pathak.jpg" alt="Dr. Pankaj Pathak" /></div>
@@ -2039,9 +2098,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="72"><section class="page" id="ishita" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.55" data-folio="68">
+<div class="face back" data-page="73"><section class="page" id="ishita" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.55" data-folio="69">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/ishitha.png" alt="Dr. Ishita Sarkar" /></div>
@@ -2061,7 +2118,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="73"><section class="page" id="sourav" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.65" data-folio="69">
+</div>
+<div class="sheet">
+<div class="face front" data-page="74"><section class="page" id="sourav" data-runner="Day 3 · Distinguished &amp; Invited Speakers" data-chrono="53.65" data-folio="70">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sagar.jpg" alt="Dr. Sagar Sourav" /></div>
@@ -2081,9 +2140,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="74"><section class="page" id="chair_kalpathy" data-runner="Day 3 · Session Chairs · 1 &amp; 2" data-chrono="53.7" data-folio="70">
+<div class="face back" data-page="75"><section class="page" id="chair_kalpathy" data-runner="Day 3 · Session Chairs · 1 &amp; 2" data-chrono="53.7" data-folio="71">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sreeram.jpg" alt="Prof. Sreeram Kalpathy" /></div>
@@ -2115,21 +2172,23 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="75"><section class="page" id="chair_chandiran" data-runner="Day 3 · Session Chairs · 3 &amp; 4" data-chrono="53.8" data-folio="71">
+</div>
+<div class="sheet">
+<div class="face front" data-page="76"><section class="page" id="chair_tiju" data-runner="Day 3 · Session Chairs · 3 &amp; 4" data-chrono="53.8" data-folio="72">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
-      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/aravind.jpeg" alt="Prof. Aravind Kumar Chandiran" /></div>
+      <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/tiju.png" alt="Prof. Tiju Thomas" /></div>
       <div style="margin-top:4mm; display:flex; flex-direction:column; align-items:center; gap:2mm; width:100%;">
         <img class="qr" src="../assets/images/qr-day2.png" alt="QR Code" style="background: none; display: block !important; margin: 0 auto;" />
         <a class="slink" target="_blank" rel="noopener" href="https://sustainxconference.org/programme#day3" target="_blank" rel="noopener noreferrer" style="font-size:6.2pt; text-align:center; display:block !important; text-transform:uppercase; font-family:var(--sans); font-weight:700; letter-spacing:.08em; white-space:nowrap;">View profile ↗</a>
       </div>
     </div>
     <span class="tag" style="display:inline-block; margin-bottom:1mm;">Session Chair · Session 3</span>
-    <h3 style="margin-top:1mm;">Prof. Aravind Kumar Chandiran</h3>
+    <h3 style="margin-top:1mm;">Prof. Tiju Thomas</h3>
     <p class="aff">IIT Madras</p>
-    <p style="font-size:7.6pt; color:var(--ink-2); text-align:justify; margin-bottom:2mm; line-height:1.35;"><b>Biography.</b> Prof. Aravind Kumar Chandiran is an Assistant Professor in the Department of Chemical Engineering at IIT Madras, where he has served since November 2016, and also holds appointments as Assistant Professor in the Solar Fuels Division of the Indian Solar Energy Harnessing Centre (since July 2018) and as Adjunct Faculty at the National Centre for Catalysis Research (NCCR), IIT Madras (since December 2017). Prior to joining IIT Madras, he was a Postdoctoral Fellow in the Long Group, Department of Chemistry, University of California, Berkeley, and an Affiliate Postdoc at the Molecular Foundry, Lawrence Berkeley National Laboratory, USA (2014&ndash;16).</p>
-    <p style="font-size:7.6pt; color:var(--ink-2); text-align:justify; margin-bottom:2mm; line-height:1.35;">He obtained his Doctor of Science degree in Chemistry and Chemical Engineering from the Swiss Federal Institute of Technology (EPFL), Lausanne, Switzerland, in Prof. Michael Gr&auml;tzel&rsquo;s group (2010&ndash;13); his Master of Science in Materials for Energy Storage and Conversion through a joint programme at the University of Paul Sabatier, Toulouse III, France, the University of Picardie Jules Verne, Amiens, France, and Warsaw University of Technology, Poland (2007&ndash;09); and his Bachelor of Technology in Rubber and Plastics Technology from MIT Campus, Anna University, India (2003&ndash;07).</p>
-    <p style="font-size:7.6pt; color:var(--ink-2); text-align:justify; line-height:1.35;">His research interests span solar cells, solar water splitting, carbon dioxide reduction, photoconductivity, and oxide semiconductors and solar energy research.</p>
+    <p style="font-size:7.6pt; color:var(--ink-2); text-align:justify; margin-bottom:2mm; line-height:1.35;"><b>Biography.</b> Tiju Thomas holds MS and PhD degrees from Cornell University (NY, USA). He works in interdisciplinary areas that straddle materials engineering and allied areas (nanochemistry, electrical engineering, applied physicists and solid state chemistry). He also has an MS (Engg.) from the Theoretical Sciences Unit in Jawaharlal Nehru Centre for Advanced Scientific Research. His group focuses on developing compositionally complex oxides, oxynitrides and nitrides, and nanometals for achieving engineering ends. Problems concerning the functional properties of materials are of abiding interest to him.</p>
+    <p style="font-size:7.6pt; color:var(--ink-2); text-align:justify; margin-bottom:2mm; line-height:1.35;">In particular next-generation energy storage (supercapacitors, hybrid energy storage systems), nanotech-enabled solar energy harvesting, and solar-driven water treatment have been the group&rsquo;s recent focus. The group&rsquo;s work on on-demand hydrogen production is internationally well-known. Eco-friendly, green engineering perspectives guide the computational materials design, synthetic chemical and fabrication routes that the group develops.</p>
+    <p style="font-size:7.6pt; color:var(--ink-2); text-align:justify; line-height:1.35;">The group is diverse and vibrant because of his inter-disciplinarity. In the recent past, Tiju has worked extensively with chemists, physicists, electrical engineers, chemical and polymer engineers, materials and metallurgical engineers, and mechanical engineers. An applied approach to materials science makes this trans and inter-disciplinary work possible.</p>
     <div style="clear:both;"></div>
   </div>
   <div class="abs-block" style="margin-top:4mm; display:block; border-top:.4pt solid var(--hairline); padding-top:4mm;">
@@ -2149,9 +2208,7 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="76"><section class="page" id="chair_karmakar" data-runner="Day 3 · Session Chairs · 5 &amp; 6" data-chrono="53.9" data-folio="72">
+<div class="face back" data-page="77"><section class="page" id="chair_karmakar" data-runner="Day 3 · Session Chairs · 5 &amp; 6" data-chrono="53.9" data-folio="73">
   <div class="abs-block" style="margin-top:10mm; display:block;">
     <div style="float: left; width: 26mm; margin-right: 5mm; margin-bottom: 2mm;">
       <div class="portrait-frame"><img class="portrait" src="../assets/images/speakers/sanka.jpg" alt="Dr. Sankha Karmakar" /></div>
@@ -2185,7 +2242,9 @@ body.fb{
     <div style="clear:both;"></div>
   </div>
 </section></div>
-<div class="face back" data-page="77"><section class="page" id="d3s1" data-runner="Day 3 · Session 1 · TTJ Auditorium · 10:30 — 12:00" data-chrono="54" data-folio="73">
+</div>
+<div class="sheet">
+<div class="face front" data-page="78"><section class="page" id="d3s1" data-runner="Day 3 · Session 1 · TTJ Auditorium · 10:30 — 12:00" data-chrono="54" data-folio="74">
   <span class="sess-badge">Session 1</span><span class="sess-badge sess-badge--outline">TTJ Auditorium</span>
   <h1 class="sess-title">Circular Plastics &amp;<br/>Polymer Economy</h1>
   <div class="sess-meta">
@@ -2195,14 +2254,14 @@ body.fb{
   </div>
   <div class="chair">
     <img src="../assets/images/speakers/sreeram.jpg" alt="Prof. Sreeram Kalpathy" />
-    <div><b>Chair · Prof. Sreeram Kalpathy</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_kalpathy" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 70)</a></i></div>
+    <div><b>Chair · Prof. Sreeram Kalpathy</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_kalpathy" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 71)</a></i></div>
   </div>
   <ul class="talk-list">
-    <li><span class="tt">10:30–10:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Prof. Sirish Namilae</b><span>Embry-Riddle Aeronautical University &nbsp;·&nbsp; <a class="slink" href="#sirish" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 58)</a></span></span></li>
-    <li><span class="tt">10:55–11:15</span><span class="tn"><span class="tag">Invited</span><b>Prof. Anandhan Srinivasan</b><span>NIT Karnataka &nbsp;·&nbsp; <a class="slink" href="#anandhan" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 62)</a></span></span></li>
+    <li><span class="tt">10:30–10:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Prof. Sirish Namilae</b><span>Embry-Riddle Aeronautical University &nbsp;·&nbsp; <a class="slink" href="#sirish" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 59)</a></span></span></li>
+    <li><span class="tt">10:55–11:15</span><span class="tn"><span class="tag">Invited</span><b>Prof. Anandhan Srinivasan</b><span>NIT Karnataka &nbsp;·&nbsp; <a class="slink" href="#anandhan" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 63)</a></span></span></li>
   </ul>
   <div class="students">
-    <h4>Student Presentations · 11:20 — 12:00 · Abstracts p. 74</h4>
+    <h4>Student Presentations · 11:20 — 12:00 · Abstracts p. 75</h4>
     <ul>
       <li><span><b>SUS-OP-17</b>11:20–11:30</span><span><b>Molecular Dynamics Investigation of Structure&ndash;Property Relationships in PBSA/PHBH Biopolymer Blends for Circular Packaging</b><span class="pr">Vaishnu Suresh Kumar · BITS Pilani</span></span></li>
       <li><span><b>SUS-OP-18</b>11:30–11:40</span><span><b>Designing Circularity: Reversible Polymers as a Pathway to a Sustainable Plastic Economy in India</b><span class="pr">Pondharshini Ponnusamy · Bharathidasan University</span></span></li>
@@ -2213,9 +2272,7 @@ body.fb{
     </ul>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="78"><section class="page" data-runner="Day 3 · Session 1 · TTJ Auditorium · 11:20 — 12:00" data-chrono="56" data-folio="74">
+<div class="face back" data-page="79"><section class="page" data-runner="Day 3 · Session 1 · TTJ Auditorium · 11:20 — 12:00" data-chrono="56" data-folio="75">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 1 — Circular Plastics &amp; Polymer Economy</p>
   <div class="legend"><span><b style="text-decoration:underline; text-underline-offset:1.6pt;">Underlined</b> — presenting author</span><span><b>*</b> — corresponding author</span><span><b>†, ‡, §</b> — author affiliations</span></div>
@@ -2235,7 +2292,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> As India moves towards rapid urbanisation and consumerism, large volumes of plastic are generated annually. Although India has a relatively robust recycling ecosystem supported by evolving technologies, the existing system primarily relies on mechanical recycling, which degrades polymer quality and leads to downcycling; as a result, recycled plastics fail to retain their original value and eventually become waste. This paper proposes a conceptual model that shifts from a recycling-centric approach to a material-design-based approach to attain a circular plastic economy. <i>(continued overleaf)</i></p>
   </article>
 </section></div>
-<div class="face back" data-page="79"><section class="page" data-runner="Day 3 · Session 1 · TTJ Auditorium · 11:20 — 12:00" data-chrono="56.2" data-folio="75">
+</div>
+<div class="sheet">
+<div class="face front" data-page="80"><section class="page" data-runner="Day 3 · Session 1 · TTJ Auditorium · 11:20 — 12:00" data-chrono="56.2" data-folio="76">
   <article class="stu-abs">
     <p class="abs-text">Reversible polymers are characterised by dynamic covalent bonds that enable disassembly into monomers and reassembly without loss of their original quality, addressing the limitations of inefficient recycling systems and enabling an efficient closed-loop system. Such a model aligns well with the Indian context, as it can operate alongside decentralised waste management systems, economic constraints, and policy mechanisms such as Extended Producer Responsibility (EPR), demonstrating how design-driven circular plastics can reduce dependence on virgin plastic production. By adopting redesignable plastics as a recoverable resource at the molecular level, India can strategically position itself as a global leader in the production and adoption of next-generation polymer systems. The paper highlights the need to identify key research, policy, and industrial pathways to bring redesignable and recoverable plastics into reality in rapidly developing economies.</p>
   </article>
@@ -2247,9 +2306,7 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> The widespread usage of petroleum-based plastics has led to serious environmental issues because of their hazardous emissions, prolonged degradation durations, and non-biodegradability, driving increased research on sustainable substitutes, especially bio-composites using natural binders. This review examines the structural makeup, functional mechanisms, extraction approaches, and possible applications of important natural bio-binders &ndash; cutin, chitosan, lignin, and soy protein isolate (SPI) &ndash; as replacements for traditional synthetic binders. Natural binders function as matrix materials in biocomposites, encouraging cohesiveness and aiding stress transfer between reinforcing fibers through physicochemical interactions such as hydrogen bonds, electrostatic forces, and van der Waals interactions, and are renewable, biodegradable, and lower in carbon footprint and toxicity than synthetic binders. Each binder exhibits distinct characteristics: lignin gives thermal stability and UV resistance; cutin offers hydrophobicity and self-assembly behavior; chitosan offers antibacterial activity and high adhesion; and SPI improves intermolecular bonding through its protein structure. Binder performance and purity are greatly impacted by extraction and processing techniques, including isoelectric precipitation, organosolv processing, enzymatic extraction, and alkaline hydrolysis, while recent developments in chemical modification, nanofiller integration, and hybrid systems have enhanced their mechanical and functional qualities despite obstacles such as moisture sensitivity, reduced durability, and raw material heterogeneity. This review underscores the importance of transitioning toward bio-based binding systems to achieve a more sustainable and circular plastics economy while contributing to greener industrial practices and supply chains.</p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="80"><section class="page" data-runner="Day 3 · Session 1 · TTJ Auditorium · 11:20 — 12:00" data-chrono="56.6" data-folio="76">
+<div class="face back" data-page="81"><section class="page" data-runner="Day 3 · Session 1 · TTJ Auditorium · 11:20 — 12:00" data-chrono="56.6" data-folio="77">
   <article class="stu-abs">
     <span class="slot">SUS-OP-20 · 11:50–12:00</span>
     <h3>Valorization of Invasive Prosopis juliflora Branch Wood through Pulp Extraction and Handmade Paper Production</h3>
@@ -2259,7 +2316,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Prosopis juliflora is an invasive species that poses serious ecological threats by depleting groundwater, reducing soil fertility, and suppressing native vegetation. Valorization of this biomass offers a dual benefit of mitigating environmental harm while generating value-added products. In the present work, handmade paper was produced from P. juliflora branch wood pulp obtained via a simple alkaline extraction method. The pulp was characterized using SEM, FTIR, XRD, and TGA-DSC-DTA analyses. SEM revealed slender thread-like structures typical of cellulose, FTIR exhibited characteristic peaks at 1037, 641, 594, and 568 cm<sup>&minus;1</sup>, XRD confirmed the presence of &alpha;-cellulose, and thermal analysis further validated cellulose characteristics. The extracted pulp was suspended in okra mucilage, serving as a natural binder, and cast into sheets using a mold and deckle. The resulting handmade paper exhibited a thickness of 2.65 mm, density of 0.1 g/cm<sup>3</sup>, burst strength of 2.74 kg/cm<sup>2</sup>, burst index of 1.05 kPa&middot;m<sup>2</sup>/g, and grammage of 255 g/m<sup>2</sup>. To the best of our knowledge, this is the first attempt at producing handmade paper from P. juliflora branch wood. While the paper demonstrated promising properties, further refinement of pulping, solvent selection, and drying processes is required to enhance strength and printability. This study highlights a cost-effective and eco-friendly approach that transforms an invasive species into a sustainable resource for the paper industry.</p>
   </article>
 </section></div>
-<div class="face back" data-page="81"><section class="page" id="d3s2" data-runner="Day 3 · Session 2 · Hall III · 10:30 — 12:00" data-chrono="57" data-folio="77">
+</div>
+<div class="sheet">
+<div class="face front" data-page="82"><section class="page" id="d3s2" data-runner="Day 3 · Session 2 · Hall III · 10:30 — 12:00" data-chrono="57" data-folio="78">
   <span class="sess-badge">Session 2</span><span class="sess-badge sess-badge--outline">Hall III</span>
   <h1 class="sess-title">Circular Water Technologies &amp;<br/>Sustainable Hydrosphere Management</h1>
   <div class="sess-meta">
@@ -2269,14 +2328,14 @@ body.fb{
   </div>
   <div class="chair">
     <img src="../assets/images/speakers/Saikat.jpeg" alt="Dr. Saikat Bhattacharjee" />
-    <div><b>Chair · Dr. Saikat Bhattacharjee</b><i>BITS Pilani &nbsp;·&nbsp; <a class="slink" href="#chair_kalpathy" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 70)</a></i></div>
+    <div><b>Chair · Dr. Saikat Bhattacharjee</b><i>BITS Pilani &nbsp;·&nbsp; <a class="slink" href="#chair_kalpathy" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 71)</a></i></div>
   </div>
   <ul class="talk-list">
-    <li><span class="tt">10:30–10:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Prof. Indumathi Nambi</b><span>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#indumathi" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 59)</a></span></span></li>
-    <li><span class="tt">10:55–11:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. Mrinmoy Mondal</b><span>CSIR-CSMCRI &nbsp;·&nbsp; <a class="slink" href="#mondal" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 63)</a></span></span></li>
+    <li><span class="tt">10:30–10:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Prof. Indumathi Nambi</b><span>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#indumathi" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 60)</a></span></span></li>
+    <li><span class="tt">10:55–11:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. Mrinmoy Mondal</b><span>CSIR-CSMCRI &nbsp;·&nbsp; <a class="slink" href="#mondal" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 64)</a></span></span></li>
   </ul>
   <div class="students">
-    <h4>Student Presentations · 11:20 — 12:00 · Abstracts p. 78</h4>
+    <h4>Student Presentations · 11:20 — 12:00 · Abstracts p. 79</h4>
     <ul>
       <li><span><b>SUS-OP-21</b>11:20–11:30</span><span><b>IoT-Based Device Coupled with Nano-Enhanced Multilayer Filter for Detection, Monitoring, and Remediation of Microplastic Pollution in Urban River Systems</b><span class="pr">Tanvi Mehendale et al. · COEP Technological University</span></span></li>
       <li><span><b>SUS-OP-22</b>11:30–11:40</span><span><b>Assessing the Suitability of Utilizing Atmospheric Water for Solar Photovoltaic Module Cooling for Enhancing Energy Generation</b><span class="pr">Abdul Raziq K. V., Dhinesh Thanganadar, Sharon Hilarydoss · Kannur University / IIPE</span></span></li>
@@ -2285,9 +2344,7 @@ body.fb{
     </ul>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="82"><section class="page" data-runner="Day 3 · Session 2 · Hall III · 11:20 — 12:00" data-chrono="59" data-folio="78">
+<div class="face back" data-page="83"><section class="page" data-runner="Day 3 · Session 2 · Hall III · 11:20 — 12:00" data-chrono="59" data-folio="79">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 2 — Circular Water Technologies &amp; Sustainable Hydrosphere Management</p>
   <div class="legend"><span><b style="text-decoration:underline; text-underline-offset:1.6pt;">Underlined</b> — presenting author</span><span><b>*</b> — corresponding author</span><span><b>†, ‡, §</b> — author affiliations</span></div>
@@ -2308,7 +2365,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Conversion efficiency of PV modules drops by about 0.21 to 0.50% for every 1.0&deg;C rise in operating temperature from the standard testing condition. Cooling of modules by flowing, spraying, and circulating water has been suggested to reduce operating temperature and improve performance; however, these methods require a large fresh water supply and may contribute to water loss and wastewater generation, in addition to self-consumption of the generated PV power. <i>(continued overleaf)</i></p>
   </article>
 </section></div>
-<div class="face back" data-page="83"><section class="page" data-runner="Day 3 · Session 2 · Hall III · 11:20 — 12:00" data-chrono="59.3" data-folio="79">
+</div>
+<div class="sheet">
+<div class="face front" data-page="84"><section class="page" data-runner="Day 3 · Session 2 · Hall III · 11:20 — 12:00" data-chrono="59.3" data-folio="80">
   <article class="stu-abs">
     <p class="abs-text">In this work, a new concept of PV module cooling using atmospheric water has been proposed, thermodynamically modeled, validated, and optimized. The solar PV module was modified by coating a silica gel layer over its rear surface to adsorb and desorb atmospheric water during non-sunshine and sunshine hours, respectively. Adsorption happens during night and early morning hours until the layer is saturated; when the sun shines over the module, desorption occurs by utilizing the waste heat energy of the module, leading to reduced operating temperature and increased conversion efficiency. The optimum silica gel layer thickness was found to be 3.5 cm, and peak module temperature was found to drop by 10&deg;C due to the presence of the silica gel layer. Lower ambient temperature, high relative humidity, and low wind speed, in combination with a clear day, seem to improve modified module performance significantly. Daily energy generation enhancement was about 1.0 to 3.0%, and daily water desorbed was about 1.5 to 5.0 kg/day. The water is taken from the atmosphere and desorbed back to the atmosphere, making the system truly closed-loop and sustainable.</p>
   </article>
@@ -2322,9 +2381,7 @@ body.fb{
     <p class="abs-text">The fixed-bed column initially removed organic pollutants efficiently, but eventually experienced a breakthrough as adsorption sites filled. The breakthrough curves showed increasing effluent concentrations over time, indicating the gradual exhaustion of the adsorption bed. Both the Thomas and Yoon&ndash;Nelson models effectively described the column&rsquo;s performance and provided useful parameters for predicting adsorption behaviour under continuous-flow conditions. This study shows that agricultural waste-derived Date Seed Biochar can be effectively used in a continuous greywater treatment system, and unlike traditional batch tests, it examines how the material adsorbs contaminants over time in a fixed-bed setup, offering valuable insights for decentralized water reuse and sustainable resource management aligned with circular economy principles.</p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="84"><section class="page" data-runner="Day 3 · Session 2 · Hall III · 11:20 — 12:00" data-chrono="59.6" data-folio="80">
+<div class="face back" data-page="85"><section class="page" data-runner="Day 3 · Session 2 · Hall III · 11:20 — 12:00" data-chrono="59.6" data-folio="81">
   <article class="stu-abs">
     <span class="slot">SUS-OP-24 · 11:50–12:00</span>
     <h3>Resource Recovery from Sewage Using an Integrated Permeate Channel Ultrafiltration Membrane System Coupled with Anaerobic Digestion</h3>
@@ -2334,7 +2391,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Membrane filtration offers a promising pathway for resource recovery from sewage by concentrating organic matter for subsequent bioenergy production. In this study, an integrated permeate channel (IPC) ultrafiltration (UF) membrane system was evaluated for sewage filtration and anaerobic digestion of the resulting concentrate. The IPC-based filtration unit consisted of three flat-sheet polyvinylidene fluoride (PVDF) membranes with a pore size of 40 nm and a total effective filtration area of 0.33 m<sup>2</sup>. Primary treated sewage collected from the sewage treatment plant (STP) at Jajmau, Kanpur, India, was used as feed for the study. The chemical oxygen demand (COD) in the retentate increased from an initial value of ~250 mg/L to ~2100 mg/L over five weeks of operation. Simultaneously, total suspended solids (TSS) and total solids (TS) in the retentate increased from 1500 mg/L to ~3000 mg/L; however, the targeted COD concentration range of 8000&ndash;10,000 mg/L could not be achieved, primarily due to biodegradation occurring in the membrane tank as a result of aeration. The retentate was subsequently mixed with primary sludge from the same STP and subjected to anaerobic digestion to evaluate its biomethane generation potential. The anaerobic digester was operated for over 300 days at a 40-day hydraulic retention time (HRT), pH 7.2&ndash;7.4, and 30&plusmn;2&deg;C. The system achieved an average methane production of 6 L/day, with a methanogenic activity of 18.1 mL CH<sub>4</sub> g<sup>&minus;1</sup> volatile solids day<sup>&minus;1</sup>. The study demonstrates the potential of IPC-UF membrane systems for sewage resource recovery and sustainable bioenergy generation.</p>
   </article>
 </section></div>
-<div class="face back" data-page="85"><section class="page" id="d3s3" data-runner="Day 3 · Session 3 · TTJ Auditorium · 13:30 — 15:00" data-chrono="60" data-folio="81">
+</div>
+<div class="sheet">
+<div class="face front" data-page="86"><section class="page" id="d3s3" data-runner="Day 3 · Session 3 · TTJ Auditorium · 13:30 — 15:00" data-chrono="60" data-folio="82">
   <span class="sess-badge">Session 3</span><span class="sess-badge sess-badge--outline">TTJ Auditorium</span>
   <h1 class="sess-title">Circularity in Battery Industry &amp;<br/>Critical Minerals Recovery</h1>
   <div class="sess-meta">
@@ -2343,15 +2402,15 @@ body.fb{
     <div><b>Theme</b><span>Battery Industry Circularity</span></div>
   </div>
   <div class="chair">
-    <img src="../assets/images/speakers/aravind.jpeg" alt="Prof. Aravind Kumar Chandiran" />
-    <div><b>Chair · Prof. Aravind Kumar Chandiran</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_chandiran" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 71)</a></i></div>
+    <img src="../assets/images/speakers/tiju.png" alt="Prof. Tiju Thomas" />
+    <div><b>Chair · Prof. Tiju Thomas</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_tiju" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 72)</a></i></div>
   </div>
   <ul class="talk-list">
-    <li><span class="tt">13:30–13:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Dr. Mamata Mohapatra</b><span>IMMT Bhubaneswar &nbsp;·&nbsp; <a class="slink" href="#aravindan" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 60)</a></span></span></li>
-    <li><span class="tt">13:55–14:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. K. P. Pratish</b><span>CSIR-NIIST &nbsp;·&nbsp; <a class="slink" href="#prathish" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 64)</a></span></span></li>
+    <li><span class="tt">13:30–13:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Dr. Mamata Mohapatra</b><span>IMMT Bhubaneswar &nbsp;·&nbsp; <a class="slink" href="#aravindan" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 61)</a></span></span></li>
+    <li><span class="tt">13:55–14:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. K. P. Pratish</b><span>CSIR-NIIST &nbsp;·&nbsp; <a class="slink" href="#prathish" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 65)</a></span></span></li>
   </ul>
   <div class="students">
-    <h4>Student Presentations · 14:20 — 15:00 · Abstracts p. 82</h4>
+    <h4>Student Presentations · 14:20 — 15:00 · Abstracts p. 83</h4>
     <ul>
       <li><span><b>SUS-OP-25</b>14:20–14:30</span><span><b>Hydrometallurgy Based Recovery of Transition Metals from Spent Lithium-Ion Batteries and Catalyst Synthesis</b><span class="pr">Asish Abhishek et al. · NIT Warangal</span></span></li>
       <li><span><b>SUS-OP-26</b>14:30–14:40</span><span><b>Evaluation of Recycling Routes for Mixed Batteries: A Life Cycle Approach</b><span class="pr">Usman Ali et al. · LUT University</span></span></li>
@@ -2360,9 +2419,7 @@ body.fb{
     </ul>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="86"><section class="page" data-runner="Day 3 · Session 3 · TTJ Auditorium · 14:20 — 15:00" data-chrono="62" data-folio="82">
+<div class="face back" data-page="87"><section class="page" data-runner="Day 3 · Session 3 · TTJ Auditorium · 14:20 — 15:00" data-chrono="62" data-folio="83">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 3 — Circularity in Battery Industry &amp; Critical Minerals Recovery</p>
   <article class="stu-abs">
@@ -2382,7 +2439,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Lithium, an important component in lithium-ion batteries, has been placed on the European Union&rsquo;s critical raw material list. Recycling end-of-life lithium-ion batteries is crucial to preserving natural lithium resources. Currently, LIB recycling is done either by the extremely energy-intensive pyrometallurgical route or hazardous-chemical-utilizing hydrometallurgical routes, and the environmental risks of EoL LIB management are high. According to previous life cycle assessment (LCA) studies, the two primary recycling pathways of the industry have the potential to reclaim target metals with far lower environmental impact than mining; nevertheless, the environmental performance ranking of the two routes does not have a fixed value, and it largely depends on the carbon intensity of electricity, the consumption of chemical reagents, and metal recovery yields. One of the most important and underserved aspects is the effect of these ranking shifts when the incoming waste is no longer a single, well-defined chemistry but a mixed stream of cells with varying chemistry. This work aims to fill that gap in a systematic way, taking nationwide standards (Finnish industrial parameters) and EU regulatory standards as applied parameters, and the results will be discussed.</p>
   </article>
 </section></div>
-<div class="face back" data-page="87"><section class="page" data-runner="Day 3 · Session 3 · TTJ Auditorium · 14:20 — 15:00" data-chrono="62.5" data-folio="83">
+</div>
+<div class="sheet">
+<div class="face front" data-page="88"><section class="page" data-runner="Day 3 · Session 3 · TTJ Auditorium · 14:20 — 15:00" data-chrono="62.5" data-folio="84">
   <article class="stu-abs">
     <span class="slot">SUS-OP-27 · 14:40–14:50</span>
     <h3>Bio-Derived Vanillin&ndash;PEI Fluorescent Sensor for Cu<sup>2+</sup> Detection</h3>
@@ -2399,9 +2458,7 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Lithium-ion batteries (LIBs) are widely utilized in electric vehicles and electronic gadgets because of their enormous capacity, high energy density, and extended cycle time; they also reduce carbon emissions, potentially replacing gasoline, petrol, and diesel vehicles. As a result, the usage of batteries could increase, which could result in the generation of battery waste as major e-waste; if these spent batteries are left untreated, they become hazardous to the environment. Furthermore, the active cathode materials from LIBs contain major critical metals whose reserves are limited on Earth and are in particularly short supply. Most of the industrially available processes for metal extraction involve hydrometallurgy, which uses highly concentrated mineral acids that pose significant secondary waste. Hence, an alternative to this process&ndash;leaching these metals using solvents (solvometallurgy)&ndash;is addressed here. Initially, spent batteries undergo several separation techniques to obtain Black Mass (BM) that consists of Li, Co, Ni, Mn, graphite, Cu, Al, and Fe. Green solvents emerge as an alternative leaching system that could extract metals from BM and are also recyclable. This work aims to extract metals in a sustainable and eco-friendly manner, which is of great significance. The work comprises the synthesis of a green solvent using Choline Chloride:Acetic Acid:Ethylene Glycol mixed at different ratios to form a novel green solvent, and the extraction of metals from the BM was achieved by varying the water content, time, and extraction temperature; almost 75&ndash;80% of all the metals were extracted using this solvent (CAG) at 60&deg;C.</p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="88"><section class="page" id="d3s4" data-runner="Day 3 · Session 4 · Hall III · 13:30 — 15:00" data-chrono="63" data-folio="84">
+<div class="face back" data-page="89"><section class="page" id="d3s4" data-runner="Day 3 · Session 4 · Hall III · 13:30 — 15:00" data-chrono="63" data-folio="85">
   <span class="sess-badge">Session 4</span><span class="sess-badge sess-badge--outline">Hall III</span>
   <h1 class="sess-title">Circular Energy Systems &amp;<br/>Carbon Resource Valorization</h1>
   <div class="sess-meta">
@@ -2411,23 +2468,25 @@ body.fb{
   </div>
   <div class="chair">
     <img src="../assets/images/speakers/Tanushree.jpg" alt="Prof. Tanushree Parsai" />
-    <div><b>Chair · Prof. Tanushree Parsai</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_chandiran" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 71)</a></i></div>
+    <div><b>Chair · Prof. Tanushree Parsai</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_tiju" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 72)</a></i></div>
   </div>
   <ul class="talk-list">
-    <li><span class="tt">13:30–13:50</span><span class="tn"><span class="tag">Invited</span><b>Prof. Susmita Dutta</b><span>NIT Durgapur &nbsp;·&nbsp; <a class="slink" href="#susmita" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 65)</a></span></span></li>
-    <li><span class="tt">13:55–14:15</span><span class="tn"><span class="tag">Invited</span><b>Prof. Indrajit Chakraborty</b><span>IIT Bombay &nbsp;·&nbsp; <a class="slink" href="#chakraborty" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 66)</a></span></span></li>
+    <li><span class="tt">13:30–13:50</span><span class="tn"><span class="tag">Invited</span><b>Prof. Susmita Dutta</b><span>NIT Durgapur &nbsp;·&nbsp; <a class="slink" href="#susmita" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 66)</a></span></span></li>
+    <li><span class="tt">13:55–14:15</span><span class="tn"><span class="tag">Invited</span><b>Prof. Indrajit Chakraborty</b><span>IIT Bombay &nbsp;·&nbsp; <a class="slink" href="#chakraborty" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 67)</a></span></span></li>
   </ul>
   <div class="students">
-    <h4>Student Presentations · 14:20 — 15:00 · Abstracts p. 85</h4>
+    <h4>Student Presentations · 14:20 — 15:00 · Abstracts p. 86</h4>
     <ul>
       <li><span><b>SUS-OP-29</b>14:20–14:30</span><span><b>Application of Alternating Current Fields in Mitigating Membrane Fouling: A Sustainable Approach</b><span class="pr">Dr. Saikat Bhattacharjee · BITS Pilani</span></span></li>
-      <li><span><b>SUS-OP-30</b>14:30–14:40</span><span><b>Process Intensification for In-situ CO<sub>2</sub> Capture and Value-Added Conversion</b><span class="pr">Kshetramohan Sahoo · NIT Rourkela</span></span></li>
-      <li><span><b>SUS-OP-31</b>14:40–14:50</span><span><b>Weather-Normalized Operational Analytics for Distributed PV Fleets Using SCADA-Derived Digital Twin Frameworks</b><span class="pr">Kajal Sheth, Dhvanil Patel · NYIT / Texas A&amp;M University</span></span></li>
+      <li><span><b>SUS-OP-30</b>14:30–14:40</span><span><b>Waste to Frameworks: PET Derived UiO-66 for PFAS Remediation</b><span class="pr">Deborah Salomi D, Khushi Jain · DSCE Bengaluru</span></span></li>
+      <li><span><b>SUS-OP-31</b>14:40–14:50</span><span><b>Machine Learning-Guided CO<sub>2</sub> Adsorption Prediction in MOFs to Support Downstream Carbon Capture Technologies</b><span class="pr">Tanishka Pal et al. · BITS Pilani / RMIT University</span></span></li>
       <li><span><b>SUS-OP-32</b>14:50–15:00</span><span><b>Utilization of Agricultural Waste Biomass for Furfural Production</b><span class="pr">Subhajit Patra · MANIT Bhopal</span></span></li>
     </ul>
   </div>
 </section></div>
-<div class="face back" data-page="89"><section class="page" data-runner="Day 3 · Session 4 · Hall III · 14:20 — 15:00" data-chrono="65" data-folio="85">
+</div>
+<div class="sheet">
+<div class="face front" data-page="90"><section class="page" data-runner="Day 3 · Session 4 · Hall III · 14:20 — 15:00" data-chrono="65" data-folio="86">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 4 — Circular Energy Systems &amp; Carbon Resource Valorization</p>
   <article class="stu-abs">
@@ -2440,23 +2499,21 @@ body.fb{
   </article>
   <article class="stu-abs">
     <span class="slot">SUS-OP-30 · 14:30–14:40</span>
-    <h3>Process Intensification for In-situ CO<sub>2</sub> Capture and Value-Added Conversion</h3>
-    <p class="au-line"><span class="pres">Kshetramohan Sahoo</span><sup>*,†</sup></p>
-    <p class="affil-line"><sup>†</sup>Department of Chemical Engineering, National Institute of Technology, Rourkela-769008</p>
-    <p class="corr-line">*&nbsp;Corresponding author · sahook@nitrkl.ac.in</p>
-    <p class="abs-text"><b>Abstract.</b> The capture of carbon dioxide through adsorption or absorption typically requires subsequent separation steps, adding cost and complexity. In contrast, in situ capture and conversion offers an attractive alternative by integrating gas absorption with chemical transformation directly within the solvent medium. While the chemical stability of CO<sub>2</sub> often demands high energy input and severe operating conditions, recent advances in solvent design and catalytic systems have opened pathways for more efficient in situ reactions. Established technologies already enable the preparation of bulk products such as calcium carbonate and calcium sulphate, yet the field is still evolving toward the synthesis of higher-value chemicals and fuels. This review consolidates and critically analyzes recent studies on integrated CO<sub>2</sub> capture&ndash;conversion strategies, highlighting material innovations, reactor designs, and process intensification approaches. A thorough understanding of these developments will provide valuable insights for designing next-generation systems that couple capture with conversion in a single step, advancing both sustainability and economic viability.</p>
+    <h3>Waste to Frameworks: PET Derived UiO-66 for PFAS Remediation</h3>
+    <p class="au-line"><span class="pres">Deborah Salomi D</span><sup>*,†</sup> and Khushi Jain<sup>†</sup></p>
+    <p class="affil-line"><sup>†</sup>Dayananda Sagar College of Engineering (DSCE), Bengaluru</p>
+    <p class="corr-line">*&nbsp;Corresponding author · deborahsalomi18@gmail.com</p>
+    <p class="abs-text"><b>Abstract.</b> The simultaneous rise of polyethylene terephthalate (PET) waste and persistent per- and polyfluoroalkyl substance (PFAS) contamination necessitates sustainable material strategies capable of addressing both environmental challenges through integrated resource recovery and remediation. This study presents a green, aqueous, and DMF-free synthesis pathway for the conversion of post-consumer PET waste into the zirconium-based metal&ndash;organic framework UiO-66 for potential PFAS adsorption applications. PET flakes were subjected to alkaline depolymerization under reflux conditions to recover terephthalic acid (1,4-benzenedicarboxylic acid, BDC) linker material, which was subsequently coordinated with zirconium oxychloride in the presence of acetic acid as a coordination modulator under controlled thermal conditions (90&ndash;95&deg;C). The synthesized UiO-66 was obtained as a stable white porous material with an overall practical yield of approximately 64.8% from PET-derived precursor feedstock. Fourier Transform Infrared Spectroscopy (FTIR) analysis confirmed the presence of characteristic coordinated carboxylate vibrations and zirconium&ndash;terephthalate framework interactions, indicating successful progression toward UiO-66 formation. Comparative precursor ratio optimization studies were additionally performed to evaluate the influence of linker concentration on framework development and material quality. Advanced characterization through X-ray diffraction (XRD) and scanning electron microscopy (SEM) is currently ongoing to further validate crystallinity and morphology. By integrating PET waste valorization with advanced porous material engineering, this work establishes a scalable and environmentally benign pathway toward next-generation adsorbent platforms for emerging water contaminant remediation.</p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="90"><section class="page" data-runner="Day 3 · Session 4 · Hall III · 14:20 — 15:00" data-chrono="65" data-folio="86">
+<div class="face back" data-page="91"><section class="page" data-runner="Day 3 · Session 4 · Hall III · 14:20 — 15:00" data-chrono="65" data-folio="87">
   <article class="stu-abs">
     <span class="slot">SUS-OP-31 · 14:40–14:50</span>
-    <h3>Weather-Normalized Operational Analytics for Distributed PV Fleets Using SCADA-Derived Digital Twin Frameworks</h3>
-    <p class="au-line"><span class="pres">Kajal Sheth</span><sup>*,†</sup> and Dhvanil Patel<sup>‡</sup></p>
-    <p class="affil-line"><sup>†</sup>New York Institute of Technology, NY, USA &nbsp;·&nbsp; <sup>‡</sup>Texas A&amp;M University, College Station, TX, USA</p>
-    <p class="corr-line">*&nbsp;Corresponding author · shethk@ieee.org</p>
-    <p class="abs-text"><b>Abstract.</b> Operational uncertainty in distributed photovoltaic (PV) fleets degrades energy yield estimation accuracy, complicates asset diagnostics, and introduces financial risk in portfolio management. Modern SCADA systems generate high-resolution telemetry, yet translating raw inverter data and irradiance measurements into actionable fleet-scale diagnostics remains challenging due to environmental variability, telemetry degradation, hardware failures, and grid-interconnection events. This paper presents a weather-normalized operational analytics framework integrating SCADA-derived digital twin concepts, inverter-level fault classification, irradiance-normalized energy assessment, Monte Carlo uncertainty propagation, and a novel telemetry completeness factor (TCF). Validated on four months (May&ndash;August 2025) of data from seven distributed PV plants totaling 14.4 MW<sub>ac</sub> across the Midwestern and Northeastern United States, fleet availability improved from 49.3% to 89.0% following corrective maintenance, and production recovered from 81.8% to 108.8% of static forecast. Irradiance-normalized benchmarking revealed persistent equipment losses masked by favorable solar resource. Monte Carlo simulations (N&nbsp;=&nbsp;10,000 per site-month) achieved P10&ndash;P90 containment rates of 86% under nominal conditions. Model-predicted losses correlated with ticket-reported losses at R<sup>2</sup>&nbsp;=&nbsp;0.961. Telemetry completeness was the dominant uncertainty driver in three of four months.</p>
+    <h3>Machine Learning-Guided CO<sub>2</sub> Adsorption Prediction in MOFs to Support Downstream Carbon Capture Technologies</h3>
+    <p class="au-line"><span class="pres">Tanishka Pal</span><sup>*,†</sup>, Xavier Mulet<sup>‡</sup> and Sarbani Ghosh<sup>†</sup></p>
+    <p class="affil-line"><sup>†</sup>BITS Pilani &nbsp;·&nbsp; <sup>‡</sup>RMIT University, Melbourne</p>
+    <p class="corr-line">*&nbsp;Corresponding author · p20230912@pilani.bits-pilani.ac.in</p>
+    <p class="abs-text"><b>Abstract.</b> Metal&ndash;organic frameworks (MOFs) are promising candidates for carbon capture owing to their highly tunable structural and chemical properties, which enable enhanced CO<sub>2</sub> selectivity and lower regeneration energy requirements compared to conventional separation materials. However, the rational design and optimization of MOFs for carbon capture applications require a fundamental understanding of CO<sub>2</sub> adsorption. Conventional experimental approaches for evaluating adsorption performance are often time-intensive, costly, and dependent on sophisticated instrumentation, while molecular simulation techniques demand significant computational resources. To address these challenges, this work presents an AI-driven machine learning framework for predicting and understanding CO<sub>2</sub> adsorption behavior in MOFs. A comprehensive dataset containing diverse physical, structural, and chemical descriptors of MOFs was used to train predictive models that capture complex adsorption patterns across varying operating conditions. The performance of the developed models was systematically benchmarked using multiple statistical evaluation metrics to ensure predictive reliability and robustness. The proposed framework successfully reconstructed CO<sub>2</sub> adsorption isotherms over a broad pressure range, showing strong agreement with simulated and experimental observations. Beyond predictive capability, SHAP (SHapley Additive exPlanations) analysis was applied to identify the dominant factors governing CO<sub>2</sub> adsorption behavior. The analysis revealed a hierarchy of influential structural features and highlighted the significant roles of chemical properties, along with thermodynamic operating conditions and physical descriptors, in determining adsorption performance. Overall, this study demonstrates the potential of AI-driven predictive intelligence to accelerate the discovery, rational design, and capacity of advanced MOFs for sustainable carbon capture applications and smarter material selection strategies.</p>
   </article>
   <article class="stu-abs">
     <span class="slot">SUS-OP-32 · 14:50–15:00</span>
@@ -2466,7 +2523,9 @@ body.fb{
     <p class="abs-text" style="margin-bottom:4mm;"><b>Abstract.</b> Agricultural wastes (e.g. rice straw, sugarcane bagasse) are lignocellulosic biomass with huge potential applications in various fields (i.e., medical, energy, and agricultural, etc.) and are a contributing factor in the circular economy. Agricultural waste with high hemicellulose content can be utilized for furfural production through various techniques. This study emphasizes the acid hydrolysis process of agricultural waste for the production of xylose. The study also includes a techno-economic assessment for the production and separation of furfural from xylose through simulation using different routes. The role of reaction parameters and different sequencing strategies will be explored to detect their impact on product purity and separation efficiency.</p>
   </article>
 </section></div>
-<div class="face back" data-page="91"><section class="page" id="d3s5" data-runner="Day 3 · Session 5 · TTJ Auditorium · 15:30 — 17:00" data-chrono="66" data-folio="87">
+</div>
+<div class="sheet">
+<div class="face front" data-page="92"><section class="page" id="d3s5" data-runner="Day 3 · Session 5 · TTJ Auditorium · 15:30 — 17:00" data-chrono="66" data-folio="88">
   <span class="sess-badge">Session 5</span><span class="sess-badge sess-badge--outline">TTJ Auditorium</span>
   <h1 class="sess-title">Circular Plastics &amp;<br/>Polymer Economy</h1>
   <div class="sess-meta">
@@ -2476,25 +2535,23 @@ body.fb{
   </div>
   <div class="chair">
     <img src="../assets/images/speakers/sanka.jpg" alt="Dr. Sankha Karmakar" />
-    <div><b>Chair · Dr. Sankha Karmakar</b><i>IIT Madras · Organising Secretary &nbsp;·&nbsp; <a class="slink" href="#chair_karmakar" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 72)</a></i></div>
+    <div><b>Chair · Dr. Sankha Karmakar</b><i>IIT Madras · Organising Secretary &nbsp;·&nbsp; <a class="slink" href="#chair_karmakar" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 73)</a></i></div>
   </div>
   <ul class="talk-list">
-    <li><span class="tt">15:30–15:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Dr. R. Ratheesh</b><span>C-MET Pune &nbsp;·&nbsp; <a class="slink" href="#ratheesh" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 61)</a></span></span></li>
-    <li><span class="tt">15:55–16:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. Pankaj Pathak</b><span>SRM University-AP &nbsp;·&nbsp; <a class="slink" href="#pathak" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 67)</a></span></span></li>
+    <li><span class="tt">15:30–15:50</span><span class="tn"><span class="tag tag--acc">Distinguished</span><b>Dr. R. Ratheesh</b><span>C-MET Pune &nbsp;·&nbsp; <a class="slink" href="#ratheesh" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 62)</a></span></span></li>
+    <li><span class="tt">15:55–16:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. Pankaj Pathak</b><span>SRM University-AP &nbsp;·&nbsp; <a class="slink" href="#pathak" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 68)</a></span></span></li>
   </ul>
   <div class="students">
-    <h4>Student Presentations · 16:20 — 17:00 · Abstracts p. 88</h4>
+    <h4>Student Presentations · 16:20 — 17:00 · Abstracts p. 89</h4>
     <ul>
-      <li><span><b>SUS-OP-33</b>16:20–16:30</span><span><b>Towards Circular Fashion: Smart Recycling Strategies for Polyester&ndash;Cotton Blended Fabrics</b><span class="pr">Shriya Saravanan · Amrita Vishwa Vidyapeetham</span></span></li>
+      <li><span><b>SUS-OP-33</b>16:20–16:30</span><span><b>Towards Circular Fashion: Smart Recycling Strategies for Polyester&ndash;Cotton Blended Fabrics</b><span class="pr">Shriya Saravanan, Tarun S, Bino T K · Amrita Vishwa Vidyapeetham</span></span></li>
       <li><span><b>SUS-OP-34</b>16:30–16:40</span><span><b>Valorization of Pistachio Shell Lignocellulose for Starch-Based Bioplastic Films</b><span class="pr">Subramee Sarkar · IIT Madras</span></span></li>
       <li><span><b>SUS-OP-35</b>16:40–16:50</span><span><b>Sustainable Recovery of Critical Metals from Spent NMC Black Mass via Binary and Ternary Deep Eutectic Solvents</b><span class="pr">S. Sharma, N. Muralidharan · IIT Madras</span></span></li>
       <li><span><b>SUS-OP-36</b>16:50–17:00</span><span><b>Upcycling Multilayer Packaging (MLP) Waste into Circular, Industrial Materials</b><span class="pr">Deepali Jadia, PhD · Independent Researcher</span></span></li>
     </ul>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="92"><section class="page" data-runner="Day 3 · Session 5 · TTJ Auditorium · 16:20 — 17:00" data-chrono="68" data-folio="88">
+<div class="face back" data-page="93"><section class="page" data-runner="Day 3 · Session 5 · TTJ Auditorium · 16:20 — 17:00" data-chrono="68" data-folio="89">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 5 — Circular Plastics &amp; Polymer Economy</p>
   <article class="stu-abs">
@@ -2512,7 +2569,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Agricultural biomass residues represent an abundant and renewable feedstock for the development of biodegradable alternatives to petroleum-derived plastic films, yet many lignocellulosic wastes remain underutilized. Among these, pistachio shells are generated in large quantities and contain approximately 30&ndash;55% cellulose, 20&ndash;32% hemicellulose, and 12&ndash;38% lignin, making them promising candidates for bio-based polymer systems. In this work, pistachio shell biomass was valorized through selective lignin extraction using alkali (15% NaOH), organosolv (80:20 ethanol:water with HCl catalyst), and deep eutectic solvent (choline chloride:oxalic acid:ethylene glycol) fractionation routes, yielding lignin fractions with varied structural and chemical characteristics &ndash; including differences in &beta;-O-4 linkage retention, aromatic functionality, and hydroxyl group content &ndash; together with a cellulose-enriched residue. Following delignification, the cellulose-rich fraction was purified through peroxide bleaching and further processed into microcrystalline cellulose. The obtained cellulose was incorporated into starch-based films to improve film integrity and structural performance, while lignin derived from the different extraction routes was explored as a functional additive to tailor film properties, including surface wettability, optical behavior, antioxidant functionality, and mechanical response. The resulting starch-based cellulose&ndash;lignin composite films highlight the potential of agricultural waste-derived biopolymers for circular packaging applications.</p>
   </article>
 </section></div>
-<div class="face back" data-page="93"><section class="page" data-runner="Day 3 · Session 5 · TTJ Auditorium · 16:20 — 17:00" data-chrono="68.5" data-folio="89">
+</div>
+<div class="sheet">
+<div class="face front" data-page="94"><section class="page" data-runner="Day 3 · Session 5 · TTJ Auditorium · 16:20 — 17:00" data-chrono="68.5" data-folio="90">
   <article class="stu-abs">
     <span class="slot">SUS-OP-35 · 16:40–16:50</span>
     <h3>Sustainable Recovery of Critical Metals from Spent NMC Black Mass via Binary and Ternary Deep Eutectic Solvents</h3>
@@ -2529,9 +2588,7 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> India generates 3.8 million tons of multilayer packaging (MLP) waste every year. MLP waste (Category III) contains a complex structure of multiple incompatible layers of PE, PP, PET, paper, adhesive, and aluminium bonded tightly together that are hard to delaminate. Conventionally, it is considered unrecyclable because separation is energy-intensive, aluminium contamination damages processing, and mixed polymers have poor compatibility, so this waste ends up in landfills or is incinerated. Our innovation utilises a proprietary biochemical process to efficiently separate these materials, transforming discarded packaging into high-quality industrial plastic pellets: bio-based formulations weaken the interfacial bonding between aluminium and polymer layers under mild conditions within a 24-hour timeframe at an efficiency of greater than 90%. The separated plastic is devoid of aluminium, allowing it to be extruded into high-purity, industrial-grade pellets for reintegration as a supply chain asset. We are currently assessing the techno-commercial feasibility of these pellets as a PVC replacement &ndash; pellets made from MLP waste showed a Melt Flow Index (MFI) of 0.62 g/10 min, hardness of 81 Shore A, and tensile strength of 3.3 MPa, similar to compounds used for footwear sole manufacturing &ndash; and will further explore applications in electrical components and automobile parts.</p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="94"><section class="page" id="d3s6" data-runner="Day 3 · Session 6 · Hall III · 15:30 — 17:00" data-chrono="69" data-folio="90">
+<div class="face back" data-page="95"><section class="page" id="d3s6" data-runner="Day 3 · Session 6 · Hall III · 15:30 — 17:00" data-chrono="69" data-folio="91">
   <span class="sess-badge">Session 6</span><span class="sess-badge sess-badge--outline">Hall III</span>
   <h1 class="sess-title">Circular Energy Systems &amp;<br/>Carbon Resource Valorization</h1>
   <div class="sess-meta">
@@ -2541,14 +2598,14 @@ body.fb{
   </div>
   <div class="chair">
     <img src="../assets/images/speakers/krishnamalakkar.png" alt="Dr. Krishna Malakar" />
-    <div><b>Chair · Dr. Krishna Malakar</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_karmakar" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 72)</a></i></div>
+    <div><b>Chair · Dr. Krishna Malakar</b><i>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#chair_karmakar" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 73)</a></i></div>
   </div>
   <ul class="talk-list">
-    <li><span class="tt">15:30–15:50</span><span class="tn"><span class="tag">Invited</span><b>Dr. Ishita Sarkar</b><span>CSIR-CMERI &nbsp;·&nbsp; <a class="slink" href="#ishita" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 68)</a></span></span></li>
-    <li><span class="tt">15:55–16:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. Sagar Sourav</b><span>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#sourav" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 69)</a></span></span></li>
+    <li><span class="tt">15:30–15:50</span><span class="tn"><span class="tag">Invited</span><b>Dr. Ishita Sarkar</b><span>CSIR-CMERI &nbsp;·&nbsp; <a class="slink" href="#ishita" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 69)</a></span></span></li>
+    <li><span class="tt">15:55–16:15</span><span class="tn"><span class="tag">Invited</span><b>Dr. Sagar Sourav</b><span>IIT Madras &nbsp;·&nbsp; <a class="slink" href="#sourav" style="text-transform:none; font-family:inherit; font-size:inherit; letter-spacing:normal; font-weight:normal; display:inline !important;">(Bio on p. 70)</a></span></span></li>
   </ul>
   <div class="students">
-    <h4>Student Presentations · 16:20 — 17:00 · Abstracts p. 91</h4>
+    <h4>Student Presentations · 16:20 — 17:00 · Abstracts p. 92</h4>
     <ul>
       <li><span><b>SUS-OP-37</b>16:20–16:30</span><span><b>Feedstock-Conditioned Process Design for Sustainable Carbon Resource Valorization: Coal-to-GO/rGO Manufacturing as a Demonstration Case</b><span class="pr">Ravi Shankar, Tiju Thomas · IIT Madras</span></span></li>
     </ul>
@@ -2559,7 +2616,9 @@ body.fb{
     </ul>
   </div>
 </section></div>
-<div class="face back" data-page="95"><section class="page" data-runner="Day 3 · Session 6 · Hall III · 16:20 — 17:00" data-chrono="71" data-folio="91">
+</div>
+<div class="sheet">
+<div class="face front" data-page="96"><section class="page" data-runner="Day 3 · Session 6 · Hall III · 16:20 — 17:00" data-chrono="71" data-folio="92">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 6 — Circular Energy Systems &amp; Carbon Resource Valorization</p>
   <div class="legend"><span><b style="text-decoration:underline; text-underline-offset:1.6pt;">Underlined</b> — presenting author</span><span><b>*</b> — corresponding author</span><span><b>†, ‡, §</b> — author affiliations</span></div>
@@ -2580,9 +2639,7 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> Industrial biogenic gas streams contain complex mixtures of hydrogen (H<sub>2</sub>), carbon dioxide (CO<sub>2</sub>), and methane (CH<sub>4</sub>). Conventional single-strain gas fermentation underutilizes mixed syngas. Developing a coculture system comprising Hydrogen-Oxidizing Bacteria (HOB) and Methane-Oxidizing Bacteria (MOB) presents a powerful strategy to simultaneously valorize mixed gaseous residues into a uniform, high-value Single-Cell Protein (SCP) for fish feed. <i>(continued overleaf)</i></p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="96"><section class="page" data-runner="Day 3 · Session 6 · Hall III · 16:20 — 17:00" data-chrono="71.3" data-folio="92">
+<div class="face back" data-page="97"><section class="page" data-runner="Day 3 · Session 6 · Hall III · 16:20 — 17:00" data-chrono="71.3" data-folio="93">
   <article class="stu-abs">
     <p class="abs-text">In this study, we optimize the cultivation kinetics, nutrient media, and gas-feeding regimes of an HOB&ndash;MOB consortium to maximize SCP productivity across laboratory batch and continuous systems. Optimization parameters evaluated nitrogen source variations (KNO<sub>3</sub>, ammonia, and mixed formulations), trace element formulations, and buffer concentrations, alongside H<sub>2</sub> and CO<sub>2</sub> concentrations. Optical density at 600 nm and dry biomass weight were used as the definitive metric for true SCP productivity. The system was scaled &asymp;5-fold from 220 mL serum vials to a 1000 mL active gas-fermentation bioreactor. Optimizing the nitrogen chemistry, trace elements, and buffering capacities stabilized the growth of the coculture and pH fluctuations, yielding a maximum biomass productivity of 4.8&ndash;6.0 g/L/day. The consortium tolerated up to 5% (v/v) carbon monoxide without community drift. These empirical findings establish a highly efficient operational envelope for multi-gas oxidizing consortia, providing a scalable baseline for closed-loop, sustainable industrial bio-ecosystems.</p>
   </article>
@@ -2594,7 +2651,9 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> The increasing generation of biomedical waste poses significant challenges to healthcare systems due to environmental concerns, high treatment costs, transportation risks, and stringent regulatory requirements. Conventional treatment methods, such as incineration and centralized disposal, often result in greenhouse gas emissions and are difficult to implement in rural and underserved regions. Bio Vastum Solutions Pvt. Ltd., in collaboration with CSIR&ndash;NIIST, has developed an innovative decentralized biomedical waste treatment technology based on rapid disinfection and solidification principles. The system achieves more than 99.9% pathogen reduction, eliminates the need for incineration, and converts treated biomedical waste into stable, non-hazardous soil additives. By enabling on-site treatment at hospitals, clinics, laboratories, and healthcare facilities, the technology reduces transportation requirements, lowers operational costs, and minimizes environmental impact. The platform is being further enhanced through the integration of smart sensors, IoT connectivity, automation, and AI-based analytics for real-time monitoring, predictive maintenance, and automated compliance reporting. A prototype has been successfully installed and demonstrated at AIIMS New Delhi, validating its technical feasibility and commercialization potential. This work highlights a sustainable waste-to-value approach that supports circular economy principles while strengthening healthcare sanitation infrastructure, contributing to the achievement of Sustainable Development Goals (SDGs), particularly SDG 3 (Good Health and Well-being), SDG 6 (Clean Water and Sanitation), SDG 9 (Industry, Innovation and Infrastructure), and SDG 12 (Responsible Consumption and Production).</p>
   </article>
 </section></div>
-<div class="face back" data-page="97"><section class="page" data-runner="Day 3 · Session 6 · Hall III · 16:20 — 17:00" data-chrono="71.6" data-folio="93">
+</div>
+<div class="sheet">
+<div class="face front" data-page="98"><section class="page" data-runner="Day 3 · Session 6 · Hall III · 16:20 — 17:00" data-chrono="71.6" data-folio="94">
   <p class="kicker" style="margin-bottom:1.5mm;">Student Presentations</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2);">Day 3 · Session 6 — Circular Energy Systems &amp; Carbon Resource Valorization</p>
   <article class="stu-abs">
@@ -2605,13 +2664,11 @@ body.fb{
     <p class="abs-text"><b>Abstract.</b> The rapid growth of electronic waste has intensified the need for sustainable technologies that enable resource recovery while minimizing environmental impact. Printed circuit boards (PCBs), one of the most valuable yet challenging fractions of e-waste, contain brominated epoxy resins (BERs) that release hazardous polybrominated dioxins and furans during conventional thermal processing, limiting their safe recycling. We have developed a low-temperature (&lt;200&deg;C), atmospheric-pressure solvothermal debromination process that achieves approximately 98% removal of brominated compounds from the non-metallic fraction (NMF) of waste PCBs, corresponding to a Technology Readiness Level (TRL) of 4. Further, the processed solvent is regenerated and reused via vacuum distillation without compromising process efficiency, establishing a zero-liquid-discharge (ZLD) system. The resulting debrominated glass fibers and bromine-free resin polymers offer opportunities for value-added secondary applications, thereby promoting material circularity. Building on this laboratory-scale success, the technology is currently being scaled to a pilot plant with a processing capacity of 200 kg of PCBs per day. In parallel, proof-of-concept studies have demonstrated green-solvent-based recovery of gold from waste RAM modules and processors, while high-purity copper is recovered through an integrated mechanical pre-processing route involving shredding, granulation, and metal separation. Ongoing research focuses on the selective extraction of critical materials and precious metals using environmentally benign solvents to establish a complete zero-discharge value chain for end-of-life PCBs. The proposed integrated approach provides a cleaner, energy-efficient, and circular pathway for sustainable urban mining of electronic waste, supporting the transition towards resource-efficient and low-carbon manufacturing.</p>
   </article>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="98"><section class="page" id="vale" data-runner="Day 3 · Valedictory · TTJ Auditorium · 17:30 →" data-chrono="72" data-folio="94">
+<div class="face back" data-page="99"><section class="page" id="vale" data-runner="Day 3 · Valedictory · TTJ Auditorium · 17:00 →" data-chrono="72" data-folio="95">
   <span class="sess-badge">Valedictory</span><span class="sess-badge sess-badge--outline">Closing Ceremony</span>
   <h1 class="sess-title">Valedictory &amp;<br/>Award Ceremony</h1>
   <div class="sess-meta">
-    <div><b>Time</b><span>17:30 onwards</span></div>
+    <div><b>Time</b><span>17:00 onwards</span></div>
     <div><b>Venue</b><span>TTJ Auditorium</span></div>
     <div><b>Format</b><span>Ceremony</span></div>
   </div>
@@ -2627,7 +2684,9 @@ body.fb{
         <a class="slink" target="_blank" rel="noopener" href="https://sustainxconference.org/programme#day3" target="_blank" rel="noopener noreferrer" style="font-size:6.2pt; text-align:center; display:block !important; text-transform:uppercase; font-family:var(--sans); font-weight:700; letter-spacing:.08em; white-space:nowrap;">View profile ↗</a>
       </div>
 </section></div>
-<div class="face back" data-page="99"><section class="page" id="posters" data-runner="Poster Gallery · E-Poster Room" data-chrono="74" data-folio="95">
+</div>
+<div class="sheet">
+<div class="face front" data-page="100"><section class="page" id="posters" data-runner="Poster Gallery · E-Poster Room" data-chrono="74" data-folio="96">
   <p class="kicker">Curated Exhibition</p>
   <h1 style="font-size:26pt; line-height:1.05; margin-bottom:4mm;">The Poster<br/>Gallery</h1>
   <p class="serif-lede" style="margin-bottom:5mm;">Not a list of abstracts, but a curated exhibition of research in progress, presented as it deserves to be seen.</p>
@@ -2642,9 +2701,7 @@ body.fb{
     <div class="qr-block"><img class="qr" src="../assets/images/qr-eposters.png" alt="QR Code" style="background: none; display: block !important; margin: 0 auto;" /><p>E-Poster<br/>Room<br/><a class="slink" target="_blank" rel="noopener" href="https://sustainxconference.org/eposters">Enter the room ↗</a></p></div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="100"><section class="page" data-runner="Poster Gallery · Board 01" data-chrono="75" data-folio="96">
+<div class="face back" data-page="101"><section class="page" data-runner="Poster Gallery · Board 01" data-chrono="75" data-folio="97">
   <p class="kicker" style="margin-bottom:1.5mm;">Theme 1</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2); margin-bottom:3mm;">AI-Driven Circular Systems and Smart Decision Intelligence</p>
   <div class="poster-row" style="grid-template-columns:1fr;">
@@ -2666,7 +2723,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="101"><section class="page" data-runner="Poster Gallery · Board 03" data-chrono="75.15" data-folio="97">
+</div>
+<div class="sheet">
+<div class="face front" data-page="102"><section class="page" data-runner="Poster Gallery · Board 03" data-chrono="75.15" data-folio="98">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">The integration of real-time data and machine learning techniques enables adaptive decision-making tailored to specific farm conditions, and a user-friendly interface ensures that farmers can easily interpret the results and implement suggested improvements. Designed with scalability and affordability in mind, GreenScore AI is particularly relevant for small and marginal farmers; the proposed approach not only bridges the gap between advanced digital technologies and field-level practices but also contributes to building climate-resilient and sustainable agricultural systems.</p>
@@ -2691,16 +2750,16 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="102"><section class="page" data-runner="Poster Gallery · Board 04" data-chrono="75.0" data-folio="98">
+<div class="face back" data-page="103"><section class="page" data-runner="Poster Gallery · Board 04" data-chrono="75.0" data-folio="99">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <p class="abs-text">This paper presents an integrated decision-support methodology for evaluating and optimizing urban waste-management systems in the Indian context. The proposed framework combines five complementary analytical layers: life-cycle assessment for environmental quantification, system dynamics for long-term, feedback-rich simulation, artificial-intelligence-based forecasting for waste-generation prediction, fuzzy TOPSIS for technology ranking under uncertainty, and reinforcement learning for adaptive policy sequencing. The framework is designed around Indian municipal realities, including high organic fractions, variable collection efficiency, monsoon effects, festival-linked waste spikes, legacy dumpsites, dependence on the informal sector, and limited municipal finance. Recent policy and empirical research are incorporated to continue the expansion of the Swachh Bharat Mission&ndash;Urban 2.0, to address India&rsquo;s approximately 150,000 tonnes per day of urban waste generation, and to address global projections that municipal solid waste may increase substantially by 2050. The methodology supports comparative assessment of sanitary landfilling, composting, anaerobic digestion, material recovery, waste-to-energy, refuse-derived fuel systems, and biomining of legacy waste. By coupling environmental, economic, technical, social, and policy variables, the framework provides a reproducible, transparent, and adaptive basis for sustainable waste-management planning in Indian cities.</p>
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="103"><section class="page" data-runner="Poster Gallery · Board 05" data-chrono="75.674" data-folio="99">
+</div>
+<div class="sheet">
+<div class="face front" data-page="104"><section class="page" data-runner="Poster Gallery · Board 05" data-chrono="75.674" data-folio="100">
   <p class="kicker" style="margin-bottom:1.5mm;">Theme 2</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2); margin-bottom:3mm;">Circular Water Technologies and Sustainable Hydrosphere Management</p>
   <div class="poster-row" style="grid-template-columns:1fr;">
@@ -2722,9 +2781,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="104"><section class="page" data-runner="Poster Gallery · Board 07" data-chrono="76.012" data-folio="100">
+<div class="face back" data-page="105"><section class="page" data-runner="Poster Gallery · Board 07" data-chrono="76.012" data-folio="101">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">The proposed methodology involves pyrolytic synthesis of biochar from <i>Parthenium hysterophorus</i> under optimized temperature and residence time conditions, followed by chemical activation to enhance surface area, porosity, and functional group density. Characterization of the synthesized biochar will be conducted using BET surface area analysis, FTIR spectroscopy, SEM-EDX, XRD, and TGA to establish structure&ndash;property correlations. Batch adsorption experiments will investigate the effect of pH, contact time, adsorbent dosage, and initial pollutant concentration on removal efficiency in both single and multi-pollutant systems. Adsorption kinetics, equilibrium isotherm modeling, and thermodynamic studies will be performed to elucidate the underlying adsorption mechanisms. This study aims to demonstrate that Parthenium-derived biochar serves as a high-performance adsorbent in complex multi-pollutant systems, offering a scalable and economically viable solution for industrial wastewater treatment. The dual-benefit approach of invasive weed valorization and pollutant remediation positions this work as a meaningful contribution toward sustainable water management.</p>
@@ -2740,7 +2797,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="105"><section class="page" data-runner="Poster Gallery · Board 08" data-chrono="76.686" data-folio="101">
+</div>
+<div class="sheet">
+<div class="face front" data-page="106"><section class="page" data-runner="Poster Gallery · Board 08" data-chrono="76.686" data-folio="102">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-08 · Circular Water Technologies and Sustainable Hydrosphere Management</span>
@@ -2760,9 +2819,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="106"><section class="page" data-runner="Poster Gallery · Board 10" data-chrono="77.023" data-folio="102">
+<div class="face back" data-page="107"><section class="page" data-runner="Poster Gallery · Board 10" data-chrono="77.023" data-folio="103">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">In this study, EC with iron electrodes was optimized for sludge dewatering by systematically varying key operational parameters, including applied voltage, electrode spacing, and reaction time. The dewatering performance was evaluated using specific resistance to filtration (SRF) and moisture content reduction. To enhance process efficiency and promote resource recovery, the EC-treated sludge was further converted into iron-loaded biochar (Fe&ndash;BC) via thermochemical treatment. The synthesized Fe&ndash;BC was reutilized as an additive in subsequent EC cycles to improve floc formation, electrical conductivity, and overall dewatering efficiency. The impact of Fe&ndash;BC addition on energy consumption, treatment time, and dewatering performance was systematically investigated. Furthermore, the reusability of Fe&ndash;BC was assessed over multiple cycles to determine its performance stability and functional lifespan. Changes in physicochemical properties of Fe&ndash;BC after repeated use were analyzed to understand the mechanisms governing its effectiveness. The results demonstrate that Fe&ndash;BC significantly enhances EC performance while reducing energy requirements, with a gradual decline observed beyond a certain number of reuse cycles.</p>
@@ -2778,7 +2835,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="107"><section class="page" data-runner="Poster Gallery · Board 11" data-chrono="77.698" data-folio="103">
+</div>
+<div class="sheet">
+<div class="face front" data-page="108"><section class="page" data-runner="Poster Gallery · Board 11" data-chrono="77.698" data-folio="104">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-11 · Circular Water Technologies and Sustainable Hydrosphere Management</span>
@@ -2798,9 +2857,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="108"><section class="page" data-runner="Poster Gallery · Board 13" data-chrono="78.035" data-folio="104">
+<div class="face back" data-page="109"><section class="page" data-runner="Poster Gallery · Board 13" data-chrono="78.035" data-folio="105">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Ongoing studies are focused on investigating the degradation of representative PAHs under blue-light irradiation in the presence of hydrogen peroxide, where TiO<sub>2</sub> is expected to generate reactive oxygen species capable of oxidizing PAHs into less harmful products. The active photocatalytic platform enhanced catalyst&ndash;pollutant interactions, leading to efficient degradation of representative PAHs. At an initial concentration of 10 ppm, TiO<sub>2</sub>-functionalized pectin micromotors achieved &asymp;100% degradation of anthracene and &asymp;70% degradation of naphthalene after 24 h of blue-light irradiation. These findings demonstrate the effectiveness of bio-based photocatalytic micromotors for degrading persistent organic pollutants and highlight their potential as sustainable and environmentally friendly materials for coal mine wastewater remediation.</p>
@@ -2825,7 +2882,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="109"><section class="page" data-runner="Poster Gallery · Board 15" data-chrono="78.372" data-folio="105">
+</div>
+<div class="sheet">
+<div class="face front" data-page="110"><section class="page" data-runner="Poster Gallery · Board 15" data-chrono="78.372" data-folio="106">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Transition metal oxides are widely explored for high-performance supercapacitor electrodes, and cobalt oxide is especially attractive because of its mixed-valence redox activity, structural stability, and pseudocapacitive behaviour. In this work, Co<sub>3</sub>O<sub>4</sub> nanoparticles were synthesized by a hydrothermal route. The material showed a cubic spinel structure and mesoporous morphology, which enhanced ion diffusion and charge-transfer kinetics. The as-synthesized Co<sub>3</sub>O<sub>4</sub> delivered the highest specific capacitance of 1195.05 F g<sup>&minus;1</sup> at 1.5 A g<sup>&minus;1</sup> in the three-electrode configuration. A symmetric supercapacitor device fabricated using Co<sub>3</sub>O<sub>4</sub> demonstrated a specific capacitance of 870.6 F g<sup>&minus;1</sup> at 5 A g<sup>&minus;1</sup>, along with an energy density of 77.3 W h kg<sup>&minus;1</sup> and a power density of 1997.7 W kg<sup>&minus;1</sup>. Thus, the work provides a strong foundation for future studies on recovered cobalt-based electrodes and eco-friendly current collectors for sustainable energy storage.</p>
@@ -2851,9 +2910,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="110"><section class="page" data-runner="Poster Gallery · Board 17" data-chrono="78.709" data-folio="106">
+<div class="face back" data-page="111"><section class="page" data-runner="Poster Gallery · Board 17" data-chrono="78.709" data-folio="107">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Membrane-based separation processes are regarded as a convenient and compact means of treating wastewater. The main aim of this research study was to separate the pharmaceutical active compound nystatin by applying the membrane technique. To achieve this, graphene oxide (GO) and magnetite graphene oxide (MGO) were synthesized, and MGO was then incorporated onto a polysulfone-based hollow fiber membrane to improve its separation performance. Membranes of varying MGO loadings were analyzed using FT-IR, Raman spectroscopy, XRD, XPS, FE-SEM, HR-TEM, EPR, DSC, and TGA techniques. Among all the membranes used, M-4, which contained 0.03% MGO, displayed the highest effectiveness, with a permeability of &asymp;71.34 L/m<sup>2</sup>h&middot;bar at 1 bar pressure, nystatin rejection of 98%, and a MWCO of &asymp;1531 Da. The improved membrane performance was mainly attributed to enhanced membrane morphology and hydrophilicity, which contributed to high permeation flux and improved separation efficiency.</p>
@@ -2879,16 +2936,16 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="111"><section class="page" data-runner="Poster Gallery · Board 18" data-chrono="79.047" data-folio="107">
+</div>
+<div class="sheet">
+<div class="face front" data-page="112"><section class="page" data-runner="Poster Gallery · Board 18" data-chrono="79.047" data-folio="108">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <p class="abs-text">CEPT does, however, increase the rate of chemical consumption and sludge generation, as well as operational costs and the hazards of chemical handling and disposal. At the same time, hybrid decentralized wastewater treatment systems have been gaining popularity, presenting an even more viable option as they focus on treating domestic wastewater in the absence of centralized treatment systems; these systems combine one or more treatment processes such as septic tanks, Up-flow Anaerobic Sludge Blanket (UASB) reactors, and constructed wetlands to promote organic matter removal without high energy or operational costs, and have been proven through numerous studies to remove high and low levels of Chemical Oxygen Demand (COD), Biological Oxygen Demand (BOD), and Total Suspended Solids (TSS) from domestic wastewater. In this regard, improving the hydrolysis and solubilization of complex organic matter during the initial stages of treatment has been identified as crucial for augmenting subsequent biological processes. The present study examines current treatment methods and hybrid configurations to gain insights into their mechanisms, treatment efficacy, benefits, and shortcomings, and elucidates major technological deficiencies while indicating possible avenues for the creation of novel, sustainable methods to enhance the primary stages of wastewater treatment while minimizing chemical use and lowering operational costs.</p>
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="112"><section class="page" data-runner="Poster Gallery · Board 19" data-chrono="79.384" data-folio="108">
+<div class="face back" data-page="113"><section class="page" data-runner="Poster Gallery · Board 19" data-chrono="79.384" data-folio="109">
   <p class="kicker" style="margin-bottom:1.5mm;">Theme 3</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2); margin-bottom:3mm;">Circular Energy Systems and Carbon Resource Valorization</p>
   <div class="poster-row" style="grid-template-columns:1fr;">
@@ -2912,7 +2969,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="113"><section class="page" data-runner="Poster Gallery · Board 21" data-chrono="79.721" data-folio="109">
+</div>
+<div class="sheet">
+<div class="face front" data-page="114"><section class="page" data-runner="Poster Gallery · Board 21" data-chrono="79.721" data-folio="110">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-21 · Circular Energy Systems and Carbon Resource Valorization</span>
@@ -2934,9 +2993,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="114"><section class="page" data-runner="Poster Gallery · Board 23" data-chrono="80.058" data-folio="110">
+<div class="face back" data-page="115"><section class="page" data-runner="Poster Gallery · Board 23" data-chrono="80.058" data-folio="111">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Among various CO<sub>2</sub> capture methods, amine-based CO<sub>2</sub> absorption remains a widely used technology in industry, with efficiency depending on factors such as operating conditions, the type of amine used, and the effectiveness of gas&ndash;liquid contact. Structured packings offer excellent mass transfer efficiency, low pressure drop, good wettability, and high capacity compared to random packings for effective gas&ndash;liquid contact, but are also more sensitive to maldistribution, which reduces gas&ndash;liquid mass transfer, making it important to improve mass transfer in structured packing. This work focuses on developing a multiphase Eulerian CFD model to predict the hydrodynamics, mass transfer, and CO<sub>2</sub> absorption in monoethanolamine (MEA) for an in-house structured packed column. The computational domain consists of a packed column of 28 cm height and 5 cm diameter, equipped with structured packing of 4.979 cm diameter to enhance gas&ndash;liquid contact; the liquid phase consists of aqueous MEA solution filled to a height of 28 cm, with a binary gas mixture of 28.2 wt% CO<sub>2</sub> and 71.8 wt% N<sub>2</sub> introduced from the bottom at 0.021 m/s. The governing momentum, energy, and species transport equations are solved using OpenFOAM v8.0, beginning with an investigation of hydrodynamics followed by detailed modelling of CO<sub>2</sub> absorption in MEA, where CO<sub>2</sub> reacts with MEA to form carbamate (CO<sub>2</sub> + H<sub>2</sub>O + 2 MEA &#8652; MEACOO<sup>&minus;</sup> + MEAH<sup>+</sup>). Mass transfer between gas and liquid phases is incorporated through a Sherwood number correlation, Sh = f(Re, Sc), and the predicted CO<sub>2</sub> loading and capture efficiency at different gas velocities are validated against in-house experimental data; the effective interfacial area across the column is estimated from the gradient of the liquid volume fraction. Unlike the porous media approach commonly used in the literature, which fails to capture the realistic flow distribution across packings that strongly influences mass transfer, the present work employs in-house realistic structured packing geometry, allowing the flow behaviour within the packing elements to be observed, and the resulting CFD predictions of product formation are compared with those obtained using the porous media approach.</p>
@@ -2952,7 +3009,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="115"><section class="page" data-runner="Poster Gallery · Board 24" data-chrono="80.395" data-folio="111">
+</div>
+<div class="sheet">
+<div class="face front" data-page="116"><section class="page" data-runner="Poster Gallery · Board 24" data-chrono="80.395" data-folio="112">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Mass transfer analysis revealed absorption fluxes on the order of 10<sup>&minus;4</sup> mol m<sup>&minus;2</sup> s<sup>&minus;1</sup>, while liquid-side mass transfer coefficients and enhancement factors decreased significantly with continued operation, indicating deterioration in reaction and transport performance. Solvent degradation and corrosion were characterized using HPLC-RID, FTIR, NMR, TGA, and ICP-OES; results showed 20&ndash;30% MEA loss, reduced thermal stability, and progressive iron accumulation due to corrosion. Additional studies under N<sub>2</sub>/CO<sub>2</sub> and Air/CO<sub>2</sub> environments confirmed that oxygen substantially induces degradation and metal leaching. Overall, this work highlights the importance of solvent preservation and corrosion reduction for developing more sustainable and resource-efficient amine-based CO<sub>2</sub> capture systems aligned with circular energy principles.</p>
@@ -2968,9 +3027,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="116"><section class="page" data-runner="Poster Gallery · Board 25" data-chrono="81.407" data-folio="112">
+<div class="face back" data-page="117"><section class="page" data-runner="Poster Gallery · Board 25" data-chrono="81.407" data-folio="113">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-25 · Circular Energy Systems and Carbon Resource Valorization</span>
@@ -2992,7 +3049,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="117"><section class="page" data-runner="Poster Gallery · Board 27" data-chrono="81.407" data-folio="113">
+</div>
+<div class="sheet">
+<div class="face front" data-page="118"><section class="page" data-runner="Poster Gallery · Board 27" data-chrono="81.407" data-folio="114">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">The model further provides detailed insights into the interplay between heat transfer, mass transfer, and reaction kinetics through analyses of Nusselt and Sherwood numbers along with characteristic time scales. In addition, the influence of axial power distribution on reactor performance is systematically examined while maintaining the same average power input; three power profiles &ndash; constant, linearly increasing, and linearly decreasing &ndash; are evaluated for their impact on temperature distribution, methane conversion, hydrogen yield, and reactor length reduction. The simulations reveal that a linearly decreasing power profile produces a more uniform temperature distribution, resulting in enhanced methane conversion and hydrogen yield, and that comparable reactor performance can be achieved at significantly reduced reactor lengths, highlighting the potential of power tailoring as a strategy for process intensification in electrically heated catalytic reactors.</p>
@@ -3009,9 +3068,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="118"><section class="page" data-runner="Poster Gallery · Board 28" data-chrono="81.744" data-folio="114">
+<div class="face back" data-page="119"><section class="page" data-runner="Poster Gallery · Board 28" data-chrono="81.744" data-folio="115">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-28 · Circular Energy Systems and Carbon Resource Valorization</span>
@@ -3032,7 +3089,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="119"><section class="page" data-runner="Poster Gallery · Board 30" data-chrono="82.419" data-folio="115">
+</div>
+<div class="sheet">
+<div class="face front" data-page="120"><section class="page" data-runner="Poster Gallery · Board 30" data-chrono="82.419" data-folio="116">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-30 · Circular Energy Systems and Carbon Resource Valorization</span>
@@ -3043,9 +3102,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="120"><section class="page" data-runner="Poster Gallery · Board 31" data-chrono="83.093" data-folio="116">
+<div class="face back" data-page="121"><section class="page" data-runner="Poster Gallery · Board 31" data-chrono="83.093" data-folio="117">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-31 · Circular Energy Systems and Carbon Resource Valorization</span>
@@ -3066,7 +3123,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="121"><section class="page" data-runner="Poster Gallery · Board 33" data-chrono="83.43" data-folio="117">
+</div>
+<div class="sheet">
+<div class="face front" data-page="122"><section class="page" data-runner="Poster Gallery · Board 33" data-chrono="83.43" data-folio="118">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">The Gibbs free energy for the conversion of guaiacol to cyclohexanone was more negative at higher temperatures, indicating that the required thermodynamic driving force is lower at higher temperatures. The calculated enthalpy values were positive for both reactions in all solvent systems, confirming the endothermic nature of the reactions and emphasising the importance of thermal energy input during conversion. These findings highlight the significance of solvent effects in determining the thermodynamics of biomass conversion reactions of lignin-derived materials, offering valuable insights for the development of sustainable thermochemical conversion processes and circular energy systems using supercritical alcohols as efficient reaction media for biomass upgrading.</p>
@@ -3083,9 +3142,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="122"><section class="page" data-runner="Poster Gallery · Board 34" data-chrono="83.767" data-folio="118">
+<div class="face back" data-page="123"><section class="page" data-runner="Poster Gallery · Board 34" data-chrono="83.767" data-folio="119">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-34 · Circular Energy Systems and Carbon Resource Valorization</span>
@@ -3106,16 +3163,16 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="123"><section class="page" data-runner="Poster Gallery · Board 35" data-chrono="84.442" data-folio="119">
+</div>
+<div class="sheet">
+<div class="face front" data-page="124"><section class="page" data-runner="Poster Gallery · Board 35" data-chrono="84.442" data-folio="120">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <p class="abs-text">Suitable bacteria such as <i>C. butyricum</i>, used as inoculum together with gold nanoparticles (AuNPs), provided an effective approach for H<sub>2</sub> production from sucrose, while <i>Kappaphycus alvarezii</i> and sludge were also processed for bio-hydrogen production. Aqueous phase reforming with 7.5 wt% Au was found to give a 62.3% higher yield from synthetic wastewater containing sucrose as feed under anaerobic culture, compared to a control applying the minimum amount of AuNPs; overall, the catalyst achieved 61.25% bio-hydrogen production. The maximum bio-hydrogen yield was 36.1% for a 2:1 (sludge:algae) ratio at 360&deg;C. The high ratio of acetate to butyrate and low ethanol production observed in the presence of AuNPs is associated with a significant increase in H<sub>2</sub> production. With the aim of expanding applications of bio-nanotechnology for hydrogen production, AuNPs were also biosynthesized via aqueous-phase reforming of a synthetic compound (brewery wastewater) supported on activated carbon; these AuNPs demonstrated strong catalytic performance for the degradation of industrial pollutants, making the environment cleaner and more sustainable. Overall, hydrothermal gasification (aqueous phase reforming) yielded syngas, biochar, and enhanced H<sub>2</sub> production via liquid-phase formation, while anaerobic digestion of cyanobacterial biomass broke down complex organic and inorganic compounds in industrial wastewater, facilitating an efficient reforming process.</p>
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="124"><section class="page" data-runner="Poster Gallery · Board 36" data-chrono="84.779" data-folio="120">
+<div class="face back" data-page="125"><section class="page" data-runner="Poster Gallery · Board 36" data-chrono="84.779" data-folio="121">
   <p class="kicker" style="margin-bottom:1.5mm;">Theme 4</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2); margin-bottom:3mm;">Circularity in the Battery Industry and Critical Minerals Recovery</p>
   <div class="poster-row" style="grid-template-columns:1fr;">
@@ -3139,7 +3196,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="125"><section class="page" data-runner="Poster Gallery · Board 38" data-chrono="85.116" data-folio="121">
+</div>
+<div class="sheet">
+<div class="face front" data-page="126"><section class="page" data-runner="Poster Gallery · Board 38" data-chrono="85.116" data-folio="122">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-38 · Circularity in the Battery Industry and Critical Minerals Recovery</span>
@@ -3160,17 +3219,15 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="126"><section class="page" data-runner="Poster Gallery · Board 40" data-chrono="85.453" data-folio="122">
+<div class="face back" data-page="127"><section class="page" data-runner="Poster Gallery · Board 40" data-chrono="85.453" data-folio="123">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-40 · Circularity in the Battery Industry and Critical Minerals Recovery</span>
-      <h3>Why India&rsquo;s EV Battery Boom Is a Future Waste Crisis Waiting to Happen: A Multi-Stakeholder Analysis of Circularity Gaps</h3>
-      <p class="au-line"><span class="pres">Aman Srivastava</span><sup>†</sup>, Krishna Malakar<sup>*,†,‡</sup> and Rahul Muralidharan<sup>‡,§</sup></p>
-      <p class="affil-line"><sup>†</sup>Department of Humanities and Social Sciences, Indian Institute of Technology Madras, Chennai 600036, India &nbsp;·&nbsp; <sup>‡</sup>School of Sustainability, Indian Institute of Technology Madras, Chennai 600036, India &nbsp;·&nbsp; <sup>§</sup>The Energy Consortium, Indian Institute of Technology Madras, Chennai 600113, India</p>
-      <p class="corr-line">*&nbsp;Corresponding author · krishnamalakar@iitm.ac.in</p>
-      <p class="abs-text" style="margin-top:1.6mm;"><b>Abstract.</b> India&rsquo;s electric vehicle transition is predicated on a rapid shift to LFP (Lithium Iron Phosphate) chemistry (86% market share), yet the economic viability of LFP battery recycling remains critically underexamined within the policy architecture of the Battery Waste Management Rules, 2022. This study addresses the research gap between ambitious Extended Producer Responsibility (EPR) targets and the operational realities of domestic refining capacity. Employing a multi-stakeholder mixed-methods framework, we assessed circular design maturity, traceability readiness, and EPR compliance across OEMs (Original Equipment Manufacturers), battery producers, and formal recyclers. Results reveal a unanimous consensus (100% of stakeholders) that LFP recycling is presently unprofitable &ndash; a market failure wherein the dominant chemistry of the future constitutes a latent waste liability. Further findings expose a &ldquo;closed-loop impossibility&rdquo;: recyclers achieve 99.5% battery-grade material purity but lack domestic cell manufacturing offtakers, rendering the value chain linear (import&ndash;use&ndash;export). Additionally, while OEMs assert minimal leakage, recyclers report 60&ndash;90% feedstock sourcing from an informal sector disproportionately burdened by an 18% GST (Goods and Services Tax) rate on recycled scrap. We also identify a temporal misalignment wherein EPR collection targets are set for an 8-year horizon against a 15-year LFP lifespan. To reconcile policy intent with industrial viability, there is a need for a phased mandate for battery passports, chemistry-specific performance-based EPR targets, state-facilitated aggregation to formalize the informal sector, and targeted subsidies for LFP hydrometallurgical refining. We conclude that absent these structural interventions, India&rsquo;s circular economy framework will remain a notional construct rather than a functional, closed-loop system.</p>
+      <h3>Recovery of Active Cathode Material from Spent Mobile Lithium-ion Batteries using a Custom-made Ternary Deep Eutectic Solvent</h3>
+      <p class="au-line"><span class="pres">Appurva K</span><sup>*,†</sup>, Rajesha P M<sup>†</sup>, P Hemanth<sup>†</sup>, V M Aravind<sup>†</sup>, Raju K Gupta<sup>†</sup> and Sudhir H Ranganath<sup>†</sup></p>
+      <p class="affil-line"><sup>†</sup>Bio-INvENT Lab, Department of Chemical Engineering, Siddaganga Institute of Technology, Tumakuru, Karnataka, India &nbsp;·&nbsp; Department of Chemical Engineering, Indian Institute of Technology Kanpur, U.P., India &nbsp;·&nbsp; Department of Sustainable Energy Engineering, Indian Institute of Technology Kanpur, U.P., India &nbsp;·&nbsp; Chandrakanta Kesavan Centre for Energy Policy and Climate Solutions, Indian Institute of Technology Kanpur, U.P., India &nbsp;·&nbsp; Tvastra InnoTech Solutions Pvt. Ltd., Tumakuru, Karnataka, India</p>
+      <p class="corr-line">*&nbsp;Corresponding author · 1si23ch038@sit.ac.in</p>
+      <p class="abs-text" style="margin-top:1.6mm;"><b>Abstract.</b> Lithium-ion batteries (LiBs) are integral to modern technology, powering a broad array of devices, including mobile phones, laptops, electric vehicles, and systems for renewable energy. However, their widespread utilisation presents considerable environmental and social challenges, notably due to the reliance on scarce and hazardous materials that necessitate energy-intensive extraction and processing methods. Recycling of LiBs emerges as a viable strategy to address these issues, offering a method to reclaim valuable metals and reduce the demand for the extraction of fresh raw materials. Furthermore, recycling initiatives have the potential to generate economic opportunities and foster innovation within the battery sector. Conventional recycling methods, including pyrometallurgical and hydrometallurgical processes, are energy-intensive and hazardous. To address this, we developed a novel Ternary Deep Eutectic Solvent (TDES), which is green and composed of Hydrogen Bond Donors and Acceptors in a specific molar ratio. This solvent offers several advantages, such as low freezing points, high thermal stability, low volatility, and tunability. Spent mobile phone batteries were dismantled under water to safely recover active cathode material (ACM), which contained Li, Co, Ni, and Mn. The TDES achieved rapid leaching of the ACM at 90&deg;C within 30 minutes and at a significantly lower operating temperature (90&deg;C) than traditional methods (700&deg;C). High extraction efficiencies of ~99% were achieved for Li&#8314;, Co&sup2;&#8314;, Ni&sup2;&#8314;, and Mn&sup2;&#8314;. Subsequent stage-wise selective precipitation allowed recovery of high-purity metal oxides of Nickel, Manganese and Cobalt and Lithium is selectively precipitated as Lithium carbonate. Kinetic analysis indicated that leaching was controlled by both liquid-film diffusion and product-layer diffusion for Li and Co. The same TDES was applied to LiNi<sub>0.85</sub>Co<sub>0.1</sub>Al<sub>0.05</sub>O<sub>2</sub> (NCA), yielding extraction efficiencies of ~68% Ni, ~64% Co, ~92% Al, and ~70% Li, aligning with elemental analysis. Further optimisation of metal recovery from NCA systems is under current investigation. Overall, the developed TDES demonstrates strong potential as a sustainable and efficient medium for LIB recycling.</p>
     </div>
   </div>
   <div class="poster-row" style="grid-template-columns:1fr; margin-top:4mm; border-top:.4pt solid var(--hairline); padding-top:4mm;">
@@ -3183,7 +3240,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="127"><section class="page" data-runner="Poster Gallery · Board 42" data-chrono="85.791" data-folio="123">
+</div>
+<div class="sheet">
+<div class="face front" data-page="128"><section class="page" data-runner="Poster Gallery · Board 42" data-chrono="85.791" data-folio="124">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">LiNi<sub>1-x-y</sub>Mn<sub>x</sub>Co<sub>y</sub>O<sub>2</sub> (NMC) and LiFePO<sub>4</sub> (LFP) are the most predominant battery chemistries in use; in NMC batteries, Ni, Mn, Co, and Li are the most valuable metals, whereas in LFP, Li is the most valuable metal. Conventionally, critical materials are recovered using hydrometallurgical and pyrometallurgical techniques; however, in these methods, Li is generally recovered at the final step owing to its small atomic radius, generally in salt form with a low recovery efficiency (40&ndash;60%). Here, we demonstrate a novel electrochemical technique, utilizing a Li-ion-conducting membrane, to selectively recover Li in its metallic form from black mass leach liquor, which can potentially be integrated with conventional hydrometallurgical techniques to recover Li at the very first step, significantly reducing Li loss.</p>
@@ -3199,9 +3258,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="128"><section class="page" data-runner="Poster Gallery · Board 43" data-chrono="86.128" data-folio="124">
+<div class="face back" data-page="129"><section class="page" data-runner="Poster Gallery · Board 43" data-chrono="86.128" data-folio="125">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-43 · Circularity in the Battery Industry and Critical Minerals Recovery</span>
@@ -3221,7 +3278,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="129"><section class="page" data-runner="Poster Gallery · Board 44" data-chrono="86.802" data-folio="125">
+</div>
+<div class="sheet">
+<div class="face front" data-page="130"><section class="page" data-runner="Poster Gallery · Board 44" data-chrono="86.802" data-folio="126">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Beyond recycling, the recovered elements are refined back into high-grade materials ready for use in next-generation batteries; lithium, cobalt, nickel, manganese, copper, aluminum, and graphite are the critical materials that underpin rechargeable battery technologies essential to modern energy storage and electronics. The processing line includes optimized leaching, solvent extraction, and electrowinning-based purification steps that selectively recover these materials at battery-grade purity, enabling direct re-integration into the manufacture of recycled battery cells and high-purity metal products, with real-time process monitoring and closed-loop reagent management minimizing chemical consumption and secondary waste generation throughout. EXTRACT provides a scalable, low-impact hydrometallurgical platform to support critical-material supply chains and accelerate the shift towards a circular battery economy.</p>
@@ -3240,16 +3299,14 @@ body.fb{
     <div>
       <span class="board">SUS-PP-46 · Circularity in the Battery Industry and Critical Minerals Recovery</span>
       <h3>Carbon Alchemy: Lignite Transformed into High-Performance Graphite Anode</h3>
-      <p class="au-line"><span class="pres">Venkatesan Natesan</span><sup>†</sup>, Santhoshini Murugan<sup>‡</sup>, Mysore Sridhar Santos<sup>‖</sup>, Karthic Natarajan<sup>§</sup> and Kothandaraman Ramanujam<sup>*,†,‡,§</sup></p>
+      <p class="au-line">Venkatesan Natesan<sup>†</sup>, Santhoshini Murugan<sup>‡</sup>, Mysore Sridhar Santos<sup>‖</sup>, <span class="pres">Karthic Natarajan</span><sup>§</sup> and Kothandaraman Ramanujam<sup>*,†,‡,§</sup></p>
       <p class="affil-line"><sup>†</sup>Clean Energy Laboratory, Department of Chemistry, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India &nbsp;·&nbsp; <sup>‡</sup>The Energy Consortium, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India &nbsp;·&nbsp; <sup>§</sup>CIL Centre for Sustainable Energy, Indian Institute of Technology Madras, Chennai 600036, Tamil Nadu, India &nbsp;·&nbsp; <sup>‖</sup>CSIR-Central Institute of Mining and Fuel Research, Digwadih Campus, Dhanbad, Jharkhand 828108, India</p>
       <p class="corr-line">*&nbsp;Corresponding author · rkraman@iitm.ac.in</p>
       <p class="abs-text" style="margin-top:1.6mm;"><b>Abstract.</b> An earth-abundant and low-cost lignite coal was employed as a carbon precursor for the synthesis of highly pure synthetic graphite through carbonization, followed by high-temperature graphitization treatment at 2800&nbsp;&deg;C (SG-2800) and 3000&nbsp;&deg;C (SG-3000). The results reveal that the microstructures of SG-2800 and SG-3000 are strongly dependent on the graphitization temperature. <i>(continued overleaf)</i></p>
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="130"><section class="page" data-runner="Poster Gallery · Board 47" data-chrono="86.98" data-folio="126">
+<div class="face back" data-page="131"><section class="page" data-runner="Poster Gallery · Board 47" data-chrono="86.98" data-folio="127">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">The SG graphitized at 3000&nbsp;&deg;C has a perfectly ordered layered structure with a high degree of graphitization, as found from the XRD and Raman studies. SG-3000 is explored as an anode material for a lithium-ion battery (LIB) application. The maximum reversible capacity of 305 mAh g<sup>&minus;1</sup> at a current rate of 0.1C was obtained along with 94% capacity retention even after 100 cycles. These findings highlight the potential of lignite coal as an inexpensive and scalable precursor for producing high-performance synthetic graphite suitable for advanced LIB applications.</p>
@@ -3265,7 +3322,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="131"><section class="page" data-runner="Poster Gallery · Board 48" data-chrono="87.14" data-folio="127">
+</div>
+<div class="sheet">
+<div class="face front" data-page="132"><section class="page" data-runner="Poster Gallery · Board 48" data-chrono="87.14" data-folio="128">
   <p class="kicker" style="margin-bottom:1.5mm;">Theme 5</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2); margin-bottom:3mm;">Circular Plastics and Polymer Economy</p>
   <div class="poster-row" style="grid-template-columns:1fr;">
@@ -3288,9 +3347,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="132"><section class="page" data-runner="Poster Gallery · Board 49" data-chrono="87.477" data-folio="128">
+<div class="face back" data-page="133"><section class="page" data-runner="Poster Gallery · Board 49" data-chrono="87.477" data-folio="129">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Optimization using central composite design identified the ideal pretreatment conditions (508 W, 4 min, 7.87 wt% biomass, 0.87 MSC) that resulted in maximum saccharification yield (RSY of 601 mg g<sup>&minus;1</sup> and GY of 231 mg g<sup>&minus;1</sup>). The optimized cellulose-rich SCL biomass was further converted to LA using a g-C<sub>3</sub>N<sub>4</sub>-O 50% photocatalyst, which increased the LA yield to 345.39 mg g<sup>&minus;1</sup> while reducing the formic acid yield to 30.45 mg g<sup>&minus;1</sup>. Furthermore, techno-economic analysis (TEA) revealed that the estimated net production cost of LA was $3.32 kg<sup>&minus;1</sup>, with an ROI of 14.43% and a payback period of 6.93 years; sensitivity analysis revealed that raw material costs and LA market price significantly influenced the economic viability. Overall, this work demonstrates a sustainable and economically feasible strategy for producing lactic acid from sugarcane leaf biomass through integrated microwave pretreatment and photocatalysis.</p>
@@ -3306,7 +3363,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="133"><section class="page" data-runner="Poster Gallery · Board 51" data-chrono="88.151" data-folio="129">
+</div>
+<div class="sheet">
+<div class="face front" data-page="134"><section class="page" data-runner="Poster Gallery · Board 51" data-chrono="88.151" data-folio="130">
   <p class="kicker" style="margin-bottom:1.5mm;">Theme 6</p>
   <p style="font-family:var(--serif); font-style:italic; font-size:9.5pt; color:var(--ink-2); margin-bottom:3mm;">Sustainable Industrial Ecosystems and Green Supply Chains</p>
   <div class="poster-row" style="grid-template-columns:1fr;">
@@ -3328,9 +3387,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="134"><section class="page" data-runner="Poster Gallery · Board 53" data-chrono="88.488" data-folio="130">
+<div class="face back" data-page="135"><section class="page" data-runner="Poster Gallery · Board 53" data-chrono="88.488" data-folio="131">
   <div class="poster-row" style="grid-template-columns:1fr; min-height:0;">
     <div>
       <p class="abs-text">Surface functionalization of natural fibres has proven to be an effective approach for enhancing their strength, stiffness, and interfacial bonding characteristics while retaining their inherent biodegradability. In this study, surface modification of single jute fibres was performed using hydroxyapatite (HAP), a natural calcium mineral commonly used in bone tissue repair surgeries; earlier reports have shown that HAP has excellent biocompatibility and mechanical performance, and could therefore act as an eco-friendly interface modifier for natural fibres. Surface modification using stearic acid in jute fibre was also carried out to impart moisture resistance and enhance interfacial properties; stearic acid is a biocompatible saturated fatty acid whose incorporation in several matrices has shown an improvement in hydrophobic character. The presence of HAP and stearic acid on the surface of jute fibres was confirmed by FTIR analysis and SEM images, and studies on both HAP- and stearic-acid-coated jute fibres have shown a significant enhancement in tensile strength and thermal properties. Overall, HAP and stearic acid surface modification will help improve the interfacial fibre&ndash;matrix bond, thereby broadening the scope of application of natural fibres in composite systems.</p>
@@ -3347,7 +3404,9 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="135"><section class="page" data-runner="Poster Gallery · Board 54" data-chrono="88.826" data-folio="131">
+</div>
+<div class="sheet">
+<div class="face front" data-page="136"><section class="page" data-runner="Poster Gallery · Board 54" data-chrono="88.826" data-folio="132">
   <div class="poster-row" style="grid-template-columns:1fr; border-bottom:none;">
     <div>
       <span class="board">SUS-PP-54 · Sustainable Industrial Ecosystems and Green Supply Chains</span>
@@ -3367,9 +3426,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-</div>
-<div class="sheet">
-<div class="face front" data-page="136"><section class="page" data-runner="Poster Gallery · Board 56" data-chrono="89.5" data-folio="132">
+<div class="face back" data-page="137"><section class="page" data-runner="Poster Gallery · Board 56" data-chrono="89.5" data-folio="133">
   <div class="poster-row" style="grid-template-columns:1fr;">
     <div>
       <span class="board">SUS-PP-56 · Sustainable Industrial Ecosystems and Green Supply Chains</span>
@@ -3390,7 +3447,30 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="137"><section class="page" id="venue" data-runner="Back Matter · Venue &amp; Campus" data-chrono="90" data-folio="133">
+</div>
+<div class="sheet">
+<div class="face front" data-page="138"><section class="page" data-runner="Poster Gallery · Board 58" data-chrono="89.75" data-folio="134">
+  <div class="poster-row" style="grid-template-columns:1fr;">
+    <div>
+      <span class="board">SUS-PP-58 &middot; Circular Water Technologies</span>
+      <h3>Valorization of <i>Clitoria ternatea</i> Biomass for Domestic Wastewater Treatment and Sustainable Concrete Production: A Circular Water-Energy Nexus Approach</h3>
+      <p class="au-line"><span class="pres">Karthika Saramariraj</span><sup>*,&dagger;</sup> and V. R. Prasath Kumar<sup>*,&dagger;</sup></p>
+      <p class="affil-line"><sup>&dagger;</sup>Department of Civil Engineering, Faculty of Engineering and Technology, SRM Institute of Science and Technology, Kattankulathur, Chengalpattu Dt., Tamil Nadu 603203, India</p>
+      <p class="corr-line">*&nbsp;Corresponding authors &middot; ks8712@srmist.edu.in; prasathv@srmist.edu.in</p>
+      <p class="abs-text" style="margin-top:1.6mm;"><b>Abstract.</b> The increasing demand for sustainable and decentralized wastewater treatment has driven advances in biomass-based adsorbents to enhance water quality. This research explores the use of biochar derived from <i>Clitoria ternatea</i> biomass (CT-BC) as an environmentally friendly adsorbent for treating domestic wastewater. Biochar was produced via pyrolysis and tested under various operating conditions to improve pollutant removal efficiency. The adsorption process was analysed using equilibrium and kinetic models to better understand the mechanisms involved in treatment. Advanced characterization methods, including XRD, FTIR, and SEM&ndash;EDS, were used to analyse the physicochemical properties of CT-BC. The findings showed a porous, heterogeneous surface with oxygen-rich functional groups, which are ideal for contaminant adsorption. Isotherm and kinetic tests demonstrated that the adsorption was driven by heterogeneous surface interactions and chemisorption. Statistical results confirmed that CT-BC effectively and consistently enhanced wastewater quality at various sampling sites. The results show that biochar made from <i>Clitoria ternatea</i> is an effective, affordable, and eco-friendly option for treating domestic wastewater. Turning biomass waste into a valuable water-purification tool promotes circular resource use and supports sustainable water management. This research supports circular economy principles and helps achieve the UN Sustainable Development Goals on clean water, sanitation, and responsible resource use.</p>
+    </div>
+  </div>
+  <div class="poster-row" style="grid-template-columns:1fr; margin-top:4mm; border-top:.4pt solid var(--hairline); padding-top:4mm;">
+    <div>
+      <span class="board">SUS-PP-59 &middot; Circular Energy Systems &amp; Carbon Resource Valorization</span>
+      <h3>From Residue Burning to Resource Recovery: Crop-Residue Roof Insulation for Sustainable Livestock Shelters in India</h3>
+      <p class="au-line"><span class="pres">S. Rahul Bharath</span><sup>&dagger;</sup>, Srinivasan Periaswamy<sup>&dagger;</sup> and Srikant Routroy<sup>&dagger;</sup></p>
+      <p class="affil-line"><sup>&dagger;</sup>Department of Mechanical Engineering, Birla Institute of Technology and Science, Pilani, Rajasthan 333031, India</p>
+      <p class="abs-text" style="margin-top:1.6mm;"><b>Abstract.</b> Agricultural residues are often treated as waste, despite their potential for productive reuse in rural infrastructure. This study explores a circular application of pearl millet and paddy straw as roof-insulation materials for naturally ventilated dairy shelters in India, with the aim of reducing heat stress while creating value from locally available biomass. A validated EnergyPlus model was used to assess shelter performance across representative Indian climates. The analysis considered roof heat transfer, indoor thermal conditions, Temperature&ndash;Humidity Index (THI), and the influence of key design parameters such as insulation thickness, sidewall height, shelter capacity, and cattle heat load. The thermal results were further connected to productivity-related economic benefits and greenhouse-gas mitigation. Crop-residue insulation substantially reduced roof-mediated heat gain and improved indoor thermal conditions, with annual THI reduction varying from 730 to 5826 THI&middot;h across climates. Maximum reductions of 5.62&nbsp;&deg;C in indoor temperature and 4.18 THI units were observed. Pearl millet straw showed consistently better performance than paddy straw, while shelter geometry and insulation thickness were identified as important design factors. Beyond thermal performance, the intervention showed considerable potential for economic benefit, lower milk-related emission intensity, and avoided emissions from residue burning. The results highlight crop-residue insulation as a practical pathway linking resource recovery, passive cooling, climate resilience, and sustainable dairy production.</p>
+    </div>
+  </div>
+</section></div>
+<div class="face back" data-page="139"><section class="page" id="venue" data-runner="Back Matter · Venue &amp; Campus" data-chrono="90" data-folio="135">
   <p class="kicker">Getting Around</p>
   <h1 style="font-size:20pt; margin-bottom:4mm;">Venue &amp; Campus</h1>
   <img src="../assets/images/venue/icsrview.webp" alt="ICSR Building, IIT Madras" style="width:100%; height:80mm; object-fit:cover; margin-bottom:5mm; display:block;" />
@@ -3412,7 +3492,7 @@ body.fb{
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="138"><section class="page" id="ack" data-runner="Back Matter · Committees &amp; Acknowledgements" data-chrono="80" data-folio="134">
+<div class="face front" data-page="140"><section class="page" id="ack" data-runner="Back Matter · Committees &amp; Acknowledgements" data-chrono="80" data-folio="136">
   <p class="kicker">With Thanks</p>
   <h1 style="font-size:20pt; margin-bottom:4mm;">Committees &amp;<br/>Acknowledgements</h1>
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:8mm;">
@@ -3442,7 +3522,7 @@ body.fb{
     </div>
   </div>
 </section></div>
-<div class="face back" data-page="139"><section class="page" id="colophon" data-runner="Back Matter · Colophon" data-chrono="81" data-folio="135">
+<div class="face back" data-page="141"><section class="page" id="colophon" data-runner="Back Matter · Colophon" data-chrono="81" data-folio="137">
   <p class="kicker">Colophon</p>
   <h1 style="font-size:20pt; margin-bottom:4mm;">How This Book<br/>Was Made</h1>
   <div class="body-col" style="margin-bottom:5mm;">
@@ -3462,21 +3542,21 @@ body.fb{
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="140"><section class="page" data-runner="Notes" data-chrono="58" data-folio="136">
+<div class="face front" data-page="142"><section class="page" data-runner="Notes" data-chrono="58" data-folio="138">
   <p class="kicker kicker--ink">Notes</p>
   <div class="notes-lines" style="height:170mm;"></div>
 </section></div>
-<div class="face back" data-page="141"><section class="page" data-runner="Notes" data-chrono="58" data-folio="137">
+<div class="face back" data-page="143"><section class="page" data-runner="Notes" data-chrono="58" data-folio="139">
   <p class="kicker kicker--ink">Notes</p>
   <div class="notes-lines" style="height:170mm;"></div>
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="142"><section class="page" data-runner="Notes" data-chrono="58" data-folio="138">
+<div class="face front" data-page="144"><section class="page" data-runner="Notes" data-chrono="58" data-folio="140">
   <p class="kicker kicker--ink">Notes</p>
   <div class="notes-lines" style="height:170mm;"></div>
 </section></div>
-<div class="face back" data-page="143"><section class="page" data-chrono="82" data-folio="139">
+<div class="face back" data-page="145"><section class="page" data-chrono="82" data-folio="141">
   <div class="center-page">
     <p style="font-family:var(--serif); font-style:italic; font-size:13pt; color:var(--ink-2); max-width:110mm; line-height:1.7;">“Nothing is lost, nothing is created,<br/>everything is transformed.”</p>
     <p class="small" style="margin-top:4mm;">— Antoine Lavoisier</p>
@@ -3484,18 +3564,18 @@ body.fb{
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="144"><section class="page page--bleed keep-colour no-folio" id="ibc_iwma" data-chrono="82.1">
+<div class="face front" data-page="146"><section class="page page--bleed keep-colour no-folio" id="ibc_iwma" data-chrono="82.1">
   <img src="cover/iwma-cover.jpg" alt="Industrial Waste Management Association — Cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
 </section></div>
-<div class="face back" data-page="145"><section class="page page--bleed keep-colour no-folio" id="ibc_smla" data-chrono="82.2">
+<div class="face back" data-page="147"><section class="page page--bleed keep-colour no-folio" id="ibc_smla" data-chrono="82.2">
   <img src="cover/ibc-smla.jpg" alt="SMLA — Inside Back Cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
 </section></div>
 </div>
 <div class="sheet">
-<div class="face front" data-page="146"><section class="page page--bleed keep-colour no-folio" id="ibc_hsbc" data-chrono="82.3">
+<div class="face front" data-page="148"><section class="page page--bleed keep-colour no-folio" id="ibc_hsbc" data-chrono="82.3">
   <img src="cover/ibc-hsbc.jpg" alt="HSBC — Inside Back Cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
 </section></div>
-<div class="face back" data-page="147"><section class="page page--bleed cover keep-colour" data-chrono="83">
+<div class="face back" data-page="149"><section class="page page--bleed cover keep-colour" data-chrono="83">
   <img src="cover/companion-cover-back.jpg" alt="SustainX 2026 — Conference Companion, back cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
 </section></div>
 </div>
@@ -3512,7 +3592,7 @@ body.fb{
 (function(){
   var sheets = Array.prototype.slice.call(document.querySelectorAll('.sheet'));
   var N = sheets.length;          // number of leaves
-  var P = 148;              // number of pages
+  var P = 150;              // number of pages
   var cur = 0;                    // leaves currently flipped
   var book = document.getElementById('fb-book');
   var label = document.getElementById('fb-label');
