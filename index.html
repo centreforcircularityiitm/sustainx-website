@@ -512,6 +512,73 @@
     }
     .pub-card:hover .pub-title-underline { width: 44px; }
 
+  
+    /* ═══ Homepage Glimpses Mosaic ═══ */
+    .glimpse-mosaic {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: clamp(120px, 30vw, 200px);
+      gap: 2px;
+      background: #bcd4b0;
+      border: 2px solid #bcd4b0;
+    }
+    @media (min-width: 768px) {
+      .glimpse-mosaic {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: clamp(150px, 13vw, 235px);
+      }
+    }
+    .glimpse-tile {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background: #dce8d2;
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .glimpse-tile--feature { grid-column: span 2; grid-row: span 2; }
+    .glimpse-tile--wide { grid-column: span 2; grid-row: span 1; }
+    .glimpse-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: grayscale(1);
+      transform: scale(1.015);
+      transition: filter .9s cubic-bezier(.4, 0, .2, 1), transform 1.3s cubic-bezier(.2, .7, .2, 1);
+    }
+    .glimpse-tile:hover img, .glimpse-tile:focus-visible img { filter: grayscale(0); transform: scale(1.08); }
+    .glimpse-veil {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to top, rgba(8, 32, 0, .85) 0%, rgba(8, 32, 0, .3) 38%, rgba(8, 32, 0, 0) 70%);
+      opacity: 0; transition: opacity .55s ease;
+    }
+    .glimpse-tile:hover .glimpse-veil, .glimpse-tile:focus-visible .glimpse-veil { opacity: 1; }
+    .glimpse-cap {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 1rem 1.15rem;
+      font-family: 'Noto Serif', serif; font-size: .8125rem; line-height: 1.45; color: #fff;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .2, 1);
+    }
+    .glimpse-tile:hover .glimpse-cap, .glimpse-tile:focus-visible .glimpse-cap { opacity: 1; transform: none; }
+    .glimpse-tile--feature .glimpse-cap { font-size: .9375rem; padding: 1.35rem 1.5rem; }
+    .glimpse-cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .95rem 1.9rem;
+      background: #2d6a1a; color: #fff;
+      font-size: .6875rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      white-space: nowrap;
+      transition: background .4s ease, gap .4s ease;
+    }
+    .glimpse-cta:hover { background: #4a9030; gap: 1rem; }
+    .glimpse-cta .material-symbols-outlined { font-size: 1.1rem; }
+
+    @media (max-width: 767px) {
+      .glimpse-cap { font-size: .75rem; padding: .8rem .9rem; opacity: 1; transform: none; }
+      .glimpse-veil { opacity: 1; }
+      .glimpse-tile img { filter: grayscale(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .glimpse-tile img { transition: none; }
+    }
   </style>
   <script>
     document.addEventListener('contextmenu', event => {
@@ -872,80 +939,74 @@
     </div>
   </section>
 
-  <!-- Themes Section -->
-  <section class="py-fluid-section bg-surface-container-low" id="themes">
+  <!-- Glimpses Section -->
+  <section class="py-fluid-section bg-surface-container-low" id="glimpses">
     <div class="container mx-auto px-4 md:px-12">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
         <div>
-          <span class="text-secondary tracking-[0.3em] uppercase text-xs mb-4 block">Scientific Tracks</span>
-          <h2 class="text-fluid-h2 font-bold text-primary">Focal Themes</h2>
+          <span class="text-secondary tracking-[0.3em] uppercase text-xs mb-4 block">Visual Archive</span>
+          <h2 class="text-fluid-h2 font-bold text-primary">Glimpses</h2>
         </div>
         <div class="hidden md:block w-1/3 text-right">
-          <p class="text-sm italic text-on-surface-variant">Interdisciplinary research tracks designed to address the
-            most pressing environmental challenges of the decade.</p>
-          <a href="themes"
-            class="mt-4 inline-block text-secondary text-xs uppercase tracking-widest font-bold border-b border-secondary pb-1">Explore
-            All Themes</a>
+          <p class="text-sm italic text-on-surface-variant">Three days of plenary lectures, technical sessions and
+            poster presentations at the IC&amp;SR complex, IIT Madras.</p>
+          <a href="gallery"
+            class="mt-4 inline-block text-secondary text-xs uppercase tracking-widest font-bold border-b border-secondary pb-1">View
+            Full Gallery</a>
         </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
-        <a href="themes.html#theme-ai"
-          class="group bg-surface p-12 border-[0.5px] border-outline-variant hover:bg-primary transition-all duration-500 block">
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-on-primary block">neurology</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-on-primary">AI-Driven Circular Systems</h3>
-          <p class="text-on-surface-variant group-hover:text-on-primary/80 leading-relaxed font-light">
-            Leveraging machine learning for lifecycle optimization and predictive resource management in industrial
-            ecosystems.
-          </p>
-        </a>
-        <a href="themes.html#theme-water"
-          class="group bg-surface p-12 border-[0.5px] border-outline-variant hover:bg-primary transition-all duration-500 block">
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-on-primary block">water_drop</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-on-primary">Circular Water Technologies</h3>
-          <p class="text-on-surface-variant group-hover:text-on-primary/80 leading-relaxed font-light">
-            Advanced filtration and zero-liquid discharge systems redefining industrial water consumption and
-            reclamation.
-          </p>
-        </a>
-        <a href="themes.html#theme-energy"
-          class="group bg-surface p-12 border-[0.5px] border-outline-variant hover:bg-primary transition-all duration-500 block">
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-on-primary block">energy_savings_leaf</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-on-primary">Circular Energy Systems</h3>
-          <p class="text-on-surface-variant group-hover:text-on-primary/80 leading-relaxed font-light">
-            Transitioning from linear extraction to regenerative energy grids and decentralized renewable integration.
-          </p>
-        </a>
-        <a href="themes.html#theme-battery"
-          class="group bg-surface p-12 border-[0.5px] border-outline-variant hover:bg-primary transition-all duration-500 block">
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-on-primary block">battery_charging_full</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-on-primary">Battery Industry Circularity</h3>
-          <p class="text-on-surface-variant group-hover:text-on-primary/80 leading-relaxed font-light">
-            Closing the loop on critical minerals through innovative second-life applications and high-efficiency
-            recycling.
-          </p>
-        </a>
-        <a href="themes.html#theme-plastics"
-          class="group bg-surface p-12 border-[0.5px] border-outline-variant hover:bg-primary transition-all duration-500 block">
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-on-primary block">recycling</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-on-primary">Circular Plastics Economy</h3>
-          <p class="text-on-surface-variant group-hover:text-on-primary/80 leading-relaxed font-light">
-            Engineering new polymer pathways and molecular recycling technologies to eliminate systemic plastic waste.
-          </p>
-        </a>
-        <a href="themes.html#theme-industry"
-          class="group bg-surface p-12 border-[0.5px] border-outline-variant hover:bg-primary transition-all duration-500 block">
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-on-primary block">hub</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-on-primary">Sustainable Industrial Ecosystems</h3>
-          <p class="text-on-surface-variant group-hover:text-on-primary/80 leading-relaxed font-light">
-            Redesigning industrial zones and supply chains as closed-loop symbiotic networks where no material stream is
-            wasted.
-          </p>
+
+      <div class="glimpse-mosaic">
+          <a href="gallery" class="glimpse-tile glimpse-tile--feature" aria-label="Conference gallery — Delegates at the SustainX 2026 installation, IC&amp;SR foyer">
+            <img src="assets/images/gallery/thumb/1C2A9563.webp" alt="Delegates at the SustainX 2026 installation, IC&amp;SR foyer" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">Delegates at the SustainX 2026 installation, IC&amp;SR foyer</span>
+          </a>
+          <a href="gallery" class="glimpse-tile" aria-label="Conference gallery — An invited lecture at T. T. Jagannathan Auditorium">
+            <img src="assets/images/gallery/thumb/1C2A0084.webp" alt="An invited lecture at T. T. Jagannathan Auditorium" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">An invited lecture at T. T. Jagannathan Auditorium</span>
+          </a>
+          <a href="gallery" class="glimpse-tile" aria-label="Conference gallery — Contributed posters on display at Hall 4">
+            <img src="assets/images/gallery/thumb/1E8A9713.webp" alt="Contributed posters on display at Hall 4" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">Contributed posters on display at Hall 4</span>
+          </a>
+          <a href="gallery" class="glimpse-tile glimpse-tile--wide" aria-label="Conference gallery — Delegates and faculty assembled on the inaugural morning">
+            <img src="assets/images/gallery/thumb/1C2A0243.webp" alt="Delegates and faculty assembled on the inaugural morning" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">Delegates and faculty assembled on the inaugural morning</span>
+          </a>
+          <a href="gallery" class="glimpse-tile" aria-label="Conference gallery — The welcome arch at the IC&amp;SR building">
+            <img src="assets/images/gallery/thumb/1C2A9553.webp" alt="The welcome arch at the IC&amp;SR building" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">The welcome arch at the IC&amp;SR building</span>
+          </a>
+          <a href="gallery" class="glimpse-tile" aria-label="Conference gallery — Felicitation of the plenary speaker, Prof. S. Sivaram">
+            <img src="assets/images/gallery/thumb/1C2A0280.webp" alt="Felicitation of the plenary speaker, Prof. S. Sivaram" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">Felicitation of the plenary speaker, Prof. S. Sivaram</span>
+          </a>
+          <a href="gallery" class="glimpse-tile" aria-label="Conference gallery — A presenter walking visitors through their poster">
+            <img src="assets/images/gallery/thumb/1E8A9720.webp" alt="A presenter walking visitors through their poster" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">A presenter walking visitors through their poster</span>
+          </a>
+          <a href="gallery" class="glimpse-tile" aria-label="Conference gallery — Delegates at the conference backdrop">
+            <img src="assets/images/gallery/thumb/1C2A9731.webp" alt="Delegates at the conference backdrop" loading="lazy" decoding="async" />
+            <span class="glimpse-veil" aria-hidden="true"></span>
+            <span class="glimpse-cap">Delegates at the conference backdrop</span>
+          </a>
+      </div>
+
+      <div class="mt-10 md:mt-14 pt-8 border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-6">
+        <p class="text-sm text-on-surface-variant text-center sm:text-left leading-relaxed">
+          <span class="font-headline text-3xl text-secondary align-middle mr-2">34</span>
+          photographs across six collections &mdash; sessions, posters, felicitations and more.
+        </p>
+        <a href="gallery" class="glimpse-cta">
+          View the Full Gallery
+          <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
     </div>
