@@ -1,0 +1,21 @@
+# Treat binary assets as binary so end-of-line conversion never rewrites them.
+# Without this, Git can misdetect a PDF with no early NUL bytes as text and
+# corrupt it on checkout when core.autocrlf is enabled.
+*.pdf   binary
+*.webp  binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.mp4   binary
+*.mov   binary
+*.docx  binary
+*.xlsx  binary
+*.pptx  binary
