@@ -256,6 +256,103 @@
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══════════ Award Highlights — Best Oral & Poster Presentations ═══════════ */
+  .award-entry {
+    position: relative;
+    isolation: isolate;
+    border-bottom: 0 !important;
+    border-left: 3px solid #c9a227;
+    margin: 1.5rem 0;
+    padding: 1.75rem clamp(1.25rem, 3vw, 2.5rem) !important;
+    background: linear-gradient(135deg, #fffefa 0%, #fdf8ea 55%, #faf2dd 100%);
+    box-shadow: 0 1px 1px rgba(122, 95, 20, .06), 0 16px 32px -22px rgba(122, 95, 20, .55);
+    transition: box-shadow .4s cubic-bezier(.4, 0, .2, 1), transform .4s cubic-bezier(.4, 0, .2, 1);
+  }
+  .award-entry:hover {
+    box-shadow: 0 1px 1px rgba(122, 95, 20, .08), 0 22px 40px -22px rgba(122, 95, 20, .6);
+    transform: translateY(-2px);
+  }
+  .award-entry::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(120% 150% at 100% 0%, rgba(201, 162, 39, .16), transparent 58%);
+  }
+  /* Top three receive a richer champagne field and a heavier gilt edge */
+  .award-entry--top {
+    border-left-width: 4px;
+    background: linear-gradient(135deg, #fffdf4 0%, #fbf2d7 52%, #f6e8c2 100%);
+  }
+
+  .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .85rem;
+    padding: .28rem .85rem .28rem .28rem;
+    border-radius: 999px;
+    background: linear-gradient(100deg, #7d6113 0%, #b5911f 42%, #d9bc5c 100%);
+    color: #fff;
+    font-family: 'Public Sans', sans-serif;
+    font-size: .625rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px -3px rgba(125, 97, 19, .65), inset 0 1px 0 rgba(255, 255, 255, .28);
+  }
+  .award-badge__rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .94);
+    color: #7d6113;
+    font-size: .625rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  .award-badge__icon { font-size: 1rem !important; opacity: .95; }
+
+  .award-id { color: #8a6d1b; }
+  .award-entry h3 { color: #1a4a0c; }
+  .award-entry summary { color: #8a6d1b; }
+  .award-entry summary:hover { color: #7d6113; }
+
+  /* Winners-only filter chip */
+  .winners-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 1.1rem;
+    border: 1px solid rgba(201, 162, 39, .55);
+    border-radius: 999px;
+    background: #fffdf6;
+    color: #8a6d1b;
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    transition: all .3s cubic-bezier(.4, 0, .2, 1);
+  }
+  .winners-toggle:hover { background: #fbf3dd; }
+  .winners-toggle.active {
+    background: linear-gradient(100deg, #7d6113, #b5911f 55%, #d9bc5c);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 3px 12px -4px rgba(125, 97, 19, .7);
+  }
+  .winners-toggle .material-symbols-outlined { font-size: 1rem; }
+
+  @media (max-width: 640px) {
+    .award-badge { letter-spacing: .1em; font-size: .5625rem; }
   }</style>
 </head>
 <body class="bg-background text-on-background">
@@ -384,6 +481,12 @@
         </button>
       </div>
       <p id="abstract-search-count" class="hidden text-xs text-stone-500 mt-2 text-center"></p>
+      <div class="flex justify-center mt-4">
+        <button type="button" id="winners-only-btn" class="winners-toggle" aria-pressed="false">
+          <span class="material-symbols-outlined">workspace_premium</span>
+          <span>Award Winners Only</span>
+        </button>
+      </div>
     </div>
 
     <!-- Tab Navigation -->
@@ -404,6 +507,13 @@
 
         <!-- Oral Container -->
     <div id="oral-container" class="tab-content active space-y-4">
+      <div class="award-banner rounded-xl px-6 py-5 flex items-start gap-4" style="border:1px solid rgba(201,162,39,.45); border-left-width:3px; border-left-color:#c9a227; background:linear-gradient(120deg,#fffdf6 0%,#fbf3dd 100%);">
+        <span class="material-symbols-outlined mt-0.5" style="color:#b5911f;">workspace_premium</span>
+        <div>
+          <p class="text-sm font-semibold" style="color:#8a6d1b;">SustainX 2026 &mdash; Best Oral Presentation Awards</p>
+          <p class="text-sm text-stone-600 mt-1">Ten presentations have been recognised by the review panel. Award-winning entries are marked below with a gilt ribbon and ranking; use <span class="font-semibold" style="color:#8a6d1b;">Award Winners Only</span> above to view them together.</p>
+        </div>
+      </div>
       <div class="rounded-xl border border-secondary/30 bg-secondary/5 px-6 py-5 flex items-start gap-4">
         <span class="material-symbols-outlined text-secondary mt-0.5">info</span>
         <div>
@@ -450,8 +560,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Aeration dominates the operational energy demand of municipal wastewater treatment plants, reportedly reaching 45–70% in activated-sludge systems. This study investigates whether deep reinforcement learning (RL) can identify and suppress inter-propagating disturbances on the Benchmark Simulation Model No. 2 (BSM2), through single- and dual-agent architectures benchmarked against a PI controller optimized via differential evolution. Among PPO, DDPG, TD3, SAC, and A3C, PPO delivered the most stable training and the lowest tracking error; in dual-agent deployment, PPO reduced mean-squared tracking error by ~26% on the DO loop and ~12% on the nitrate loop relative to the DE-tuned PI baseline.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-04</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="4">
+      <div class="award-badge">
+        <span class="award-badge__rank">04</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-04</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">TransChem: A Hybrid Transformer-Cheminformatics Framework for Predicting Li-Ion Conductivity in Polymer Electrolytes</h3>
     <p class="text-sm text-stone-600 mt-1"><u>V. Parambil</u>, U. Tripathi, H. Goyal and R. Batra <span class="text-stone-400">&middot;</span> IIT Madras</p>
     <details class="mt-3 group/pabs">
@@ -476,8 +591,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">The electrification of transportation stands out as a practical step toward creating circular energy systems, though real progress hinges on where and how charging stations are established. This paper presents a cooperative game theory approach for planning EV charging stations across Mangaluru Taluk, Dakshina Kannada district, Karnataka, India, involving four stakeholders: MESCOM (the electricity utility), charging station operators, municipal land authorities, and EV fleet aggregators. The Shapley value is applied to ensure fair distribution of benefits, and the framework treats EVs as potential Virtual Power Plants. When stakeholders cooperate, station placements improve, the grid becomes more robust, and per-user charging costs decline compared to uncoordinated deployment.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-06</span>
+    <div class="award-entry award-entry--top border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="1">
+      <div class="award-badge">
+        <span class="award-badge__rank">01</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-06</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Techno-Economic Optimization of Solar-Driven Green Hydrogen Systems for Circular Energy Transition, Carbon Resource Valorization, and Industrial Decarbonization</h3>
     <p class="text-sm text-stone-600 mt-1"><u>V Durga Praveena</u> and Seshagiri Rao Ambati, PhD <span class="text-stone-400">&middot;</span> IIPE</p>
     <details class="mt-3 group/pabs">
@@ -528,8 +648,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">The accelerating demand for rare earth elements (REEs) has been driven by their critical role in low-carbon technologies, creating pressure on primary resources. This research focuses on the recovery of neodymium from e-waste using citric acid as a biodegradable and environmentally benign leaching agent, evaluating the influence of leaching time, temperature, and acid concentration on metal recovery efficiency. Maximum recovery was observed at higher acid concentration (1 M), demonstrating the potential of organic acid-based hydrometallurgical processes as a sustainable alternative to conventional mineral acid leaching.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-10</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="8">
+      <div class="award-badge">
+        <span class="award-badge__rank">08</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-10</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">A Scenario-Based Framework for District-Scale EV Battery End-of-Life Flows and Reverse Logistics Burden in India</h3>
     <p class="text-sm text-stone-600 mt-1"><u>JL Sriniketh</u>, Suprava Mishra and Agnivesh Pani <span class="text-stone-400">&middot;</span> IIT (BHU) Varanasi</p>
     <details class="mt-3 group/pabs">
@@ -606,8 +731,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Waste printed circuit boards (PCBs) represent a high-value fraction of electronic waste due to their complex multi-metallic composition. This study investigates a hydrometallurgical route for selective recovery of valuable metals from discarded PCB waste through integrated pre-treatment, leaching, and separation processes, including mechanical comminution, alkaline treatment, and acidic leaching under varying operational parameters. Efficient recovery of valuable metallic constituents from PCB waste reduces environmental risks while promoting resource circularity and sustainable urban mining practices.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-16</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="9">
+      <div class="award-badge">
+        <span class="award-badge__rank">09</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-16</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Pyrolysis-Based Circular Recycling of Waste Printed Circuit Boards for Resource Recovery and Emission Reduction</h3>
     <p class="text-sm text-stone-600 mt-1"><u>Anjana E I</u>, Venkatesan J, Prathish K. P. and Jayasankar K <span class="text-stone-400">&middot;</span> CSIR-NIIST</p>
     <details class="mt-3 group/pabs">
@@ -619,8 +749,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Rapid industrialization has accelerated the generation of electronic waste, making waste printed circuit boards (WPCBs) a critical secondary resource for material recovery. This study presents a sustainable approach through controlled pyrolysis coupled with environmentally responsible processing, achieving ≈98% purity copper recovery and ≈93% gold recovery efficiency via a modified fire-assay method, alongside deep eutectic solvent (DES)-based extraction as a green alternative to toxic cyanide-based leaching, with controlled pyrolysis significantly reducing dioxin and PCB emissions compared to open burning.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-17</span>
+    <div class="award-entry award-entry--top border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="2">
+      <div class="award-badge">
+        <span class="award-badge__rank">02</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-17</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Molecular Dynamics Investigation of Structure–Property Relationships in PBSA/PHBH Biopolymer Blends for Circular Packaging</h3>
     <p class="text-sm text-stone-600 mt-1"><u>Vaishnu Suresh Kumar</u>, Pritam K. Jana, Mehran Ghasemlou, Benu Adhikari, Sarbani Ghosh, Banasri Roy, Fugen Daver and Mohit Garg <span class="text-stone-400">&middot;</span> BITS Pilani</p>
     <details class="mt-3 group/pabs">
@@ -684,8 +819,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Microplastics are one of the major contaminants of freshwater ecosystems across the globe. This project designs a microplastic interceptor system equipped with IoT-based sensors to monitor blockage and membrane integrity, consisting of a nano-enhanced V-boom interceptor with a microfilter layer followed by a nano-filter layer of CNT and graphene oxide to filter finer impurities. Integration of sensors at various stages provides real-time updates and alerts, ensuring the proper use of technology to implement sustainable solutions for environmental conservation.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-22</span>
+    <div class="award-entry award-entry--top border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="3">
+      <div class="award-badge">
+        <span class="award-badge__rank">03</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-22</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Assessing the Suitability of Utilizing Atmospheric Water for Solar Photovoltaic Module Cooling for Enhancing Energy Generation</h3>
     <p class="text-sm text-stone-600 mt-1"><u>Abdul Raziq K. V.</u>, Dhinesh Thanganadar and Sharon Hilarydoss <span class="text-stone-400">&middot;</span> Kannur University / IIPE</p>
     <details class="mt-3 group/pabs">
@@ -723,8 +863,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Membrane filtration offers a promising pathway for resource recovery from sewage by concentrating organic matter for subsequent bioenergy production. In this study, an integrated permeate channel (IPC) ultrafiltration (UF) membrane system was evaluated for sewage filtration and anaerobic digestion of the resulting concentrate, using primary treated sewage from the Jajmau STP, Kanpur. The anaerobic digester achieved an average methane production of 6 L/day over 300 days of operation, demonstrating the potential of IPC-UF membrane systems for sewage resource recovery and sustainable bioenergy generation.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-25</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="6">
+      <div class="award-badge">
+        <span class="award-badge__rank">06</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-25</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Hydrometallurgy Based Recovery of Transition Metals from Spent Lithium-Ion Batteries and Catalyst Synthesis</h3>
     <p class="text-sm text-stone-600 mt-1"><u>Asish Abhishek</u>, Upare Vishal Baburao and Anjana P. Anantharaman <span class="text-stone-400">&middot;</span> NIT Warangal</p>
     <details class="mt-3 group/pabs">
@@ -788,8 +933,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Membrane fouling is a critical challenge in water treatment and separation technologies, significantly impairing operational efficiency and longevity of filtration membranes. This study explores the utilization of alternating current (AC) electric fields as a viable, sustainable method for addressing membrane fouling in filtration processes. Through comprehensive analysis, this work elucidates the mechanisms by which AC fields interact with foulants and promote membrane cleaning, contributing to more effective and environmentally friendly filtration systems.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-30</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="7">
+      <div class="award-badge">
+        <span class="award-badge__rank">07</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-30</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Waste to Frameworks: PET Derived UiO-66 for PFAS Remediation</h3>
     <p class="text-sm text-stone-600 mt-1"><u>Deborah Salomi D</u>, Khushi Jain <span class="text-stone-400">&middot;</span> Dayananda Sagar College of Engineering (DSCE), Bengaluru</p>
     <details class="mt-3 group/pabs">
@@ -866,8 +1016,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">Deep eutectic solvents (DESs) have emerged as promising green solvents for recycling of spent lithium-ion batteries. In this study, a binary DES (Choline Chloride:Ethylene Glycol) and a ternary DES (Choline Chloride:Ethylene Glycol:Citric Acid) were designed and optimized for efficient metal leaching. The optimized binary DES exhibited high lithium selectivity (50±2% Li leaching while minimizing co-leaching of other metals), while the ternary DES achieved leaching efficiencies of 99±2% for Li, 98±4% for Ni, and 99±2% for Mn, demonstrating significant potential for sustainable metal recovery from spent LIBs.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-36</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="5">
+      <div class="award-badge">
+        <span class="award-badge__rank">05</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-36</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">Upcycling Multilayer Packaging (MLP) Waste into Circular, Industrial Materials</h3>
     <p class="text-sm text-stone-600 mt-1">Harsh Jadia, PhD and <u>Deepali Jadia, PhD</u> <span class="text-stone-400">&middot;</span> Independent Researcher</p>
     <details class="mt-3 group/pabs">
@@ -918,8 +1073,13 @@
     <p class="text-sm text-stone-600 leading-relaxed mt-2">The increasing generation of biomedical waste poses significant challenges to healthcare systems due to environmental concerns, high treatment costs, and stringent regulatory requirements. Bio Vastum Solutions Pvt. Ltd., in collaboration with CSIR–NIIST, has developed an innovative decentralized biomedical waste treatment technology based on rapid disinfection and solidification principles, achieving more than 99.9% pathogen reduction and eliminating the need for incineration. A prototype has been successfully installed and demonstrated at AIIMS New Delhi, supporting SDG 3, 6, 9, and 12.</p>
     </details>
     </div>
-    <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-    <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-OP-40</span>
+    <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="oral" data-rank="10">
+      <div class="award-badge">
+        <span class="award-badge__rank">10</span>
+        <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+        <span>Best Oral Presentation</span>
+      </div>
+    <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-OP-40</span>
     <h3 class="font-serif text-lg text-primary leading-snug mt-1">A Sustainable Zero-Discharge Process for Debromination and Resource Recovery from End-of-Life Printed Circuit Boards</h3>
     <p class="text-sm text-stone-600 mt-1"><u>K. Shivaraj Kumar</u>, Sruthika Kore, Ganga K. Vijayan, R. Ratheesh, Tiju Thomas and Sreeram K. Kalpathy <span class="text-stone-400">&middot;</span> IIT Madras</p>
     <details class="mt-3 group/pabs">
@@ -947,6 +1107,13 @@
     </div>
 <!-- Poster Container -->
     <div id="poster-container" class="tab-content space-y-4">
+      <div class="award-banner rounded-xl px-6 py-5 flex items-start gap-4 mb-4" style="border:1px solid rgba(201,162,39,.45); border-left-width:3px; border-left-color:#c9a227; background:linear-gradient(120deg,#fffdf6 0%,#fbf3dd 100%);">
+        <span class="material-symbols-outlined mt-0.5" style="color:#b5911f;">workspace_premium</span>
+        <div>
+          <p class="text-sm font-semibold" style="color:#8a6d1b;">SustainX 2026 &mdash; Best Poster Presentation Awards</p>
+          <p class="text-sm text-stone-600 mt-1">Fifteen posters have been recognised by the review panel. Award-winning entries are marked below with a gilt ribbon and ranking; use <span class="font-semibold" style="color:#8a6d1b;">Award Winners Only</span> above to view them together.</p>
+        </div>
+      </div>
       <div class="rounded-xl border border-secondary/30 bg-secondary/5 px-6 py-5 flex items-start gap-4 mb-4">
         <span class="material-symbols-outlined text-secondary mt-0.5">info</span>
         <div class="flex-1">
@@ -1062,8 +1229,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Oil-contaminated water streams continue to pose significant environmental and resource recovery challenges, necessitating the development of sustainable, cost-effective treatment technologies. Commercial cleaning sponges are inexpensive, widely available, and possess highly interconnected porous networks, making them attractive candidates for absorbent-based water remediation. However, their intrinsic amphiphilicity and large pore sizes often permit the rapid penetration of both water and oil, limiting separation selectivity. In this work, a simple, material-efficient surface modification strategy based on the deposition of natural lotus wax is proposed to regulate capillary-driven liquid transport in commercially available sponges. Pristine and wax-modified sponges will be evaluated in terms of pore morphology, pore size distribution, wettability, absorption performance, and liquid infiltration behavior. Static and dynamic contact angle measurements and time-dependent uptake experiments will be employed to investigate wetting transitions and transport kinetics. Pore characteristics will be quantified through image analysis, while the infiltration behavior of water and oil will be interpreted using capillary pressure and Washburn infiltration concepts to establish relationships between pore architecture, surface energy, and liquid transport dynamics. The study aims to elucidate how natural wax deposition alters pore geometry and surface wettability, thereby affecting liquid invasion in highly interconnected porous networks. It is anticipated that even low wax loadings will significantly retard water penetration while preserving rapid oil uptake, thereby improving oil–water selectivity without extensive modification of the underlying sponge structure. By combining an inexpensive commercial substrate with a bio-derived surface treatment, the proposed approach is expected to provide a scalable and environmentally benign route for selective oil removal from contaminated water streams, further contributing to a mechanistic understanding of capillary transport in porous absorbents and supporting the development of materials for circular water management and resource recovery applications.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-08</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="5">
+          <div class="award-badge">
+            <span class="award-badge__rank">05</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-08</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">A Sustainable Solution for Textile Wastewater Management in India: Pilot-Scale Implementation of Electrochemical Ozone Oxidation Process for Dye Wastewater</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Anju Anna John</u>, Kannan A and Indumathi M. Nambi <span class="text-stone-400">&middot;</span> Environmental Division, Department of Civil Engineering, Indian Institute of Technology Madras, Chennai 600036, India · Department of Chemical Engineering, Indian Institute of Technology Madras, Chennai 600036, India · School of Sustainability, Indian Institute of Technology Madras, Chennai 600036, India</p>
           <details class="mt-3 group/pabs">
@@ -1140,8 +1312,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">There is growing global interest in advancing wastewater treatment methods to effectively remove polycyclic aromatic hydrocarbons, which are persistent, toxic, and carcinogenic contaminants. Conventional techniques are ineffective at removing these compounds. Photocatalysis is one of the best oxidation techniques utilising solar energy, degrading these persistent compounds into non-harmful products; however, heterogeneous photocatalytic degradation of water pollutants presents a considerable challenge due to its complex nature. In this work, we synthesized ZnFe<sub>2</sub>O<sub>4</sub>/TiO<sub>2</sub>/rGO nanocomposites for the photocatalytic degradation of naphthalene under visible light irradiation. XRD analysis confirmed the formation of cubic-phase zinc ferrite and tetragonal-phase titanium dioxide in the composite. Morphological analysis revealed the successful integration of the ZnFe<sub>2</sub>O<sub>4</sub>/TiO<sub>2</sub> nanocomposite with rGO nanosheets, resulting in a well-defined heterojunction. This heterojunction facilitates efficient exciton separation and transport, suppresses charge carrier recombination, and enhances the generation of reactive oxygen species, thereby playing a crucial role in the photocatalytic degradation of naphthalene. The ZnFe<sub>2</sub>O<sub>4</sub>/TiO<sub>2</sub>/rGO nanocomposites showed improved photocatalytic performance compared to bare ZnFe<sub>2</sub>O<sub>4</sub> and TiO<sub>2</sub> nanoparticles. The increased efficiency resulted from their narrow bandgap, improved visible-light absorption, and enhanced charge-carrier separation and transport.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-14</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="6">
+          <div class="award-badge">
+            <span class="award-badge__rank">06</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-14</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Co<sub>3</sub>O<sub>4</sub> Nanostructures for Supercapacitors: Toward Circular Electrode Design</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Chrisma Rose Babu</u>, E. I. Anila, Sreeram K. Kalpathy and Tiju Thomas <span class="text-stone-400">&middot;</span> Department of Metallurgical and Materials Engineering, Indian Institute of Technology Madras, Chennai 600036, India · Centre for Resource Efficiency, Recyclability and Circularity in Energy Transition (CRRET), School of Sustainability, Indian Institute of Technology Madras, Chennai 600036, India · Department of Physics and Electronics, CHRIST (Deemed to be University), Bangalore 560029, India</p>
           <details class="mt-3 group/pabs">
@@ -1166,8 +1343,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Multifunctional materials can be used to develop highly responsive catalysts for degradation of harmful chemicals by leveraging multiple energy sources simultaneously; these can surpass traditional environmental clean-up techniques, typically based on photocatalysis, and minimize inefficiencies while addressing the challenge of intensive energy consumption. In this study, we demonstrate the efficacy of this multi-stimuli approach by using bismuth ferrite (BFO), a multiferroic material capable of being activated by a combination of light (photocatalysis) and ultrasound (piezo-catalysis), to facilitate the breakdown of organic dyes. This unique combination of multiferroic BFO with multi-stimuli inputs demonstrates an innovative approach to pollutant degradation compared to conventional approaches that rely on photocatalysis alone. Our work focuses on examining the multi-stimuli catalytic efficiency of BFO nanoparticles for the degradation of Rhodamine B (RhB) at a concentration of 20 mg L<sup>−1</sup>, significantly exceeding the concentrations (5–10 mg L<sup>−1</sup>) documented in prior photo- and piezo-catalysis investigations. The simultaneous utilization of these energy sources results in markedly faster reaction rates compared to using a single energy source, paving the way for the development of adaptable and versatile technologies based on multiferroic materials, designed to perform efficiently under diverse and evolving conditions, for effectively cleaning real-world wastewater and environmental remediation.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-16</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="15">
+          <div class="award-badge">
+            <span class="award-badge__rank">15</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-16</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Magnetite Graphene Oxide (MGO) Incorporated Hollow Fiber Membrane for Pharmaceutical Wastewater Treatment</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Harshita Dihora</u>, Mrinmoy Mondal and Puyam S. Singh <span class="text-stone-400">&middot;</span> Membrane Science and Separation Technology Division, CSIR-CSMCRI, Bhavnagar 364021, India</p>
           <details class="mt-3 group/pabs">
@@ -1218,8 +1400,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Gas hydrates, or clathrate hydrates, are crystalline compounds in which water molecules form hydrogen-bonded cages that encapsulate guest gases such as CO<sub>2</sub> and CH<sub>4</sub> under high-pressure, low-temperature conditions. Naturally occurring in deep-sea sediments and permafrost, these hydrates also hold promise for technological applications, including gas storage, separation, transportation, greenhouse gas sequestration, wastewater treatment, desalination, and flow assurance in oil and gas pipelines. However, their inherently slow formation kinetics remain a major limitation for large-scale carbon capture and storage. In this work, molecular dynamics (MD) simulations are employed to examine the impact of glucoside-based additives – caprylyl glucoside, decyl glucoside, lauryl glucoside, and their sulphonated derivatives – on CO<sub>2</sub> hydrate nucleation and growth. The influence of pressure, temperature, and additive concentration is systematically investigated to provide molecular-level insights into glucosides as kinetic hydrate promoters. Our results demonstrate that glucoside-based promoters significantly enhance hydrate formation and growth, advancing the understanding of hydrate–promoter interactions and underscoring their potential for efficient, sustainable CO<sub>2</sub> capture and storage strategies.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-20</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="4">
+          <div class="award-badge">
+            <span class="award-badge__rank">04</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-20</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">A Novel Wave Powered Maritime Surveillance System</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Suman Kumar</u> and Abdus Samad <span class="text-stone-400">&middot;</span> Department of Ocean Engineering, Indian Institute of Technology Madras, Chennai, India</p>
           <details class="mt-3 group/pabs">
@@ -1257,8 +1444,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">CO<sub>2</sub> is one of the major greenhouse gases causing global warming, and carbon capture, utilization, and storage (CCUS) is one of the novel technologies addressing the issue of CO<sub>2</sub> emissions. Among various CO<sub>2</sub> capture methods, amine-based CO<sub>2</sub> absorption remains a widely used technology in industry, with efficiency depending on factors such as operating conditions, the type of amine used, and the effectiveness of gas–liquid contact. Structured packings offer excellent mass transfer efficiency, low pressure drop, good wettability, and high capacity compared to random packings for effective gas–liquid contact, but are also more sensitive to maldistribution, which reduces gas–liquid mass transfer, making it important to improve mass transfer in structured packing. This work focuses on developing a multiphase Eulerian CFD model to predict the hydrodynamics, mass transfer, and CO<sub>2</sub> absorption in monoethanolamine (MEA) for an in-house structured packed column. The computational domain consists of a packed column of 28 cm height and 5 cm diameter, equipped with structured packing of 4.979 cm diameter to enhance gas–liquid contact; the liquid phase consists of aqueous MEA solution filled to a height of 28 cm, with a binary gas mixture of 28.2 wt% CO<sub>2</sub> and 71.8 wt% N<sub>2</sub> introduced from the bottom at 0.021 m/s. The governing momentum, energy, and species transport equations are solved using OpenFOAM v8.0, beginning with an investigation of hydrodynamics followed by detailed modelling of CO<sub>2</sub> absorption in MEA, where CO<sub>2</sub> reacts with MEA to form carbamate (CO<sub>2</sub> + H<sub>2</sub>O + 2 MEA ⇌ MEACOO<sup>−</sup> + MEAH<sup>+</sup>). Mass transfer between gas and liquid phases is incorporated through a Sherwood number correlation, Sh = f(Re, Sc), and the predicted CO<sub>2</sub> loading and capture efficiency at different gas velocities are validated against in-house experimental data; the effective interfacial area across the column is estimated from the gradient of the liquid volume fraction. Unlike the porous media approach commonly used in the literature, which fails to capture the realistic flow distribution across packings that strongly influences mass transfer, the present work employs in-house realistic structured packing geometry, allowing the flow behaviour within the packing elements to be observed, and the resulting CFD predictions of product formation are compared with those obtained using the porous media approach.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-23</span>
+        <div class="award-entry award-entry--top border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="3">
+          <div class="award-badge">
+            <span class="award-badge__rank">03</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-23</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Sustainable MEA-Based CO<sub>2</sub> Capture: Mass Transfer and Solvent Stability Analysis</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Praveen Kumaar R</u> and Swapna Singha Rabha <span class="text-stone-400">&middot;</span> Department of Chemical Engineering, Indian Institute of Technology Madras, Chennai, India</p>
           <details class="mt-3 group/pabs">
@@ -1322,8 +1514,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Electrochemical utilization of CO<sub>2</sub> has significant potential to convert CO<sub>2</sub> into valuable chemicals such as CO, and recent advances in gas diffusion electrodes (GDEs) have improved CO<sub>2</sub> electrolyzer performance. However, the catalyst layer (CL) is multiscale, multiphase, and multiphysics, making accurate modelling a challenge; various 1D models report transitions from a kinetic to a mass-transfer-controlled regime as applied potential increases, but the physical representation of CO<sub>2</sub> gas–electrolyte liquid distribution and wettability underlying the mass transport limitations remains simplified. In this study, a validated 1D model is combined with pore-scale Volume of Fluid (VOF) simulations to examine how gas–liquid distribution and wettability influence mass transfer limitations in the CL. A 1D model of a microfluidic CO<sub>2</sub> electrolyzer with an Ag GDE is developed and validated against experiments; simulations are performed at 1 atm and 0.5 M KHCO<sub>3</sub> electrolyte, with reduction potential varying from −0.5 V to −2 V (vs. RHE). The 1D model is implemented in COMSOL Multiphysics, and the gas–liquid distribution is investigated using the VOF method in ANSYS Fluent. The developed 1D model is analyzed for two wettability conditions in the CL – wetted (thin electrolyte film) and flooded (electrolyte-filled pores) – and the mass transfer analysis identifies the gas–liquid mass transfer coefficient as the sensitive parameter, which is commonly overestimated in the literature using diffusivity–film-thickness relations. From VOF simulations, under hydrophilic conditions the CL remains flooded irrespective of increasing contact angle at 1 atm, showing that flooding-dominant transport provides a more realistic description of gas–liquid distribution in the CL than thin-film transport assumptions.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-28</span>
+        <div class="award-entry award-entry--top border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="2">
+          <div class="award-badge">
+            <span class="award-badge__rank">02</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-28</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Scalable Azo-Dye Based Carbon Quantum Dot for Optical Management</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Ayush George</u> and Abhay Vijay Kotkondawar <span class="text-stone-400">&middot;</span> Department of Chemistry, Institute of Chemical Technology–Indian Oil Odisha Campus, Bhubaneswar, India</p>
           <details class="mt-3 group/pabs">
@@ -1374,8 +1571,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">The rising demand for cost-effective and sustainable energy storage solutions has necessitated the exploration of alternative battery technologies beyond traditional lithium-ion batteries. Sodium-ion batteries (SIBs) have emerged as a viable alternative for large-scale energy storage systems due to the natural abundance, extensive geographical distribution, and low cost of sodium resources. Among the numerous anode candidates, hard carbon has attracted considerable interest due to its high reversible capacity, suitable working potential, and compatibility with sodium-ion storage mechanisms. In this study, banana peduncle, an abundant agricultural waste biomass, is used as a sustainable precursor for the synthesis of hard-carbon anode materials. The biomass is initially subjected to acid hydrolysis to remove impurities and partially decompose lignocellulosic components, followed by potassium hydroxide (KOH) activation to develop a porous structure and increase the availability of active sites; the activated precursor is subsequently carbonized under an inert atmosphere to obtain hard carbon with a disordered microstructure favorable for sodium-ion storage. Structural and morphological characteristics of the synthesized materials are investigated using X-ray diffraction (XRD), Raman spectroscopy, and scanning electron microscopy (SEM). The combined acid hydrolysis, chemical activation, and thermal carbonization processes are expected to produce hard carbon with enlarged interlayer spacing, abundant defect sites, and hierarchical porosity, facilitating sodium-ion diffusion and storage. This work presents a cost-effective, environmentally sustainable approach to valorize banana peduncle waste into high-value hard carbon materials and highlights its potential as an anode material for next-generation sodium-ion batteries.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-32</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="11">
+          <div class="award-badge">
+            <span class="award-badge__rank">11</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-32</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">DFT Study on Conversion of Lignin-Derived Compounds in Supercritical Water, Methanol, and Ethanol Environments</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Praveen Kumar Reddy Annapureddy</u> and Nanda Kishore <span class="text-stone-400">&middot;</span> Department of Chemical Engineering, Indian Institute of Technology Guwahati, Guwahati, Assam 781039, India</p>
           <details class="mt-3 group/pabs">
@@ -1439,8 +1641,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">The rapid growth of electric vehicles (EVs) has led to a significant increase in lithium-ion batteries, posing both environmental challenges and resource wastage concerns. Many batteries are removed from EV applications when their State of Health falls below 70%, yet they still have sufficient usable capacity for secondary applications such as stationary energy storage. This paper proposes an AI-driven Smart Battery Second-Life Decision System that enables classification of used EV batteries into reuse, repurpose, or recycle pathways. The system senses key battery parameters, including voltage, current, temperature, and internal resistance, using an embedded hardware platform; these inputs are processed through a machine learning model trained to estimate battery health metrics such as State of Health (SoH) and Remaining Useful Life (RUL). Based on predictive analytics, the system performs automated decision-making to determine optimal second-life utilization: batteries with higher health are redirected for reuse in EV or mobility applications, moderately degraded batteries are repurposed for stationary storage such as solar energy systems, and critically degraded batteries are sent for recycling. The proposed solution contributes to circularity in the battery industry by extending battery lifecycle, reducing waste, and improving resource efficiency, while enabling scalable and cost-effective decision intelligence for sustainable battery management in emerging EV ecosystems.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-37</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="14">
+          <div class="award-badge">
+            <span class="award-badge__rank">14</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-37</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Deep Eutectic Solvent Electrolytes for Sustainable Lithium–Sulphur Batteries</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Dipshikha Jana</u>, Bibhas Kumar Nayak and Kshetramohan Sahoo <span class="text-stone-400">&middot;</span> Department of Chemical Engineering, National Institute of Technology, Rourkela-769008</p>
           <details class="mt-3 group/pabs">
@@ -1491,8 +1698,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Lithium-ion batteries (LiBs) are integral to modern technology, powering a broad array of devices, including mobile phones, laptops, electric vehicles, and systems for renewable energy. However, their widespread utilisation presents considerable environmental and social challenges, notably due to the reliance on scarce and hazardous materials that necessitate energy-intensive extraction and processing methods. Recycling of LiBs emerges as a viable strategy to address these issues, offering a method to reclaim valuable metals and reduce the demand for the extraction of fresh raw materials. Furthermore, recycling initiatives have the potential to generate economic opportunities and foster innovation within the battery sector. Conventional recycling methods, including pyrometallurgical and hydrometallurgical processes, are energy-intensive and hazardous. To address this, we developed a novel Ternary Deep Eutectic Solvent (TDES), which is green and composed of Hydrogen Bond Donors and Acceptors in a specific molar ratio. This solvent offers several advantages, such as low freezing points, high thermal stability, low volatility, and tunability. Spent mobile phone batteries were dismantled under water to safely recover active cathode material (ACM), which contained Li, Co, Ni, and Mn. The TDES achieved rapid leaching of the ACM at 90 °C within 30 minutes and at a significantly lower operating temperature (90 °C) than traditional methods (700 °C). High extraction efficiencies of ~99% were achieved for Li⁺, Co²⁺, Ni²⁺, and Mn²⁺. Subsequent stage-wise selective precipitation allowed recovery of high-purity metal oxides of Nickel, Manganese and Cobalt and Lithium is selectively precipitated as Lithium carbonate. Kinetic analysis indicated that leaching was controlled by both liquid-film diffusion and product-layer diffusion for Li and Co. The same TDES was applied to LiNi₀.₈₅Co₀.₁Al₀.₀₅O₂ (NCA), yielding extraction efficiencies of ~68% Ni, ~64% Co, ~92% Al, and ~70% Li, aligning with elemental analysis. Further optimisation of metal recovery from NCA systems is under current investigation. Overall, the developed TDES demonstrates strong potential as a sustainable and efficient medium for LIB recycling.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-41</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="10">
+          <div class="award-badge">
+            <span class="award-badge__rank">10</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-41</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Direct Electrochemical Extraction of Lithium Metal from Black Mass Leach Liquor</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Lakshmi Narayana Manickavasagam</u>, Abraham Samuel Thangadurai and Nitin Muralidharan <span class="text-stone-400">&middot;</span> EMERGE Research Group, Department of Chemical Engineering, Indian Institute of Technology Madras, Chennai, India · Centre for Resource Efficiency, Recyclability &amp; Circularity in Energy Transitions, Indian Institute of Technology Madras, Chennai, India</p>
           <details class="mt-3 group/pabs">
@@ -1569,8 +1781,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">An earth-abundant and low-cost lignite coal was employed as a carbon precursor for the synthesis of highly pure synthetic graphite through carbonization, followed by high-temperature graphitization treatment at 2800 °C (SG-2800) and 3000 °C (SG-3000). The results reveal that the microstructures of SG-2800 and SG-3000 are strongly dependent on the graphitization temperature. The SG graphitized at 3000 °C has a perfectly ordered layered structure with a high degree of graphitization, as found from the XRD and Raman studies. SG-3000 is explored as an anode material for a lithium-ion battery (LIB) application. The maximum reversible capacity of 305 mAh g<sup>−1</sup> at a current rate of 0.1C was obtained along with 94% capacity retention even after 100 cycles. These findings highlight the potential of lignite coal as an inexpensive and scalable precursor for producing high-performance synthetic graphite suitable for advanced LIB applications.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-47</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="13">
+          <div class="award-badge">
+            <span class="award-badge__rank">13</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-47</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Hierarchical Flower-like Nanosheet-Stacked Ni-based Bimetallic Metal–Organic Framework Electrode for High-Energy Hybrid Supercapacitors</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Kajal Samdhyan</u>, Shiwani Khokhar, Prakash Chand and Hardeep Anand <span class="text-stone-400">&middot;</span> Department of Chemistry, Kurukshetra University, Kurukshetra, Haryana 136119, India · Department of Physics, National Institute of Technology, Kurukshetra, Haryana 136119, India</p>
           <details class="mt-3 group/pabs">
@@ -1582,8 +1799,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Bimetallic MOFs stand out as the most promising approach since they combine the synergistic effect of two metals. Doping nickel (Ni) with a dopant is a common practice to modify the electrical and chemical properties of the resulting Ni-MOF. For doping, the size of the dopant should be comparable to nickel, which minimizes the lattice distortion and maintains the structural integrity of the MOF material. The ionic radii of Co<sup>2+</sup> and Ni<sup>2+</sup> are very similar, with Co<sup>2+</sup> having an ionic radius of ≈79 pm and Ni<sup>2+</sup> ≈83 pm. The incorporation of cobalt into the nickel framework improves both the electrochemical activity and structural properties of the material, making it more suitable for applications such as supercapacitors and batteries. The outstanding electrochemical performance of these hybrid materials can be attributed to (i) the synergistic effect between the metals, which enhances electrical conductivity; (ii) the presence of mesopores, which facilitates the easy diffusion of electrolyte; and (iii) a large surface area and pore volume, which provide significantly more electroactive sites. The flower-like morphology provides a larger surface area compared to the pristine Ni-BDC, facilitating more active sites for electrochemical reactions. Flower-like structures composed of nanosheets can be synthesized by incorporating 0.05 M cobalt solution into synthesized Ni-BDC. The optimized Co@Ni-BDC demonstrated remarkable electrochemical performance, delivering impressive specific capacitances of 2753.3 F/g at a current density of 3 A/g. The retention remained impressively high for Co@Ni-BDC, with 84% capacity retention even after 5000 cycles.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-48</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="9">
+          <div class="award-badge">
+            <span class="award-badge__rank">09</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-48</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Thermal Stability and Fire Performance of PBS/Bagasse Sustainable Composites – Effect of Diammonium Phosphate Treatment</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Shanthini Devi A</u>, Keerthika N. B. and R. Gnanamoorthy <span class="text-stone-400">&middot;</span> Architected and Sustainable Materials Design Research Centre, Department of Mechanical Engineering, Indian Institute of Technology Madras, Chennai 600036, India</p>
           <details class="mt-3 group/pabs">
@@ -1608,8 +1830,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">The depletion of fossil fuels and rising greenhouse gas emissions has intensified the exploration of sustainable energy resources. Sugarcane leaf (SCL) biomass is a promising renewable feedstock for biofuel and biochemical production, and while the application of photocatalysis to biorefinery is of great significance for sustainable development, limited success has been achieved to date. This study aimed to develop an effective delignification strategy for SCL biomass and its subsequent photocatalytic conversion into lactic acid (LA). The initial research focused on developing efficient pretreatment strategies for SCL biomass via microwave-assisted sodium carbonate (SCL-MSC) pretreatment for effective deconstruction of the biomass. Optimization using central composite design identified the ideal pretreatment conditions (508 W, 4 min, 7.87 wt% biomass, 0.87 MSC) that resulted in maximum saccharification yield (RSY of 601 mg g<sup>−1</sup> and GY of 231 mg g<sup>−1</sup>). The optimized cellulose-rich SCL biomass was further converted to LA using a g-C<sub>3</sub>N<sub>4</sub>-O 50% photocatalyst, which increased the LA yield to 345.39 mg g<sup>−1</sup> while reducing the formic acid yield to 30.45 mg g<sup>−1</sup>. Furthermore, techno-economic analysis (TEA) revealed that the estimated net production cost of LA was $3.32 kg<sup>−1</sup>, with an ROI of 14.43% and a payback period of 6.93 years; sensitivity analysis revealed that raw material costs and LA market price significantly influenced the economic viability. Overall, this work demonstrates a sustainable and economically feasible strategy for producing lactic acid from sugarcane leaf biomass through integrated microwave pretreatment and photocatalysis.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-50</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="12">
+          <div class="award-badge">
+            <span class="award-badge__rank">12</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-50</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Towards Agricultural Circularity: Biomass-Derived Biodegradable Mulch Sheets with Potential for Photocatalytic Soil Remediation</h3>
           <p class="text-sm text-stone-600 mt-1"><u>R. Janani</u> and Vidya K. Shetty <span class="text-stone-400">&middot;</span> Department of Chemical Engineering, National Institute of Technology Karnataka, Surathkal, Mangaluru, India</p>
           <details class="mt-3 group/pabs">
@@ -1621,8 +1848,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Agricultural mulching sheets are widely adopted for enhancing crop productivity, offering benefits such as weed control and moisture retention in soil. However, commercial mulching sheets made from synthetic polymers such as low-density polyethylene, polybutylene adipate terephthalate, and polybutylene succinate contribute to secondary pollution in the form of micro/nano plastics in the soil after use. The present work focuses on the development of biodegradable cellulose-based mulching sheets made from agricultural residues such as sugarcane bagasse, corn husk, rice straw, and banana peduncle as environmentally sustainable alternatives, with the additional objective of in-situ photocatalytic soil remediation. The biomass-derived fibers are subjected to alkaline treatment, bleaching, and homogenization to produce micro-cellulose-rich pulp (MCP); the fiber morphology and hydrodynamics of the MCP are further optimized by the inclusion of biopolymer binders such as polyvinyl alcohol and sodium alginate, which enhance dispersion, consistency, and mechanical integrity during sheet formation. Among the tested precursors, corn husk and sugarcane bagasse show improved homogeneity and processability. The key innovation of the present work is the integration of MCP with a metal-free, soil-friendly photocatalyst, which endows the sheets with soil remediation functionality by photocatalytically degrading pesticide residues present on the soil surface. In summary, this work establishes a sustainable material framework for the development of photocatalyst-integrated cellulose-based mulches with enhanced environmental functionality, advancing both agricultural practice and environmental preservation.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-51</span>
+        <div class="award-entry award-entry--top border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="1">
+          <div class="award-badge">
+            <span class="award-badge__rank">01</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-51</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">PDMS-Based Nanocomposite Films as Encapsulations to Improve Photovoltaic Reliability and Longevity</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Aneela Perumalla</u>, Reitesh K. V. Raman, Tiju Thomas and Sreeram K. Kalpathy <span class="text-stone-400">&middot;</span> Department of Metallurgical and Materials Engineering, Indian Institute of Technology Madras, Chennai 600036, India · Department of Electrical and Systems Engineering, University of Pennsylvania, Philadelphia, PA 19104, USA · Centre for Resource Efficiency, Recyclability and Circularity in Energy Transition, School of Sustainability, Indian Institute of Technology Madras, Chennai 600036, India</p>
           <details class="mt-3 group/pabs">
@@ -1634,8 +1866,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">The long-term sustainability of photovoltaic (PV) systems depends on improving their durability, thereby minimizing maintenance costs and material replacement. We developed polymer nanocomposite (PNC) films as multifunctional encapsulants that provide a one-stop solution to heat- and moisture-induced degradation in silicon solar cells, thereby improving PV reliability and longevity. The PNC films were fabricated by dispersing ≈0.45 wt% zinc oxide (ZnO) or titanium dioxide (TiO<sub>2</sub>) nanoparticles in a dilute solution of polyethylene glycol (PEG) in chloroform, followed by incorporation into polydimethylsiloxane (PDMS) and curing at 80°C for 20 min; the resulting films (≈450 µm thick) were subsequently employed as front encapsulants for commercially available mini silicon solar cells. Thermal aging studies reveal that PNC-encapsulated cells retained &gt;80% of their power conversion efficiency (PCE), whereas unencapsulated cells retained only ≈50% of their initial PCE. Additionally, at 60°C and 90°C, the surface temperature of PNC-encapsulated cells was reduced by ≈5–8°C compared to unencapsulated cells, indicating effective thermal management. Further, when subjected to damp-heat conditions for one week, the PNC-encapsulated cells retained &gt;50% of their initial PCE, whereas the unencapsulated cells retained only ≈17%. Thus, module service life has been extended by simultaneously reducing thermal- and moisture-driven degradation, thereby lowering replacement frequency, minimizing waste generation, and enhancing the lifecycle sustainability of solar energy infrastructure. These attributes position the proposed encapsulation strategy as a promising pathway toward more sustainable industrial ecosystems and resilient green energy supply chains.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-52</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="8">
+          <div class="award-badge">
+            <span class="award-badge__rank">08</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-52</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Enhancement in Tensile Strength and Moisture Resistance of Surface Functionalized Jute Fibres</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Amrutha H</u>, Sirish Namilae and Sreeram K. Kalpathy <span class="text-stone-400">&middot;</span> Department of Metallurgical and Materials Engineering, Indian Institute of Technology Madras, Chennai 600036, India · Department of Aerospace Engineering, Embry-Riddle Aeronautical University, Daytona Beach, Florida, USA · Centre for Resource Efficiency, Recyclability and Circularity in Energy Transition, School of Sustainability, Indian Institute of Technology Madras, Chennai 600036, India</p>
           <details class="mt-3 group/pabs">
@@ -1647,8 +1884,13 @@
             <p class="text-sm text-stone-600 leading-relaxed mt-2">Natural fibres offer desirable characteristics including biodegradability, biocompatibility, low cost, and high specific mechanical properties; however, their variability, low tensile strength, and hydrophilic nature pose significant challenges in composite applications. Surface functionalization of natural fibres has proven to be an effective approach for enhancing their strength, stiffness, and interfacial bonding characteristics while retaining their inherent biodegradability. In this study, surface modification of single jute fibres was performed using hydroxyapatite (HAP), a natural calcium mineral commonly used in bone tissue repair surgeries; earlier reports have shown that HAP has excellent biocompatibility and mechanical performance, and could therefore act as an eco-friendly interface modifier for natural fibres. Surface modification using stearic acid in jute fibre was also carried out to impart moisture resistance and enhance interfacial properties; stearic acid is a biocompatible saturated fatty acid whose incorporation in several matrices has shown an improvement in hydrophobic character. The presence of HAP and stearic acid on the surface of jute fibres was confirmed by FTIR analysis and SEM images, and studies on both HAP- and stearic-acid-coated jute fibres have shown a significant enhancement in tensile strength and thermal properties. Overall, HAP and stearic acid surface modification will help improve the interfacial fibre–matrix bond, thereby broadening the scope of application of natural fibres in composite systems.</p>
           </details>
         </div>
-        <div class="border-b border-outline-variant/60 py-6 last:border-b-0">
-          <span class="text-[10px] font-bold tracking-widest text-secondary uppercase">SUS-PP-53</span>
+        <div class="award-entry border-b border-outline-variant/60 py-6 last:border-b-0" data-award="poster" data-rank="7">
+          <div class="award-badge">
+            <span class="award-badge__rank">07</span>
+            <span class="material-symbols-outlined award-badge__icon">workspace_premium</span>
+            <span>Best Poster Presentation</span>
+          </div>
+          <span class="award-id text-[10px] font-bold tracking-widest uppercase">SUS-PP-53</span>
           <h3 class="font-serif text-lg text-primary leading-snug mt-1">Vortex-Induced Vibration Response of a Buoyancy-Assisted Deep-Water Marine Riser Subjected to Varying Currents</h3>
           <p class="text-sm text-stone-600 mt-1"><u>Anu Sugathan</u> and K. G. Vijay <span class="text-stone-400">&middot;</span> Department of Ocean Engineering, Indian Institute of Technology Madras, Chennai, India</p>
           <details class="mt-3 group/pabs">
@@ -1934,7 +2176,10 @@
     const input = document.getElementById('abstract-search');
     const clearBtn = document.getElementById('abstract-search-clear');
     const countEl = document.getElementById('abstract-search-count');
+    const winnersBtn = document.getElementById('winners-only-btn');
     if (!input) return;
+
+    let winnersOnly = false;
 
     const containerIds = ['oral-container', 'poster-container'];
 
@@ -1954,7 +2199,7 @@
         el.className = 'search-empty-state hidden text-center py-16';
         el.innerHTML =
           '<span class="material-symbols-outlined text-5xl text-stone-300 mb-4 block">search_off</span>' +
-          '<p class="text-stone-500">No abstracts match your search.</p>';
+          '<p class="text-stone-500">No abstracts match your selection.</p>';
         container.appendChild(el);
       }
       return el;
@@ -1975,16 +2220,24 @@
 
         entries.forEach(entry => {
           totalEntries++;
-          const match = !q || entry.textContent.toLowerCase().includes(q);
+          const textMatch = !q || entry.textContent.toLowerCase().includes(q);
+          const awardMatch = !winnersOnly || entry.classList.contains('award-entry');
+          const match = textMatch && awardMatch;
           entry.style.display = match ? '' : 'none';
           if (match) { visibleCount++; totalMatches++; }
         });
 
-        emptyState.classList.toggle('hidden', !(q && visibleCount === 0));
+        emptyState.classList.toggle('hidden', !((q || winnersOnly) && visibleCount === 0));
       });
 
-      if (q) {
+      if (q && winnersOnly) {
+        countEl.textContent = totalMatches + ' award-winning abstract' + (totalMatches === 1 ? '' : 's') + ' match “' + raw + '”';
+        countEl.classList.remove('hidden');
+      } else if (q) {
         countEl.textContent = totalMatches + ' of ' + totalEntries + ' abstracts match “' + raw + '”';
+        countEl.classList.remove('hidden');
+      } else if (winnersOnly) {
+        countEl.textContent = 'Showing ' + totalMatches + ' award-winning abstracts';
         countEl.classList.remove('hidden');
       } else {
         countEl.classList.add('hidden');
@@ -1997,6 +2250,15 @@
       runSearch();
       input.focus();
     });
+
+    if (winnersBtn) {
+      winnersBtn.addEventListener('click', () => {
+        winnersOnly = !winnersOnly;
+        winnersBtn.classList.toggle('active', winnersOnly);
+        winnersBtn.setAttribute('aria-pressed', String(winnersOnly));
+        runSearch();
+      });
+    }
   })();
 
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
