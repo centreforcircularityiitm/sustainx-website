@@ -277,6 +277,170 @@
       animation: pulse-glow 3s ease-in-out infinite;
     }
 
+    /* ── Next Edition Announcement Band (BioPack 2027) ───────────────── */
+    .nx-band {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(166, 209, 134, 0.28);
+      background: linear-gradient(118deg, #131d0d 0%, #1a2616 48%, #24361c 100%);
+      box-shadow: 0 18px 45px -22px rgba(26, 38, 22, 0.7);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nx-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(115% 190% at 92% 0%, rgba(74, 144, 48, 0.42), transparent 62%),
+        radial-gradient(80% 140% at 0% 100%, rgba(166, 209, 134, 0.14), transparent 60%);
+    }
+
+    .nx-band::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -45%;
+      width: 32%;
+      pointer-events: none;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.09), transparent);
+      transform: skewX(-18deg);
+      will-change: transform;
+      animation: nx-sweep 7s ease-in-out infinite;
+    }
+
+    @keyframes nx-sweep {
+      0% {
+        transform: translateX(0) skewX(-18deg);
+      }
+
+      55%,
+      100% {
+        transform: translateX(600%) skewX(-18deg);
+      }
+    }
+
+    .nx-rail {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #c8f0a8, #4a9030 55%, #1e5510);
+    }
+
+    .nx-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: #a6d186;
+      box-shadow: 0 0 0 0 rgba(166, 209, 134, 0.6);
+      animation: nx-ping 2.4s ease-out infinite;
+    }
+
+    @keyframes nx-ping {
+      0% {
+        box-shadow: 0 0 0 0 rgba(166, 209, 134, 0.55);
+      }
+
+      70%,
+      100% {
+        box-shadow: 0 0 0 10px rgba(166, 209, 134, 0);
+      }
+    }
+
+    .nx-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 1024px) {
+      .nx-inner {
+        display: grid;
+        grid-template-columns: minmax(290px, 1fr) minmax(330px, 1.1fr) auto;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nx-facts {
+        padding-left: 2.5rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    .nx-title {
+      font-family: 'Noto Serif', serif;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .nx-sub-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .nx-sub-grid {
+        grid-template-columns: 1.55fr 1fr;
+        gap: 3rem;
+      }
+
+      .nx-panels {
+        padding-left: 3rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    .nx-num {
+      font-family: 'Noto Serif', serif;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      color: #a6d186;
+      flex-shrink: 0;
+      width: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nx-chip {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c8f0a8;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(166, 209, 134, 0.35);
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .nx-title-lead {
+      font-family: 'Public Sans', sans-serif;
+      letter-spacing: 0.18em;
+    }
+
+    .nx-stamp {
+      border: 1px solid rgba(166, 209, 134, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 0.75rem;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .nx-band::after,
+      .nx-dot {
+        animation: none;
+      }
+    }
+
   </style>
   <style>
     :root {
@@ -758,12 +922,6 @@
         aria-label="Toggle Menu">
         <span class="material-symbols-outlined text-3xl" id="menu-icon">menu</span>
       </button>
-      <div class="hidden lg:flex gap-4">
-        <a href="https://conf.code.iitm.ac.in/conf/SUSTAINX_2026/login" target="_blank" rel="noopener noreferrer"
-          class="bg-primary text-on-primary px-6 py-2.5 font-medium hover:bg-secondary transition-all uppercase tracking-widest text-xs">
-          Register Now
-        </a>
-      </div>
   </header>
 
   <!-- Premium Mobile Nav Overlay -->
@@ -792,10 +950,6 @@
       href="plan-your-trip">Plan Your Trip</a>
     <a class="mobile-nav-link font-serif text-3xl text-stone-600 hover:text-primary transition-colors"
       href="contact">Contact</a>
-    <div class="mobile-nav-link w-full flex flex-col gap-4">
-      <a href="https://conf.code.iitm.ac.in/conf/SUSTAINX_2026/login" target="_blank" rel="noopener noreferrer"
-        class="w-full bg-primary text-on-primary px-6 py-4 text-center font-medium uppercase tracking-widest text-sm">Register Now</a>
-    </div>
   </div>
 
   <!-- Hero Section -->
@@ -810,6 +964,121 @@
     </div>
     <div class="container mx-auto px-4 md:px-12 relative z-20">
       <div class="editorial-grid mt-6 lg:-mt-[3em]">
+
+        <!-- Next Edition Announcement (SustainX BioPack 2027) -->
+        <div class="col-span-12 mb-8 md:mb-10 lg:mt-[4.5em]">
+          <section class="nx-band" aria-label="Next edition: SustainX BioPack 2027">
+            <span class="nx-rail" aria-hidden="true"></span>
+            <div class="nx-inner relative z-10 px-6 py-6 md:px-9 md:py-7">
+
+              <!-- Identity -->
+              <div class="min-w-0">
+                <p class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+                  <span class="nx-dot shrink-0" aria-hidden="true"></span>
+                  <span class="text-[10px] md:text-[11px] uppercase tracking-[0.32em] text-[#c8f0a8] font-bold">Next
+                    Edition Announced</span>
+                  <span class="hidden sm:inline-block w-6 h-px bg-[#a6d186]/40" aria-hidden="true"></span>
+                  <span class="text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-white/55">School of
+                    Sustainability, IIT Madras</span>
+                </p>
+                <p class="nx-title text-3xl md:text-4xl xl:text-[2.85rem] font-bold text-white mb-3">
+                  <span
+                    class="nx-title-lead block text-sm md:text-base font-semibold uppercase text-white/70 mb-2">SustainX</span>
+                  BioPack <span class="text-[#a6d186]">2027</span>
+                </p>
+                <p class="font-serif italic text-sm md:text-base text-white/75 leading-relaxed max-w-[46ch]">
+                  Biopolymers &amp; beyond: packaging, recycling, and medical frontiers.
+                </p>
+              </div>
+
+              <!-- Key facts -->
+              <div class="nx-facts grid grid-cols-1 sm:grid-cols-2 gap-x-6 xl:gap-x-9 gap-y-5">
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-[#a6d186]/80 mb-1.5">Where</p>
+                  <p class="text-sm md:text-base font-medium text-white leading-snug">TTJ Auditorium, ICSR
+                    <span class="block text-white/60">IIT Madras, Chennai</span>
+                  </p>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-[#a6d186]/80 mb-1.5">Hosted by</p>
+                  <p class="text-sm md:text-base font-medium text-white leading-snug">Centre of Excellence in
+                    Biodegradable Packaging</p>
+                </div>
+                <div class="sm:col-span-2 pt-1 border-t border-white/10">
+                  <p class="text-[11px] md:text-xs text-white/55 leading-relaxed pt-3">
+                    Talks, posters &amp; industry dialogue, open to researchers and industry
+                    <span class="block mt-1 text-white/45">Convenors: Prof. Ethayaraja Mani &amp; Prof. Rajnish
+                      Kumar</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Save the date -->
+              <div class="shrink-0">
+                <div class="nx-stamp px-7 py-6 text-center">
+                  <p class="text-[10px] uppercase tracking-[0.28em] text-[#c8f0a8] font-bold mb-3">Save the Date</p>
+                  <p class="nx-title text-2xl md:text-[1.75rem] font-bold text-white">04–05 March</p>
+                  <p class="nx-title text-3xl md:text-4xl font-bold text-[#a6d186] mt-1">2027</p>
+                  <p class="mt-4 pt-4 border-t border-white/10 text-[10px] uppercase tracking-[0.16em] text-white/50 leading-relaxed">
+                    Conference website &amp;<br />call for abstracts<br />announced soon
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tracks & panels -->
+            <div class="relative z-10 px-6 pb-7 md:px-9 md:pb-8">
+              <div class="nx-sub-grid pt-7 border-t border-white/10">
+
+                <div>
+                  <p class="flex items-center gap-3 mb-5">
+                    <span class="text-[10px] uppercase tracking-[0.28em] text-[#c8f0a8] font-bold">Technical
+                      Sessions</span>
+                    <span class="nx-chip">04 Tracks</span>
+                  </p>
+                  <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                    <li class="flex gap-3">
+                      <span class="nx-num" aria-hidden="true">01</span>
+                      <span class="text-sm text-white/80 leading-snug">Biopolymers, bio-based polymers and blends</span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="nx-num" aria-hidden="true">02</span>
+                      <span class="text-sm text-white/80 leading-snug">Bio-based fillers &amp; additives</span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="nx-num" aria-hidden="true">03</span>
+                      <span class="text-sm text-white/80 leading-snug">Biopolymers for packaging</span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="nx-num" aria-hidden="true">04</span>
+                      <span class="text-sm text-white/80 leading-snug">Chemical recycling</span>
+                    </li>
+                  </ol>
+                </div>
+
+                <div class="nx-panels">
+                  <p class="flex items-center gap-3 mb-5">
+                    <span class="text-[10px] uppercase tracking-[0.28em] text-[#c8f0a8] font-bold">Panel
+                      Discussions</span>
+                    <span class="nx-chip">02 Panels</span>
+                  </p>
+                  <ol class="flex flex-col gap-4">
+                    <li class="flex gap-3">
+                      <span class="nx-num" aria-hidden="true">01</span>
+                      <span class="text-sm text-white/80 leading-snug">Industrial composting &amp; new end-of-life
+                        options for bioplastics</span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="nx-num" aria-hidden="true">02</span>
+                      <span class="text-sm text-white/80 leading-snug">Biopolymers for medical applications</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
         <div class="col-span-12 md:col-span-8 lg:col-span-7">
           <h1 class="text-fluid-h1 font-bold text-primary mb-6 md:mb-10">
             <span class="hero-title-grid">
@@ -850,10 +1119,6 @@
 
 
           <div class="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
-            <a href="https://conf.code.iitm.ac.in/conf/SUSTAINX_2026/login" target="_blank" rel="noopener noreferrer"
-              class="flex-1 min-w-[180px] premium-btn premium-btn-pulse bg-primary text-on-primary px-6 py-3.5 font-bold uppercase tracking-widest text-xs shadow-lg text-center rounded-[0.75rem]">
-              Register Now
-            </a>
             <a href="assets/pdf/SUSTAINX 2026 – A4 Print Brochure.pdf" target="_blank" rel="noopener noreferrer"
               class="flex-1 min-w-[180px] premium-btn bg-primary text-on-primary px-6 py-3.5 font-bold uppercase tracking-widest text-xs shadow-lg text-center rounded-[0.75rem]">
               Detailed Brochure
